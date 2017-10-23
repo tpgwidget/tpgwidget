@@ -15,7 +15,7 @@ TPGwidget includes many features such as :
 
 The projet is made with (Framework7)[http://framework7.io] in the front end, and PHP in the back end. The app users download on the [App Store](https://github.com/tpgwidget/ios) or on [Google Play](https://github.com/tpgwidget/android) is powered by Apache Cordova.
 
-![TPGwidget screenshots](https://www.nicolapps.ch/tpgwidget/iOS.png)
+![TPGwidget screenshots](https://www.nicolapps.ch/tpgwidget/screenshots.png)
 
 ## Getting Started
 
