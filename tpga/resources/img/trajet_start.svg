@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>trajet_start</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Thermomètre-(Android)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="trajet_start" fill="#000000">
+            <path d="M28,39.1918852 L28,52 L22,52 L22,39.2856618 C15.1666385,37.9880271 10,31.9837437 10,24.7727273 C10,16.6139753 16.6139753,10 24.7727273,10 C32.9314793,10 39.5454545,16.6139753 39.5454545,24.7727273 C39.5454545,31.8229669 34.6066384,37.7196842 28,39.1918852 Z M24.7787367,34.6590909 C30.1313891,34.6590909 34.4705713,30.3345686 34.4705713,25 C34.4705713,19.6654314 30.1313891,15.3409091 24.7787367,15.3409091 C19.4260843,15.3409091 15.0869021,19.6654314 15.0869021,25 C15.0869021,30.3345686 19.4260843,34.6590909 24.7787367,34.6590909 Z" id="Icône"></path>
+        </g>
+    </g>
+</svg>

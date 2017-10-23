@@ -1,0 +1,9 @@
+# Mac
+.DS_Store
+
+# Cordova
+/platforms
+/plugins
+
+# res
+resources/signing

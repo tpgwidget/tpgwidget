@@ -1,0 +1,15 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^([A-Z0-9]{4})/$ widget/create.php?stop=$1 [L]
+RewriteRule ^([Z0-9]{6})/$ widget/widget.php?id=$1 [L]
+
+RewriteRule ^icon/([A-Z0-9]{4})/([0-9]+).png$ icon/icon.php?text=$1&size=$2 [L]
+
+RewriteRule ^ajax/prochainsdeparts/([A-Z0-9]{4})/$ ajax/ajaxprochainsdeparts.php?id=$1 [L]
+RewriteRule ^ajax/depart/([0-9]+)/$ ajax/ajaxdepart.php?id=$1 [L]
+RewriteRule ^ajax/page/([A-Z0-9]{4})/(.*)$ ajax/ajaxpage.php?id=$1&name=$2 [B,L]
+
+RewriteRule ^noID/([A-Z0-9]{4})/(.*)$ noID/widget.php?stopCode=$1&stopName=$2 [L]
+RewriteRule ^vehicule$ vehicule.php [L]

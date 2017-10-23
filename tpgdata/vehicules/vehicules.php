@@ -1,0 +1,746 @@
+<?
+
+class Vehicule {
+
+    private $id;
+    private $type;
+    private $name;
+    private $img;
+    private $icon;
+    private $enSavoirPlus = true;
+
+    public function __construct($id){
+
+        $id = ltrim($id, '2');
+        $id = ltrim($id, '0');
+
+        if($id == 75){
+            $id = '???';
+        }
+
+        $this->id = $id;
+
+        /* On détecte le modèle du véhicule */
+
+        /* AUTOBUS */
+        if(500 <= $id && $id <= 545) { // Citaro solo
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro O530";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolo';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/f1vHBg';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530';
+            $this->places_assises = 32;
+            $this->places_debout = 55;
+            $this->places_totales = 87;
+            $this->year = "2008-2010";
+
+        } elseif((106 <= $id && $id <= 198) || (1101 <= $id && $id <= 1197)) { // Citaro articulé
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaro';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kZ14Eq';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530g';
+            $this->places_assises = 46;
+            $this->places_debout = 103;
+            $this->places_totales = 149;
+            $this->year = "2008-2013";
+
+        } elseif(1917 <= $id && $id <= 1918) { // Citaro articulé RATP Dev
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaro';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kZ14Eq';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530g';
+            $this->places_assises = 46;
+            $this->places_debout = 55;
+            $this->places_totales = 149;
+            $this->year = "2011";
+
+        } elseif(943 <= $id && $id <= 944) { // Citaro solo RATP Dev
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro O530 II";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolo';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/f1vHBg';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530';
+            $this->places_assises = 32;
+            $this->places_debout = 55;
+            $this->places_totales = 87;
+
+        } elseif(1912 <= $id && $id <= 1916) { // Citaro solo RATP Dev
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro O530 II";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolo';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/f1vHBg';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530';
+            $this->places_assises = 32;
+            $this->places_debout = 55;
+            $this->places_totales = 87;
+
+        } elseif(101 <= $id && $id <= 105) { // Mégabus VanHool
+
+            $this->type = "Autobus à double articulation";
+            $this->name = "VanHool AGG300 New";
+            $this->icon = 'megabus';
+            $this->img = 'vanhool';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/dr1LvG';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-vanhool-agg300';
+            $this->places_assises = 70;
+            $this->places_debout = 104;
+            $this->places_totales = 174;
+            $this->year = "2005";
+
+        /* TROLLEYBUS */
+
+        } elseif($id == 1397) { // TOSA
+
+            $this->type = "Autobus articulé";
+            $this->name = "TOSA";
+            $this->icon = 'hess';
+            $this->img = 'tosa';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kYYeMp';
+            $this->tpg_link = 'http://www.tpg.ch/fr/tosa';
+            $this->places_assises = 45;
+            $this->places_debout = 88;
+            $this->places_totales = 133;
+            $this->year = "2013";
+
+        } elseif(701 <= $id && $id <= 713) { // NAW
+
+            $this->type = "Trolleybus";
+            $this->name = "NAW/Hess/Siemens BGT-N2";
+            $this->icon = 'hess';
+            $this->img = 'naw';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/gnTYVE';
+            $this->tpg_link = 'http://www.tpg.ch/fr/trolleybus-naw-siemens';
+            $this->places_assises = 43;
+            $this->places_debout = 107;
+            $this->places_totales = 150;
+            $this->year = "1992-1993";
+
+        } elseif($id == 721) { // NAW mégatrolleybus (protoype LighTram)
+
+            $this->type = "Trolleybus à double articulation";
+            $this->name = "NAW/Hess/Siemens LighTram";
+            $this->icon = 'hess';
+            $this->img = '721';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/GeFaWU';
+            $this->tpg_link = 'http://www.tpg.ch/fr/trolleybus-naw-siemens-lightram';
+            $this->places_assises = 57;
+            $this->places_debout = 122;
+            $this->places_totales = 179;
+            $this->year = "2003";
+
+        } elseif(731 <= $id && $id <= 768) { // Trolleybus Hess
+
+            $this->type = "Trolleybus";
+            $this->name = "Hess/Kiepe Swisstrolley";
+            $this->icon = 'hess';
+            $this->img = 'hess';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/nGST6m';
+            $this->tpg_link = 'http://www.tpg.ch/fr/trolleybus-hess';
+            $this->places_assises = 46;
+            $this->places_debout = 80;
+            $this->places_totales = 126;
+            $this->year = "2005";
+
+        } elseif(781 <= $id && $id <= 790) { // Mégatrolleybus Hess
+
+            $this->type = "Trolleybus à double articulation";
+            $this->name = "Hess/Kiepe Swisstrolley LighTram";
+            $this->icon = 'hess';
+            $this->img = 'megahess';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/eEUQu5';
+            $this->tpg_link = 'http://www.tpg.ch/fr/trolleybus-hess-lightram';
+            $this->places_assises = 66;
+            $this->places_debout = 126;
+            $this->places_totales = 192;
+            $this->year = "2005-2006";
+
+        } elseif(1601 <= $id && $id <= 1633) { // Exqui City
+
+            $this->type = "Trolleybus";
+            $this->name = "VanHool Exqui.City";
+            $this->icon = 'exquicity';
+            $this->img = 'exquicity';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/pzQnpM';
+            $this->tpg_link = 'http://www.tpg.ch/fr/trolleybus-vanhool-exqui.city';
+            $this->places_assises = 41;
+            $this->places_debout = 90;
+            $this->places_totales = 131;
+            $this->year = "2014";
+
+        /* TRAMWAYS */
+
+
+        } elseif(1820 == $id) { // Tango rose
+
+            $this->type = "Tramway";
+            $this->name = "Stadler Tango";
+            $this->icon = '1820';
+            $this->img = '1820';
+            $this->img_author = 'Stéphane Wicht';
+            $this->img_link = 'https://www.facebook.com/groups/458151547721494/permalink/568957933307521/?';
+            $this->tpg_link = 'http://www.tpg.ch/fr/stadler-tango';
+            $this->places_assises = 80;
+            $this->places_debout = 308;
+            $this->places_totales = 388;
+            $this->year = 2016;
+
+        } elseif(1801 <= $id && $id <= 1833) { // Tango
+
+            $this->type = "Tramway";
+            $this->name = "Stadler Tango";
+            $this->icon = 'tango';
+            $this->img = 'tango';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kxjWWK';
+            $this->tpg_link = 'http://www.tpg.ch/fr/stadler-tango';
+            $this->places_assises = 80;
+            $this->places_debout = 308;
+            $this->places_totales = 388;
+            $this->year = "2011-2016";
+
+        } elseif(861 <= $id && $id <= 899) { // Cityrunner
+
+            $this->type = "Tramway";
+            $this->name = "Bombardier Cityrunner";
+            $this->icon = 'cityrunner';
+            $this->img = 'cityrunner';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/ebCHJv';
+            $this->tpg_link = 'http://www.tpg.ch/fr/bombardier-cityrunner';
+            $this->places_assises = 66;
+            $this->places_debout = 300;
+            $this->places_totales = 366;
+            $this->year = "2004-2010";
+
+        } elseif(801 <= $id && $id <= 852) { // DAV
+
+            $this->type = "Tramway";
+            $this->name = "Duewag-Vevey (DAV)";
+            $this->icon = 'dav';
+            $this->img = 'dav';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/ebCHJv';
+            $this->tpg_link = 'http://www.tpg.ch/fr/bombardier-cityrunner';
+            $this->places_assises = 66;
+            $this->places_debout = 300;
+            $this->places_totales = 366;
+            $this->year = "1987-1989";
+
+        /* SOUS-TRAITANT */
+
+        /* GLOBE LIMOUSINES */
+
+        } elseif(471 <= $id && $id <= 472) { // Minibus électriques ligne 36
+
+            $this->type = "Minibus électrique";
+            $this->name = "BredaMenarinibus Zeus";
+            $this->icon = 'notfound';
+            $this->img = 'minibus36';
+            $this->year = 2014;
+
+        } elseif(1901 <= $id && $id <= 1911) { // MAN solo Globe
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lionscity';
+            $this->img = 'mansolo';
+            $this->year = 2011;
+
+        } elseif($id == 1938) { // MAN solo Globe 2014
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lionscity';
+            $this->img = 'mansolo';
+            $this->year = 2014;
+
+        } elseif(1959 <= $id && $id <= 1961) { // MAN solo
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lionscity';
+            $this->img = 'mansolo';
+            $this->year = 2015;
+
+        } elseif($id == 1927) { // MAN solo
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lionscity';
+            $this->img = 'mansolo';
+
+        } elseif($id == 1962) { // MAN midibus
+
+            $this->type = "Midibus";
+            $this->name = "MAN Lion's City M";
+            $this->icon = 'lionscity';
+            $this->img = 'midibus';
+            $this->year = 2015;
+
+        } elseif(481 <= $id && $id <= 499) { // MAN NL 283
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN NL 283";
+            $this->icon = 'lionscity';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/219880374826710/?type=3&theater';
+            $this->img = 'nl283';
+            $this->year = 2004;
+
+        } elseif(1951 <= $id && $id <= 1958) { // MAN articulé
+
+            $this->type = "Autobus articulé";
+            $this->name = "MAN Lion's City G";
+            $this->icon = 'lionscity';
+            $this->img = 'man';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/xyZgwd';
+            $this->year = 2015;
+            $this->places_assises = 44;
+            $this->places_debout = 85;
+            $this->places_totales = 129;
+
+        } elseif(1967 <= $id && $id <= 1968) { // Nouveaux Citaro C2
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaroc2articule';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+
+        } elseif(1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
+
+            $this->type = "Autobus articulé";
+            $this->name = "MAN Lion's City G";
+            $this->icon = 'lionscity';
+            $this->img = 'man61';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/fdTi22';
+            $this->places_assises = 44;
+            $this->places_debout = 85;
+            $this->places_totales = 129;
+
+        } elseif(940 <= $id && $id <= 946) { // Citaro midibus
+
+            $this->type = "Midibus";
+            $this->name = "Mercedez-Benz Citaro O530K";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolo';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/f1vHBg';
+
+        } elseif(938 <= $id && $id <= 393) { // Volvo/HESS
+
+            $this->type = "Autobus";
+            $this->name = "Volvo/HESS B7L";
+            $this->icon = 'hess';
+            $this->img = 'volvohess';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/js5FNH';
+
+        } elseif(1949 == $id) { // Midibus ex-TL
+
+            $this->type = "Midibus";
+            $this->name = "MAN NM223";
+            $this->icon = 'lionscity';
+            $this->img = '1949';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/422199854594760/?type=3&theater';
+            $this->year = 2005;
+
+        } elseif(1950 == $id) { // Citaro 1 (Ligne S)
+
+            $this->type = "Autobus";
+            $this->name = "Mercedez-Benz Citaro I O530";
+            $this->icon = 'citaro';
+            $this->img = '1950';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/500646140083464/?type=3&theater';
+
+        } elseif(1947 == $id) { // Citaro 1 (Ligne S)
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedez-Benz Citaro I O530G";
+            $this->icon = 'citaro';
+            $this->img = '1947';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/478634745617937/?type=3&theater';
+
+        } elseif(1963 <= $id && $id <= 1964) { // Citaro C2 Globe
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaroc2articule';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+
+        /* GEM'BUS */
+        } elseif(971 <= $id && $id <= 979) { // Citaro articulé GEM'BUS
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro II O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaro';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kZ14Eq';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530g';
+            $this->places_assises = 46;
+            $this->places_debout = 103;
+            $this->places_totales = 149;
+            $this->year = "2010";
+
+        /* Genève-Tours */
+
+        } elseif(925 <= $id && $id <= 927) { // MIDIBUS CITARO GETOURS
+
+            $this->type = "Midibus";
+            $this->name = "Mercedez-Benz Citaro O530K";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolo';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/f1vHBg';
+
+        } elseif($id == 929) { // CITARO ARTICULE GETOURS
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaro';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kZ14Eq';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530g';
+            $this->places_assises = 46;
+            $this->places_debout = 103;
+            $this->places_totales = 149;
+
+        } elseif(981 <= $id && $id <= 987) { // Citaro solo GeTours
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro O530";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolo';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/f1vHBg';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530';
+            $this->places_assises = 32;
+            $this->places_debout = 55;
+            $this->places_totales = 87;
+
+        } elseif(1925 <= $id && $id <= 1926) { // Nouveaux Citaro articulé GeTours
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaro';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kZ14Eq';
+            $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530g';
+            $this->places_assises = 46;
+            $this->places_debout = 103;
+            $this->places_totales = 149;
+
+        } elseif($id == 1939) { // CITARO ARTICULE GETOURS
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaroc2articule';
+            $this->img_author = 'Rémi Chauvet';
+            $this->img_link = 'https://www.facebook.com/tpg979';
+
+        } elseif($id == 486) { // Autobus Vanhool (ligne 32)
+
+            $this->type = "Autobus solo";
+            $this->name = "VanHool New A330";
+            $this->icon = 'citaro';
+            $this->img = '486';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/692056344275775/?type=3&theater';
+
+        } elseif($id == 1965) { // Minibus GLOBE
+
+            $this->type = "Minibus";
+            $this->name = "Mercedes-Benz Sprinter City 515TDCI";
+            $this->icon = 'notfound';
+            $this->img = '1965';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/697797570368319/?type=3&theater';
+
+        } elseif($id == 1966 || $id == 1969) { // Citaro C2 solo Globe (1966)
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedez-Benz Citaro C2 O530";
+            $this->icon = 'citaro';
+            $this->img = '1966';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/740255142789228/?type=3&theater';
+
+        /* REGIE DEPARTEMENTALE DES TRANSPORTS DE L'AIN (RDTA) */
+
+        } elseif(950 <= $id && $id <= 960) { // Citaro articulé
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro II O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citarordta';
+            $this->img_author = 'Sin-Aly Sangare';
+            $this->img_link = 'https://www.facebook.com/photo.php?fbid=505939609784386&set=pcb.505941263117554&type=3&theater';
+            $this->year = "2010";
+
+        /* SOUS-TRAITANT AUTRES */
+
+        } elseif(900 <= $id && $id <= 999 || 1900 <= $id && $id <= 1999){
+
+            $this->type = "Autobus";
+	        $this->name = "Sous-traitant";
+	        $this->enSavoirPlus = false;
+            $this->icon = 'soustraitant';
+
+        } elseif('???' == $id){
+
+            $this->type = "Véhicule inconnu";
+	        $this->name = "Sous-traitant";
+	        $this->enSavoirPlus = false;
+            $this->icon = 'soustraitant';
+
+        } else {
+
+            $this->type = "";
+	        $this->name = "Véhicule inconnu";
+	        $this->enSavoirPlus = false;
+            $this->icon = 'notfound';
+
+        }
+    }
+
+    /* Afficher le véhicule */
+    public function renderCard_iOS(){
+        if($this->enSavoirPlus){
+            echo '<a href="/vehicule?id='.$this->id.'">';
+        }
+            ?>
+            <div class="card card-vehicule">
+                <div class="card-content">
+                    <img src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
+
+                    <span class="id">N° <?=$this->id?></span>
+
+                    <h2>
+                        <?=$this->type?>
+                        <strong><?=$this->name?></strong>
+                    </h2>
+                    <?
+                        if($this->enSavoirPlus){
+                            echo '<span class="en-savoir-plus">En savoir plus</span>';
+                        }
+                    ?>
+                </div>
+            </div>
+            <?
+        if($this->enSavoirPlus){
+            echo '</a>';
+        }
+    }
+
+    public function renderCard_Android(){
+        if($this->enSavoirPlus){
+            echo '<a href="/vehicule?id='.$this->id.'">';
+        }
+            ?>
+            <div class="card card-vehicule">
+                <div class="card-content">
+                    <img src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
+
+                    <span class="id">N° <?=$this->id?></span>
+
+                    <h2>
+                        <?=$this->type?>
+                        <strong><?=$this->name?></strong>
+                    </h2>
+                    <?
+                        if($this->enSavoirPlus){
+                            echo '<span class="button">En savoir plus</span>';
+                        }
+                    ?>
+                </div>
+            </div>
+            <?
+        if($this->enSavoirPlus){
+            echo '</a>';
+        }
+    }
+
+    public function renderPage_iOS() { ?>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="back link">
+                        <i class="icon icon-back"></i>
+                        <span>Retour</span>
+                    </a>
+                </div>
+                <div class="center sliding">Votre véhicule</div>
+                <div class="right">
+                  <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pages">
+            <div data-page="vehicule" class="page page-vehicule">
+                <div class="page-content">
+                    <header style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%), url(https://tpgdata.nicolapps.ch/vehicules/img/headers/<?=$this->img?>.jpg);">
+                        <h1>
+                            <?=$this->type?>
+                            <strong><?=$this->name?></strong>
+                        </h1>
+                    </header>
+
+                    <section class="infos">
+                        <div class="row">
+                            <div class="col-50 info">
+                                <label>Numéro du véhicule</label>
+                                <p><?=$this->id?></p>
+                            </div>
+                            <div class="col-50 info">
+                                <label>Année de mise en service</label>
+                                <p><?= ($this->year) ? $this->year : 'Inconnue' ?></p>
+                            </div>
+                        </div>
+
+                        <? if($this->places_assises && $this->places_debout && $this->places_totales){ ?>
+                            <div class="row">
+                                <div class="col-33 info">
+                                    <label>Places assises</label>
+                                    <p><?=$this->places_assises?></p>
+                                </div>
+                                <div class="col-33 info">
+                                    <label>Places debout</label>
+                                    <p><?=$this->places_debout?></p>
+                                </div>
+                                <div class="col-33 info">
+                                    <label>Places totales</label>
+                                    <p><?=$this->places_totales?></p>
+                                </div>
+                            </div>
+                        <? } ?>
+
+                    </section>
+
+                    <section class="links">
+                        <? if($this->tpg_link){ ?>
+                            <p>
+                                <a class="external" href="<?=$this->tpg_link?>">Site internet des tpg</a>
+                            </p>
+                        <? } ?>
+
+                        <? if($this->img_author){ ?>
+                            <p>
+                                Crédit photo : <a class="external" href="<?=$this->img_link?>"><?=$this->img_author?></a>
+                            </p>
+                        <? } ?>
+                    </section>
+                </div>
+        </div>
+    <? }
+
+    public function renderPage_Android() { ?>
+        <div data-page="vehicule" class="page page-vehicule">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="back link icon-only">
+                            <i class="icon icon-back"></i>
+                        </a>
+                    </div>
+                    <div class="center sliding">Votre véhicule</div>
+                </div>
+            </div>
+            <div class="page-content">
+                <header style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%), url(https://tpgdata.nicolapps.ch/vehicules/img/headers/<?=$this->img?>.jpg);">
+                    <h1>
+                        <?=$this->type?>
+                        <strong><?=$this->name?></strong>
+                    </h1>
+                </header>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                            <section class="infos">
+                                <div class="row">
+                                    <div class="col-50 info">
+                                        <label>Numéro du véhicule</label>
+                                        <p><?=$this->id?></p>
+                                    </div>
+                                    <div class="col-50 info">
+                                        <label>Année de mise en service</label>
+                                        <p><?= ($this->year) ? $this->year : 'Inconnue' ?></p>
+                                    </div>
+                                </div>
+
+                                <? if($this->places_assises && $this->places_debout && $this->places_totales){ ?>
+                                    <div class="row">
+                                        <div class="col-33 info">
+                                            <label>Places assises</label>
+                                            <p><?=$this->places_assises?></p>
+                                        </div>
+                                        <div class="col-33 info">
+                                            <label>Places debout</label>
+                                            <p><?=$this->places_debout?></p>
+                                        </div>
+                                        <div class="col-33 info">
+                                            <label>Places totales</label>
+                                            <p><?=$this->places_totales?></p>
+                                        </div>
+                                    </div>
+                                <? } ?>
+
+                            </section>
+
+                            <section class="links">
+                                <? if($this->tpg_link){ ?>
+                                    <p>
+                                        <a class="external button button-fill button-raised" href="<?=$this->tpg_link?>">Site internet des tpg</a>
+                                    </p>
+                                <? } ?>
+
+                                <? if($this->img_author){ ?>
+                                    <p>
+                                        Crédit photo : <a class="external" href="<?=$this->img_link?>"><?=$this->img_author?></a>
+                                    </p>
+                                <? } ?>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <? }
+}

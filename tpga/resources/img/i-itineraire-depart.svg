@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="50px" viewBox="0 0 30 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_depart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Thermomètre-(Android)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_depart" fill="#6A6A6A">
+            <path d="M18,39.1918852 L18,52 L12,52 L12,39.2856618 C5.16663853,37.9880271 0,31.9837437 0,24.7727273 C0,16.6139753 6.61397529,10 14.7727273,10 C22.9314793,10 29.5454545,16.6139753 29.5454545,24.7727273 C29.5454545,31.8229669 24.6066384,37.7196842 18,39.1918852 Z M14.7787367,34.6590909 C20.1313891,34.6590909 24.4705713,30.3345686 24.4705713,25 C24.4705713,19.6654314 20.1313891,15.3409091 14.7787367,15.3409091 C9.42608426,15.3409091 5.08690211,19.6654314 5.08690211,25 C5.08690211,30.3345686 9.42608426,34.6590909 14.7787367,34.6590909 Z" id="Icône"></path>
+        </g>
+    </g>
+</svg>

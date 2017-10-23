@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Thermometer-icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="thermometer_terminus" fill="#000000">
+            <path d="M25,9.35835523 L25,0 L19,0 L19,9.3375353 C13.2444077,10.6758218 8.95593085,15.8370972 8.95593085,22 C8.95593085,29.1797017 14.7762291,35 21.9559309,35 C29.1356326,35 34.9559309,29.1797017 34.9559309,22 C34.9559309,15.8685969 30.7111803,10.7286084 25,9.35835523 Z" id="Icône"></path>
+        </g>
+    </g>
+</svg>

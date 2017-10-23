@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="300px" height="44px" viewBox="0 0 300 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="144.847143 9.25 141.667143 12.3416667 152.115714 22.5 141.667143 32.6583333 144.847143 35.75 158.475714 22.5"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-3" y="-3" width="22.8085714" height="32.5">
+            <rect x="138.667143" y="6.25" width="22.8085714" height="32.5" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Thermomètre-(iOS)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <path d="M75,35 C82.1797017,35 88,29.1797017 88,22 C88,14.8202983 82.1797017,9 75,9 C67.8202983,9 62,14.8202983 62,22 C62,29.1797017 67.8202983,35 75,35 Z M75.0440691,30.5 C79.7544033,30.5 83.5728836,26.6944204 83.5728836,22 C83.5728836,17.3055796 79.7544033,13.5 75.0440691,13.5 C70.333735,13.5 66.5152547,17.3055796 66.5152547,22 C66.5152547,26.6944204 70.333735,30.5 75.0440691,30.5 Z" id="Arrivée" fill="#000000"></path>
+            <path d="M225,35 C232.179702,35 238,29.1797017 238,22 C238,14.8202983 232.179702,9 225,9 C217.820298,9 212,14.8202983 212,22 C212,29.1797017 217.820298,35 225,35 Z M225.044069,30.5 C229.754403,30.5 233.572884,26.6944204 233.572884,22 C233.572884,17.3055796 229.754403,13.5 225.044069,13.5 C220.333735,13.5 216.515255,17.3055796 216.515255,22 C216.515255,26.6944204 220.333735,30.5 225.044069,30.5 Z" id="Départ" fill="#000000"></path>
+            <rect id="Ligne" fill="#000000" x="85" y="19" width="130" height="6"></rect>
+            <g id="Shape">
+                <use fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="6" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
