@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__.'/../../tpgdata/apikey.php';
-$disruptions = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.$key);
+$disruptions = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.$key);
 
 if (!$disruptions){
 	$serveurTPGIndisponible = true;

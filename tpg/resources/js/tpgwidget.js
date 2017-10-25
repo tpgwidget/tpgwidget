@@ -23,7 +23,7 @@ if (("standalone" in window.navigator) && !window.navigator.standalone){ // Add 
     });
 
     $.ajax({
-        url: "/ajax/nextDepartures/"+$$(".page-index").attr('data-page').split('-')[1],
+        url: "/ajax/ajaxprochainsdeparts.php?id="+$$(".page-index").attr('data-page').split('-')[1],
         cache: false,
         success: function(result) {
             $$('.page-index .page-content').html(result);
