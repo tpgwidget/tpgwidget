@@ -3,7 +3,8 @@ header('Content-type: application/json; charset=utf-8');
 
 require '../../tpgdata/apikey.php';
 require '../../tpgdata/stops.php';
-$stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
+$stops = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
+
 
 echo '[';
 

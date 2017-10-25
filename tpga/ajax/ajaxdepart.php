@@ -8,7 +8,7 @@ if(!isset($_GET['id'])){ // Si aucun arrêt spécifié
 
 require '../../tpgdata/apikey.php';
 $file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.$key.'&departureCode=' . $_GET["id"];
-$thermometer = simplexml_load_file($file);
+$thermometer = @simplexml_load_file($file);
 
 if(!$thermometer){
     $erreur[] = '<div class="boxinstall"><strong>Erreur :</strong> Serveur TPG indisponible</div>';

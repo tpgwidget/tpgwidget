@@ -2,14 +2,10 @@
 
 require '../../tpgdata/apikey.php';
 $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.$key.'&stopCode=' . $_GET["id"];
-$nextDepartures = simplexml_load_file($file);
+$nextDepartures = @simplexml_load_file($file);
 
 include '../../tpgdata/quais.php';
 include '../../tpgdata/stops.php';
-
-if(!$nextDepartures){
-    $serveurTPGIndisponible = true;
-}
 
 ?>
 <div class="list-block media-list" id="departures">

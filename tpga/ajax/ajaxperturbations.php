@@ -2,11 +2,7 @@
 
 require __DIR__.'/../../tpgdata/apikey.php';
 $file = 'http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.$key;
-$disruptions = simplexml_load_file($file);
-
-if (!$disruptions) {
-	$serveurTPGIndisponible = true;
-}
+$disruptions = @simplexml_load_file($file);
 
 $whiteTextLines = [
     '1', '3', '4', '5', '6', '7', '8', '9', '10', '11', '14', '15', '18', '21', '22', '23', '25',
