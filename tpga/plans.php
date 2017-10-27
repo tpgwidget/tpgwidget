@@ -26,7 +26,6 @@ require_once('../tpgdata/plans/plans.php');
                         </div>
                     </div>
                 </a>
-
             <?php } ?>
         <?php } ?>
     </div>
