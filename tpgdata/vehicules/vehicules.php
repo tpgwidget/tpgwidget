@@ -1,5 +1,4 @@
-<?
-
+<?php
 class Vehicule {
 
     private $id;
@@ -8,8 +7,9 @@ class Vehicule {
     private $img;
     private $icon;
     private $enSavoirPlus = true;
+    private $wifi = false;
 
-    public function __construct($id){
+    public function __construct($id) {
 
         $id = ltrim($id, '2');
         $id = ltrim($id, '0');
@@ -176,6 +176,7 @@ class Vehicule {
             $this->places_debout = 126;
             $this->places_totales = 192;
             $this->year = "2005-2006";
+            $this->wifi = true;
 
         } elseif(1601 <= $id && $id <= 1633) { // Exqui City
 
@@ -190,6 +191,7 @@ class Vehicule {
             $this->places_debout = 90;
             $this->places_totales = 131;
             $this->year = "2014";
+            $this->wifi = true;
 
         /* TRAMWAYS */
 
@@ -535,7 +537,6 @@ class Vehicule {
 	        $this->name = "Véhicule inconnu";
 	        $this->enSavoirPlus = false;
             $this->icon = 'notfound';
-
         }
     }
 
