@@ -548,7 +548,10 @@ class Vehicule {
             ?>
             <div class="card card-vehicule">
                 <div class="card-content">
-                    <img src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
+                    <img class="vehicle-icon" src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
+                    <?php if ($this->wifi) { ?>
+                        <img class="wifi-icon" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">
+                    <?php } ?>
 
                     <span class="id">N° <?=$this->id?></span>
 
@@ -576,7 +579,10 @@ class Vehicule {
             ?>
             <div class="card card-vehicule">
                 <div class="card-content">
-                    <img src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
+                    <img class="vehicle-icon" src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
+                    <?php if ($this->wifi) { ?>
+                        <img class="wifi-icon" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">
+                    <?php } ?>
 
                     <span class="id">N° <?=$this->id?></span>
 

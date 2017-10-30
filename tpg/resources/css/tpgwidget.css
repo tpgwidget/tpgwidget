@@ -424,9 +424,15 @@ span.perturbation::before {
     color: #000;
 }
 
-.card-vehicule img {
-    max-width: 100px;
+.card-vehicule .vehicle-icon {
+    width: 100px;
     float: left;
+}
+
+.card-vehicule .wifi-icon {
+    position: absolute;
+    top: 4px;
+    left: 100px;
 }
 
 .card-vehicule h2 {

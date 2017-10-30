@@ -530,13 +530,15 @@ ul.parl ul {
     font-weight: 100;
 }
 
-.card-vehicule img {
-    float: right;
-    max-width: 100px;
+.card-vehicule .vehicle-icon {
+    width: 100px;
+    float: left;
 }
 
-.card-vehicule .id {
-    float: right;
+.card-vehicule .wifi-icon {
+    position: absolute;
+    top: 4px;
+    right: 50px;
 }
 
 .plan {

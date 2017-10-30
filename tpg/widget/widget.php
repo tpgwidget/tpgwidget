@@ -36,7 +36,7 @@ $nameW = $widget['name'];
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?142">
     <link rel="stylesheet" href="/resources/css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?wifi">
 
     <!-- Icônes -->
     <link href="http://www.nicolapps.ch/widgetimage/152/f60/ffffff&text=<?=urlencode($stopW)?>"
