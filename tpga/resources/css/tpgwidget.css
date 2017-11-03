@@ -292,7 +292,7 @@ span.perturbation::before {
     text-align: center;
 }
 
-.graym span {
+.graym > span {
     margin-top: 30px;
 }
 
