@@ -413,6 +413,15 @@ ul.parl ul {
     background: url(../img/no-pmr.svg);
 }
 
+.departure-wifi {
+    width: 30px;
+    margin-top: 3px;
+}
+
+.w .departure-wifi {
+    filter: invert();
+}
+
 /* About page */
 
 .page-about header {
@@ -543,6 +552,7 @@ ul.parl ul {
     position: absolute;
     top: 4px;
     right: 100px;
+    opacity: .4;
 }
 
 .card-vehicule .id {
@@ -566,6 +576,7 @@ ul.parl ul {
     top: 20px;
     left: 10px;
     width: 50px;
+    opacity: .4;
 }
 
 .page-vehicule .card-wifi p {
