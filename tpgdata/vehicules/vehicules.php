@@ -1,13 +1,13 @@
 <?php
 class Vehicule {
 
-    private $id;
-    private $type;
-    private $name;
-    private $img;
-    private $icon;
-    private $enSavoirPlus = true;
-    private $wifi = false;
+    public $id;
+    public $type;
+    public $name;
+    public $img;
+    public $icon;
+    public $enSavoirPlus = true;
+    public $wifi = false;
 
     public function __construct($id) {
 
@@ -602,152 +602,4 @@ class Vehicule {
             echo '</a>';
         }
     }
-
-    public function renderPage_iOS() { ?>
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="left">
-                    <a href="#" class="back link">
-                        <i class="icon icon-back"></i>
-                        <span>Retour</span>
-                    </a>
-                </div>
-                <div class="center sliding">Votre véhicule</div>
-                <div class="right">
-                  <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="pages">
-            <div data-page="vehicule" class="page page-vehicule">
-                <div class="page-content">
-                    <header style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%), url(https://tpgdata.nicolapps.ch/vehicules/img/headers/<?=$this->img?>.jpg);">
-                        <h1>
-                            <?=$this->type?>
-                            <strong><?=$this->name?></strong>
-                        </h1>
-                    </header>
-
-                    <section class="infos">
-                        <div class="row">
-                            <div class="col-50 info">
-                                <label>Numéro du véhicule</label>
-                                <p><?=$this->id?></p>
-                            </div>
-                            <div class="col-50 info">
-                                <label>Année de mise en service</label>
-                                <p><?= ($this->year) ? $this->year : 'Inconnue' ?></p>
-                            </div>
-                        </div>
-
-                        <? if($this->places_assises && $this->places_debout && $this->places_totales){ ?>
-                            <div class="row">
-                                <div class="col-33 info">
-                                    <label>Places assises</label>
-                                    <p><?=$this->places_assises?></p>
-                                </div>
-                                <div class="col-33 info">
-                                    <label>Places debout</label>
-                                    <p><?=$this->places_debout?></p>
-                                </div>
-                                <div class="col-33 info">
-                                    <label>Places totales</label>
-                                    <p><?=$this->places_totales?></p>
-                                </div>
-                            </div>
-                        <? } ?>
-
-                    </section>
-
-                    <section class="links">
-                        <? if($this->tpg_link){ ?>
-                            <p>
-                                <a class="external" href="<?=$this->tpg_link?>">Site internet des tpg</a>
-                            </p>
-                        <? } ?>
-
-                        <? if($this->img_author){ ?>
-                            <p>
-                                Crédit photo : <a class="external" href="<?=$this->img_link?>"><?=$this->img_author?></a>
-                            </p>
-                        <? } ?>
-                    </section>
-                </div>
-        </div>
-    <? }
-
-    public function renderPage_Android() { ?>
-        <div data-page="vehicule" class="page page-vehicule">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <div class="left">
-                        <a href="#" class="back link icon-only">
-                            <i class="icon icon-back"></i>
-                        </a>
-                    </div>
-                    <div class="center sliding">Votre véhicule</div>
-                </div>
-            </div>
-            <div class="page-content">
-                <header style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%), url(https://tpgdata.nicolapps.ch/vehicules/img/headers/<?=$this->img?>.jpg);">
-                    <h1>
-                        <?=$this->type?>
-                        <strong><?=$this->name?></strong>
-                    </h1>
-                </header>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-content-inner">
-                            <section class="infos">
-                                <div class="row">
-                                    <div class="col-50 info">
-                                        <label>Numéro du véhicule</label>
-                                        <p><?=$this->id?></p>
-                                    </div>
-                                    <div class="col-50 info">
-                                        <label>Année de mise en service</label>
-                                        <p><?= ($this->year) ? $this->year : 'Inconnue' ?></p>
-                                    </div>
-                                </div>
-
-                                <? if($this->places_assises && $this->places_debout && $this->places_totales){ ?>
-                                    <div class="row">
-                                        <div class="col-33 info">
-                                            <label>Places assises</label>
-                                            <p><?=$this->places_assises?></p>
-                                        </div>
-                                        <div class="col-33 info">
-                                            <label>Places debout</label>
-                                            <p><?=$this->places_debout?></p>
-                                        </div>
-                                        <div class="col-33 info">
-                                            <label>Places totales</label>
-                                            <p><?=$this->places_totales?></p>
-                                        </div>
-                                    </div>
-                                <? } ?>
-
-                            </section>
-
-                            <section class="links">
-                                <? if($this->tpg_link){ ?>
-                                    <p>
-                                        <a class="external button button-fill button-raised" href="<?=$this->tpg_link?>">Site internet des tpg</a>
-                                    </p>
-                                <? } ?>
-
-                                <? if($this->img_author){ ?>
-                                    <p>
-                                        Crédit photo : <a class="external" href="<?=$this->img_link?>"><?=$this->img_author?></a>
-                                    </p>
-                                <? } ?>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <? }
 }

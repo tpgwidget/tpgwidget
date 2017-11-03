@@ -456,6 +456,36 @@ span.perturbation::before {
     display: block;
 }
 
+
+.page-vehicule .card-wifi {
+    display: block;
+    color: inherit;
+    overflow: auto;
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px;
+}
+
+.page-vehicule .card-wifi img {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 50px;
+}
+
+.page-vehicule .card-wifi p {
+    padding-left: 65px;
+    padding-right: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.page-vehicule .card-wifi span {
+    color: #007aff;
+}
+
+/* About page */
+
 .page-about header {
     position: relative;
     height: 300px;
@@ -590,6 +620,8 @@ span.perturbation::before {
 .list-block .enable-geolocation {
     display: none;
 }
+
+/* Lines */
 
 .l1,.l14,.l22 {
     background: #639;

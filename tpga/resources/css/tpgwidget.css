@@ -413,6 +413,8 @@ ul.parl ul {
     background: url(../img/no-pmr.svg);
 }
 
+/* About page */
+
 .page-about header {
     position: relative;
     height: 300px;
@@ -548,6 +550,33 @@ ul.parl ul {
     padding-top: 2px;
     padding-left: 10px;
     color: rgba(0, 0, 0, .4);
+}
+
+.page-vehicule .card-wifi {
+    display: block;
+    color: inherit;
+    overflow: auto;
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px;
+}
+
+.page-vehicule .card-wifi img {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 50px;
+}
+
+.page-vehicule .card-wifi p {
+    padding-left: 65px;
+    padding-right: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.page-vehicule .card-wifi span {
+    color: #007aff;
 }
 
 .plan {
