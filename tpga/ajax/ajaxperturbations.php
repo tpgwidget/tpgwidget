@@ -15,7 +15,7 @@ $allLines = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "14"
 
 $perturbations = 0;
 foreach ($disruptions->disruptions->disruption as $disruption) {
-    if (in_array($disruption->lineCode, $toutesLesLignes)) { ?>
+    if (in_array($disruption->lineCode, $allLines)) { ?>
     <div class="card">
       <div class="card-content">
         <div class="card-content-inner">
