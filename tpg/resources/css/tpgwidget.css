@@ -368,6 +368,15 @@ span.perturbation::before {
     background: url(../img/no-pmr.svg);
 }
 
+.departure-wifi {
+    width: 30px;
+    margin-top: 3px;
+}
+
+.w .departure-wifi {
+    filter: invert();
+}
+
 .page-vehicule {
     background: #fff;
 }
@@ -424,9 +433,16 @@ span.perturbation::before {
     color: #000;
 }
 
-.card-vehicule img {
-    max-width: 100px;
+.card-vehicule .vehicle-icon {
+    width: 100px;
     float: left;
+}
+
+.card-vehicule .wifi-icon {
+    position: absolute;
+    top: 4px;
+    left: 100px;
+    opacity: .4;
 }
 
 .card-vehicule h2 {
@@ -449,6 +465,37 @@ span.perturbation::before {
     text-align: center;
     display: block;
 }
+
+
+.page-vehicule .card-wifi {
+    display: block;
+    color: inherit;
+    overflow: auto;
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px;
+}
+
+.page-vehicule .card-wifi img {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 50px;
+    opacity: .4;
+}
+
+.page-vehicule .card-wifi p {
+    padding-left: 65px;
+    padding-right: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.page-vehicule .card-wifi span {
+    color: #007aff;
+}
+
+/* About page */
 
 .page-about header {
     position: relative;
@@ -584,6 +631,8 @@ span.perturbation::before {
 .list-block .enable-geolocation {
     display: none;
 }
+
+/* Lines */
 
 .l1,.l14,.l22 {
     background: #639;

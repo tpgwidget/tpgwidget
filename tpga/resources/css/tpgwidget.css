@@ -413,6 +413,17 @@ ul.parl ul {
     background: url(../img/no-pmr.svg);
 }
 
+.departure-wifi {
+    width: 30px;
+    margin-top: 3px;
+}
+
+.w .departure-wifi {
+    filter: invert();
+}
+
+/* About page */
+
 .page-about header {
     position: relative;
     height: 300px;
@@ -524,19 +535,59 @@ ul.parl ul {
 
 .card-vehicule h2 {
     padding: 15px;
+    padding-top: 2px;
     padding-bottom: 0;
+    margin-top: 0;
     margin-bottom: 2px;
     font-size: 15px;
     font-weight: 100;
 }
 
-.card-vehicule img {
+.card-vehicule .vehicle-icon {
+    width: 100px;
     float: right;
-    max-width: 100px;
+}
+
+.card-vehicule .wifi-icon {
+    position: absolute;
+    top: 4px;
+    right: 100px;
+    opacity: .4;
 }
 
 .card-vehicule .id {
-    float: right;
+    display: block;
+    padding-top: 2px;
+    padding-left: 10px;
+    color: rgba(0, 0, 0, .4);
+}
+
+.page-vehicule .card-wifi {
+    display: block;
+    color: inherit;
+    overflow: auto;
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px;
+}
+
+.page-vehicule .card-wifi img {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 50px;
+    opacity: .4;
+}
+
+.page-vehicule .card-wifi p {
+    padding-left: 65px;
+    padding-right: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.page-vehicule .card-wifi span {
+    color: #007aff;
 }
 
 .plan {
