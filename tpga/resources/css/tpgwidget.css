@@ -480,6 +480,12 @@ ul.parl ul {
     background-image: url(../img/i-medium.png);
 }
 
+.icon-github {
+    width: 29px;
+    height: 29px;
+    background-image: url(../img/i-github.png);
+}
+
 .page-vehicule header {
     position: relative;
     height: 50vh;

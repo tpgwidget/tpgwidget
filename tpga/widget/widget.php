@@ -36,7 +36,7 @@ $nameW = $widget['name'];
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css">
     <link rel="stylesheet" href="/resources/css/framework7.material.colors.min.css">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?wifi-icon">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?github">
 
     <!-- Icônes -->
     <link rel="icon" sizes="192x192" href="/icon/<?= urlencode($stopW) ?>/192.png">

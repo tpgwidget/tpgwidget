@@ -54,6 +54,24 @@
             </ul>
         </div>
 
+        <div class="content-block-title">Contribuez au projet sur</div>
+        <div class="list-block">
+            <ul>
+                <li>
+                    <a href="https://github.com/tpgwidget/tpgwidget" class="item-link external" target="_blank">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="icon icon-github"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">GitHub</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         <div class="content-block-title">Crédits</div>
         <div class="card credit">
             <a href="http://data.tpg.ch/web/open-data/" class="external" target="_blank">

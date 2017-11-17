@@ -161,6 +161,12 @@ li:last-child .t {
     background-image: url(../img/i-medium.png);
 }
 
+.icon-github {
+    width: 29px;
+    height: 29px;
+    background-image: url(../img/i-github.png);
+}
+
 i.icon.icon-depart {
     width: 29px;
     height: 44px;
