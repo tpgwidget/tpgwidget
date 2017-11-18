@@ -34,7 +34,7 @@ On the production server,
 - https://tpgdata.nicolapps.ch is linked to the `tpgdata` folder. It contains generic data (maps, vehicles images)
 
 ### Develop
-Front-end files are compiled with [Gulp](https://gulpjs.com). To install it, use `npm install gulp-cli -g` from the command line. You can then compile the assets using `gulp ios-css` and `gulp android-css`, `gulp ios-js` and `gulp android-js`.
+Front-end files are compiled with [Gulp](https://gulpjs.com). To install it, use `npm install gulp-cli -g` from the command line. You can then compile the assets using `gulp ios-css`, `gulp android-css`, `gulp ios-js` and `gulp android-js`.
 
 ## Contributing
 If you have a question or an idea, you can create an issue. Pull requests are welcome ! If you want to contribute, don’t hesitate to look into the unassigned issues.
