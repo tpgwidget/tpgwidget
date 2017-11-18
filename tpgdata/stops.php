@@ -85,13 +85,15 @@ function stopFilter($stop) {
     case 'Challex-la halle':
         return 'P+R Challex-La Halle';
     case 'Sezenove':
-    	return 'Sézenove';
+        return 'Sézenove';
     case 'Emile zola':
-    	return 'Émile Zola';
+        return 'Émile Zola';
     case 'Hopitaux':
-    	return 'Hôpitaux';
+        return 'Hôpitaux';
     case 'Lancy-hubert':
-    	return 'Lancy-Hubert';
+        return 'Lancy-Hubert';
+    case 'Lancy - hubert':
+        return 'Lancy-Hubert';
     case 'Coll.Claparède':
         return 'Collège Claparède';
     case 'Pl. Eaux-Vives':
@@ -104,7 +106,7 @@ function stopFilter($stop) {
         return 'Grand-Saconnex-Douane';
     case 'Gd-Saconnex-Mairie':
         return 'Grand-Saconnex-Mairie';
-	default:
-		return $stop;
-	}
+    default:
+        return $stop;
+    }
 }

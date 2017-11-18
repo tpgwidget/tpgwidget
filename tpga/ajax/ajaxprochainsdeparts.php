@@ -54,7 +54,7 @@ include '../../tpgdata/vehicules/vehicules.php';
                     quai($nextDepartures->stop->stopCode, $depart->connection->lineCode, $depart->connection->destinationName);
 
                     // PMR
-                    if ($depart->characteristics !== 'PMR' && $depart->waitingTime != "no more") {
+                    if ($depart->characteristics != 'PMR' && $depart->waitingTime != "no more") {
                         echo '<span class="nopmr"></span>';
                     }
 
