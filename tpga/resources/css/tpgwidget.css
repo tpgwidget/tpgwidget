@@ -78,14 +78,6 @@ body {
     font-size: 1.7em;
 }
 
-.minutes::after {
-    content: ' minutes';
-}
-
-.minute::after {
-    content: ' minute';
-}
-
 .quai {
     display: inline-block;
     line-height: 1em;

@@ -55,6 +55,7 @@ include '../../tpgdata/vehicules/vehicules.php';
                     echo '<span class="nopmr"></span>';
                 }
 
+                // Disruption
                 if (isset($depart->disruptions->disruption)) {
                     echo '<span class="perturbation"></span>';
                 }
@@ -65,35 +66,26 @@ include '../../tpgdata/vehicules/vehicules.php';
                     echo '<img class="departure-wifi" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">';
                 }
 
-                // print $depart->vehiculeNo;
-
+                // Waiting time
+                echo '<div class="temps">';
                 switch ($depart->waitingTime) {
                     case '0':
-                    print '<div class="temps">';
-                    print "À l'arrêt";
-                    print '</div>';
-                    break;
+                        print 'À l’arrêt';
+                        break;
                     case '1':
-                    print '<div class="temps minute">';
-                    print 1;
-                    print '</div>';
-                    break;
+                        echo '1 minute';
+                        break;
                     case 'no more':
-                    print '<div class="temps">';
-                    print "-";
-                    print '</div>';
+                        echo '-';
                     break;
                     case '&gt;1h':
-                    print '<div class="temps">';
-                    print "+ d'une heure";
-                    print '</div>';
-                    break;
+                        echo '+ d’une heure';
+                        break;
                     default:
-                    print '<div class="temps minutes">';
-                    print $depart->waitingTime;
-                    print '</div>';
-                    break;
+                        print $depart->waitingTime.' minutes';
+                        break;
                 }
+                echo '</div>';
                 ?>
             </div>
         <?php
