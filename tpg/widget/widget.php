@@ -35,7 +35,6 @@ $nameW = $widget['name'];
     <title>TPGwidget</title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?142">
-    <link rel="stylesheet" href="/resources/css/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?github">
 
     <!-- Icônes -->

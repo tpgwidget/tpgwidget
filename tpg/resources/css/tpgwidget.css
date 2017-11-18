@@ -774,3 +774,118 @@ span.perturbation::before {
 .departures li.lGplus::after {
     opacity: 0.7;
 }
+
+/*
+ * Framework7 themes
+ */
+
+.color-red {
+    color: #ff3b30;
+}
+
+/* .layout-dark */
+.page.layout-dark,
+.panel.layout-dark {
+    background-color: #222426;
+    color: #ddd;
+}
+
+.layout-dark .list-block ul {
+    background: #1c1d1f;
+}
+
+.layout-dark .list-block ul:before,
+.list-block.layout-dark ul:before {
+    background-color: #393939;
+}
+
+.layout-dark .list-block ul:after,
+.list-block.layout-dark ul:after {
+    background-color: #393939;
+}
+
+.layout-dark .item-inner:after,
+.layout-dark .list-block ul ul li:last-child .item-inner:after {
+  background-color: #393939;
+}
+
+/* .theme-white */
+
+i.icon-back.color-white,
+i.icon-back.theme-white,
+.theme-white i.icon-back {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+}
+
+.theme-white a,
+.theme-white .item-link.list-button {
+    color: #ffffff;
+}
+
+.color-white.button:not(.button-fill),
+.color-white.buttons-row .button,
+.theme-white .button:not(.button-fill) {
+    border-color: #ffffff;
+}
+
+html:not(.watch-active-state) .color-white.button:not(.button-fill):active,
+html:not(.watch-active-state) .color-white.buttons-row .button:active,
+html:not(.watch-active-state) .theme-white .button:not(.button-fill):active,
+.color-white.button:not(.button-fill).active-state,
+.color-white.buttons-row .button.active-state,
+.theme-white .button:not(.button-fill).active-state {
+     background-color: rgba(255, 255, 255, 0.15);
+}
+
+.color-white.button:not(.button-fill).active,
+.color-white.buttons-row .button.active,
+.theme-white .button:not(.button-fill).active {
+    background-color: #ffffff;
+    color: #fff;
+}
+
+.theme-white .button.button-fill,
+.button.button-fill.color-white {
+    background: #ffffff;
+    color: #fff;
+}
+
+/* .theme-black */
+i.icon-back.color-black,
+i.icon-back.theme-black,
+.theme-black i.icon-back {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+
+.color-black.button:not(.button-fill),
+.color-black.buttons-row .button,
+.theme-black .button:not(.button-fill) {
+    border-color: #000000;
+}
+
+.theme-black a,
+.theme-black .item-link.list-button {
+    color: #000000;
+}
+
+html:not(.watch-active-state) .color-black.button:not(.button-fill):active,
+html:not(.watch-active-state) .color-black.buttons-row .button:active,
+html:not(.watch-active-state) .theme-black .button:not(.button-fill):active,
+.color-black.button:not(.button-fill).active-state,
+.color-black.buttons-row .button.active-state,
+.theme-black .button:not(.button-fill).active-state {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.color-black.button:not(.button-fill).active,
+.color-black.buttons-row .button.active,
+.theme-black .button:not(.button-fill).active {
+    background-color: #000000;
+    color: #fff;
+}
+
+.theme-black .button.button-fill,
+.button.button-fill.color-black {
+    background: #000000;
+    color: #fff;
+}
