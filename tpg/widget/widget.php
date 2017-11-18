@@ -180,14 +180,14 @@ $nameW = $widget['name'];
             <div class="page-content">
                 <section class="graym">
                     <span class="preloader preloader-white"></span>
-        		    <h2>Chargement...</h2>
+                    <h2>Chargement...</h2>
                 </section>
             </div>
           </div>
         </div>
       </div>
     </div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <script type="text/javascript" src="/resources/js/framework7.min.js?1.4.2"></script>
     <script type="text/javascript" src="/resources/js/tpgwidget.min.js"></script>
   </body>
