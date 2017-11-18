@@ -26,7 +26,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                       echo 'l'.$disruption->lineCode.' ';
                       echo 's'.$disruption->lineCode.' ';
 
-                      if(in_array($disruption->lineCode, $lignesAvecTexteBlanc)){
+                      if(in_array($disruption->lineCode, $whiteTextLines)){
                           echo 'w';
                       }
 
