@@ -35,8 +35,7 @@ $nameW = $widget['name'];
     <title><?= $nameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css">
-    <link rel="stylesheet" href="/resources/css/framework7.material.colors.min.css">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?github">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?speed">
 
     <!-- Icônes -->
     <link rel="icon" sizes="192x192" href="/icon/<?= urlencode($stopW) ?>/192.png">
@@ -133,19 +132,13 @@ $nameW = $widget['name'];
                         </div>
                     </div>
 
-                    <div class="page-content">
-                        <section class="graym">
-                            <span class="preloader preloader-white"></span>
-                            <h2>Chargement...</h2>
-                        </section>
-                    </div>
+                    <div class="page-content"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="/resources/js/framework7.min.js?142"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?itineraire"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?speed"></script>
 </body>
 </html>

@@ -35,8 +35,7 @@ $nameW = $widget['name'];
     <title>TPGwidget</title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?142">
-    <link rel="stylesheet" href="/resources/css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?github">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?speed">
 
     <!-- Icônes -->
     <link href="http://www.nicolapps.ch/widgetimage/152/f60/ffffff&text=<?=urlencode($stopW)?>"
@@ -181,15 +180,15 @@ $nameW = $widget['name'];
             <div class="page-content">
                 <section class="graym">
                     <span class="preloader preloader-white"></span>
-        		    <h2>Chargement...</h2>
+                    <h2>Chargement...</h2>
                 </section>
             </div>
           </div>
         </div>
       </div>
     </div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <script type="text/javascript" src="/resources/js/framework7.min.js?1.4.2"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?speed"></script>
   </body>
 </html>
