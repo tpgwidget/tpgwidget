@@ -35,7 +35,7 @@ $nameW = $widget['name'];
     <title>TPGwidget</title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?142">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?github">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?speed">
 
     <!-- Icônes -->
     <link href="http://www.nicolapps.ch/widgetimage/152/f60/ffffff&text=<?=urlencode($stopW)?>"

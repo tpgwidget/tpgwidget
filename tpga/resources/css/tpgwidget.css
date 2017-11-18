@@ -915,3 +915,13 @@ ul.parl ul {
 .departures li.lGplus::after {
   opacity: 0.7;
 }
+
+/*
+ * Framework7 themes
+ */
+
+/* .layout-dark */
+.page.layout-dark {
+    background-color: #222426;
+    color: #ddd;
+}
