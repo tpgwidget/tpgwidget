@@ -33,3 +33,11 @@ gulp.task('android-css', () =>
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('tpga/resources/css/'))
 );
+
+gulp.task('android-js', () =>
+    gulp.src('tpga/resources/js/tpgwidget.js')
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(concat('tpgwidget.min.js'))
+        .pipe(gulp.dest('tpga/resources/js/'))
+);

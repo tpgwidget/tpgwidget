@@ -29,44 +29,36 @@ if (f7.device.android) {
 var isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 
 if (f7.device.android && !isStandalone) {
-    var stopName = $('.center').text();
-    var html = '<div class="content-block">' +
-        '<p>Pour installer un raccourci pour l\'arrêt ' +
-        '<strong>' +
-        stopName +
-        '</strong>' +
-        ' :</p>' +
-        '<ul class="tutorial">' +
-        '<li>' +
-        '<div class="step-number">1</div>' +
-        '<p>Appuyez sur le bouton <strong>Plus <i class="more"></i></strong> tout en haut à droite de l\'écran</p>' +
-        '</li>' +
-        '<li>' +
-        '<div class="step-number">2</div>' +
-        '<p>Sélectionnez <strong>Ajouter à l\'écran d\'accueil</strong></p>' +
-        '<img src="/resources/img/ath.png" alt="Ajouter à l\'écran d\'accueil">' +
-        '</li>' +
-        '</ul>' +
-        '</div>';
-
     $$('.left').remove();
     $$('.center').text('TPGwidget');
-    $$('.page-content').html(html);
+    $$('.page-content').html(`<div class="content-block">
+        <p>Pour installer un raccourci pour l’arrêt <strong>${$$('.center').text()}</strong> :</p>
+        <ul class="tutorial">
+            <li>
+                <div class="step-number">1</div>
+                <p>Appuyez sur le bouton <strong>Plus <i class="more"></i></strong> tout en haut à droite de l\'écran</p>
+            </li>
+            <li>
+                <div class="step-number">2</div>
+                <p>Sélectionnez <strong>Ajouter à l’écran d’accueil</strong></p>
+                <img src="/resources/img/ath.png" alt="Ajouter à l’écran d’accueil">
+            </li>
+        </ul>
+    </div>`);
     $$('.page-index').removeClass('layout-dark');
 } else {
-    $.ajax({
-        url: "/ajax/ajaxprochainsdeparts.php?id=" + $$(".page-index").attr('data-page').split("-")[1],
+    $$.ajax({
+        url: `/ajax/ajaxprochainsdeparts.php?id=${$$('.page-index').attr('data-page').split('-')[1]}`,
         cache: false,
-        success: function(result) {
+        success: (result) => {
             $$('.page-content').html(result);
             $$('.page-index').removeClass('layout-dark');
         },
-        error: function() {
+        error: () => {
             $$('.preloader').addClass("smileyErreur");
             $$('.preloader').removeClass("preloader");
-            $$('.preloader-white').removeClass("preloader-white");
-            $$('.graym').append("<span>Impossible de se connecter au serveur TPGwidget</span>");
-            $$('.graym h2').html("Erreur");
+            $$('.preloader-white').removeClass('preloader-white');
+            $$('.page-content').html(`<div class="graym"><h2>Erreur</h2><span>Impossible de se connecter au serveur TPGwidget</span></div>`);
         }
     });
 
@@ -78,10 +70,10 @@ if (f7.device.android && !isStandalone) {
 
         if (p[0] == 'infotraffic') {
             $$('.pull-to-refresh-content').on('refresh', function(e) {
-                $.ajax({
+                $$.ajax({
                     url: "/ajax/ajaxperturbations.php",
                     cache: false,
-                    success: function(result) {
+                    success: (result) => {
                         $$('#perturbations-all').html(result);
                         f7.pullToRefreshDone();
                     }
@@ -89,53 +81,54 @@ if (f7.device.android && !isStandalone) {
             });
         }
 
-        function changeStatusbarColor(color){
-            $('meta[name=theme-color]').remove();
-            $('head').append('<meta name="theme-color" content="'+color+'">');
+        function changeStatusbarColor(color) {
+            $$('meta[name=theme-color]').remove();
+            $$('head').append(`<meta name="theme-color" content="${color}">`);
         }
 
         if(p[0] == 'depart'){
-            changeStatusbarColor('#'+p[1]);
+            changeStatusbarColor(`#${p[1]}`);
         } else if (p == 'vehicule' || p == 'itineraire') {
             changeStatusbarColor('#333');
         } else {
             changeStatusbarColor('#F60');
         }
-
     });
 
     $$(document).on('pageAfterAnimation', function(e) {
 
         // Get page data from event data
         var page = e.detail.page;
-        var p = page.name.split("-");
+        var p = page.name.split('-');
 
-        if (p[0] === 'depart' && page.from != "left") {
-            $('.page-depart .page-content').animate({
-                scrollTop: $(".current").offset().top - 100
-            }, 500);
+        if (p[0] === 'depart' && page.from !== 'left') {
+            const $page = $$('.page-depart .page-content');
+            scrollTo(
+                $page[0],
+                Math.min($$('.current').offset().top - 88, $page[0].scrollHeight - $page.height()),
+                500
+            );
         }
 
-        if (p[0] === 'depart' && $(".pdata").length) {
+        if (p[0] === 'depart' && $$('.pdata').length) {
 
             $$(page.container).find('.page-content').css('padding-bottom', "150px");
 
-            if ($(".pdata").length > 0) { // S'il y a des perturbations
+            if ($$('.pdata').length > 0) { // S'il y a des perturbations
                 f7.addNotification({
-                    message: $('.pdata').html(),
+                    message: $$('.pdata').html(),
                     button: false
                 });
             }
         }
 
-        if (p[0] == 'page' ||  p[0] == 'index') {
-            $.ajax({
-                url: "/ajax/ajaxprochainsdeparts.php?id=" + p[1],
+        if (p[0] == 'page' || p[0] == 'index') {
+            $$.ajax({
+                url: `/ajax/ajaxprochainsdeparts.php?id=${p[1]}`,
                 cache: false,
-                success: function(result) {
+                success: (result) => {
                     $$(page.container).find('.page-content').html(result);
-                    $$('.page-page').removeClass('layout-dark');
-                    $$('.page-index').removeClass('layout-dark');
+                    $$('.page-page, .page-index').removeClass('layout-dark');
                 }
             });
         }
@@ -199,7 +192,7 @@ f7.onPageInit('arrets', function(){
     });
 
     // Localisation
-    if("geolocation" in navigator){
+    if ('geolocation' in navigator){
 
         $$('.location-message').hide();
         $$('.enable-geolocation').show();
@@ -330,3 +323,38 @@ f7.onPageInit('trajets', function(){
         pagination: '.swiper-pagination'
     });
 });
+
+// scrollTo animation without jQuery
+// Source : https://gist.github.com/andjosh/6764939
+
+function scrollTo(element, to, duration) {
+    var start = element.scrollTop,
+        change = to - start,
+        currentTime = 0,
+        increment = 20;
+
+    var animateScroll = () => {
+        currentTime += increment;
+        var val = Math.easeInOutQuad(currentTime, start, change, duration);
+        element.scrollTop = val;
+        if (currentTime < duration) {
+            setTimeout(animateScroll, increment);
+        }
+    };
+
+    animateScroll();
+}
+
+/**
+ * @param  {Number} t current time
+ * @param  {Number} b start value
+ * @param  {Number} c change in value
+ * @param  {Number} d duration
+ * @return {Number}
+ */
+Math.easeInOutQuad = function (t, b, c, d) {
+    t /= (d / 2);
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c/2 * (t*(t-2) - 1) + b;
+};

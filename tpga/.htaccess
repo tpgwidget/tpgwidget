@@ -11,5 +11,8 @@ RewriteRule ^ajax/prochainsdeparts/([A-Z0-9]{4})/$ ajax/ajaxprochainsdeparts.php
 RewriteRule ^ajax/depart/([0-9]+)/$ ajax/ajaxdepart.php?id=$1 [L]
 RewriteRule ^ajax/page/([A-Z0-9]{4})/(.*)$ ajax/ajaxpage.php?id=$1&name=$2 [B,L]
 
+RewriteRule ^itineraire/stops.json$ itineraire/stops.json.php [L]
+RewriteRule ^arrets/arrets.json$ arrets/arrets.json.php [L]
+
 RewriteRule ^noID/([A-Z0-9]{4})/(.*)$ noID/widget.php?stopCode=$1&stopName=$2 [L]
 RewriteRule ^vehicule$ vehicule.php [L]
