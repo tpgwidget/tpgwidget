@@ -1,9 +1,10 @@
 const $$ = Dom7;
 
 if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add to home screen
+    const stopName = $$('.center').text();
     $$.get('/ath.html', data => {
         $$('body').html(data);
-        $$('#ath-stop-name').text($$('.center').text());
+        $$('#ath-stop-name').text(stopName);
     });
 } else {
     const f7 = new Framework7({
