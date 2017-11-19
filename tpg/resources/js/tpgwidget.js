@@ -1,7 +1,7 @@
 const $$ = Dom7;
 
 if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add to home screen
-    $$.get('ath.html', data => {
+    $$.get('/ath.html', data => {
         $$('body').html(data);
         $$('#ath-stop-name').text($$('.center').text());
     });
