@@ -128,7 +128,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
 
         if (p[0] == 'page' || p[0] == 'index') {
             $$.ajax({
-                url: `/ajax/nextDepartures/${p[1]}}`,
+                url: `/ajax/ajaxprochainsdeparts.php?id=${p[1]}`,
                 cache: false,
                 success: (result) => {
                     $$(page.container).find('.page-content').html(result);
