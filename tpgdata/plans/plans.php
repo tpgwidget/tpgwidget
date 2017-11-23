@@ -33,7 +33,7 @@ function arrayMap($callback, $arr1)
 }
 
 class Plans {
-    
+
     /* Types de plans */
     protected static $types = [
         'urbain' => [
@@ -57,33 +57,34 @@ class Plans {
             'desc' => 'Toutes les zones tarifaires unireso'
         ]
     ];
-    
+
     /* Années et leurs plans */
     protected static $years = [
         '2017_mai' => [
-            'name' => 'Dès le 2 mai 2017',
+            'name' => 'Jusqu’au 9 décembre 2017',
             'plans' => ['urbain', 'regional', 'noctambus', 'noctambusurbain']
         ],
+        '2018' => [
+            'name' => 'Dès le 10 décembre 2017',
+            'plans' => ['urbain', 'regional', 'noctambus', 'noctambusurbain'],
+        ],
     ];
-    
+
     public static function all()
-    {   
+    {
         // Pour chaque plan, prend le nom du plan et le remplace
         // par l'objet définissant le type de ce plan
         foreach(self::$years as $yearNumber => $year) {
-            
+
             $plans = &self::$years[$yearNumber]["plans"];
-            
+
             foreach($plans as $index => $plan){
                 $plans[$plan] = self::$types[$plan];
-                
+
                 unset($plans[$index]);
             }
         }
-        
+
         return self::$years;
     }
-    
 }
-
-?>
