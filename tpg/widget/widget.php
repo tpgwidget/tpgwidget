@@ -189,6 +189,6 @@ $nameW = $widget['name'];
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?1.4.2"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?speed3"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?fixdisruptions"></script>
   </body>
 </html>

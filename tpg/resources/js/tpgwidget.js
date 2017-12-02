@@ -43,7 +43,10 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
         f7.hidePreloader();
     });
 
-    var popupHTML = '';
+    let popupHTML = '';
+    $$(document).on('click', '.open-disruptions', () => {
+        f7.popup(popupHTML);
+    });
 
     $$(document).on('pageBeforeAnimation', function (e) {
         f7.closeNotification(".notifications");
@@ -60,30 +63,34 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             });
         }
 
-        if (p[0] == 'depart') {
+        if (p[0] === 'depart') {
             $$('.navbar, .subnavbar').css('background-color', `#${p[1]}`);
 
-            var incidents = [];
+            const incidents = [];
 
-            $$('.pdata article').each(() => {
-                incidents.push(`<div class="card">
+            const $disruptions = $$('.disruptions-data');
+
+            if ($disruptions.length) {
+                const disruptionsHtml = JSON.parse($disruptions.text()).reduce((acc, disruption) => `${acc}<div class="card">
                     <div class="card-header">
-                    ${$$(this).children('header').html()}
+                    ${disruption.nature}
                     </div>
                     <div class="card-content">
                         <div class="card-content-inner">
-                        ${$$(this).children('p').html()}
+                            ${disruption.consequence}
                         </div>
                     </div>
-                </div>`);
-            });
+                </div>`, '');
 
-            popupHTML = `<div class="popup popup-perturbations">
-            <div class="content-block">
-            ${incidents.join('')}
-            <div class="actions-modal-group"><div class="actions-modal-button color-red close-popup">Fermer</div></div>
-            </div>
-            </div>`;
+                popupHTML = `<div class="popup popup-perturbations">
+                    <div class="content-block">
+                    ${disruptionsHtml}
+                        <div class="actions-modal-group">
+                            <div class="actions-modal-button color-red close-popup">Fermer</div>
+                        </div>
+                    </div>
+                </div>`;
+            }
 
             if (p[2]) {
                 $$('.navbar, .subnavbar').addClass('theme-black');
@@ -114,14 +121,14 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             );
         }
 
-        if (p[0] === 'depart' && $$('.pdata').length) {
+        if (p[0] === 'depart' && $$('.disruptions-data').length) {
 
             $$(page.container).find('.page-content').css('padding-bottom', "150px");
 
-            $$('.pdata article').each(function() {
+            JSON.parse($$('.disruptions-data').text()).forEach((d) => {
                 f7.addNotification({
-                    title: $$(this).children('header').html(),
-                    message: '<a href="#" class="button" onclick="f7.popup(popupHTML);">En savoir plus</a>'
+                    title: d.nature,
+                    message: '<a href="#" class="button open-disruptions">En savoir plus</a>'
                 });
             });
         }
@@ -294,7 +301,7 @@ f7.onPageInit('arrets', () => {
                             for(var i = 0; i < stops.length; i++){
                                 var stop = stops[i];
 
-                                var html =  '<li>'+
+                                var html = '<li>'+
                                 '<a href="/ajax/page/'+stop.stopCode+'/'+stop.stopName+'" class="item-link item-content">'+
                                 '<div class="item-media">'+
                                 '<i class="icon icon-location"></i>'+
