@@ -1,5 +1,5 @@
 <?
-include '../stops.php';
+require '../../tpgdata/stops.php';
 
 if(!isset($_GET["id"])){
     $erreur = "Paramètre manquant";
@@ -38,10 +38,11 @@ if($nextDepartures){
                    }
 
                    $lignes = array_unique($lignes);
+                   $lignesNoctambus = [];
 
                    foreach($lignes as $key => $ligne){
-                       if(substr($ligne, "0", "1") == "N"){
-                            $lignesNocambus[] = $ligne;
+                       if(substr($ligne, 0, 1) === 'N'){
+                            $lignesNoctambus[] = $ligne;
                             unset($lignes[$key]);
                        }
                    }
@@ -50,7 +51,7 @@ if($nextDepartures){
                        echo '<li class="l'.$ligne.'">'.$ligne.'</li>';
                    }
 
-                   foreach($lignesNocambus as $ligne){
+                   foreach($lignesNoctambus as $ligne){
                        echo '<li class="l'.$ligne.'">'.$ligne.'</li>';
                    }
                 ?>
