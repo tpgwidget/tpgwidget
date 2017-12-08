@@ -38,61 +38,13 @@ $nameW = $widget['name'];
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?speed">
 
     <!-- Icônes -->
-    <link href="http://www.nicolapps.ch/widgetimage/152/f60/ffffff&text=<?=urlencode($stopW)?>"
-              sizes="152x152"
-              rel="apple-touch-icon">
-	<link href="http://www.nicolapps.ch/widgetimage/144/f60/ffffff&text=<?=urlencode($stopW)?>"
-	      sizes="144x144"
-	      rel="apple-touch-icon">
-	<link href="http://www.nicolapps.ch/widgetimage/120/f60/ffffff&text=<?=urlencode($stopW)?>"
-	      sizes="120x120"
-	      rel="apple-touch-icon">
-	<link href="http://www.nicolapps.ch/widgetimage/114/f60/ffffff&text=<?=urlencode($stopW)?>"
-	      sizes="114x114"
-	      rel="apple-touch-icon">
-	<link href="http://www.nicolapps.ch/widgetimage/76/f60/ffffff&text=<?=urlencode($stopW)?>"
-	      sizes="76x76"
-	      rel="apple-touch-icon">
-	<link href="http://www.nicolapps.ch/widgetimage/72/f60/ffffff&text=<?=urlencode($stopW)?>"
-	      sizes="72x72"
-	      rel="apple-touch-icon">
-	<link href="http://www.nicolapps.ch/widgetimage/57/f60/ffffff&text=<?=urlencode($stopW)?>"
-	      sizes="57x57"
-	      rel="apple-touch-icon">
-
-	<!-- Startup images -->
-	<link href="http://www.nicolapps.ch/widgetimage/1536x2008/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 768px) and (device-height: 1024px)
-	         and (orientation: portrait)
-	         and (-webkit-device-pixel-ratio: 2)"
-	      rel="apple-touch-startup-image">
-	<link href="http://www.nicolapps.ch/widgetimage/1496x2048/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 768px) and (device-height: 1024px)
-	         and (orientation: landscape)
-	         and (-webkit-device-pixel-ratio: 2)"
-	      rel="apple-touch-startup-image">
-	<link href="http://www.nicolapps.ch/widgetimage/768x1004/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 768px) and (device-height: 1024px)
-	         and (orientation: portrait)
-	         and (-webkit-device-pixel-ratio: 1)"
-	      rel="apple-touch-startup-image">
-	<link href="http://www.nicolapps.ch/widgetimage/748x1024/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 768px) and (device-height: 1024px)
-	         and (orientation: landscape)
-	         and (-webkit-device-pixel-ratio: 1)"
-	      rel="apple-touch-startup-image">
-	<link href="http://www.nicolapps.ch/widgetimage/640x1096/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 320px) and (device-height: 568px)
-	         and (-webkit-device-pixel-ratio: 2)"
-	      rel="apple-touch-startup-image">
-	<link href="http://www.nicolapps.ch/widgetimage/640x920/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 320px) and (device-height: 480px)
-	         and (-webkit-device-pixel-ratio: 2)"
-	      rel="apple-touch-startup-image">
-	<link href="http://www.nicolapps.ch/widgetimage/320x460/f60/ffffff&text=<?php echo $nameW; ?>"
-	      media="(device-width: 320px) and (device-height: 480px)
-	         and (-webkit-device-pixel-ratio: 1)"
-	      rel="apple-touch-startup-image">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/144.png" sizes="144x144" rel="apple-touch-icon">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/120.png" sizes="120x120" rel="apple-touch-icon">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/114.png" sizes="114x114" rel="apple-touch-icon">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/76.png" sizes="76x76" rel="apple-touch-icon">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/72.png" sizes="72x72" rel="apple-touch-icon">
+    <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/57.png" sizes="57x57" rel="apple-touch-icon">
   </head>
   <body>
     <div class="panel-overlay"></div>
