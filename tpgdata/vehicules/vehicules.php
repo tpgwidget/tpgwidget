@@ -109,7 +109,7 @@ class Vehicule {
 
         } elseif(1271 <= $id && $id <= 1283) { // TOSA
 
-            $this->type = 'Autobus articulé éléctrique';
+            $this->type = 'Autobus articulé électrique';
             $this->name = "TOSA";
             $this->icon = 'tosa';
             $this->img = 'tosa';
