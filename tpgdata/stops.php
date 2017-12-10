@@ -106,6 +106,18 @@ function stopFilter($stop) {
         return 'Grand-Saconnex-Douane';
     case 'Gd-Saconnex-Mairie':
         return 'Grand-Saconnex-Mairie';
+    case 'Hôpital la Tour':
+        return 'Hôpital de La Tour';
+    case 'Jardin-Alpin-Vi.':
+        return 'Jardin-Alpin-Vivarium';
+    case 'Aeroport-p47':
+        return 'Aéroport-P47';
+    case 'Vernier-Parf.':
+        return 'Vernier-Parfumerie';
+    case 'Les esserts':
+        return 'Les Esserts';
+    case 'Jardin botanique':
+        return 'Jardin Botanique';
     default:
         return $stop;
     }
