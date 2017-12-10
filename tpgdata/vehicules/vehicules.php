@@ -107,19 +107,16 @@ class Vehicule {
 
         /* TROLLEYBUS */
 
-        } elseif($id == 1397) { // TOSA
+        } elseif(1271 <= $id && $id <= 1283) { // TOSA
 
-            $this->type = "Autobus articulé";
+            $this->type = 'Autobus articulé éléctrique';
             $this->name = "TOSA";
-            $this->icon = 'hess';
+            $this->icon = 'tosa';
             $this->img = 'tosa';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kYYeMp';
             $this->tpg_link = 'http://www.tpg.ch/fr/tosa';
-            $this->places_assises = 45;
-            $this->places_debout = 88;
-            $this->places_totales = 133;
-            $this->year = "2013";
+            $this->year = '2017';
 
         } elseif(701 <= $id && $id <= 713) { // NAW
 
