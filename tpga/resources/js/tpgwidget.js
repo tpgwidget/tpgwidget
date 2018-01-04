@@ -7,6 +7,7 @@ var f7 = new Framework7({
 });
 
 var $$ = Dom7;
+let stops = []; // Routes stops autocomplete
 
 var mainView = f7.addView('.view-main', {});
 
@@ -272,50 +273,19 @@ f7.onPageInit('itineraire', function () {
         });
     });
 
-    $$.ajax({
-        url: '/itineraire/stops.json',
-        method: 'GET',
-        dataType: 'json',
-        success: function(stops){
-            function genererAutocomplete(sens, titre){ // sens = 'depart' ou 'arrivee'
-                var autocomplete = f7.autocomplete({
-                    openIn: 'page',
-                    opener: $$('.itineraire-' + sens),
-                    backOnSelect: true,
-                    source: source,
-                    onChange: onChange,
-                    pageTitle: titre,
-                    backText: 'Retour',
-                    notFoundText: 'Aucun arrêt trouvé',
-                    searchbarPlaceholderText: 'Rechercher...',
-                    searchbarCancelText: 'Annuler'
-                });
+    if (stops.length === 0) {
+        $$.ajax({
+            url: '/itineraire/stops.json',
+            method: 'GET',
+            dataType: 'json',
+            success(data) {
+                data = stops;
+            },
+        });
 
-                function source (autocomplete, query, render) {
-                    var results = [];
-
-                    if (query.length === 0) {
-                        render(stops);
-                        return;
-                    }
-
-                    for (var i = 0; i < stops.length; i++) {
-                        if (stops[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(stops[i]);
-                    }
-
-                    render(results);
-                }
-
-                function onChange(autocomplete, value){
-                    $$('.itineraire-' + sens).find('.item-after').text(value[0]);
-                    $$('.itineraire-' + sens).find('input').val(value[0]);
-                }
-            }
-
-            genererAutocomplete('depart', 'Départ');
-            genererAutocomplete('arrivee', 'Arrivée');
-        }
-    });
+        genererAutocomplete('depart', 'Départ');
+        genererAutocomplete('arrivee', 'Arrivée');
+    }
 });
 
 f7.onPageInit('trajets', function(){
@@ -358,3 +328,36 @@ Math.easeInOutQuad = function (t, b, c, d) {
     t--;
     return -c/2 * (t*(t-2) - 1) + b;
 };
+
+function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
+    f7.autocomplete({
+        openIn: 'page',
+        opener: $$(`.itineraire-${sens}`),
+        backOnSelect: true,
+        source(autocomplete, query, render) {
+            var results = [];
+
+            if (query.length === 0) {
+                render(stops);
+                return;
+            }
+
+            for (var i = 0; i < stops.length; i++) {
+                if (stops[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+                    results.push(stops[i]);
+                }
+            }
+
+            render(results);
+        },
+        onChange(autocomplete, value){
+            $$('.itineraire-' + sens).find('.item-after').text(value[0]);
+            $$('.itineraire-' + sens).find('input').val(value[0]);
+        },
+        pageTitle: titre,
+        backText: 'Retour',
+        notFoundText: 'Aucun arrêt trouvé',
+        searchbarPlaceholderText: 'Rechercher…',
+        searchbarCancelText: 'Annuler',
+    });
+}
