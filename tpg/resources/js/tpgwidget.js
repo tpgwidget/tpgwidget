@@ -187,7 +187,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                 method: 'GET',
                 dataType: 'json',
                 success(data) {
-                    data = stops;
+                    stops = data;
                 },
             });
 
@@ -259,16 +259,16 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude
                         },
-                        success: function(stops){
+                        success(nearStops) {
 
-                            if (stops.length === 0) { // aucun arrêt
+                            if (nearStops.length === 0) { // aucun arrêt
                                 $$('.location-message .item-title').text('Aucun arrêt proche trouvé');
                             } else {
 
                                 $$('.location-message').hide();
 
-                                for(var i = 0; i < stops.length; i++){
-                                    var stop = stops[i];
+                                for(var i = 0; i < nearStops.length; i++){
+                                    var stop = nearStops[i];
 
                                     var html = '<li>'+
                                     '<a href="/ajax/page/'+stop.stopCode+'/'+stop.stopName+'" class="item-link item-content">'+
