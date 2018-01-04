@@ -306,6 +306,40 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
     });
 
     });
+
+    function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
+        f7.autocomplete({
+            openIn: 'page',
+            opener: $$(`.itineraire-${sens}`),
+            backOnSelect: true,
+            source(autocomplete, query, render) {
+                var results = [];
+
+                if (query.length === 0) {
+                    render(stops);
+                    return;
+                }
+
+                for (var i = 0; i < stops.length; i++) {
+                    if (stops[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+                        results.push(stops[i]);
+                    }
+                }
+
+                render(results);
+            },
+            onChange(autocomplete, value){
+                $$('.itineraire-' + sens).find('.item-after').text(value[0]);
+                $$('.itineraire-' + sens).find('input').val(value[0]);
+            },
+            pageTitle: titre,
+            navbarTheme: 'white',
+            backText: 'Retour',
+            notFoundText: 'Aucun arrêt trouvé',
+            searchbarPlaceholderText: 'Rechercher…',
+            searchbarCancelText: 'Annuler',
+        });
+    }
 }
 
 // scrollTo animation without jQuery
@@ -342,37 +376,3 @@ Math.easeInOutQuad = function (t, b, c, d) {
     t--;
     return -c/2 * (t*(t-2) - 1) + b;
 };
-
-function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
-    f7.autocomplete({
-        openIn: 'page',
-        opener: $$(`.itineraire-${sens}`),
-        backOnSelect: true,
-        source(autocomplete, query, render) {
-            var results = [];
-
-            if (query.length === 0) {
-                render(stops);
-                return;
-            }
-
-            for (var i = 0; i < stops.length; i++) {
-                if (stops[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) {
-                    results.push(stops[i]);
-                }
-            }
-
-            render(results);
-        },
-        onChange(autocomplete, value){
-            $$('.itineraire-' + sens).find('.item-after').text(value[0]);
-            $$('.itineraire-' + sens).find('input').val(value[0]);
-        },
-        pageTitle: titre,
-        navbarTheme: 'white',
-        backText: 'Retour',
-        notFoundText: 'Aucun arrêt trouvé',
-        searchbarPlaceholderText: 'Rechercher…',
-        searchbarCancelText: 'Annuler',
-    });
-}

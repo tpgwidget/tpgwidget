@@ -219,7 +219,7 @@ f7.onPageInit('arrets', function(){
                     },
                     success(nearStops) {
 
-                        if (nearStops.length == 0){ // aucun arrêt
+                        if(nearStops.length == 0){ // aucun arrêt
                             $$('.location-message .item-title').text('Aucun arrêt proche trouvé');
                         } else {
 
