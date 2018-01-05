@@ -35,7 +35,7 @@ $nameW = $widget['name'];
     <title><?= $nameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?speed">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?xa">
 
     <!-- Icônes -->
     <link rel="icon" sizes="192x192" href="/icon/<?= urlencode($stopW) ?>/192.png">
