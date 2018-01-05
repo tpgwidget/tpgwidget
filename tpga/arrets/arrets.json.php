@@ -7,7 +7,7 @@ $output = [];
 
 if ($stops) {
     foreach ($stops->stops->stop as $stop) {
-        $output[] = ['stopName' => stopFilter($stop->stopName), 'stopCode' => $stop->stopCode];
+        $output[] = ['stopName' => stopFilter($stop->stopName), 'stopCode' => (string)$stop->stopCode];
     }
 }
 
