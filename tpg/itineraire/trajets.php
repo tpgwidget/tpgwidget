@@ -193,8 +193,8 @@ $json = json_decode($file);
                                         <span class="destination">
                                             <span style="color: #<?= lineColor($indiceDeLigne) ?>">➜</span> <?= showTpgName($section->journey->to) ?>
                                         </span>
-                                        <?
-                                        switch($section->journey->category) {
+                                        <?php
+                                        switch ($section->journey->category) {
                                             case 'NFB':
                                                 echo '<i>🚌</i>';
                                                 break;
