@@ -1,4 +1,4 @@
-![TPGwidget logo](https://www.nicolapps.ch/tpgwidget/logo.png)
+![TPGwidget logo](https://www.nicolapps.ch/tpgwidget/name.png)
 
 [![Download on the App Store](https://user-images.githubusercontent.com/551004/29770691-a2082ff4-8bc6-11e7-89a6-964cd405ea8e.png)](https://tinyurl.com/TPGwidget-iOS)
 [![Download on Google Play](https://user-images.githubusercontent.com/551004/29770692-a20975c6-8bc6-11e7-8ab0-1cde275496e0.png)](https://tinyurl.com/TPGwidget-Android)
