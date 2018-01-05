@@ -282,10 +282,10 @@ f7.onPageInit('itineraire', function () {
                 stops = data;
             },
         });
-
-        genererAutocomplete('depart', 'Départ');
-        genererAutocomplete('arrivee', 'Arrivée');
     }
+
+    genererAutocomplete('depart', 'Départ');
+    genererAutocomplete('arrivee', 'Arrivée');
 });
 
 f7.onPageInit('trajets', function(){

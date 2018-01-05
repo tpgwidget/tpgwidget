@@ -190,10 +190,10 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                     stops = data;
                 },
             });
-
-            genererAutocomplete('depart', 'Départ');
-            genererAutocomplete('arrivee', 'Arrivée');
         }
+
+        genererAutocomplete('depart', 'Départ');
+        genererAutocomplete('arrivee', 'Arrivée');
     });
 
     f7.onPageInit('trajets', () => {
