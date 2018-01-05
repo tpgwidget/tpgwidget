@@ -1,23 +1,19 @@
 <?php
-header('Content-type: application/json; charset=utf-8');
 
 require '../../tpgdata/apikey.php';
 require '../../tpgdata/stops.php';
-$stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
+$stops = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
+$output = [];
 
-echo '[';
+if ($stops) {
+    foreach ($stops->stops->stop as $stop) {
+        $output[] = ['stopName' => stopFilter($stop->stopName), 'stopCode' => (string)$stop->stopCode];
+    }
+}
 
-  $firstStop = true;
+usort($output, function($a, $b) {
+    return strcoll($a['stopName'], $b['stopName']);
+});
 
-  foreach($stops->stops->stop as $stop) {
-      if(!$firstStop){
-          echo ', ';
-      }
-
-      if($firstStop) {
-        $firstStop = false;
-      }
-      echo '{ "stopName": "'.stopFilter($stop->stopName).'", "stopCode": "'.$stop->stopCode.'" }';
-  }
-
-echo ']';
+header('Content-Type: application/json');
+echo json_encode($output);
