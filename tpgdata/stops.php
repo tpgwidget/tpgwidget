@@ -33,7 +33,7 @@ function stopFilter($stop) {
 	case 'Onex-cite':
 		return 'Onex-Cité';
 	case 'Lignon':
-		return 'Tours Lignon';
+		return 'Lignon-Tours';
 	case 'Carouge':
 		return 'Carouge-Rondeau';
 	case 'Carouge (Rondeau)':
