@@ -117,6 +117,7 @@ class Vehicule {
             $this->img_link = 'https://flic.kr/p/kYYeMp';
             $this->tpg_link = 'http://www.tpg.ch/fr/tosa';
             $this->year = '2017';
+            $this->wifi = true;
 
         } elseif(701 <= $id && $id <= 713) { // NAW
 
