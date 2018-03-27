@@ -123,7 +123,7 @@ class Vehicule {
 
             $this->type = "Trolleybus";
             $this->name = "NAW/Hess/Siemens BGT-N2";
-            $this->icon = 'hess';
+            $this->icon = 'naw';
             $this->img = 'naw';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/gnTYVE';
