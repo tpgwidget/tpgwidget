@@ -27,7 +27,7 @@ function stopFilter($stop) {
     case 'Jar.-Botanique':
 		return 'Jardin Botanique';
     case 'Bachet':
-    	return 'Bachet-de-Pesay <small>(dépôt)</small>';
+    	return 'Bachet-de-Pesay';
     case 'Palettes bachet':
         return 'Palettes - Bachet';
 	case 'Onex-cite':
