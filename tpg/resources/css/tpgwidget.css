@@ -372,7 +372,7 @@ span.perturbation::before {
 }
 
 .w .departure-wifi {
-    filter: invert();
+    filter: invert(1);
 }
 
 .page-vehicule {

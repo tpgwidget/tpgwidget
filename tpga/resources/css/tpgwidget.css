@@ -411,7 +411,7 @@ ul.parl ul {
 }
 
 .w .departure-wifi {
-    filter: invert();
+    filter: invert(1);
 }
 
 /* About page */
