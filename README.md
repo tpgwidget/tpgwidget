@@ -43,4 +43,4 @@ If you have a question or an idea, you can create an issue. Pull requests are we
 - **Nicolas Ettlin** ([@Nicolapps](https://github.com/Nicolapps))
 
 ## License
-TPGwidget code is relased under the MIT license, see the [LICENSE](https://github.com/tpgwidget/tpgwidget/blob/master/LICENSE) file for details. This repository includes maps (© transports publics genevois), and the vehicle icons are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) licensed.
+TPGwidget code is released under the MIT license, see the [LICENSE](https://github.com/tpgwidget/tpgwidget/blob/master/LICENSE) file for details. This repository includes maps (© transports publics genevois), and the vehicle icons are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) licensed.
