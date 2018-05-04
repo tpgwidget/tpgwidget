@@ -61,4 +61,4 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
         </div>
       </div>
     </div>
-<? } ?>
+<?php } ?>

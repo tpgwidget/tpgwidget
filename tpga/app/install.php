@@ -91,4 +91,4 @@ if ($nextDepartures){
 	    </section>
     </div>
   </div>
-<? } ?>
+<?php } ?>

@@ -46,7 +46,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
         </div>
       </div>
     </div>
-<? }
+<?php }
 } if (!$perturbations) { ?>
     <div class="card">
       <div class="card-content">
@@ -58,4 +58,4 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
         </div>
       </div>
     </div>
-<? } ?>
+<?php } ?>

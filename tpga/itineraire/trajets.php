@@ -29,7 +29,7 @@ $json = json_decode($file);
         </div>
     </div>
     <div class="page-content">
-        <? if(count($json->connections) > 0) { ?>
+        <?php if(count($json->connections) > 0) { ?>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?
@@ -139,9 +139,9 @@ $json = json_decode($file);
                             </header>
 
                             <!-- Trajet -->
-                            <? foreach($trajet->sections as $section) { ?>
+                            <?php foreach($trajet->sections as $section) { ?>
                                 <div class="card">
-                                    <? if($section->journey) { ?>
+                                    <?php if($section->journey) { ?>
                                     <div class="card-header">
                                         <?
                                         if($section->journey->operator == 'TPG') {
@@ -222,18 +222,18 @@ $json = json_decode($file);
                                                 </li>
 
                                                 <li class="accordion-item">
-                                                    <? $stopCount = count($section->journey->passList); ?>
-                                                    <? if($stopCount > 0) { ?>
+                                                    <?php $stopCount = count($section->journey->passList); ?>
+                                                    <?php if($stopCount > 0) { ?>
                                                         <a href="#" class="item-content item-link">
                                                             <span class="item-media">
                                                                 <i class="icon t icon-resume l<?= $indiceDeLigne ?>"></i>
                                                             </span>
-                                                    <? } else { ?>
+                                                    <?php } else { ?>
                                                         <div class="item-content">
                                                             <span class="item-media">
                                                                 <i class="icon t icon-resume no-stops l<?= $indiceDeLigne ?>"></i>
                                                             </span>
-                                                    <? } ?>
+                                                    <?php } ?>
                                                         <span class="item-inner">
                                                             <span class="item-title"><em>
                                                                 <?
@@ -248,15 +248,15 @@ $json = json_decode($file);
                                                             </em></span>
                                                             <span class="item-after"><?= $intervalleArrets ?></span>
                                                         </span>
-                                                    <? if($stopCount > 0) { ?>
+                                                    <?php if($stopCount > 0) { ?>
                                                         </a>
-                                                    <? } else { ?>
+                                                    <?php } else { ?>
                                                         </div>
-                                                    <? } ?>
+                                                    <?php } ?>
                                                     <div class="accordion-item-content">
                                                         <div class="list-block">
                                                             <ul>
-                                                                <? foreach($section->journey->passList as $stop){ ?>
+                                                                <?php foreach($section->journey->passList as $stop){ ?>
                                                                 <li>
                                                                     <div class="item-content">
                                                                         <div class="item-media">
@@ -268,7 +268,7 @@ $json = json_decode($file);
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                                <? } ?>
+                                                                <?php } ?>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -288,7 +288,7 @@ $json = json_decode($file);
                                             </ul>
                                         </div>
                                     </div>
-                                    <? } elseif($section->walk) { // Marche ?>
+                                    <?php } elseif($section->walk) { // Marche ?>
                                         <!-- Marche -->
                                         <div class="card-header">
                                             <i class="icon icon-marche"></i>
@@ -335,34 +335,34 @@ $json = json_decode($file);
                                                 </ul>
                                             </div>
                                         </div>
-                                    <? } ?>
+                                    <?php } ?>
                                 </div>
-                            <? } ?>
+                            <?php } ?>
                         </div>
-                    <? } ?>
+                    <?php } ?>
                 </div>
             </div>
-        <? } else { // Aucun trajet trouvé ?>
+        <?php } else { // Aucun trajet trouvé ?>
             <div class="content-block">
                 <div class="itineraire-erreur">
-                    <? if(trim($arrivee) == '') { // Pas de lieu d'arrivée ?>
+                    <?php if(trim($arrivee) == '') { // Pas de lieu d'arrivée ?>
                         <img src="/resources/img/itineraire_where.png" alt="Où souhaitez-vous aller ?">
                         <h1>Où souhaitez-vous aller ?</h1>
                         <p>Vous n'avez sélectionné aucun lieu d'arrivée.</p>
                         <a href="#" class="back button button-big button-fill">Retour</a>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <img src="/resources/img/itineraire_erreur.png" alt="Aucun itinéraire trouvé">
                         <h1>Aucun itinéraire trouvé</h1>
                         <p>Aucun itinéraire n'a été trouvé. Essayez de modifier les termes de votre recherche.</p>
                         <a href="#" class="back button button-big button-fill">Réessayer</a>
-                    <? } ?>
+                    <?php } ?>
                 </div>
             </div>
-        <? } ?>
+        <?php } ?>
     </div>
-    <? if(count($json->connections) > 0) { ?>
+    <?php if(count($json->connections) > 0) { ?>
         <div class="swiper-container-horizontal toolbar toolbar-bottom">
             <div class="swiper-pagination swiper-pagination-bullets"></div>
         </div>
-    <? } ?>
+    <?php } ?>
 </div>

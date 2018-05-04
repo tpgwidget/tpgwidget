@@ -64,7 +64,7 @@ $color = lineColor($thermometer->lineCode);
         <div class="card"><div class="card-content">
         <div class="list-block parcours">
         <ul>
-            <? $avancee = 'previous';
+            <?php $avancee = 'previous';
               foreach ($thermometer->steps->step as $step) { ?>
               <li>
               <?
@@ -85,7 +85,7 @@ $color = lineColor($thermometer->lineCode);
                     <div class="item-after">
                         <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
                         <span class="m">
-                            <? if(intval($step->arrivalTime)) {
+                            <?php if(intval($step->arrivalTime)) {
                                 echo $step->arrivalTime." min";
                             } ?>
                         </span>
@@ -93,11 +93,11 @@ $color = lineColor($thermometer->lineCode);
                   </div>
                 </a>
               </li>
-            <? } ?>
+            <?php } ?>
         </ul>
       </div></div></div>
       </div>
-      <? if($thermometer->disruptions) { ?>
+      <?php if($thermometer->disruptions) { ?>
           <div class="pdata">
              <div class="accordion-list">
                 <?
@@ -115,8 +115,8 @@ $color = lineColor($thermometer->lineCode);
                              <?= $disruption->consequence ?>
                          </div>
                      </div>
-                 <? } ?>
+                 <?php } ?>
              </div>
-        <? } ?>
+        <?php } ?>
       </div>
 </div>

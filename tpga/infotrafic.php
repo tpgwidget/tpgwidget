@@ -13,7 +13,7 @@
         </div>
 
         <div id="perturbations-all">
-            <? include 'ajax/ajaxperturbations.php'; ?>
+            <?php include 'ajax/ajaxperturbations.php'; ?>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
 include '../../tpgdata/vehicules/vehicules.php';
 include '../../tpgdata/lignes.php';
 
-if(!isset($_GET['id'])){ // Si aucun arrêt spécifié
+if(!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
 }
 
@@ -16,7 +16,6 @@ if(!$thermometer){
 }
 
 include '../../tpgdata/stops.php';
-
 ?>
 
 <div class="navbar">
@@ -62,7 +61,7 @@ include '../../tpgdata/stops.php';
                 <div class="card-content">
                     <div class="list-block parcours">
                         <ul>
-                            <? $avancee = 'previous';
+                            <?php $avancee = 'previous';
                             foreach ($thermometer->steps->step as $step) { ?>
                                 <li>
                                     <?
@@ -83,7 +82,7 @@ include '../../tpgdata/stops.php';
                                             <div class="item-after">
                                                 <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
                                                 <span class="m">
-                                                    <? if(intval($step->arrivalTime)) {
+                                                    <?php if(intval($step->arrivalTime)) {
                                                         echo $step->arrivalTime." min";
                                                     } ?>
                                                 </span>
@@ -91,7 +90,7 @@ include '../../tpgdata/stops.php';
                                         </div>
                                     </a>
                                 </li>
-                            <? } ?>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

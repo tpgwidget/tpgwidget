@@ -118,10 +118,10 @@ $nameW = $widget['name'];
 
     </div>
     <div class="views">
-      <div class="view view-main" data-stop="<? echo $stopW; ?>">
+      <div class="view view-main" data-stop="<?php echo $stopW; ?>">
         <div class="navbar theme-white">
           <div class="navbar-inner">
-            <div class="center sliding"><? echo $nameW; ?></div>
+            <div class="center sliding"><?php echo $nameW; ?></div>
             <div class="right">
               <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
             </div>
