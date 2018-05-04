@@ -541,6 +541,47 @@ span.perturbation::before {
     max-width: 100%;
 }
 
+.form-itineraire .list-block {
+    position: relative;
+}
+
+.form-itineraire .autocomplete-opener {
+    padding-right: 60px;
+}
+
+.itineraire-invert {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+
+    background-color: #fff;
+    border: 1px solid #c8c7cc;
+    border-radius: 50%;
+
+    z-index: 16;
+}
+
+.itineraire-invert svg {
+    fill: #c8c7cc;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
+.itineraire-invert.active-state {
+    background-color: #007aff;
+    border-color: #007aff;
+}
+
+.itineraire-invert.active-state svg {
+    fill: #fff;
+}
+
 .itineraire-dateheure {
     padding-bottom: 5px;
 }

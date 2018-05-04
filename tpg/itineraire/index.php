@@ -15,6 +15,18 @@
         <form class="form-itineraire ajax-submit" method="POST" action="/itineraire/trajets.php">
             <div class="content-block-title">Où souhaitez-vous aller ?</div>
             <div class="list-block">
+                <div role="button" class="itineraire-invert">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                            <path d="M0 0h24v24H0V0z" id="a"/>
+                        </defs>
+                        <clipPath id="b">
+                            <use overflow="visible" xlink:href="#a"/>
+                        </clipPath>
+                        <path clip-path="url(#b)" d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/>
+                    </svg>
+                </div>
+
                 <ul>
                     <li>
                         <a href="#" class="item-link item-content autocomplete-opener itineraire-depart">

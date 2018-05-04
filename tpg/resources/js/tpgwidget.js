@@ -169,6 +169,17 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             });
         });
 
+        $$('.itineraire-invert').on('click', () => {
+            const arrivee = $$('input[name="depart"]').val();
+            const depart  = $$('input[name="arrivee"]').val();
+
+            $$('input[name="depart"]').val(depart);
+            $$('.itineraire-depart .item-after').text(depart !== '' ? depart : 'Cliquez pour choisir');
+
+            $$('input[name="arrivee"]').val(arrivee);
+            $$('.itineraire-arrivee .item-after').text(arrivee !== '' ? arrivee : 'Cliquez pour choisir');
+        });
+
         $$('.heure-depart').on('click', function(){
             $$(this).addClass('active');
             $$('.heure-arrivee').removeClass('active');

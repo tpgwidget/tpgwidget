@@ -35,7 +35,7 @@ $nameW = $widget['name'];
     <title><?= $nameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?xa">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?invert">
 
     <!-- Icônes -->
     <link rel="icon" sizes="192x192" href="/icon/<?= urlencode($stopW) ?>/192.png">
@@ -139,6 +139,6 @@ $nameW = $widget['name'];
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?142"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?cache"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?invert"></script>
 </body>
 </html>
