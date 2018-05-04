@@ -35,7 +35,7 @@ $nameW = $widget['name'];
     <title>TPGwidget</title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?142">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?xa">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?invert">
 
     <!-- Icônes -->
     <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">
@@ -141,6 +141,6 @@ $nameW = $widget['name'];
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?1.4.2"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?cache"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?invert"></script>
   </body>
 </html>
