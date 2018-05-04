@@ -273,6 +273,17 @@ f7.onPageInit('itineraire', function () {
         });
     });
 
+    $$('.itineraire-invert').on('click', () => {
+        const arrivee = $$('input[name="depart"]').val();
+        const depart = $$('input[name="arrivee"]').val();
+
+        $$('input[name="depart"]').val(depart);
+        $$('.itineraire-depart .item-after').text(depart !== '' ? depart : 'Cliquez pour choisir');
+
+        $$('input[name="arrivee"]').val(arrivee);
+        $$('.itineraire-arrivee .item-after').text(arrivee !== '' ? arrivee : 'Cliquez pour choisir');
+    });
+
     if (stops.length === 0) {
         $$.ajax({
             url: '/itineraire/stops.json',
