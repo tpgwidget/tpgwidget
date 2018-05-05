@@ -54,7 +54,7 @@ $nameW = $widget['name'];
         <div class="list-block">
             <ul>
               <li>
-                 <a href="/itineraire/?departure=<?= htmlspecialchars($nameW) ?>" class="item-link close-panel">
+                 <a href="/itineraire/?departure=<?= urlencode($nameW) ?>" class="item-link close-panel">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="icon i-itineraire"></i>
