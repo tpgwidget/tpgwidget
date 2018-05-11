@@ -1,0 +1,15 @@
+{
+    "name": "tpgwidget/tpgwidget",
+    "description": "iOS/Android app for public transport in Geneva",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicolas Ettlin",
+            "email": "webmaster@nicolapps.ch"
+        }
+    ],
+    "require": {
+        "tpgwidget/data": "^1.0"
+    }
+}
