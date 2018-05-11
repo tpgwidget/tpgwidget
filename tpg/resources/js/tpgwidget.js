@@ -339,7 +339,10 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
 
                 render(results);
             },
-            onChange(autocomplete, value){
+            onOpen() {
+                $$('.autocomplete-page .searchbar-input input').focus();
+            },
+            onChange(autocomplete, value) {
                 $$('.itineraire-' + sens).find('.item-after').text(value[0]);
                 $$('.itineraire-' + sens).find('input').val(value[0]);
             },
@@ -349,6 +352,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             notFoundText: 'Aucun arrêt trouvé',
             searchbarPlaceholderText: 'Rechercher…',
             searchbarCancelText: 'Annuler',
+            requestSourceOnOpen: true,
         });
     }
 }

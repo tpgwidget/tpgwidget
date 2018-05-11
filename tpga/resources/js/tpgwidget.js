@@ -361,7 +361,10 @@ function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
 
             render(results);
         },
-        onChange(autocomplete, value){
+        onOpen() {
+            $$('.autocomplete-page .searchbar-input input').focus();
+        },
+        onChange(autocomplete, value) {
             $$('.itineraire-' + sens).find('.item-after').text(value[0]);
             $$('.itineraire-' + sens).find('input').val(value[0]);
         },
@@ -370,5 +373,6 @@ function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
         notFoundText: 'Aucun arrêt trouvé',
         searchbarPlaceholderText: 'Rechercher…',
         searchbarCancelText: 'Annuler',
+        requestSourceOnOpen: true,
     });
 }
