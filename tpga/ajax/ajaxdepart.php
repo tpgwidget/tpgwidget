@@ -1,4 +1,7 @@
 <?php
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
+
 include '../../tpgdata/vehicules/vehicules.php';
 include '../../tpgdata/lignes.php';
 
@@ -13,8 +16,6 @@ $thermometer = @simplexml_load_file($file);
 if(!$thermometer){
     $erreur[] = '<div class="boxinstall"><strong>Erreur :</strong> Serveur TPG indisponible</div>';
 }
-
-include '../../tpgdata/stops.php';
 
 if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
     $b = 'b';
@@ -31,7 +32,7 @@ $color = lineColor($thermometer->lineCode);
             <i class="icon icon-back"></i>
            </a>
         </div>
-        <div class="center"><span class="lineCode <?=$b?>"><?=$thermometer->lineCode?></span> ➜ <?=stopFilter($thermometer->destinationName)?></div>
+        <div class="center"><span class="lineCode <?=$b?>"><?=$thermometer->lineCode?></span> ➜ <?= Stops::correct($thermometer->destinationName) ?></div>
       </div>
     </div>
     <div class="toolbar tabbar" style="background-color:#<?=$color?>">
@@ -81,7 +82,7 @@ $color = lineColor($thermometer->lineCode);
                         <i class="t icon l<?=str_replace('+', '', $thermometer->lineCode) ?>"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title"><?=stopFilter($step->stop->stopName)?></div>
+                    <div class="item-title"><?= Stops::correct($step->stop->stopName) ?></div>
                     <div class="item-after">
                         <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
                         <span class="m">

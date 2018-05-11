@@ -1,6 +1,4 @@
 <?php
-include '../../tpgdata/stops.php';
-
 if (!preg_match('/^\d{6}$/', $_GET['id'])) {
     http_response_code(404);
     die('Erreur : Aucun arrêt spécifié');

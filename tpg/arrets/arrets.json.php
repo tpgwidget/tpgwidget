@@ -1,13 +1,14 @@
 <?php
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
 
 require '../../tpgdata/apikey.php';
-require '../../tpgdata/stops.php';
 $stops = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
 $output = [];
 
 if ($stops) {
     foreach ($stops->stops->stop as $stop) {
-        $output[] = ['stopName' => stopFilter($stop->stopName), 'stopCode' => (string)$stop->stopCode];
+        $output[] = ['stopName' => Stops::correct($stop->stopName), 'stopCode' => (string)$stop->stopCode];
     }
 }
 

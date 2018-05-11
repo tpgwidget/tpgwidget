@@ -1,6 +1,4 @@
-<?
-require '../../tpgdata/stops.php';
-
+<?php
 if(!isset($_GET["id"])){
     $erreur = "Paramètre manquant";
 } else {
