@@ -1,5 +1,7 @@
-<?
-include 'tpgcff.php';
+<?php
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
+
 include '../../tpgdata/lignes.php';
 
 $depart = $_POST['depart'];
@@ -7,8 +9,8 @@ $arrivee = $_POST['arrivee'];
 $datehour = $_POST['dateheure'];
 
 $url =  'https://transport.opendata.ch/v1/connections'.
-        '?from='.urlencode(showCffName($depart)).
-        "&to=".urlencode(showCffName($arrivee));
+        '?from='.urlencode(Stops::tpgToSbb($depart)).
+        "&to=".urlencode(Stops::tpgToSbb($arrivee));
 
 if($_POST['dateheure']){
     $url .= '&date='.date('Y-m-d', strtotime($_POST['dateheure']));
@@ -191,7 +193,7 @@ $json = json_decode($file);
                                         array_pop($section->journey->passList);
                                         ?>
                                         <span class="destination">
-                                            <span style="color: #<?= lineColor($indiceDeLigne) ?>">➜</span> <?= showTpgName($section->journey->to) ?>
+                                            <span style="color: #<?= lineColor($indiceDeLigne) ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
                                         </span>
                                         <?php
                                         switch ($section->journey->category) {
@@ -219,7 +221,7 @@ $json = json_decode($file);
                                                             <i class="icon t l<?= $indiceDeLigne ?>"></i>
                                                         </div>
                                                         <div class="item-inner">
-                                                            <div class="item-title"><?= showTpgName($section->departure->station->name) ?></div>
+                                                            <div class="item-title"><?= Stops::sbbToTpg($section->departure->station->name) ?></div>
                                                             <div class="item-after"><?= date('H:i', $section->departure->departureTimestamp) ?></div>
                                                         </div>
                                                     </div>
@@ -267,7 +269,7 @@ $json = json_decode($file);
                                                                             <i class="icon t l<?= $indiceDeLigne ?>"></i>
                                                                         </div>
                                                                         <div class="item-inner">
-                                                                            <div class="item-title"><?= showTpgName($stop->station->name) ?></div>
+                                                                            <div class="item-title"><?= Stops::sbbToTpg($stop->station->name) ?></div>
                                                                             <div class="item-after"><?= date('H:i', $stop->departureTimestamp) ?></div>
                                                                         </div>
                                                                     </div>
@@ -284,7 +286,7 @@ $json = json_decode($file);
                                                             <i class="icon t l<?= $indiceDeLigne ?>"></i>
                                                         </div>
                                                         <div class="item-inner">
-                                                            <div class="item-title"><?= showTpgName($section->arrival->station->name) ?></div>
+                                                            <div class="item-title"><?= Stops::sbbToTpg($section->arrival->station->name) ?></div>
                                                             <div class="item-after"><?= date('H:i', $section->arrival->arrivalTimestamp) ?></div>
                                                         </div>
                                                     </div>
@@ -320,7 +322,7 @@ $json = json_decode($file);
                                                                 <i class="icon t l35"></i>
                                                             </div>
                                                             <div class="item-inner">
-                                                                <div class="item-title"><?= showTpgName($section->departure->station->name) ?></div>
+                                                                <div class="item-title"><?= Stops::sbbToTpg($section->departure->station->name) ?></div>
                                                                 <div class="item-after"><?= date('H:i', $section->departure->departureTimestamp) ?></div>
                                                             </div>
                                                         </div>
@@ -331,7 +333,7 @@ $json = json_decode($file);
                                                                 <i class="icon t l35"></i>
                                                             </div>
                                                             <div class="item-inner">
-                                                                <div class="item-title"><?= showTpgName($section->arrival->station->name) ?></div>
+                                                                <div class="item-title"><?= Stops::sbbToTpg($section->arrival->station->name) ?></div>
                                                                 <div class="item-after"><?= date('H:i', $section->arrival->arrivalTimestamp) ?></div>
                                                             </div>
                                                         </div>
