@@ -1,10 +1,12 @@
 <?php
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
+
 require '../../tpgdata/apikey.php';
 $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.$key.'&stopCode=' . $_GET["id"];
 $nextDepartures = @simplexml_load_file($file);
 
 include '../../tpgdata/quais.php';
-include '../../tpgdata/stops.php';
 include '../../tpgdata/lignes.php';
 include '../../tpgdata/vehicules/vehicules.php';
 ?>
@@ -40,7 +42,7 @@ include '../../tpgdata/vehicules/vehicules.php';
             ?>
                 <div class="item-inner">
                     <div class="item-title-row">
-                        <div class="item-title"><?php print $depart->connection->lineCode ?> ➜ <?php print stopFilter($depart->connection->destinationName); ?></div>
+                        <div class="item-title"><?php print $depart->connection->lineCode ?> ➜ <?php print Stops::correct($depart->connection->destinationName); ?></div>
                         <div class="item-after">
                             <?php if ($depart->waitingTime != "no more") {
                                 echo date("H:i", strtotime($depart->timestamp));

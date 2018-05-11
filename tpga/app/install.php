@@ -1,5 +1,6 @@
 <?php
-include '../../tpgdata/stops.php';
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
@@ -21,7 +22,7 @@ if ($nextDepartures){
                 <i class="icon icon-back"></i>
                </a>
             </div>
-            <div class="center"><?= stopFilter($nextDepartures->stop->stopName) ?></div>
+            <div class="center"><?= Stops::correct($nextDepartures->stop->stopName) ?></div>
           </div>
         </div>
 
