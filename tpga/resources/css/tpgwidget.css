@@ -543,7 +543,8 @@ ul.parl ul {
 }
 
 .card-vehicule .vehicle-icon {
-    width: 100px;
+    width: 95px;
+    margin-top: 5px;
     float: right;
 }
 
