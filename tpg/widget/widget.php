@@ -32,7 +32,7 @@ $nameW = $widget['name'];
 
     <title>TPGwidget</title>
 
-    <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?171">
+    <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?invert">
 
     <!-- Icônes -->
@@ -139,6 +139,6 @@ $nameW = $widget['name'];
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?invert"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?disruptions"></script>
   </body>
 </html>

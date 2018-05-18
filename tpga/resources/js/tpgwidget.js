@@ -6,16 +6,16 @@ var f7 = new Framework7({
     notificationCloseIcon: false
 });
 
-var $$ = Dom7;
+var $ = Dom7;
 let stops = []; // Routes stops autocomplete
 
 var mainView = f7.addView('.view-main', {});
 
-$$(document).on('ajaxStart', function(e) {
+$(document).on('ajaxStart', function(e) {
     f7.showPreloader('Chargement...');
 });
 
-$$(document).on('ajaxComplete', function() {
+$(document).on('ajaxComplete', function() {
     f7.hidePreloader();
 });
 
@@ -30,10 +30,10 @@ if (f7.device.android) {
 var isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 
 if (f7.device.android && !isStandalone) {
-    $$('.left').remove();
-    $$('.center').text('TPGwidget');
-    $$('.page-content').html(`<div class="content-block">
-        <p>Pour installer un raccourci pour l’arrêt <strong>${$$('.center').text()}</strong> :</p>
+    $('.left').remove();
+    $('.center').text('TPGwidget');
+    $('.page-content').html(`<div class="content-block">
+        <p>Pour installer un raccourci pour l’arrêt <strong>${$('.center').text()}</strong> :</p>
         <ul class="tutorial">
             <li>
                 <div class="step-number">1</div>
@@ -46,36 +46,36 @@ if (f7.device.android && !isStandalone) {
             </li>
         </ul>
     </div>`);
-    $$('.page-index').removeClass('layout-dark');
+    $('.page-index').removeClass('layout-dark');
 } else {
-    $$.ajax({
-        url: `/ajax/ajaxprochainsdeparts.php?id=${$$('.page-index').attr('data-page').split('-')[1]}`,
+    $.ajax({
+        url: `/ajax/ajaxprochainsdeparts.php?id=${$('.page-index').attr('data-page').split('-')[1]}`,
         cache: false,
         success: (result) => {
-            $$('.page-content').html(result);
-            $$('.page-index').removeClass('layout-dark');
+            $('.page-content').html(result);
+            $('.page-index').removeClass('layout-dark');
         },
         error: () => {
-            $$('.preloader').addClass("smileyErreur");
-            $$('.preloader').removeClass("preloader");
-            $$('.preloader-white').removeClass('preloader-white');
-            $$('.page-content').html(`<div class="graym"><h2>Erreur</h2><span>Impossible de se connecter au serveur TPGwidget</span></div>`);
+            $('.preloader').addClass("smileyErreur");
+            $('.preloader').removeClass("preloader");
+            $('.preloader-white').removeClass('preloader-white');
+            $('.page-content').html(`<div class="graym"><h2>Erreur</h2><span>Impossible de se connecter au serveur TPGwidget</span></div>`);
         }
     });
 
-    $$(document).on('pageBeforeAnimation', function(e) {
+    $(document).on('pageBeforeAnimation', function(e) {
         f7.closeNotification(".notifications");
 
         var page = e.detail.page;
         var p = page.name.split("-");
 
         if (p[0] == 'infotraffic') {
-            $$('.pull-to-refresh-content').on('refresh', function(e) {
-                $$.ajax({
+            $('.pull-to-refresh-content').on('refresh', function(e) {
+                $.ajax({
                     url: "/ajax/ajaxperturbations.php",
                     cache: false,
                     success: (result) => {
-                        $$('#perturbations-all').html(result);
+                        $('#perturbations-all').html(result);
                         f7.pullToRefreshDone();
                     }
                 });
@@ -83,8 +83,8 @@ if (f7.device.android && !isStandalone) {
         }
 
         function changeStatusbarColor(color) {
-            $$('meta[name=theme-color]').remove();
-            $$('head').append(`<meta name="theme-color" content="${color}">`);
+            $('meta[name=theme-color]').remove();
+            $('head').append(`<meta name="theme-color" content="${color}">`);
         }
 
         if(p[0] == 'depart'){
@@ -96,60 +96,60 @@ if (f7.device.android && !isStandalone) {
         }
     });
 
-    $$(document).on('pageAfterAnimation', function(e) {
+    $(document).on('pageAfterAnimation', function(e) {
 
         // Get page data from event data
         var page = e.detail.page;
         var p = page.name.split('-');
 
         if (p[0] === 'depart' && page.from !== 'left') {
-            const $page = $$('.page-depart .page-content');
+            const $page = $('.page-depart .page-content');
             scrollTo(
                 $page[0],
-                Math.min($$('.current').offset().top - 88, $page[0].scrollHeight - $page.height()),
+                Math.min($('.current').offset().top - 88, $page[0].scrollHeight - $page.height()),
                 500
             );
         }
 
-        if (p[0] === 'depart' && $$('.pdata').length) {
+        if (p[0] === 'depart' && $('.pdata').length) {
 
-            $$(page.container).find('.page-content').css('padding-bottom', "150px");
+            $(page.container).find('.page-content').css('padding-bottom', "150px");
 
-            if ($$('.pdata').length > 0) { // S'il y a des perturbations
+            if ($('.pdata').length > 0) { // S'il y a des perturbations
                 f7.addNotification({
-                    message: $$('.pdata').html(),
+                    message: $('.pdata').html(),
                     button: false
                 });
             }
         }
 
         if (p[0] == 'page' || p[0] == 'index') {
-            $$.ajax({
+            $.ajax({
                 url: `/ajax/ajaxprochainsdeparts.php?id=${p[1]}`,
                 cache: false,
                 success: (result) => {
-                    $$(page.container).find('.page-content').html(result);
-                    $$('.page-page, .page-index').removeClass('layout-dark');
+                    $(page.container).find('.page-content').html(result);
+                    $('.page-page, .page-index').removeClass('layout-dark');
                 }
             });
         }
 
     });
 
-    $$(document).on('click', '.show-m', function(e) {
-        $$('.show-h').removeClass('active');
-        $$('.show-m').addClass('active');
-        $$('.h').hide();
-        $$('.m').show();
-        $$('.tab-link-highlight').css('transform', 'translate3d(0%, 0px, 0px)');
+    $(document).on('click', '.show-m', function(e) {
+        $('.show-h').removeClass('active');
+        $('.show-m').addClass('active');
+        $('.h').hide();
+        $('.m').show();
+        $('.tab-link-highlight').css('transform', 'translate3d(0%, 0px, 0px)');
     });
 
-    $$(document).on('click', '.show-h', function(e) {
-        $$('.show-m').removeClass('active');
-        $$('.show-h').addClass('active');
-        $$('.h').show();
-        $$('.m').hide();
-        $$('.tab-link-highlight').css('transform', 'translate3d(100%, 0px, 0px)');
+    $(document).on('click', '.show-h', function(e) {
+        $('.show-m').removeClass('active');
+        $('.show-h').addClass('active');
+        $('.h').show();
+        $('.m').hide();
+        $('.tab-link-highlight').css('transform', 'translate3d(100%, 0px, 0px)');
     });
 
     // Back button pressed
@@ -162,7 +162,7 @@ if (f7.device.android && !isStandalone) {
 }
 
 f7.onPageInit('arrets', function(){
-    $$.ajax({
+    $.ajax({
         url: '/arrets/arrets.json',
         dataType: 'json',
         success: function(data){
@@ -195,22 +195,22 @@ f7.onPageInit('arrets', function(){
     // Localisation
     if ('geolocation' in navigator){
 
-        $$('.location-message').hide();
-        $$('.enable-geolocation').show();
+        $('.location-message').hide();
+        $('.enable-geolocation').show();
 
-        $$('.enable-geolocation').on('click', function(){
+        $('.enable-geolocation').on('click', function(){
             // Quand l'utilisateur appuie sur "Afficher les arrêts à proximité"
 
             // On retire le bouton
-            $$('.enable-geolocation').hide();
+            $('.enable-geolocation').hide();
             // On affiche le message de loading
-            $$('.location-message').css('display', 'flex');
+            $('.location-message').css('display', 'flex');
 
             // On récupère sa position
             navigator.geolocation.getCurrentPosition(function(position){
 
                 // On envoie au serveur sa position
-                $$.ajax({
+                $.ajax({
                     url: '/arrets/geolocation.json',
                     dataType: 'json',
                     data: {
@@ -220,10 +220,10 @@ f7.onPageInit('arrets', function(){
                     success(nearStops) {
 
                         if(nearStops.length == 0){ // aucun arrêt
-                            $$('.location-message .item-title').text('Aucun arrêt proche trouvé');
+                            $('.location-message .item-title').text('Aucun arrêt proche trouvé');
                         } else {
 
-                            $$('.location-message').hide();
+                            $('.location-message').hide();
 
                             for(var i = 0; i < nearStops.length; i++){
                                 var stop = nearStops[i];
@@ -239,27 +239,27 @@ f7.onPageInit('arrets', function(){
                                                 '</a>'+
                                             '</li>';
 
-                                $$('.arrets-location ul').append(html);
+                                $('.arrets-location ul').append(html);
                             }
                         }
                     }
                 });
             }, function(){ // Impossible d'obtenir la localisation
-                $$('.location-message .item-title').text("Impossible d'obtenir votre position");
+                $('.location-message .item-title').text("Impossible d'obtenir votre position");
             });
         });
 
     } else {
-        $$('.arrets-location').remove();
+        $('.arrets-location').remove();
     }
 
     // Quand on recherche un arrêt,
     // on cache les arrêts à proximité
-    $$('#arrets-search').on('keyup', function(){
-        if($$(this).val().trim() !== ''){
-            $$('.arrets-location').hide();
+    $('#arrets-search').on('keyup', function(){
+        if($(this).val().trim() !== ''){
+            $('.arrets-location').hide();
         } else {
-            $$('.arrets-location').show();
+            $('.arrets-location').show();
         }
     });
 
@@ -267,25 +267,25 @@ f7.onPageInit('arrets', function(){
 
 f7.onPageInit('itineraire', function () {
 
-    $$('form.ajax-submit').on('submitted', function (e) {
+    $('form.ajax-submit').on('submitted', function (e) {
         mainView.router.load({
             content: e.detail.data.replace(/SCREENWIDTH/g, screen.width)
         });
     });
 
-    $$('.itineraire-invert').on('click', () => {
-        const arrivee = $$('input[name="depart"]').val();
-        const depart = $$('input[name="arrivee"]').val();
+    $('.itineraire-invert').on('click', () => {
+        const arrivee = $('input[name="depart"]').val();
+        const depart = $('input[name="arrivee"]').val();
 
-        $$('input[name="depart"]').val(depart);
-        $$('.itineraire-depart .item-after').text(depart !== '' ? depart : 'Cliquez pour choisir');
+        $('input[name="depart"]').val(depart);
+        $('.itineraire-depart .item-after').text(depart !== '' ? depart : 'Cliquez pour choisir');
 
-        $$('input[name="arrivee"]').val(arrivee);
-        $$('.itineraire-arrivee .item-after').text(arrivee !== '' ? arrivee : 'Cliquez pour choisir');
+        $('input[name="arrivee"]').val(arrivee);
+        $('.itineraire-arrivee .item-after').text(arrivee !== '' ? arrivee : 'Cliquez pour choisir');
     });
 
     if (stops.length === 0) {
-        $$.ajax({
+        $.ajax({
             url: '/itineraire/stops.json',
             method: 'GET',
             dataType: 'json',
@@ -343,7 +343,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
 function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
     f7.autocomplete({
         openIn: 'page',
-        opener: $$(`.itineraire-${sens}`),
+        opener: $(`.itineraire-${sens}`),
         backOnSelect: true,
         source(autocomplete, query, render) {
             var results = [];
@@ -362,11 +362,11 @@ function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
             render(results);
         },
         onOpen() {
-            $$('.autocomplete-page .searchbar-input input').focus();
+            $('.autocomplete-page .searchbar-input input').focus();
         },
         onChange(autocomplete, value) {
-            $$('.itineraire-' + sens).find('.item-after').text(value[0]);
-            $$('.itineraire-' + sens).find('input').val(value[0]);
+            $('.itineraire-' + sens).find('.item-after').text(value[0]);
+            $('.itineraire-' + sens).find('input').val(value[0]);
         },
         pageTitle: titre,
         backText: 'Retour',

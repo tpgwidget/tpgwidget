@@ -1,18 +1,17 @@
-const $$ = Dom7;
+const $ = Dom7;
 let stops = []; // Routes stops autocomplete
 
 if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add to home screen
-    const stopName = $$('.center').text();
-    $$.get('/ath.html', data => {
-        $$('body').html(data);
-        $$('#ath-stop-name').text(stopName);
+    const stopName = $('.center').text();
+    $.get('/ath.html', data => {
+        $('body').html(data);
+        $('#ath-stop-name').text(stopName);
     });
 } else {
     const f7 = new Framework7({
         statusbarOverlay: false,
         scrollTopOnStatusbarClick: true,
         cache: false,
-        notificationCloseIcon: false
     });
 
     // Add view
@@ -20,180 +19,215 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
         dynamicNavbar: true
     });
 
-    $$.ajax({
-        url: `/ajax/ajaxprochainsdeparts.php?id=${$$(".page-index").attr('data-page').split('-')[1]}`,
+    /**
+     * Adapted from Framework7 notifications, to make it allow multiple disruptions open at the same time
+     */
+    let _tempDisruptionsElement;
+    f7.addDisruption = function (params) {
+        if (!params) return;
+        params.place = typeof params.place === 'string' ? `<small>${params.place}</small> — ` : '';
+
+        if (!_tempDisruptionsElement) _tempDisruptionsElement = document.createElement('div');
+
+        var container = $('.notifications');
+        if (container.length === 0) {
+            f7.root.append('<div class="accordion-list notifications list-block media-list"><ul></ul></div>');
+            container = $('.notifications');
+        }
+        var list = container.children('ul');
+
+        var disruptionsTemplate = '<li class="notification-item notification-hidden accordion-item">' +
+            '<div class="item-content">' +
+                '<div class="item-inner">' +
+                    '<div class="item-title-row">' +
+                        '<div class="item-title">{{nature}}</div>' +
+
+                        '<div class="item-after"><a href="#" class="toggle-disruption"><span></span></a></div>' +
+                    '</div>' +
+
+                    '<div class="accordion-item-content">' +
+                        '<p>{{place}}{{consequence}}</p>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</li>'
+
+        if (!f7._compiledTemplates.disruption) {
+            f7._compiledTemplates.disruption = Template7.compile(disruptionsTemplate);
+        }
+        _tempDisruptionsElement.innerHTML = f7._compiledTemplates.disruption(params);
+
+        var item = $(_tempDisruptionsElement).children();
+
+        item.on('click', function (e) {
+            f7.accordionToggle(item);
+        });
+
+        list.append(item[0]);
+        container.show();
+
+        var itemHeight = item.outerHeight(), clientLeft;
+
+        item.transform('translate3d(0,' + (-itemHeight) + 'px,0)');
+        item.transition(0);
+
+        clientLeft = item[0].clientLeft;
+
+        item.transition('');
+        item.transform('translate3d(0,0px,0)');
+
+        container.transform('translate3d(0, 0,0)');
+        item.removeClass('notification-hidden');
+
+        return item[0];
+    };
+
+    $.ajax({
+        url: `/ajax/ajaxprochainsdeparts.php?id=${$(".page-index").attr('data-page').split('-')[1]}`,
         cache: false,
         success: (result) => {
-            $$('.page-index .page-content').html(result);
-            $$('.page-index').removeClass('layout-dark');
+            $('.page-index .page-content').html(result);
+            $('.page-index').removeClass('layout-dark');
         },
         error: () => {
-            $$('.preloader').addClass("smileyErreur");
-            $$('.preloader').removeClass("preloader");
-            $$('.preloader-white').removeClass("preloader-white");
-            $$('.graym').append("<span>Impossible de se connecter au serveur TPGwidget</span>");
-            $$('.graym h2').html("Erreur");
+            $('.preloader').addClass("smileyErreur");
+            $('.preloader').removeClass("preloader");
+            $('.preloader-white').removeClass("preloader-white");
+            $('.graym').append("<span>Impossible de se connecter au serveur TPGwidget</span>");
+            $('.graym h2').html("Erreur");
         }
     });
 
-    $$(document).on('ajaxStart', function (e) {
+    $(document).on('ajaxStart', function (e) {
         f7.showPreloader('Chargement...')
     });
 
-    $$(document).on('ajaxComplete', function () {
+    $(document).on('ajaxComplete', function () {
         f7.hidePreloader();
     });
 
-    let popupHTML = '';
-    $$(document).on('click', '.open-disruptions', () => {
-        f7.popup(popupHTML);
-    });
-
-    $$(document).on('pageBeforeAnimation', function (e) {
+    $(document).on('pageBeforeAnimation', function (e) {
         f7.closeNotification(".notifications");
 
         var page = e.detail.page;
         var p = page.name.split("-");
 
         if (p[0] == 'infotraffic'){
-            $$('.pull-to-refresh-content').on('refresh', function (e) {
-                $$.ajax({ url: '/ajax/ajaxperturbations.php', cache: false, success: (result) => {
-                    $$('#perturbations-all').html(result);
+            $('.pull-to-refresh-content').on('refresh', function (e) {
+                $.ajax({ url: '/ajax/ajaxperturbations.php', cache: false, success: (result) => {
+                    $('#perturbations-all').html(result);
                     f7.pullToRefreshDone();
                 }});
             });
         }
 
         if (p[0] === 'depart') {
-            $$('.navbar, .subnavbar').css('background-color', `#${p[1]}`);
+            $('.navbar, .subnavbar').css('background-color', `#${p[1]}`);
 
             const incidents = [];
 
-            const $disruptions = $$('.disruptions-data');
-
-            if ($disruptions.length) {
-                const disruptionsHtml = JSON.parse($disruptions.text()).reduce((acc, disruption) => `${acc}<div class="card">
-                    <div class="card-header">
-                    ${disruption.nature}
-                    </div>
-                    <div class="card-content">
-                        <div class="card-content-inner">
-                            ${disruption.consequence}
-                        </div>
-                    </div>
-                </div>`, '');
-
-                popupHTML = `<div class="popup popup-perturbations">
-                    <div class="content-block">
-                    ${disruptionsHtml}
-                        <div class="actions-modal-group">
-                            <div class="actions-modal-button color-red close-popup">Fermer</div>
-                        </div>
-                    </div>
-                </div>`;
-            }
-
             if (p[2]) {
-                $$('.navbar, .subnavbar').addClass('theme-black');
-                $$('.navbar, .subnavbar').removeClass('theme-white');
+                $('.navbar, .subnavbar').addClass('theme-black');
+                $('.navbar, .subnavbar').removeClass('theme-white');
             } else {
-                $$('.navbar, .subnavbar').removeClass('theme-black');
-                $$('.navbar, .subnavbar').addClass('theme-white');
+                $('.navbar, .subnavbar').removeClass('theme-black');
+                $('.navbar, .subnavbar').addClass('theme-white');
             }
         } else {
-            $$('.navbar, .subnavbar').css('background-color', '#f60');
-            $$('.navbar, .subnavbar').removeClass('theme-black');
-            $$('.navbar, .subnavbar').addClass('theme-white');
+            $('.navbar, .subnavbar').css('background-color', '#f60');
+            $('.navbar, .subnavbar').removeClass('theme-black');
+            $('.navbar, .subnavbar').addClass('theme-white');
         }
 
     });
 
-    $$(document).on('pageAfterAnimation', function (e) {
+    $(document).on('pageAfterAnimation', function (e) {
         // Get page data from event data
         var page = e.detail.page;
         var p = page.name.split("-");
 
         if (p[0] === 'depart' && page.from != "left") {
-            const $page = $$('.page-depart .page-content');
+            const $page = $('.page-depart .page-content');
             scrollTo(
                 $page[0],
-                Math.min($$('.current').offset().top - 88, $page[0].scrollHeight - $page.height()),
+                Math.min($('.current').offset().top - 88, $page[0].scrollHeight - $page.height()),
                 500
             );
         }
 
-        if (p[0] === 'depart' && $$('.disruptions-data').length) {
+        if (p[0] === 'depart' && $('.disruptions-data').length) {
 
-            $$(page.container).find('.page-content').css('padding-bottom', "150px");
+            $(page.container).find('.page-content').css('padding-bottom', "150px");
 
-            JSON.parse($$('.disruptions-data').text()).forEach((d) => {
-                f7.addNotification({
-                    title: d.nature,
-                    message: '<a href="#" class="button open-disruptions">En savoir plus</a>'
-                });
+            const disruptions = JSON.parse($('.disruptions-data').text());
+
+            disruptions.forEach((disruption, index) => {
+                f7.addDisruption(disruption);
             });
+
+            f7.accordionOpen($('.notification-item:first-child'));
         }
 
         if (p[0] == 'page' || p[0] == 'index') {
-            $$.ajax({
+            $.ajax({
                 url: `/ajax/ajaxprochainsdeparts.php?id=${p[1]}`,
                 cache: false,
                 success: (result) => {
-                    $$(page.container).find('.page-content').html(result);
-                    $$('.page-page').removeClass('layout-dark');
-                    $$('.page-index').removeClass('layout-dark');
+                    $(page.container).find('.page-content').html(result);
+                    $('.page-page').removeClass('layout-dark');
+                    $('.page-index').removeClass('layout-dark');
                 }
             });
         }
 
     });
 
-    $$(document).on('click', '.show-m', function (e) {
-        $$('.show-h').removeClass('active');
-        $$('.show-m').addClass('active');
-        $$('.h').hide();
-        $$('.m').show();
+    $(document).on('click', '.show-m', function (e) {
+        $('.show-h').removeClass('active');
+        $('.show-m').addClass('active');
+        $('.h').hide();
+        $('.m').show();
     });
 
-    $$(document).on('click', '.show-h', function (e) {
-        $$('.show-m').removeClass('active');
-        $$('.show-h').addClass('active');
-        $$('.h').show();
-        $$('.m').hide();
+    $(document).on('click', '.show-h', function (e) {
+        $('.show-m').removeClass('active');
+        $('.show-h').addClass('active');
+        $('.h').show();
+        $('.m').hide();
     });
 
     f7.onPageInit('itineraire', function () {
-        $$('form.ajax-submit').on('submitted', function (e) {
+        $('form.ajax-submit').on('submitted', function (e) {
             mainView.router.load({
                 content: e.detail.data.replace(/SCREENWIDTH/g, screen.width)
             });
         });
 
-        $$('.itineraire-invert').on('click', () => {
-            const arrivee = $$('input[name="depart"]').val();
-            const depart  = $$('input[name="arrivee"]').val();
+        $('.itineraire-invert').on('click', () => {
+            const arrivee = $('input[name="depart"]').val();
+            const depart  = $('input[name="arrivee"]').val();
 
-            $$('input[name="depart"]').val(depart);
-            $$('.itineraire-depart .item-after').text(depart !== '' ? depart : 'Cliquez pour choisir');
+            $('input[name="depart"]').val(depart);
+            $('.itineraire-depart .item-after').text(depart !== '' ? depart : 'Cliquez pour choisir');
 
-            $$('input[name="arrivee"]').val(arrivee);
-            $$('.itineraire-arrivee .item-after').text(arrivee !== '' ? arrivee : 'Cliquez pour choisir');
+            $('input[name="arrivee"]').val(arrivee);
+            $('.itineraire-arrivee .item-after').text(arrivee !== '' ? arrivee : 'Cliquez pour choisir');
         });
 
-        $$('.heure-depart').on('click', function(){
-            $$(this).addClass('active');
-            $$('.heure-arrivee').removeClass('active');
-            $$('#isArrivalTime').val('0');
+        $('.heure-depart').on('click', function(){
+            $(this).addClass('active');
+            $('.heure-arrivee').removeClass('active');
+            $('#isArrivalTime').val('0');
         });
 
-        $$('.heure-arrivee').on('click', function(){
-            $$(this).addClass('active');
-            $$('.heure-depart').removeClass('active');
-            $$('#isArrivalTime').val('1');
+        $('.heure-arrivee').on('click', function(){
+            $(this).addClass('active');
+            $('.heure-depart').removeClass('active');
+            $('#isArrivalTime').val('1');
         });
 
         if (stops.length === 0) {
-            $$.ajax({
+            $.ajax({
                 url: '/itineraire/stops.json',
                 method: 'GET',
                 dataType: 'json',
@@ -214,18 +248,18 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
     });
 
     f7.onPageInit('arrets', () => {
-        $$.ajax({
+        $.ajax({
             url: '/arrets/arrets.json',
             dataType: 'json',
             success: function(data){
                 var template = '<li>'+
-                '<a href="/ajax/page/{{stopCode}}/{{stopName}}" class="item-link">'+
-                '<div class="item-content">'+
-                '<div class="item-inner">'+
-                '<div class="item-title">{{stopName}}</div>'+
-                '</div>'+
-                '</div>'+
-                '</a>'+
+                    '<a href="/ajax/page/{{stopCode}}/{{stopName}}" class="item-link">'+
+                        '<div class="item-content">'+
+                            '<div class="item-inner">'+
+                                '<div class="item-title">{{stopName}}</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</a>'+
                 '</li>';
 
                 f7.virtualList('.virtual-list', {
@@ -247,23 +281,23 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
         // Localisation
         if ('geolocation' in navigator) {
 
-            $$('.location-message').hide();
-            $$('.enable-geolocation').show();
+            $('.location-message').hide();
+            $('.enable-geolocation').show();
 
-            $$('.enable-geolocation').on('click', function(){
+            $('.enable-geolocation').on('click', function(){
                 // Quand l'utilisateur appuie sur "Afficher les arrêts à proximité"
 
                 // On retire le bouton
-                $$('.enable-geolocation').hide();
+                $('.enable-geolocation').hide();
 
                 // On affiche le message de loading
-                $$('.location-message').css('display', 'flex');
+                $('.location-message').css('display', 'flex');
 
                 // On récupère sa position
                 navigator.geolocation.getCurrentPosition((position) => {
 
                     // On envoie au serveur sa position
-                    $$.ajax({
+                    $.ajax({
                         url: '/arrets/geolocation.json',
                         dataType: 'json',
                         data: {
@@ -273,10 +307,10 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                         success(nearStops) {
 
                             if (nearStops.length === 0) { // aucun arrêt
-                                $$('.location-message .item-title').text('Aucun arrêt proche trouvé');
+                                $('.location-message .item-title').text('Aucun arrêt proche trouvé');
                             } else {
 
-                                $$('.location-message').hide();
+                                $('.location-message').hide();
 
                                 for(var i = 0; i < nearStops.length; i++){
                                     var stop = nearStops[i];
@@ -292,27 +326,27 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                                     '</a>'+
                                     '</li>';
 
-                                    $$('.arrets-location ul').append(html);
+                                    $('.arrets-location ul').append(html);
                                 }
                             }
                         }
                     });
                 }, function(){ // Impossible d'obtenir la localisation
-                $$('.location-message .item-title').text("Impossible d'obtenir votre position");
+                $('.location-message .item-title').text("Impossible d'obtenir votre position");
             });
         });
 
     } else {
-        $$('.arrets-location').remove();
+        $('.arrets-location').remove();
     }
 
     // Quand on recherche un arrêt,
     // on cache les arrêts à proximité
-    $$('#arrets-search').on('keyup', () => {
-        if ($$(this).val().trim() !== ''){
-            $$('.arrets-location').hide();
+    $('#arrets-search').on('keyup', () => {
+        if ($(this).val().trim() !== ''){
+            $('.arrets-location').hide();
         } else {
-            $$('.arrets-location').show();
+            $('.arrets-location').show();
         }
     });
 
@@ -321,7 +355,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
     function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
         f7.autocomplete({
             openIn: 'page',
-            opener: $$(`.itineraire-${sens}`),
+            opener: $(`.itineraire-${sens}`),
             backOnSelect: true,
             source(autocomplete, query, render) {
                 var results = [];
@@ -340,11 +374,11 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                 render(results);
             },
             onOpen() {
-                $$('.autocomplete-page .searchbar-input input').focus();
+                $('.autocomplete-page .searchbar-input input').focus();
             },
             onChange(autocomplete, value) {
-                $$('.itineraire-' + sens).find('.item-after').text(value[0]);
-                $$('.itineraire-' + sens).find('input').val(value[0]);
+                $('.itineraire-' + sens).find('.item-after').text(value[0]);
+                $('.itineraire-' + sens).find('input').val(value[0]);
             },
             pageTitle: titre,
             navbarTheme: 'white',
