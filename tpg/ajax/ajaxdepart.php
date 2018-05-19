@@ -50,9 +50,10 @@ if(!$thermometer){
 
             <div class="content-block" style="margin: 10px;"></div>
 
-            <?
-            if(isset($thermometer->vehiculeNo)){
-                $vehicule = new Vehicule($thermometer->vehiculeNo); // Afficher véhicule
+            <?php
+            $vehicleNo = filter_input(INPUT_GET, 'vehicleNo', FILTER_VALIDATE_INT); // Sometimes, GetNextDepartures provides a vehicle number while GetThermometer doesn’t
+            if (isset($thermometer->vehiculeNo) || $vehicleNo) {
+                $vehicule = new Vehicule($thermometer->vehiculeNo ?? $vehicleNo); // Afficher véhicule
                 $vehicule->renderCard_iOS();
             }
             ?>

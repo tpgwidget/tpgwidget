@@ -55,12 +55,13 @@ $color = lineColor($thermometer->lineCode);
         <div class="content-block" style="margin: 10px;">
           </div>
 
-          <?
-            if(isset($thermometer->vehiculeNo)){
-                $vehicule = new Vehicule($thermometer->vehiculeNo); // Afficher véhicule
-                $vehicule->renderCard_Android();
-            }
-          ?>
+        <?php
+        $vehicleNo = filter_input(INPUT_GET, 'vehicleNo', FILTER_VALIDATE_INT); // Sometimes, GetNextDepartures provides a vehicle number while GetThermometer doesn’t
+        if (isset($thermometer->vehiculeNo) || $vehicleNo) {
+            $vehicule = new Vehicule($thermometer->vehiculeNo ?? $vehicleNo); // Afficher véhicule
+            $vehicule->renderCard_Android();
+        }
+        ?>
 
         <div class="card"><div class="card-content">
         <div class="list-block parcours">

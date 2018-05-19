@@ -35,7 +35,7 @@ include '../../tpgdata/vehicules/vehicules.php';
             }
 
             if ($depart->waitingTime != 'no more') {
-                echo '<a href="/ajax/depart/'.$depart->departureCode.'/" class="item-link item-content">';
+                echo '<a href="/ajax/depart/'.$depart->departureCode.'/?vehicleNo='.urlencode($depart->vehiculeNo).'" class="item-link item-content">';
             } else {
                 echo '<div class="item-content">';
             }
