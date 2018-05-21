@@ -66,35 +66,35 @@ $color = lineColor($thermometer->lineCode);
         <div class="card"><div class="card-content">
         <div class="list-block parcours">
         <ul>
-            <?php $avancee = 'previous';
-              foreach ($thermometer->steps->step as $step) { ?>
-              <li>
-              <?
-                if($avancee == "current") {
-                    $avancee = "";
-                }
+            <?php $avancee = 'previous'; ?>
+            <?php foreach ($thermometer->steps->step as $step) { ?>
+                <li>
+                    <?php
+                    if($avancee == "current") {
+                        $avancee = "";
+                    }
 
-                if(levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
-                    $avancee = 'current';
-                }
-              ?>
-                  <a href="/ajax/page/<?=$step->stop->stopCode?>/<?=rawurlencode($step->stop->stopName)?>" class="item-link item-content <?=$avancee?>">
-                    <div class="item-media">
-                        <i class="t icon l<?=str_replace('+', '', $thermometer->lineCode) ?>"></i>
-                  </div>
-                  <div class="item-inner">
-                    <div class="item-title"><?= Stops::correct($step->stop->stopName) ?></div>
-                    <div class="item-after">
-                        <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
-                        <span class="m">
-                            <?php if(intval($step->arrivalTime)) {
-                                echo $step->arrivalTime." min";
-                            } ?>
-                        </span>
-                      </div>
-                  </div>
-                </a>
-              </li>
+                    if(levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
+                        $avancee = 'current';
+                    }
+                    ?>
+                    <a href="/ajax/page/<?= $step->stop->stopCode ?>/<?= rawurlencode(Stops::correct($step->stop->stopName)) ?>" class="item-link item-content <?= $avancee ?>">
+                        <div class="item-media">
+                            <i class="t icon l<?= str_replace('+', '', $thermometer->lineCode) ?>"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title"><?= Stops::correct($step->stop->stopName) ?></div>
+                            <div class="item-after">
+                                <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
+                                <span class="m">
+                                    <?php if(intval($step->arrivalTime)) {
+                                        echo $step->arrivalTime." min";
+                                    } ?>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
             <?php } ?>
         </ul>
       </div></div></div>

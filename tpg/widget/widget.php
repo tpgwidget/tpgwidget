@@ -4,6 +4,9 @@ if (!preg_match('/^\d{6}$/', $_GET['id'])) {
     die('Erreur : Aucun arrêt spécifié');
 }
 
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
+
 require '../../tpgdata/db.php';
 require '../../tpgdata/apikey.php';
 
@@ -18,8 +21,7 @@ if (empty($widget)) {
 }
 
 $stopW = $widget['stop'];
-$nameW = $widget['name'];
-
+$nameW = Stops::correct($widget['name']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,7 +32,7 @@ $nameW = $widget['name'];
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="<?= $nameW ?>">
 
-    <title>TPGwidget</title>
+    <title><?= $nameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?invert">
@@ -116,10 +118,10 @@ $nameW = $widget['name'];
 
     </div>
     <div class="views">
-      <div class="view view-main" data-stop="<?php echo $stopW; ?>">
+      <div class="view view-main" data-stop="<?= $stopW ?>">
         <div class="navbar theme-white">
           <div class="navbar-inner">
-            <div class="center sliding"><?php echo $nameW; ?></div>
+            <div class="center sliding"><?= $nameW ?></div>
             <div class="right">
               <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
             </div>

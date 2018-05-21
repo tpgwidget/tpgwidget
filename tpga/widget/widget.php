@@ -4,6 +4,9 @@ if (!preg_match('/^\d{6}$/', $_GET['id'])) {
     die('Erreur : Aucun arrêt spécifié');
 }
 
+require '../../vendor/autoload.php';
+use TPGwidget\Data\Stops;
+
 require '../../tpgdata/db.php';
 require '../../tpgdata/apikey.php';
 
@@ -18,8 +21,7 @@ if (empty($widget)) {
 }
 
 $stopW = $widget['stop'];
-$nameW = $widget['name'];
-
+$nameW = Stops::correct($widget['name']);
 ?>
 <!DOCTYPE html>
 <html translate="no">

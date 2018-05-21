@@ -74,7 +74,7 @@ if(!$thermometer){
                                         $avancee = 'current';
                                     }
                                     ?>
-                                    <a href="/ajax/page/<?=$step->stop->stopCode?>/<?=rawurlencode($step->stop->stopName)?>" class="item-link item-content <?=$avancee?>">
+                                    <a href="/ajax/page/<?= $step->stop->stopCode ?>/<?= rawurlencode(Stops::correct($step->stop->stopName)) ?>" class="item-link item-content <?= $avancee ?>">
                                         <div class="item-media">
                                             <i class="t icon l<?=str_replace('+', '', $thermometer->lineCode) ?>"></i>
                                         </div>
