@@ -104,6 +104,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
 
     $(document).on('ajaxComplete', function () {
         f7.hidePreloader();
+        $('.modal-overlay').removeClass('modal-overlay-visible');
     });
 
     $(document).on('pageBeforeAnimation', function (e) {
