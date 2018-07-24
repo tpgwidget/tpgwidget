@@ -9,10 +9,16 @@ class Vehicule {
     public $enSavoirPlus = true;
     public $wifi = false;
 
-    public function __construct($id) {
+    public function __construct(string $id) {
+        if (strlen($id) !== 4) {
+            if ($id[0] === '2') {
+                $id = substr($id, 1);
+            }
 
-        $id = ltrim($id, '2');
-        $id = ltrim($id, '0');
+            if ($id[0] === '0') {
+                $id = substr($id, 1);
+            }
+        }
 
         if($id == 75){
             $id = '???';
@@ -473,6 +479,16 @@ class Vehicule {
             $this->img = 'citaroc2articule';
             $this->img_author = 'Rémi Chauvet';
             $this->img_link = 'https://www.facebook.com/tpg979';
+
+        } elseif(2011 <= $id && $id <= 2012) { // Nouveaux Citaro C2
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->icon = 'c2';
+            $this->img = 'citaroc2articule';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+            $this->year = '2018';
 
         } elseif($id == 486) { // Autobus Vanhool (ligne 32)
 
