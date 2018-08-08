@@ -785,8 +785,12 @@ span.perturbation::before {
     background: #00b0a4;
 }
 
-.l61,.lB,.lDN,.lM,.lO,.lT,.lD,.lF,.lG,.lK,.lY,.lZ,.departures li.lGplus::after{
+.l61,.l63,.lB,.lDN,.lM,.lO,.lT,.lD,.lF,.lG,.lK,.lY,.lZ,.departures li.lGplus::after{
     background: #ff9baa;
+}
+
+.l62 {
+    background: #EC69A3;
 }
 
 .lA,.lC,.lE,.lJ,.lL,.lV,.departures li.lVplus::after,.departures li.lCplus::after{
