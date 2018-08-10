@@ -347,9 +347,9 @@ class Vehicule {
             $this->img = 'man61';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/fdTi22';
-            $this->places_assises = 44;
-            $this->places_debout = 85;
-            $this->places_totales = 129;
+            $this->places_assises = 36;
+            $this->places_debout = 140;
+            $this->places_totales = 176;
 
         } elseif(940 <= $id && $id <= 946) { // Citaro midibus
 
