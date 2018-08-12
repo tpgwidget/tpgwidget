@@ -37,6 +37,7 @@ if ($nextDepartures){
                }
 
                $lignes = array_unique($lignes);
+               $lignesNoctambus = [];
 
                foreach($lignes as $key => $ligne){
                    if(substr($ligne, 0, 1) === 'N'){
