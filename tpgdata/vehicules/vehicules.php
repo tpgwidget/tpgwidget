@@ -339,6 +339,24 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
 
+        } elseif(2000 <= $id && $id <= 2002) { // Citaro C2 Hybride
+
+            $this->type = "Autobus hybride";
+            $this->name = "Mercedez-Benz Citaro C2";
+            $this->icon = 'c2';
+            $this->img = 'hybride';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'http://twitter.com/trambusalOff';
+
+        } elseif(2003 <= $id && $id <= 2007) { // Sprinter
+
+            $this->type = "Minibus";
+            $this->name = "Mercedes-Benz Sprinter City 65";
+            $this->icon = 'notfound';
+            $this->img = 'sprinter';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'http://twitter.com/trambusalOff';
+
         } elseif(1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
 
             $this->type = "Autobus articulé";
