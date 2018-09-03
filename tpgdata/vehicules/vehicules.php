@@ -97,6 +97,14 @@ class Vehicule {
             $this->places_debout = 55;
             $this->places_totales = 87;
 
+        } elseif($id == 2022) { // MAN solo RATP
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lionscity';
+            $this->img = 'mansolo';
+            $this->year = 2018;
+
         } elseif(101 <= $id && $id <= 105) { // Mégabus VanHool
 
             $this->type = "Autobus à double articulation";
@@ -517,7 +525,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/692056344275775/?type=3&theater';
 
-        } elseif($id == 1965) { // Minibus GLOBE
+        } elseif (($id == 1965) || (1970 <= $id && $id <= 1972)) { // Minibus GLOBE
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 515TDCI";
@@ -526,7 +534,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/697797570368319/?type=3&theater';
 
-        } elseif($id == 1966 || $id == 1969) { // Citaro C2 solo Globe (1966)
+        } elseif($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
 
             $this->type = "Autobus solo";
             $this->name = "Mercedez-Benz Citaro C2 O530";
