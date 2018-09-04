@@ -97,7 +97,7 @@ class Vehicule {
             $this->places_debout = 55;
             $this->places_totales = 87;
 
-        } elseif($id == 2022) { // MAN solo RATP
+        } elseif(2022 <= $id && $id <= 2025) { // MAN solo RATP
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
