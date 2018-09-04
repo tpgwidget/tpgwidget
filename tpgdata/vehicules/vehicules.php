@@ -447,6 +447,15 @@ class Vehicule {
             $this->places_totales = 149;
             $this->year = "2010";
 
+        } elseif(1984 <= $id && $id <= 1990) { // Citaro C2 Gem’Bus
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->icon = 'c2';
+            $this->img = 'citaroc2articule';
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+
         /* Genève-Tours */
 
         } elseif(925 <= $id && $id <= 927) { // MIDIBUS CITARO GETOURS
