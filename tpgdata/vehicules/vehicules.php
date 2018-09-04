@@ -102,8 +102,10 @@ class Vehicule {
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
             $this->icon = 'lionscity';
-            $this->img = 'mansolo';
+            $this->img = '2022';
             $this->year = 2018;
+            $this->img_author = 'FDTPG';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         } elseif(101 <= $id && $id <= 105) { // Mégabus VanHool
 
@@ -321,7 +323,7 @@ class Vehicule {
             $this->name = "MAN NL 283";
             $this->icon = 'lionscity';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/219880374826710/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
             $this->img = 'nl283';
             $this->year = 2004;
 
@@ -345,7 +347,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         } elseif(2000 <= $id && $id <= 2002) { // Citaro C2 Hybride
 
@@ -402,7 +404,7 @@ class Vehicule {
             $this->icon = 'lionscity';
             $this->img = '1949';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/422199854594760/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
             $this->year = 2005;
 
         } elseif(1950 == $id) { // Citaro 1 (Ligne S)
@@ -412,7 +414,7 @@ class Vehicule {
             $this->icon = 'citaro';
             $this->img = '1950';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/500646140083464/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         } elseif(1947 == $id) { // Citaro 1 (Ligne S)
 
@@ -421,7 +423,7 @@ class Vehicule {
             $this->icon = 'citaro';
             $this->img = '1947';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/478634745617937/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         } elseif(1963 <= $id && $id <= 1964) { // Citaro C2 Globe
 
@@ -430,7 +432,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         /* GEM'BUS */
         } elseif(971 <= $id && $id <= 979) { // Citaro articulé GEM'BUS
@@ -454,7 +456,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         /* Genève-Tours */
 
@@ -522,7 +524,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/668171066664303/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
             $this->year = '2018';
 
         } elseif($id == 486) { // Autobus Vanhool (ligne 32)
@@ -532,7 +534,7 @@ class Vehicule {
             $this->icon = 'citaro';
             $this->img = '486';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/692056344275775/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         } elseif (($id == 1965) || (1970 <= $id && $id <= 1972)) { // Minibus GLOBE
 
@@ -541,7 +543,7 @@ class Vehicule {
             $this->icon = 'notfound';
             $this->img = '1965';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/697797570368319/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         } elseif($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
 
@@ -550,7 +552,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = '1966';
             $this->img_author = 'FDTPG';
-            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/photos/a.219879988160082.1073741840.208641905950557/740255142789228/?type=3&theater';
+            $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         /* REGIE DEPARTEMENTALE DES TRANSPORTS DE L'AIN (RDTA) */
 
