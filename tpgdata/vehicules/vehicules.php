@@ -458,6 +458,15 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
+        } elseif(2026 <= $id && $id <= 2027) { // Citaro C2K midibus
+
+            $this->type = "Midibus";
+            $this->name = "Mercedez-Benz Citaro C2 O530K";
+            $this->icon = 'c2';
+            $this->img = 'c2k';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+
         /* Genève-Tours */
 
         } elseif(925 <= $id && $id <= 927) { // MIDIBUS CITARO GETOURS
@@ -556,7 +565,7 @@ class Vehicule {
 
         /* REGIE DEPARTEMENTALE DES TRANSPORTS DE L'AIN (RDTA) */
 
-        } elseif((950 <= $id && $id <= 967) || (1920 <= $id && $id <= 1924)) { // Citaro articulé
+        } elseif (950 <= $id && $id <= 960) { // Citaro articulé
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro II O530G";
@@ -565,6 +574,26 @@ class Vehicule {
             $this->img_author = 'Sin-Aly Sangare';
             $this->img_link = 'https://www.facebook.com/photo.php?fbid=505939609784386&set=pcb.505941263117554&type=3&theater';
             $this->year = "2010";
+
+        } elseif (961 <= $id && $id <= 967) { // Citaro solo RDTA
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro II O530";
+            $this->icon = 'citaro';
+            $this->img = 'citarosolordta';
+            $this->img_author = 'Deyan Marinov – GéNav';
+            $this->img_link = 'https://twitter.com/Ge_nav';
+            $this->year = "2010";
+
+        } elseif (1920 <= $id && $id <= 1924) { // Citaro C2 solo RDTA
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = 'c2';
+            $this->img = 'c2rdta';
+            $this->img_author = 'Deyan Marinov – GéNav';
+            $this->img_link = 'https://twitter.com/Ge_nav';
+            $this->year = '2012';
 
         /* SOUS-TRAITANT AUTRES */
 
