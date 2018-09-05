@@ -317,7 +317,7 @@ class Vehicule {
             $this->img = 'midibus';
             $this->year = 2015;
 
-        } elseif(481 <= $id && $id <= 499) { // MAN NL 283
+        } elseif ((481 <= $id && $id <= 499) || $id === 901) { // MAN NL 283
 
             $this->type = "Autobus solo";
             $this->name = "MAN NL 283";
@@ -556,7 +556,7 @@ class Vehicule {
 
         /* REGIE DEPARTEMENTALE DES TRANSPORTS DE L'AIN (RDTA) */
 
-        } elseif(950 <= $id && $id <= 960) { // Citaro articulé
+        } elseif((950 <= $id && $id <= 967) || (1920 <= $id && $id <= 1924)) { // Citaro articulé
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro II O530G";
