@@ -180,7 +180,7 @@ class Vehicule {
         } elseif(781 <= $id && $id <= 790) { // Mégatrolleybus Hess
 
             $this->type = "Trolleybus à double articulation";
-            $this->name = "Hess/Kiepe Swisstrolley LighTram";
+            $this->name = "Hess/Kiepe LighTram";
             $this->icon = 'hess';
             $this->img = 'megahess';
             $this->img_author = 'André Knoerr';
