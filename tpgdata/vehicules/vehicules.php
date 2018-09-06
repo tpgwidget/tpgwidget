@@ -435,6 +435,16 @@ class Vehicule {
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
         /* GEM'BUS */
+
+        } elseif ($id == 1919) { // Citaro solo GEM’BUS
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro II O530";
+            $this->icon = 'citaro';
+            $this->img = '1919';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+
         } elseif(971 <= $id && $id <= 979) { // Citaro articulé GEM'BUS
 
             $this->type = "Autobus articulé";
