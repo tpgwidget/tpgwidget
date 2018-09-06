@@ -607,7 +607,7 @@ class Vehicule {
 
         /* SOUS-TRAITANT AUTRES */
 
-        } elseif(900 <= $id && $id <= 999 || 1900 <= $id && $id <= 1999){
+        } elseif ((900 <= $id && $id <= 999) || (1900 <= $id && $id <= 2099)) {
 
             $this->type = "Autobus";
 	        $this->name = "Sous-traitant";
