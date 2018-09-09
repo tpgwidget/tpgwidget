@@ -317,7 +317,7 @@ class Vehicule {
             $this->img = 'midibus';
             $this->year = 2015;
 
-        } elseif ((481 <= $id && $id <= 499) || $id === 901) { // MAN NL 283
+        } elseif ((481 <= $id && $id <= 499) || (901 <= $id && $id <= 903)) { // MAN NL 283
 
             $this->type = "Autobus solo";
             $this->name = "MAN NL 283";
@@ -604,6 +604,16 @@ class Vehicule {
             $this->img_author = 'Deyan Marinov – GéNav';
             $this->img_link = 'https://twitter.com/Ge_nav';
             $this->year = '2012';
+
+        } elseif ($id == 2014) { // Citaro C2 solo RDTA €6
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = 'c2';
+            $this->img = '2014';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->year = '2018';
 
         /* SOUS-TRAITANT AUTRES */
 
