@@ -607,8 +607,8 @@ class Vehicule {
 
         } elseif ($id == 2014) { // Citaro C2 solo RDTA €6
 
-            $this->type = "Autobus solo";
-            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2';
             $this->img = '2014';
             $this->img_author = 'TramBusAl';
