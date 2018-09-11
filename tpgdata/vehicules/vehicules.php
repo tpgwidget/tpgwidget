@@ -67,7 +67,7 @@ class Vehicule {
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
             $this->tpg_link = 'http://www.tpg.ch/fr/autobus-evobus-0530g';
             $this->places_assises = 46;
-            $this->places_debout = 55;
+            $this->places_debout = 103;
             $this->places_totales = 149;
             $this->year = "2011";
 
