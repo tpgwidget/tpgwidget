@@ -358,7 +358,7 @@ class Vehicule {
             $this->img_author = 'TramBusAl';
             $this->img_link = 'http://twitter.com/trambusalOff';
 
-        } elseif(2003 <= $id && $id <= 2007) { // Sprinter
+        } elseif(2003 <= $id && $id <= 2008) { // Sprinter
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 65";
