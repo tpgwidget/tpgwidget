@@ -631,6 +631,13 @@ class Vehicule {
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
 
+        } elseif(666 == $id) {
+             $this->type ='GéNav';
+             $this->name = "Download GéNav";
+             $this->enSavoirePlus = false;
+            $this->icon = "c2';
+        
+        
         } else {
 
             $this->type = "";
