@@ -358,7 +358,7 @@ class Vehicule {
             $this->img_author = 'TramBusAl';
             $this->img_link = 'http://twitter.com/trambusalOff';
 
-        } elseif(2003 <= $id && $id <= 2008) { // Sprinter
+        } elseif(2003 <= $id && $id <= 2010) { // Sprinter
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 65";
@@ -631,6 +631,13 @@ class Vehicule {
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
 
+        } elseif(666 == $id) {
+             $this->type ='GéNav';
+             $this->name = "Download GéNav";
+             $this->enSavoirePlus = false;
+            $this->icon = "c2';
+        
+        
         } else {
 
             $this->type = "";
