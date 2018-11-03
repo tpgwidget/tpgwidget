@@ -9,8 +9,8 @@ echo '[';
 
     $req = $bdd->query('SELECT tpg FROM `tpg-sbb` ORDER BY tpg');
 
-    while($stop = $req->fetch()){
-        if($i !== 0){
+    while($stop = $req->fetch()) {
+        if ($i !== 0) {
             echo ',';
         }
 

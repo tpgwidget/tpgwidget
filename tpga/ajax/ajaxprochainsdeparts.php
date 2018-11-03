@@ -27,7 +27,7 @@ include '../../tpgdata/vehicules/vehicules.php';
         <?php foreach ($nextDepartures->departures->departure as $depart) { ?>
             <?php
             echo $depart->connectionWaitingTime;
-            if (in_array($depart->connection->lineCode, $lignesAvecTexteBlanc)){
+            if (in_array($depart->connection->lineCode, $lignesAvecTexteBlanc)) {
                 print '<li class="w l'.str_replace('+', 'plus', $depart->connection->lineCode).'">';
             } else{
                 print '<li class="l'.$depart->connection->lineCode.'">';

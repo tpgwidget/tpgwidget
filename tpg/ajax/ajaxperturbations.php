@@ -2,7 +2,7 @@
 require __DIR__.'/../../config.inc.php';
 $disruptions = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY'));
 
-if (!$disruptions){
+if (!$disruptions) {
 	$serveurTPGIndisponible = true;
 }
 
@@ -37,7 +37,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                   ?>
                   <header><?= $disruption->nature ?></header>
                   <?php
-                      if($disruption->place != ""){
+                      if ($disruption->place != "") {
                           echo '<small>'.$disruption->place.'</small>';
                       } else {
                           echo "&nbsp;";

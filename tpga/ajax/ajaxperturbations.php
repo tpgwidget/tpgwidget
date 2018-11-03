@@ -25,7 +25,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                       echo 'l'.$disruption->lineCode.' ';
                       echo 's'.$disruption->lineCode.' ';
 
-                      if(in_array($disruption->lineCode, $whiteTextLines)){
+                      if (in_array($disruption->lineCode, $whiteTextLines)) {
                           echo 'w';
                       }
 
@@ -34,7 +34,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                   ?>
                   <header><?=$disruption->nature?></header>
                   <?php
-                      if($disruption->place != ""){
+                      if ($disruption->place != "") {
                           echo '<small>'.$disruption->place.'</small>';
                       } else {
                           echo "&nbsp;";

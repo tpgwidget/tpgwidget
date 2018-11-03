@@ -20,7 +20,7 @@ class Vehicule {
             }
         }
 
-        if($id == 75){
+        if ($id == 75) {
             $id = '???';
         }
 
@@ -29,7 +29,7 @@ class Vehicule {
         /* On détecte le modèle du véhicule */
 
         /* AUTOBUS */
-        if(500 <= $id && $id <= 545) { // Citaro solo
+        if (500 <= $id && $id <= 545) { // Citaro solo
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro O530";
@@ -43,7 +43,7 @@ class Vehicule {
             $this->places_totales = 87;
             $this->year = "2008-2010";
 
-        } elseif((106 <= $id && $id <= 198) || (1101 <= $id && $id <= 1197)) { // Citaro articulé
+        } elseif ((106 <= $id && $id <= 198) || (1101 <= $id && $id <= 1197)) { // Citaro articulé
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro O530G";
@@ -57,7 +57,7 @@ class Vehicule {
             $this->places_totales = 149;
             $this->year = "2008-2013";
 
-        } elseif(1917 <= $id && $id <= 1918) { // Citaro articulé RATP Dev
+        } elseif (1917 <= $id && $id <= 1918) { // Citaro articulé RATP Dev
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro O530G";
@@ -71,7 +71,7 @@ class Vehicule {
             $this->places_totales = 149;
             $this->year = "2011";
 
-        } elseif(943 <= $id && $id <= 944) { // Citaro solo RATP Dev
+        } elseif (943 <= $id && $id <= 944) { // Citaro solo RATP Dev
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro O530 II";
@@ -84,7 +84,7 @@ class Vehicule {
             $this->places_debout = 55;
             $this->places_totales = 87;
 
-        } elseif(1912 <= $id && $id <= 1916) { // Citaro solo RATP Dev
+        } elseif (1912 <= $id && $id <= 1916) { // Citaro solo RATP Dev
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro O530 II";
@@ -97,7 +97,7 @@ class Vehicule {
             $this->places_debout = 55;
             $this->places_totales = 87;
 
-        } elseif(2022 <= $id && $id <= 2025) { // MAN solo RATP
+        } elseif (2022 <= $id && $id <= 2025) { // MAN solo RATP
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
@@ -107,7 +107,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
-        } elseif(101 <= $id && $id <= 105) { // Mégabus VanHool
+        } elseif (101 <= $id && $id <= 105) { // Mégabus VanHool
 
             $this->type = "Autobus à double articulation";
             $this->name = "VanHool AGG300 New";
@@ -123,7 +123,7 @@ class Vehicule {
 
         /* TROLLEYBUS */
 
-        } elseif(1271 <= $id && $id <= 1283) { // TOSA
+        } elseif (1271 <= $id && $id <= 1283) { // TOSA
 
             $this->type = 'Autobus articulé électrique';
             $this->name = "TOSA";
@@ -135,7 +135,7 @@ class Vehicule {
             $this->year = '2017';
             $this->wifi = true;
 
-        } elseif(701 <= $id && $id <= 713) { // NAW
+        } elseif (701 <= $id && $id <= 713) { // NAW
 
             $this->type = "Trolleybus";
             $this->name = "NAW/Hess/Siemens BGT-N2";
@@ -149,7 +149,7 @@ class Vehicule {
             $this->places_totales = 150;
             $this->year = "1992-1993";
 
-        } elseif($id == 721) { // NAW mégatrolleybus (protoype LighTram)
+        } elseif ($id == 721) { // NAW mégatrolleybus (protoype LighTram)
 
             $this->type = "Trolleybus à double articulation";
             $this->name = "NAW/Hess/Siemens LighTram";
@@ -163,7 +163,7 @@ class Vehicule {
             $this->places_totales = 179;
             $this->year = "2003";
 
-        } elseif(731 <= $id && $id <= 768) { // Trolleybus Hess
+        } elseif (731 <= $id && $id <= 768) { // Trolleybus Hess
 
             $this->type = "Trolleybus";
             $this->name = "Hess/Kiepe Swisstrolley";
@@ -177,7 +177,7 @@ class Vehicule {
             $this->places_totales = 126;
             $this->year = "2005";
 
-        } elseif(781 <= $id && $id <= 790) { // Mégatrolleybus Hess
+        } elseif (781 <= $id && $id <= 790) { // Mégatrolleybus Hess
 
             $this->type = "Trolleybus à double articulation";
             $this->name = "Hess/Kiepe LighTram";
@@ -192,7 +192,7 @@ class Vehicule {
             $this->year = "2005-2006";
             $this->wifi = true;
 
-        } elseif(1601 <= $id && $id <= 1633) { // Exqui City
+        } elseif (1601 <= $id && $id <= 1633) { // Exqui City
 
             $this->type = "Trolleybus";
             $this->name = "VanHool Exqui.City";
@@ -210,7 +210,7 @@ class Vehicule {
         /* TRAMWAYS */
 
 
-        } elseif(1820 == $id) { // Tango rose
+        } elseif (1820 == $id) { // Tango rose
 
             $this->type = "Tramway";
             $this->name = "Stadler Tango";
@@ -224,7 +224,7 @@ class Vehicule {
             $this->places_totales = 388;
             $this->year = 2016;
 
-        } elseif(1801 <= $id && $id <= 1833) { // Tango
+        } elseif (1801 <= $id && $id <= 1833) { // Tango
 
             $this->type = "Tramway";
             $this->name = "Stadler Tango";
@@ -238,7 +238,7 @@ class Vehicule {
             $this->places_totales = 388;
             $this->year = "2011-2016";
 
-        } elseif(861 <= $id && $id <= 899) { // Cityrunner
+        } elseif (861 <= $id && $id <= 899) { // Cityrunner
 
             $this->type = "Tramway";
             $this->name = "Bombardier Cityrunner";
@@ -252,7 +252,7 @@ class Vehicule {
             $this->places_totales = 366;
             $this->year = "2004-2010";
 
-        } elseif(801 <= $id && $id <= 852) { // DAV
+        } elseif (801 <= $id && $id <= 852) { // DAV
 
             $this->type = "Tramway";
             $this->name = "Duewag-Vevey (DAV)";
@@ -270,7 +270,7 @@ class Vehicule {
 
         /* GLOBE LIMOUSINES */
 
-        } elseif(471 <= $id && $id <= 472) { // Minibus électriques ligne 36
+        } elseif (471 <= $id && $id <= 472) { // Minibus électriques ligne 36
 
             $this->type = "Minibus électrique";
             $this->name = "BredaMenarinibus Zeus";
@@ -278,7 +278,7 @@ class Vehicule {
             $this->img = 'minibus36';
             $this->year = 2014;
 
-        } elseif(1901 <= $id && $id <= 1911) { // MAN solo Globe
+        } elseif (1901 <= $id && $id <= 1911) { // MAN solo Globe
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
@@ -286,7 +286,7 @@ class Vehicule {
             $this->img = 'mansolo';
             $this->year = 2011;
 
-        } elseif($id == 1938) { // MAN solo Globe 2014
+        } elseif ($id == 1938) { // MAN solo Globe 2014
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
@@ -294,7 +294,7 @@ class Vehicule {
             $this->img = 'mansolo';
             $this->year = 2014;
 
-        } elseif(1959 <= $id && $id <= 1961) { // MAN solo
+        } elseif (1959 <= $id && $id <= 1961) { // MAN solo
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
@@ -302,14 +302,14 @@ class Vehicule {
             $this->img = 'mansolo';
             $this->year = 2015;
 
-        } elseif($id == 1927) { // MAN solo
+        } elseif ($id == 1927) { // MAN solo
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
             $this->icon = 'lionscity';
             $this->img = 'mansolo';
 
-        } elseif($id == 1962) { // MAN midibus
+        } elseif ($id == 1962) { // MAN midibus
 
             $this->type = "Midibus";
             $this->name = "MAN Lion's City M";
@@ -327,7 +327,7 @@ class Vehicule {
             $this->img = 'nl283';
             $this->year = 2004;
 
-        } elseif(1951 <= $id && $id <= 1958) { // MAN articulé
+        } elseif (1951 <= $id && $id <= 1958) { // MAN articulé
 
             $this->type = "Autobus articulé";
             $this->name = "MAN Lion's City G";
@@ -340,7 +340,7 @@ class Vehicule {
             $this->places_debout = 85;
             $this->places_totales = 129;
 
-        } elseif(1967 <= $id && $id <= 1968) { // Nouveaux Citaro C2
+        } elseif (1967 <= $id && $id <= 1968) { // Nouveaux Citaro C2
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedez-Benz Citaro C2 O530G";
@@ -349,7 +349,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
-        } elseif(2000 <= $id && $id <= 2002) { // Citaro C2 Hybride
+        } elseif (2000 <= $id && $id <= 2002) { // Citaro C2 Hybride
 
             $this->type = "Autobus hybride";
             $this->name = "Mercedez-Benz Citaro C2";
@@ -358,7 +358,7 @@ class Vehicule {
             $this->img_author = 'TramBusAl';
             $this->img_link = 'http://twitter.com/trambusalOff';
 
-        } elseif(2003 <= $id && $id <= 2010) { // Sprinter
+        } elseif (2003 <= $id && $id <= 2010) { // Sprinter
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 65";
@@ -367,7 +367,7 @@ class Vehicule {
             $this->img_author = 'TramBusAl';
             $this->img_link = 'http://twitter.com/trambusalOff';
 
-        } elseif(1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
+        } elseif (1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
 
             $this->type = "Autobus articulé";
             $this->name = "MAN Lion's City G";
@@ -379,7 +379,7 @@ class Vehicule {
             $this->places_debout = 140;
             $this->places_totales = 176;
 
-        } elseif(940 <= $id && $id <= 946) { // Citaro midibus
+        } elseif (940 <= $id && $id <= 946) { // Citaro midibus
 
             $this->type = "Midibus";
             $this->name = "Mercedez-Benz Citaro O530K";
@@ -388,7 +388,7 @@ class Vehicule {
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/f1vHBg';
 
-        } elseif(938 <= $id && $id <= 393) { // Volvo/HESS
+        } elseif (938 <= $id && $id <= 393) { // Volvo/HESS
 
             $this->type = "Autobus";
             $this->name = "Volvo/HESS B7L";
@@ -397,7 +397,7 @@ class Vehicule {
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/js5FNH';
 
-        } elseif(1949 == $id) { // Midibus ex-TL
+        } elseif (1949 == $id) { // Midibus ex-TL
 
             $this->type = "Midibus";
             $this->name = "MAN NM223";
@@ -407,7 +407,7 @@ class Vehicule {
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
             $this->year = 2005;
 
-        } elseif(1950 == $id) { // Citaro 1 (Ligne S)
+        } elseif (1950 == $id) { // Citaro 1 (Ligne S)
 
             $this->type = "Autobus";
             $this->name = "Mercedez-Benz Citaro I O530";
@@ -416,7 +416,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
-        } elseif(1947 == $id) { // Citaro 1 (Ligne S)
+        } elseif (1947 == $id) { // Citaro 1 (Ligne S)
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedez-Benz Citaro I O530G";
@@ -425,7 +425,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
-        } elseif(1963 <= $id && $id <= 1964) { // Citaro C2 Globe
+        } elseif (1963 <= $id && $id <= 1964) { // Citaro C2 Globe
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedez-Benz Citaro C2 O530G";
@@ -445,7 +445,7 @@ class Vehicule {
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
 
-        } elseif(971 <= $id && $id <= 979) { // Citaro articulé GEM'BUS
+        } elseif (971 <= $id && $id <= 979) { // Citaro articulé GEM'BUS
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro II O530G";
@@ -459,7 +459,7 @@ class Vehicule {
             $this->places_totales = 149;
             $this->year = "2010";
 
-        } elseif(1984 <= $id && $id <= 1990) { // Citaro C2 Gem’Bus
+        } elseif (1984 <= $id && $id <= 1990) { // Citaro C2 Gem’Bus
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedez-Benz Citaro C2 O530G";
@@ -468,7 +468,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
-        } elseif(2026 <= $id && $id <= 2027) { // Citaro C2K midibus
+        } elseif (2026 <= $id && $id <= 2027) { // Citaro C2K midibus
 
             $this->type = "Midibus";
             $this->name = "Mercedez-Benz Citaro C2 O530K";
@@ -479,7 +479,7 @@ class Vehicule {
 
         /* Genève-Tours */
 
-        } elseif(925 <= $id && $id <= 927) { // MIDIBUS CITARO GETOURS
+        } elseif (925 <= $id && $id <= 927) { // MIDIBUS CITARO GETOURS
 
             $this->type = "Midibus";
             $this->name = "Mercedez-Benz Citaro O530K";
@@ -488,7 +488,7 @@ class Vehicule {
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/f1vHBg';
 
-        } elseif($id == 929) { // CITARO ARTICULE GETOURS
+        } elseif ($id == 929) { // CITARO ARTICULE GETOURS
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro O530G";
@@ -501,7 +501,7 @@ class Vehicule {
             $this->places_debout = 103;
             $this->places_totales = 149;
 
-        } elseif(981 <= $id && $id <= 987) { // Citaro solo GeTours
+        } elseif (981 <= $id && $id <= 987) { // Citaro solo GeTours
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro O530";
@@ -514,7 +514,7 @@ class Vehicule {
             $this->places_debout = 55;
             $this->places_totales = 87;
 
-        } elseif(1925 <= $id && $id <= 1926) { // Nouveaux Citaro articulé GeTours
+        } elseif (1925 <= $id && $id <= 1926) { // Nouveaux Citaro articulé GeTours
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro O530G";
@@ -527,7 +527,7 @@ class Vehicule {
             $this->places_debout = 103;
             $this->places_totales = 149;
 
-        } elseif($id == 1939) { // CITARO ARTICULE GETOURS
+        } elseif ($id == 1939) { // CITARO ARTICULE GETOURS
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedez-Benz Citaro C2 O530G";
@@ -536,7 +536,7 @@ class Vehicule {
             $this->img_author = 'Rémi Chauvet';
             $this->img_link = 'https://www.facebook.com/tpg979';
 
-        } elseif(2011 <= $id && $id <= 2012) { // Nouveaux Citaro C2
+        } elseif (2011 <= $id && $id <= 2012) { // Nouveaux Citaro C2
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedez-Benz Citaro C2 O530G";
@@ -546,7 +546,7 @@ class Vehicule {
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
             $this->year = '2018';
 
-        } elseif($id == 486) { // Autobus Vanhool (ligne 32)
+        } elseif ($id == 486) { // Autobus Vanhool (ligne 32)
 
             $this->type = "Autobus solo";
             $this->name = "VanHool New A330";
@@ -564,7 +564,7 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
-        } elseif($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
+        } elseif ($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
 
             $this->type = "Autobus solo";
             $this->name = "Mercedez-Benz Citaro C2 O530";
@@ -624,7 +624,7 @@ class Vehicule {
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
 
-        } elseif('???' == $id){
+        } elseif ('???' == $id) {
 
             $this->type = "Véhicule inconnu";
 	        $this->name = "Sous-traitant";
@@ -641,8 +641,8 @@ class Vehicule {
     }
 
     /* Afficher le véhicule */
-    public function renderCard_iOS(){
-        if($this->enSavoirPlus){
+    public function renderCard_iOS() {
+        if ($this->enSavoirPlus) {
             echo '<a href="/vehicule?id='.$this->id.'">';
         }
             ?>
@@ -660,20 +660,20 @@ class Vehicule {
                         <strong><?=$this->name?></strong>
                     </h2>
                     <?php
-                        if($this->enSavoirPlus){
+                        if ($this->enSavoirPlus) {
                             echo '<span class="en-savoir-plus">En savoir plus</span>';
                         }
                     ?>
                 </div>
             </div>
         <?php
-        if($this->enSavoirPlus){
+        if ($this->enSavoirPlus) {
             echo '</a>';
         }
     }
 
-    public function renderCard_Android(){
-        if($this->enSavoirPlus){
+    public function renderCard_Android() {
+        if ($this->enSavoirPlus) {
             echo '<a href="/vehicule?id='.$this->id.'">';
         }
             ?>
@@ -691,14 +691,14 @@ class Vehicule {
                         <strong><?=$this->name?></strong>
                     </h2>
                     <?php
-                        if($this->enSavoirPlus){
+                        if ($this->enSavoirPlus) {
                             echo '<span class="button">En savoir plus</span>';
                         }
                     ?>
                 </div>
             </div>
             <?php
-        if($this->enSavoirPlus){
+        if ($this->enSavoirPlus) {
             echo '</a>';
         }
     }

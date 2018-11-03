@@ -5,14 +5,14 @@ use TPGwidget\Data\Stops;
 include '../../tpgdata/vehicules/vehicules.php';
 include '../../tpgdata/lignes.php';
 
-if(!isset($_GET['id'])) { // Si aucun arrêt spécifié
+if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
 }
 
 $file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
 $thermometer = @simplexml_load_file($file);
 
-if(!$thermometer){
+if (!$thermometer) {
     $erreur[] = '<div class="boxinstall"><strong>Erreur :</strong> Serveur TPG indisponible</div>';
 }
 ?>
@@ -25,7 +25,7 @@ if(!$thermometer){
             </a>
         </div>
         <?php
-        if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
+        if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
             $b = ' b';
         }
         ?>
@@ -40,7 +40,7 @@ if(!$thermometer){
 </div>
 <div class="pages">
     <?php
-    if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
+    if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
         $b = "-b";
     }
     ?>
@@ -65,11 +65,11 @@ if(!$thermometer){
                             foreach ($thermometer->steps->step as $step) { ?>
                                 <li>
                                     <?php
-                                    if($avancee == "current") {
+                                    if ($avancee == "current") {
                                         $avancee = "";
                                     }
 
-                                    if(levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
+                                    if (levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
                                         $avancee = 'current';
                                     }
                                     ?>
@@ -82,7 +82,7 @@ if(!$thermometer){
                                             <div class="item-after">
                                                 <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
                                                 <span class="m">
-                                                    <?php if(intval($step->arrivalTime)) {
+                                                    <?php if (intval($step->arrivalTime)) {
                                                         echo $step->arrivalTime." min";
                                                     } ?>
                                                 </span>
