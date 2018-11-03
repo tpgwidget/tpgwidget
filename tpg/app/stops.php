@@ -1,11 +1,10 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
 header('Content-type: application/json; charset=utf-8');
 
-require '../../tpgdata/apikey.php';
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key;
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY');
 $stops = @simplexml_load_file($file);
 
 $output = array();

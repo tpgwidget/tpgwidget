@@ -1,5 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
 include '../../tpgdata/vehicules/vehicules.php';
@@ -9,8 +9,7 @@ if(!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
 }
 
-require '../../tpgdata/apikey.php';
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.$key.'&departureCode=' . $_GET["id"];
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
 $thermometer = @simplexml_load_file($file);
 
 if(!$thermometer){

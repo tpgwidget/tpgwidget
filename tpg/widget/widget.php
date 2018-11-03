@@ -1,14 +1,11 @@
 <?php
+require_once __DIR__.'/../../config.inc.php';
+use TPGwidget\Data\Stops;
+
 if (!preg_match('/^\d{6}$/', $_GET['id'])) {
     http_response_code(404);
     die('Erreur : Aucun arrêt spécifié');
 }
-
-require '../../vendor/autoload.php';
-use TPGwidget\Data\Stops;
-
-require '../../tpgdata/db.php';
-require '../../tpgdata/apikey.php';
 
 // Get the widget from the database
 $req = $bdd->prepare('SELECT * FROM widgets WHERE id = ?');

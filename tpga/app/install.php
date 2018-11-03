@@ -1,5 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
 header('Access-Control-Allow-Origin: *');
@@ -7,8 +7,7 @@ header('Access-Control-Allow-Methods: GET');
 if(!isset($_GET["id"])) {
     $erreur = "Paramètre manquant";
 } else {
-    require '../../tpgdata/apikey.php';
-    $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.$key.'&stopCode=' . htmlentities($_GET["id"]);
+    $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . htmlentities($_GET["id"]);
     $nextDepartures = @simplexml_load_file($file);
 }
 
@@ -39,10 +38,10 @@ if ($nextDepartures){
                $lignes = array_unique($lignes);
                $lignesNoctambus = [];
 
-               foreach($lignes as $key => $ligne){
+               foreach($lignes as $index => $ligne){
                    if(substr($ligne, 0, 1) === 'N'){
                         $lignesNoctambus[] = $ligne;
-                        unset($lignes[$key]);
+                        unset($lignes[$index]);
                    }
                }
 

@@ -1,7 +1,6 @@
 <?php
-
-require __DIR__.'/../../tpgdata/apikey.php';
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.$key;
+require __DIR__.'/../../config.inc.php';
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY');
 $disruptions = @simplexml_load_file($file);
 
 $whiteTextLines = [
