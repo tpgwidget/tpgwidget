@@ -1,6 +1,6 @@
 <?php
 require '../tpgdata/vehicules/vehicules.php';
-$vehicule = new Vehicule(htmlspecialchars($_GET['id']));
+$vehicule = new Vehicule(htmlspecialchars($_GET['id'] ?? ''));
 ?>
 <div class="navbar">
     <div class="navbar-inner">

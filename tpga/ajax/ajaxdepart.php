@@ -40,7 +40,7 @@ $color = lineColor($thermometer->lineCode);
             <a href="#tab-2" class="tab-link show-h">Heure</a>
         </div>
     </div>
-    <?
+    <?php
       if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
           $b = "-b";
       }
@@ -101,8 +101,8 @@ $color = lineColor($thermometer->lineCode);
       <?php if($thermometer->disruptions) { ?>
           <div class="pdata">
              <div class="accordion-list">
-                <?
-                 $nombreDePerturbations = 0;
+                <?php
+                $nombreDePerturbations = 0;
 
                  foreach($thermometer->disruptions->disruption as $disruption) {
                      $nombreDePerturbations++;

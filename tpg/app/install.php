@@ -29,7 +29,7 @@ if($nextDepartures){
             <div class="card-content">
             <div class="card-content-inner">
                 <ul class="lignes">
-                <?
+                <?php
                 $lignes = [];
 
                    foreach($nextDepartures->stop->connections->connection as $connection){
@@ -62,9 +62,7 @@ if($nextDepartures){
     </div>
   </div>
 </div>
-<?
-} else {
-?>
+<?php } else { ?>
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left">
@@ -84,7 +82,7 @@ if($nextDepartures){
     <div class="page-content">
         <section class="graym">
 		    <h1>:-(</h1>
-		    <h2>Erreur : <?
+		    <h2>Erreur : <?php
     		    if($erreur){
         		    print $erreur;
     		    }else{

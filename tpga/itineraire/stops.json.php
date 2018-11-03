@@ -1,7 +1,6 @@
-<?
+<?php
+require_once __DIR__.'/../../config.inc.php';
 header('Content-type: application/json; charset=utf-8');
-
-require '../../tpgdata/db.php';
 
 $i = 0;
 
@@ -20,5 +19,3 @@ echo '[';
     }
 
 echo ']';
-
-?>

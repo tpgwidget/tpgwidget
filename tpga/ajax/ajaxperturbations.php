@@ -19,7 +19,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
       <div class="card-content">
         <div class="card-content-inner">
               <div class="perturbation-header">
-                  <?
+                  <?php
                       $perturbations++;
                       echo '<span class="picto-ligne ';
                       echo 'l'.$disruption->lineCode.' ';
@@ -33,7 +33,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                       echo '</span>';
                   ?>
                   <header><?=$disruption->nature?></header>
-                  <?
+                  <?php
                       if($disruption->place != ""){
                           echo '<small>'.$disruption->place.'</small>';
                       } else {

@@ -10,7 +10,7 @@ class Vehicule {
     public $wifi = false;
 
     public function __construct(string $id) {
-        if (strlen($id) !== 4) {
+        if (strlen($id) !== 4 && $id !== '') {
             if ($id[0] === '2') {
                 $id = substr($id, 1);
             }
@@ -659,14 +659,14 @@ class Vehicule {
                         <?=$this->type?>
                         <strong><?=$this->name?></strong>
                     </h2>
-                    <?
+                    <?php
                         if($this->enSavoirPlus){
                             echo '<span class="en-savoir-plus">En savoir plus</span>';
                         }
                     ?>
                 </div>
             </div>
-            <?
+        <?php
         if($this->enSavoirPlus){
             echo '</a>';
         }
@@ -690,14 +690,14 @@ class Vehicule {
                         <?=$this->type?>
                         <strong><?=$this->name?></strong>
                     </h2>
-                    <?
+                    <?php
                         if($this->enSavoirPlus){
                             echo '<span class="button">En savoir plus</span>';
                         }
                     ?>
                 </div>
             </div>
-            <?
+            <?php
         if($this->enSavoirPlus){
             echo '</a>';
         }

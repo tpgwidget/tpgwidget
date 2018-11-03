@@ -36,7 +36,7 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                       echo '</span>';
                   ?>
                   <header><?= $disruption->nature ?></header>
-                  <?
+                  <?php
                       if($disruption->place != ""){
                           echo '<small>'.$disruption->place.'</small>';
                       } else {

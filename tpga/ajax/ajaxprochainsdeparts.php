@@ -49,7 +49,7 @@ include '../../tpgdata/vehicules/vehicules.php';
                         </div>
                     </div>
 
-                    <?
+                    <?php
                     // Quai
                     quai($nextDepartures->stop->stopCode, $depart->connection->lineCode, $depart->connection->destinationName);
 
@@ -64,7 +64,7 @@ include '../../tpgdata/vehicules/vehicules.php';
                     }
 
                     // Wi-Fi
-                    $vehicule = new Vehicule($depart->vehiculeNo);
+                    $vehicule = new Vehicule($depart->vehiculeNo ?? '');
                     if ($vehicule->wifi) {
                         echo '<img class="departure-wifi" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">';
                     }

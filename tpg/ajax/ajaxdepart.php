@@ -24,7 +24,7 @@ if(!$thermometer){
                 <i class="icon icon-back"></i>
             </a>
         </div>
-        <?
+        <?php
         if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
             $b = ' b';
         }
@@ -39,7 +39,7 @@ if(!$thermometer){
     </div>
 </div>
 <div class="pages">
-    <?
+    <?php
     if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
         $b = "-b";
     }
@@ -64,7 +64,7 @@ if(!$thermometer){
                             <?php $avancee = 'previous';
                             foreach ($thermometer->steps->step as $step) { ?>
                                 <li>
-                                    <?
+                                    <?php
                                     if($avancee == "current") {
                                         $avancee = "";
                                     }

@@ -2,7 +2,7 @@
 
 require '../tpgdata/vehicules/vehicules.php';
 
-$vehicule = new Vehicule(htmlspecialchars($_GET['id']));
+$vehicule = new Vehicule(htmlspecialchars($_GET['id'] ?? ''));
 ?>
 
 <div data-page="vehicule" class="page page-vehicule">

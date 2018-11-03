@@ -28,7 +28,7 @@ if ($nextDepartures){
     <div class="page-content">
         <div class="content-block">
             <ul class="lignes">
-            <?
+            <?php
             $lignes = [];
 
                foreach($nextDepartures->stop->connections->connection as $connection){
@@ -63,9 +63,7 @@ if ($nextDepartures){
         </div>
     </div>
   </div>
-<?
-} else {
-?>
+<?php } else { ?>
   <div data-page="install" class="page page-page layout-dark">
     <div class="navbar">
       <div class="navbar-inner">
@@ -81,7 +79,7 @@ if ($nextDepartures){
     <div class="page-content">
         <section class="graym">
 		    <h1>:-(</h1>
-		    <h2>Erreur : <?
+		    <h2>Erreur : <?php
     		    if($erreur){
         		    print $erreur;
     		    } else {

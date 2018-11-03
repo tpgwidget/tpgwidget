@@ -1,7 +1,7 @@
-<?
-header('Content-type: application/json; charset=utf-8');
+<?php
+require_once __DIR__.'/../../config.inc.php';
 
-require '../../tpgdata/db.php';
+header('Content-type: application/json; charset=utf-8');
 
 $i = 0;
 
@@ -20,5 +20,3 @@ echo '[';
     }
 
 echo ']';
-
-?>

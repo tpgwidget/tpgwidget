@@ -25,7 +25,7 @@ include '../../tpgdata/vehicules/vehicules.php';
         <?php }
 
         foreach ($nextDepartures->departures->departure as $depart) { ?>
-            <?
+            <?php
             echo $depart->connectionWaitingTime;
             if (in_array($depart->connection->lineCode, $lignesAvecTexteBlanc)){
                 print '<li class="w l'.str_replace('+', 'plus', $depart->connection->lineCode).'">';
@@ -61,7 +61,7 @@ include '../../tpgdata/vehicules/vehicules.php';
                 }
 
                 // Wi-Fi
-                $vehicule = new Vehicule($depart->vehiculeNo);
+                $vehicule = new Vehicule($depart->vehiculeNo ?? '');
                 if ($vehicule->wifi) {
                     echo '<img class="departure-wifi" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">';
                 }

@@ -34,7 +34,7 @@ $json = json_decode($file);
         <?php if(count($json->connections) > 0) { ?>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <?
+                    <?php
                     if($_POST['isArrivalTime'] == '1') {
                         $json->connections = array_reverse($json->connections);
                     }
@@ -45,7 +45,7 @@ $json = json_decode($file);
 
                             <!-- Header -->
                             <header>
-                                <?
+                                <?php
                                 /* GENERATION CARTE TRAJET */
 
                                 // Génerer un lien Google Maps
@@ -84,7 +84,7 @@ $json = json_decode($file);
 
                                 <img class="trajet-map" src="<?= $mapURL ?>" alt="Carte de votre trajet">
 
-                                <?
+                                <?php
                                 $dateTrajet = date('d.m.Y', $trajet->from->departureTimestamp);
                                 $dateToday = date('d.m.Y');
 
@@ -94,7 +94,7 @@ $json = json_decode($file);
                                 ?>
 
                                 <h1>
-                                    <?
+                                    <?php
                                         echo date('H:i', $trajet->from->departureTimestamp);
                                         echo ' – ';
                                         echo date('H:i', $trajet->to->arrivalTimestamp);
@@ -107,7 +107,7 @@ $json = json_decode($file);
                                 </h1>
 
                                 <!-- Résumé de trajet -->
-                                <div class="resume"><?
+                                <div class="resume"><?php
                                     foreach ($trajet->sections as $section) {
                                         if($section->journey){
                                             if($section->journey->operator == 'TPG') {
@@ -145,7 +145,7 @@ $json = json_decode($file);
                                 <div class="card">
                                     <?php if($section->journey) { ?>
                                     <div class="card-header">
-                                        <?
+                                        <?php
                                         if($section->journey->operator == 'TPG') {
                                             $indiceDeLigne = $section->journey->number;
 
@@ -191,7 +191,7 @@ $json = json_decode($file);
                                         <span class="destination">
                                             <span style="color: #<?= lineColor($indiceDeLigne) ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
                                         </span>
-                                        <?
+                                        <?php
                                         switch($section->journey->category) {
                                             case 'NFB':
                                                 echo '<i>🚍</i>';
@@ -238,7 +238,7 @@ $json = json_decode($file);
                                                     <?php } ?>
                                                         <span class="item-inner">
                                                             <span class="item-title"><em>
-                                                                <?
+                                                                <?php
                                                                     if($stopCount == 0){
                                                                         echo 'Aucun arrêt';
                                                                     } elseif ($stopCount == 1){
@@ -295,7 +295,7 @@ $json = json_decode($file);
                                         <div class="card-header">
                                             <i class="icon icon-marche"></i>
                                             <strong class="destination">
-                                                <?
+                                                <?php
                                                     echo 'Marcher ';
 
                                                     $temps = floor(($section->arrival->arrivalTimestamp - $section->departure->departureTimestamp) / 60);
