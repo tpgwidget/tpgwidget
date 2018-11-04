@@ -34,8 +34,8 @@
                             <div class="item-inner">
                                 <div class="item-title">De : </div>
                                 <div class="item-after">
-                                    <?
-                                        if($_GET['departure']) {
+                                    <?php
+                                        if ($_GET['departure']) {
                                             echo htmlspecialchars($_GET['departure']);
                                         } else {
                                             echo 'Cliquez pour choisir';

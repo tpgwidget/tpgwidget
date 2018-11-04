@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__.'/../../config.inc.php';
+?>
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Retour</span></a></div>
@@ -11,8 +14,7 @@
   <div data-page="arrets" class="page page-arrets">
     <div class="page-content">
         <?php
-        require '../../tpgdata/apikey.php';
-        $stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
+        $stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
         ?>
         <form data-search-list=".virtual-list" class="searchbar searchbar-init">
             <div class="searchbar-input">

@@ -14,18 +14,18 @@ function arrayMap($callback, $arr1)
     $results = array();
     $args = array();
     if (func_num_args() > 2) $args = (array)array_shift(array_slice(func_get_args() , 2));
-    foreach($arr1 as $key => $value) {
+    foreach ($arr1 as $index => $value) {
         $temp = $args;
         array_unshift($temp, $value);
         if (is_array($value)) {
             array_unshift($temp, $callback);
-            $results[$key] = call_user_func_array(array(
+            $results[$index] = call_user_func_array(array(
                 'self',
                 'arrayMap'
             ) , $temp);
         }
         else {
-            $results[$key] = call_user_func_array($callback, $temp);
+            $results[$index] = call_user_func_array($callback, $temp);
         }
     }
 
@@ -70,11 +70,11 @@ class Plans {
     {
         // Pour chaque plan, prend le nom du plan et le remplace
         // par l'objet définissant le type de ce plan
-        foreach(self::$years as $yearNumber => $year) {
+        foreach (self::$years as $yearNumber => $year) {
 
             $plans = &self::$years[$yearNumber]["plans"];
 
-            foreach($plans as $index => $plan){
+            foreach ($plans as $index => $plan) {
                 $plans[$plan] = self::$types[$plan];
 
                 unset($plans[$index]);

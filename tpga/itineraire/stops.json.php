@@ -1,24 +1,8 @@
-<?
+<?php
+require_once __DIR__.'/../../config.inc.php';
+use TPGwidget\Data\Datasets;
 header('Content-type: application/json; charset=utf-8');
 
-require '../../tpgdata/db.php';
-
-$i = 0;
-
-echo '[';
-
-    $req = $bdd->query('SELECT tpg FROM `tpg-sbb` ORDER BY tpg');
-
-    while($stop = $req->fetch()){
-        if($i !== 0){
-            echo ',';
-        }
-
-        echo '"'.$stop['tpg'].'"';
-
-        $i++;
-    }
-
-echo ']';
-
-?>
+$stops = array_values(Datasets::load('stopTranslation'));
+sort($stops);
+echo json_encode($stops);

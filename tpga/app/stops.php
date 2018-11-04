@@ -1,15 +1,13 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
-require '../../tpgdata/apikey.php';
-
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key;
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY');
 $stops = @simplexml_load_file($file);
 
 $output = array();
 
-foreach($stops->stops->stop as $stop) {
+foreach ($stops->stops->stop as $stop) {
   $output[trim($stop->stopCode)] = Stops::correct($stop->stopName);
 
   // Remove duplicate stops

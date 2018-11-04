@@ -1,7 +1,6 @@
 <?php
-
-require __DIR__.'/../../tpgdata/apikey.php';
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.$key;
+require __DIR__.'/../../config.inc.php';
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY');
 $disruptions = @simplexml_load_file($file);
 
 $whiteTextLines = [
@@ -20,13 +19,13 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
       <div class="card-content">
         <div class="card-content-inner">
               <div class="perturbation-header">
-                  <?
+                  <?php
                       $perturbations++;
                       echo '<span class="picto-ligne ';
                       echo 'l'.$disruption->lineCode.' ';
                       echo 's'.$disruption->lineCode.' ';
 
-                      if(in_array($disruption->lineCode, $whiteTextLines)){
+                      if (in_array($disruption->lineCode, $whiteTextLines)) {
                           echo 'w';
                       }
 
@@ -34,8 +33,8 @@ foreach ($disruptions->disruptions->disruption as $disruption) {
                       echo '</span>';
                   ?>
                   <header><?=$disruption->nature?></header>
-                  <?
-                      if($disruption->place != ""){
+                  <?php
+                      if ($disruption->place != "") {
                           echo '<small>'.$disruption->place.'</small>';
                       } else {
                           echo "&nbsp;";

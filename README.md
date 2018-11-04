@@ -13,7 +13,7 @@ TPGwidget includes many features such as :
 - vehicles informations
 - and much more !
 
-The projet is made with [Framework7](http://framework7.io) in the front end, and PHP in the back end. The app users download on the [App Store](https://github.com/tpgwidget/ios) or on [Google Play](https://github.com/tpgwidget/android) is powered by Apache Cordova.
+The projet is made with [Framework7](http://framework7.io) in the front end, and PHP in the back end. The app users download on the [App Store](https://github.com/tpgwidget/ios) or on [Google Play](https://github.com/tpgwidget/android) is powered by Apache Cordova.
 
 ![TPGwidget screenshots](https://www.nicolapps.ch/tpgwidget/screenshots.png)
 
@@ -24,7 +24,7 @@ Prerequisites : PHP 7+, MySQL, Node.js (dev only)
 ### Install
 
 To run an instance of TPGwidget, you have to :
-1. Write your TPG Open Data API key into `tpgdata/apikey.php` (you can get one [here](http://www.tpg.ch/fr/web/open-data/demande-de-cle))
+1. Create a copy of the `.env.example` file named `.env` and fill in your TPG Open Data API key and your database credentials.
 2. Create on your MySQL Server the required tables (use the `dump.sql` file)
 3. File in the database connection details into `tpgdata/db.php`
 

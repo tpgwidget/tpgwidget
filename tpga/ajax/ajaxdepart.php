@@ -1,23 +1,22 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
 include '../../tpgdata/vehicules/vehicules.php';
 include '../../tpgdata/lignes.php';
 
-if(!isset($_GET['id'])){ // Si aucun arrêt spécifié
+if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
 }
 
-require '../../tpgdata/apikey.php';
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.$key.'&departureCode=' . $_GET["id"];
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
 $thermometer = @simplexml_load_file($file);
 
-if(!$thermometer){
+if (!$thermometer) {
     $erreur[] = '<div class="boxinstall"><strong>Erreur :</strong> Serveur TPG indisponible</div>';
 }
 
-if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
+if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
     $b = 'b';
 }
 
@@ -41,8 +40,8 @@ $color = lineColor($thermometer->lineCode);
             <a href="#tab-2" class="tab-link show-h">Heure</a>
         </div>
     </div>
-    <?
-      if(in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
+    <?php
+      if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
           $b = "-b";
       }
     ?>
@@ -70,11 +69,11 @@ $color = lineColor($thermometer->lineCode);
             <?php foreach ($thermometer->steps->step as $step) { ?>
                 <li>
                     <?php
-                    if($avancee == "current") {
+                    if ($avancee == "current") {
                         $avancee = "";
                     }
 
-                    if(levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
+                    if (levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
                         $avancee = 'current';
                     }
                     ?>
@@ -87,7 +86,7 @@ $color = lineColor($thermometer->lineCode);
                             <div class="item-after">
                                 <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
                                 <span class="m">
-                                    <?php if(intval($step->arrivalTime)) {
+                                    <?php if (intval($step->arrivalTime)) {
                                         echo $step->arrivalTime." min";
                                     } ?>
                                 </span>
@@ -99,13 +98,13 @@ $color = lineColor($thermometer->lineCode);
         </ul>
       </div></div></div>
       </div>
-      <?php if($thermometer->disruptions) { ?>
+      <?php if ($thermometer->disruptions) { ?>
           <div class="pdata">
              <div class="accordion-list">
-                <?
-                 $nombreDePerturbations = 0;
+                <?php
+                $nombreDePerturbations = 0;
 
-                 foreach($thermometer->disruptions->disruption as $disruption) {
+                 foreach ($thermometer->disruptions->disruption as $disruption) {
                      $nombreDePerturbations++;
                      ?>
                      <div class="accordion-item <?= ($nombreDePerturbations === 1) ? 'accordion-item-expanded' : '' ?>">

@@ -1,6 +1,6 @@
 <?php
 require '../tpgdata/vehicules/vehicules.php';
-$vehicule = new Vehicule(htmlspecialchars($_GET['id']));
+$vehicule = new Vehicule(htmlspecialchars($_GET['id'] ?? ''));
 ?>
 <div class="navbar">
     <div class="navbar-inner">
@@ -39,7 +39,7 @@ $vehicule = new Vehicule(htmlspecialchars($_GET['id']));
                     </div>
                 </div>
 
-                <?php if ($vehicule->places_assises && $vehicule->places_debout && $vehicule->places_totales){ ?>
+                <?php if ($vehicule->places_assises && $vehicule->places_debout && $vehicule->places_totales) { ?>
                     <div class="row">
                         <div class="col-33 info">
                             <label>Places assises</label>
@@ -59,13 +59,13 @@ $vehicule = new Vehicule(htmlspecialchars($_GET['id']));
             </section>
 
             <section class="links">
-                <?php if ($vehicule->tpg_link){ ?>
+                <?php if ($vehicule->tpg_link) { ?>
                     <p>
                         <a class="external" href="<?= $vehicule->tpg_link ?>" target="_blank">Site internet des tpg</a>
                     </p>
                 <?php } ?>
 
-                <?php if ($vehicule->img_author){ ?>
+                <?php if ($vehicule->img_author) { ?>
                     <p>
                         Crédit photo : <a class="external" href="<?= $vehicule->img_link ?>"><?= $vehicule->img_author ?></a>
                     </p>

@@ -22,18 +22,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tpg-sbb`
---
-
-CREATE TABLE `tpg-sbb` (
-  `id` int(11) NOT NULL,
-  `tpg` varchar(255) NOT NULL,
-  `sbb` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `widgets`
 --
 
@@ -48,14 +36,6 @@ CREATE TABLE `widgets` (
 --
 
 --
--- Index pour la table `tpg-sbb`
---
-ALTER TABLE `tpg-sbb`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sbb` (`sbb`),
-  ADD KEY `tpg` (`tpg`);
-
---
 -- Index pour la table `widgets`
 --
 ALTER TABLE `widgets`
@@ -65,11 +45,6 @@ ALTER TABLE `widgets`
 -- AUTO_INCREMENT pour les tables exportées
 --
 
---
--- AUTO_INCREMENT pour la table `tpg-sbb`
---
-ALTER TABLE `tpg-sbb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT pour la table `widgets`
 --

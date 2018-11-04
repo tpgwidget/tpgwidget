@@ -1,9 +1,8 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
-require __DIR__.'/../../tpgdata/apikey.php';
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.$key.'&stopCode=' . $_GET["id"];
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . $_GET["id"];
 $nextDepartures = @simplexml_load_file($file);
 
 include '../../tpgdata/quais.php';
@@ -26,9 +25,9 @@ include '../../tpgdata/vehicules/vehicules.php';
         <?php }
 
         foreach ($nextDepartures->departures->departure as $depart) { ?>
-            <?
+            <?php
             echo $depart->connectionWaitingTime;
-            if (in_array($depart->connection->lineCode, $lignesAvecTexteBlanc)){
+            if (in_array($depart->connection->lineCode, $lignesAvecTexteBlanc)) {
                 print '<li class="w l'.str_replace('+', 'plus', $depart->connection->lineCode).'">';
             } else{
                 print '<li class="l'.$depart->connection->lineCode.'">';
@@ -52,7 +51,7 @@ include '../../tpgdata/vehicules/vehicules.php';
 
                 <?php
                 quai($nextDepartures->stop->stopCode, $depart->connection->lineCode, $depart->connection->destinationName);
-                if ($depart->characteristics != "PMR" && $depart->waitingTime != "no more"){
+                if ($depart->characteristics != "PMR" && $depart->waitingTime != "no more") {
                     echo '<span class="nopmr"></span>';
                 }
 
@@ -62,7 +61,7 @@ include '../../tpgdata/vehicules/vehicules.php';
                 }
 
                 // Wi-Fi
-                $vehicule = new Vehicule($depart->vehiculeNo);
+                $vehicule = new Vehicule($depart->vehiculeNo ?? '');
                 if ($vehicule->wifi) {
                     echo '<img class="departure-wifi" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">';
                 }

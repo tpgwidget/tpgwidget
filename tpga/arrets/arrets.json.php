@@ -1,9 +1,8 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
-require '../../tpgdata/apikey.php';
-$stops = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.$key);
+$stops = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
 $output = [];
 
 if ($stops) {

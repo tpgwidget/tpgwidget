@@ -16,13 +16,13 @@ require_once('../tpgdata/plans/plans.php');
   <div data-page="about" class="page">
     <div class="page-content">
 
-        <?php foreach(Plans::all() as $yearNumber => $year) { ?>
+        <?php foreach (Plans::all() as $yearNumber => $year) { ?>
 
             <div class="content-block-title"><?= $year["name"] ?></div>
 
             <div class="list-block media-list">
                 <ul>
-                    <?php foreach($year["plans"] as $id => $plan) { ?>
+                    <?php foreach ($year["plans"] as $id => $plan) { ?>
 
                         <li>
                             <a href="https://tpgdata.nicolapps.ch/plans/pdf/<?= $yearNumber ?>/<?= $id ?>" class="external item-link item-content">

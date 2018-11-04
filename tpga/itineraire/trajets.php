@@ -1,5 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
+require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
 
 include '../../tpgdata/lignes.php';
@@ -12,7 +12,7 @@ $url =  'https://transport.opendata.ch/v1/connections'.
         '?from='.urlencode(Stops::tpgToSbb($depart)).
         "&to=".urlencode(Stops::tpgToSbb($arrivee));
 
-if($_POST['dateheure']){
+if ($_POST['dateheure']) {
     $url .= '&date='.date('Y-m-d', strtotime($_POST['dateheure']));
     $url .= '&time='.date('H:i', strtotime($_POST['dateheure']));
 }
@@ -31,11 +31,11 @@ $json = json_decode($file);
         </div>
     </div>
     <div class="page-content">
-        <?php if(count($json->connections) > 0) { ?>
+        <?php if (count($json->connections) > 0) { ?>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <?
-                    if($_POST['isArrivalTime'] == '1') {
+                    <?php
+                    if ($_POST['isArrivalTime'] == '1') {
                         $json->connections = array_reverse($json->connections);
                     }
 
@@ -45,7 +45,7 @@ $json = json_decode($file);
 
                             <!-- Header -->
                             <header>
-                                <?
+                                <?php
                                 /* GENERATION CARTE TRAJET */
 
                                 // Génerer un lien Google Maps
@@ -61,11 +61,11 @@ $json = json_decode($file);
                                 $mapURL .= '&markers=color:blue|label:B|'.$coordinate->x.','.$coordinate->y;
 
                                 // Lignes
-                                foreach($trajet->sections as $section) {
-                                    if($section->journey && $section->journey->operator == 'TPG') {
+                                foreach ($trajet->sections as $section) {
+                                    if ($section->journey && $section->journey->operator == 'TPG') {
                                         $indiceDeLigne = $section->journey->number;
                                         $couleur = lineColor($indiceDeLigne);
-                                    } elseif($section->journey && $section->journey->operator == 'SBB') {
+                                    } elseif ($section->journey && $section->journey->operator == 'SBB') {
                                         $couleur = 'cc0033';
                                     } else {
                                         $couleur = '222222';
@@ -73,8 +73,8 @@ $json = json_decode($file);
 
                                     $mapURL .= '&path=weight:7|color:0x'.$couleur.'cc';
 
-                                    if($section->journey){
-                                        foreach($section->journey->passList as $arret){
+                                    if ($section->journey) {
+                                        foreach ($section->journey->passList as $arret) {
                                             $mapURL .= '|'.$arret->station->coordinate->x.','.$arret->station->coordinate->y;
                                         }
                                     }
@@ -84,17 +84,17 @@ $json = json_decode($file);
 
                                 <img class="trajet-map" src="<?= $mapURL ?>" alt="Carte de votre trajet">
 
-                                <?
+                                <?php
                                 $dateTrajet = date('d.m.Y', $trajet->from->departureTimestamp);
                                 $dateToday = date('d.m.Y');
 
-                                if($dateTrajet !== $dateToday){
+                                if ($dateTrajet !== $dateToday) {
                                     echo '<p class="date">Itinéraire valable le '.$dateTrajet.'</p>';
                                 }
                                 ?>
 
                                 <h1>
-                                    <?
+                                    <?php
                                         echo date('H:i', $trajet->from->departureTimestamp);
                                         echo ' – ';
                                         echo date('H:i', $trajet->to->arrivalTimestamp);
@@ -107,13 +107,13 @@ $json = json_decode($file);
                                 </h1>
 
                                 <!-- Résumé de trajet -->
-                                <div class="resume"><?
+                                <div class="resume"><?php
                                     foreach ($trajet->sections as $section) {
-                                        if($section->journey){
-                                            if($section->journey->operator == 'TPG') {
+                                        if ($section->journey) {
+                                            if ($section->journey->operator == 'TPG') {
                                                 $indiceDeLigne = $section->journey->number;
 
-                                                if(!in_array($indiceDeLigne, $lignesAvecTexteNoir)){
+                                                if (!in_array($indiceDeLigne, $lignesAvecTexteNoir)) {
                                                     $w = 'w';
                                                 } else {
                                                     $w = '';
@@ -122,7 +122,7 @@ $json = json_decode($file);
                                                 echo '<span class="picto-ligne l'.$indiceDeLigne.' '.$w.'">';
                                                     echo $indiceDeLigne;
                                                 echo '</span>';
-                                            } elseif($section->journey->operator == 'SBB') {
+                                            } elseif ($section->journey->operator == 'SBB') {
                                                 $indiceDeLigne = 4;
 
                                                 echo '<span class="picto-ligne l4 w">';
@@ -141,15 +141,15 @@ $json = json_decode($file);
                             </header>
 
                             <!-- Trajet -->
-                            <?php foreach($trajet->sections as $section) { ?>
+                            <?php foreach ($trajet->sections as $section) { ?>
                                 <div class="card">
-                                    <?php if($section->journey) { ?>
+                                    <?php if ($section->journey) { ?>
                                     <div class="card-header">
-                                        <?
-                                        if($section->journey->operator == 'TPG') {
+                                        <?php
+                                        if ($section->journey->operator == 'TPG') {
                                             $indiceDeLigne = $section->journey->number;
 
-                                            if(!in_array($indiceDeLigne, $lignesAvecTexteNoir)){
+                                            if (!in_array($indiceDeLigne, $lignesAvecTexteNoir)) {
                                                 $w = 'w';
                                             } else {
                                                 $w = '';
@@ -158,7 +158,7 @@ $json = json_decode($file);
                                             echo '<span class="picto-ligne l'.$indiceDeLigne.' '.$w.'">';
                                                 echo $indiceDeLigne;
                                             echo '</span>';
-                                        } elseif($section->journey->operator == 'SBB') {
+                                        } elseif ($section->journey->operator == 'SBB') {
                                             $indiceDeLigne = 4;
 
                                             echo '<span class="picto-ligne l4 w">';
@@ -178,7 +178,7 @@ $json = json_decode($file);
 
                                         $intervalleArrets = round(($timestampArrivee - $timestampDepart) / 60);
 
-                                        if($intervalleArrets >= 2) {
+                                        if ($intervalleArrets >= 2) {
                                             $intervalleArrets .= ' minutes';
                                         } else {
                                             $intervalleArrets .= ' minute';
@@ -191,7 +191,7 @@ $json = json_decode($file);
                                         <span class="destination">
                                             <span style="color: #<?= lineColor($indiceDeLigne) ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
                                         </span>
-                                        <?
+                                        <?php
                                         switch($section->journey->category) {
                                             case 'NFB':
                                                 echo '<i>🚍</i>';
@@ -225,7 +225,7 @@ $json = json_decode($file);
 
                                                 <li class="accordion-item">
                                                     <?php $stopCount = count($section->journey->passList); ?>
-                                                    <?php if($stopCount > 0) { ?>
+                                                    <?php if ($stopCount > 0) { ?>
                                                         <a href="#" class="item-content item-link">
                                                             <span class="item-media">
                                                                 <i class="icon t icon-resume l<?= $indiceDeLigne ?>"></i>
@@ -238,10 +238,10 @@ $json = json_decode($file);
                                                     <?php } ?>
                                                         <span class="item-inner">
                                                             <span class="item-title"><em>
-                                                                <?
-                                                                    if($stopCount == 0){
+                                                                <?php
+                                                                    if ($stopCount == 0) {
                                                                         echo 'Aucun arrêt';
-                                                                    } elseif ($stopCount == 1){
+                                                                    } elseif ($stopCount == 1) {
                                                                         echo '1 arrêt';
                                                                     } else {
                                                                         echo $stopCount.' arrêts';
@@ -250,7 +250,7 @@ $json = json_decode($file);
                                                             </em></span>
                                                             <span class="item-after"><?= $intervalleArrets ?></span>
                                                         </span>
-                                                    <?php if($stopCount > 0) { ?>
+                                                    <?php if ($stopCount > 0) { ?>
                                                         </a>
                                                     <?php } else { ?>
                                                         </div>
@@ -258,7 +258,7 @@ $json = json_decode($file);
                                                     <div class="accordion-item-content">
                                                         <div class="list-block">
                                                             <ul>
-                                                                <?php foreach($section->journey->passList as $stop){ ?>
+                                                                <?php foreach ($section->journey->passList as $stop) { ?>
                                                                 <li>
                                                                     <div class="item-content">
                                                                         <div class="item-media">
@@ -290,18 +290,18 @@ $json = json_decode($file);
                                             </ul>
                                         </div>
                                     </div>
-                                    <?php } elseif($section->walk) { // Marche ?>
+                                    <?php } elseif ($section->walk) { // Marche ?>
                                         <!-- Marche -->
                                         <div class="card-header">
                                             <i class="icon icon-marche"></i>
                                             <strong class="destination">
-                                                <?
+                                                <?php
                                                     echo 'Marcher ';
 
                                                     $temps = floor(($section->arrival->arrivalTimestamp - $section->departure->departureTimestamp) / 60);
                                                     echo $temps;
 
-                                                    if($temps > 1){
+                                                    if ($temps > 1) {
                                                         echo ' minutes';
                                                     } else {
                                                         echo ' minute';
@@ -347,7 +347,7 @@ $json = json_decode($file);
         <?php } else { // Aucun trajet trouvé ?>
             <div class="content-block">
                 <div class="itineraire-erreur">
-                    <?php if(trim($arrivee) == '') { // Pas de lieu d'arrivée ?>
+                    <?php if (trim($arrivee) == '') { // Pas de lieu d'arrivée ?>
                         <img src="/resources/img/itineraire_where.png" alt="Où souhaitez-vous aller ?">
                         <h1>Où souhaitez-vous aller ?</h1>
                         <p>Vous n'avez sélectionné aucun lieu d'arrivée.</p>
@@ -362,7 +362,7 @@ $json = json_decode($file);
             </div>
         <?php } ?>
     </div>
-    <?php if(count($json->connections) > 0) { ?>
+    <?php if (count($json->connections) > 0) { ?>
         <div class="swiper-container-horizontal toolbar toolbar-bottom">
             <div class="swiper-pagination swiper-pagination-bullets"></div>
         </div>
