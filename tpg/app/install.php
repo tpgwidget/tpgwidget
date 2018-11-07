@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'../../config.inc.php';
+require __DIR__.'/../../config.inc.php';
 
 if (!isset($_GET["id"])) {
     $erreur = "Paramètre manquant";
