@@ -605,7 +605,7 @@ class Vehicule {
             $this->img_link = 'https://twitter.com/Ge_nav';
             $this->year = '2012';
 
-        } elseif ((2013 <= $id && $id <= 2015) || $id == 2017 || $id == 2019) { // Citaro C2 solo RDTA €6
+        } elseif ((2013 <= $id && $id <= 2019) || $id != 2016) { // Citaro C2 solo RDTA €6
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro C2 O530G";
