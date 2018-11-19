@@ -1,9 +1,8 @@
 <?php
 require_once __DIR__.'/../../config.inc.php';
-use TPGwidget\Data\Stops;
+use TPGwidget\Data\{Lines, Stops};
 
 include '../../tpgdata/vehicules/vehicules.php';
-include '../../tpgdata/lignes.php';
 
 if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
@@ -15,8 +14,10 @@ $thermometer = @simplexml_load_file($file);
 if (!$thermometer) {
     $erreur[] = '<div class="boxinstall"><strong>Erreur :</strong> Serveur TPG indisponible</div>';
 }
-?>
 
+$line = Lines::get($thermometer->lineCode);
+$color = $line['background'];
+?>
 <div class="navbar">
     <div class="navbar-inner">
         <div class="left">
@@ -24,12 +25,7 @@ if (!$thermometer) {
                 <i class="icon icon-back"></i>
             </a>
         </div>
-        <?php
-        if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
-            $b = ' b';
-        }
-        ?>
-        <div class="center sliding"><span class="lineCode<?=$b?>"><?=$thermometer->lineCode?></span> ➜ <?= Stops::correct($thermometer->destinationName ?? '') ?></div>
+        <div class="center sliding"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> ➜ <?= Stops::correct($thermometer->destinationName ?? '') ?></div>
         <div class="right">
             <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
         </div>
@@ -39,12 +35,7 @@ if (!$thermometer) {
     </div>
 </div>
 <div class="pages">
-    <?php
-    if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
-        $b = "-b";
-    }
-    ?>
-    <div data-page="depart-<?=lineColor($thermometer->lineCode)?><?=$b?>" class="page page-depart with-subnavbar">
+    <div data-page="depart-<?= $line['background'] ?><?= $line['text'] === '#000000' ? '-b' : '' ?>" class="page page-depart with-subnavbar">
         <div class="page-content">
 
             <div class="content-block" style="margin: 10px;"></div>

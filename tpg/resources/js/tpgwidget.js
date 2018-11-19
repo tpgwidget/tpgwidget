@@ -123,7 +123,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
         }
 
         if (p[0] === 'depart') {
-            $('.navbar, .subnavbar').css('background-color', `#${p[1]}`);
+            $('.navbar, .subnavbar').css('background-color', p[1]);
 
             const incidents = [];
 
@@ -169,7 +169,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             f7.accordionOpen($('.notification-item:first-child'));
         }
 
-        if (p[0] == 'page' || p[0] == 'index') {
+        if (p[0] == 'page' || p[0] == 'index') {
             $.ajax({
                 url: `/ajax/ajaxprochainsdeparts.php?id=${p[1]}`,
                 cache: false,
@@ -358,7 +358,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             openIn: 'page',
             opener: $(`.itineraire-${sens}`),
             backOnSelect: true,
-            source(autocomplete, query, render) {
+            source(autocomplete, query, render) {
                 var results = [];
 
                 if (query.length === 0) {
