@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/../../config.inc.php';
-use TPGwidget\Data\Stops;
+use TPGwidget\Data\{Lines, Stops};
 
 if (!preg_match('/^\d{6}$/', $_GET['id'])) {
     http_response_code(404);
@@ -33,6 +33,14 @@ $nameW = Stops::correct($widget['name']);
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?invert">
+    <style>
+    <?php
+    foreach (Lines::all() as $line) {
+        echo '.l'.str_replace('+', 'plus', $line['name']);
+        echo '{ background: '.$line['background'].' }';
+    }
+    ?>
+    </style>
 
     <!-- Icônes -->
     <link href="http://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">

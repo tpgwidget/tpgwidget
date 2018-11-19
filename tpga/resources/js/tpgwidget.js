@@ -88,8 +88,8 @@ if (f7.device.android && !isStandalone) {
         }
 
         if(p[0] == 'depart'){
-            changeStatusbarColor(`#${p[1]}`);
-        } else if (p == 'vehicule' || p == 'itineraire') {
+            changeStatusbarColor(p[1]);
+        } else if (p == 'vehicule' || p == 'itineraire') {
             changeStatusbarColor('#333');
         } else {
             changeStatusbarColor('#F60');
@@ -123,7 +123,7 @@ if (f7.device.android && !isStandalone) {
             }
         }
 
-        if (p[0] == 'page' || p[0] == 'index') {
+        if (p[0] == 'page' || p[0] == 'index') {
             $.ajax({
                 url: `/ajax/ajaxprochainsdeparts.php?id=${p[1]}`,
                 cache: false,
@@ -345,7 +345,7 @@ function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
         openIn: 'page',
         opener: $(`.itineraire-${sens}`),
         backOnSelect: true,
-        source(autocomplete, query, render) {
+        source(autocomplete, query, render) {
             var results = [];
 
             if (query.length === 0) {

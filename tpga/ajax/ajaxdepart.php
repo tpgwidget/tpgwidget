@@ -1,9 +1,8 @@
 <?php
 require_once __DIR__.'/../../config.inc.php';
-use TPGwidget\Data\Stops;
+use TPGwidget\Data\{Lines, Stops};
 
 include '../../tpgdata/vehicules/vehicules.php';
-include '../../tpgdata/lignes.php';
 
 if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
@@ -16,35 +15,26 @@ if (!$thermometer) {
     $erreur[] = '<div class="boxinstall"><strong>Erreur :</strong> Serveur TPG indisponible</div>';
 }
 
-if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
-    $b = 'b';
-}
-
-$color = lineColor($thermometer->lineCode);
-
+$line = Lines::get($thermometer->lineCode);
+$color = $line['background'];
 ?>
-<div data-page="depart-<?= lineColor($thermometer->lineCode) ?>" class="page page-depart <?=$b?>">
-    <div class="navbar" style="background-color:#<?=$color?>">
+<div data-page="depart-<?= $color ?>" class="page page-depart <?= $line['text'] === '#000000' ? 'b' : '' ?>">
+    <div class="navbar" style="background-color: <?= $color ?>">
       <div class="navbar-inner">
         <div class="left">
           <a href="#" class="back link icon-only">
             <i class="icon icon-back"></i>
            </a>
         </div>
-        <div class="center"><span class="lineCode <?=$b?>"><?=$thermometer->lineCode?></span> ➜ <?= Stops::correct($thermometer->destinationName ?? '') ?></div>
+        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> ➜ <?= Stops::correct($thermometer->destinationName ?? '') ?></div>
       </div>
     </div>
-    <div class="toolbar tabbar" style="background-color:#<?=$color?>">
+    <div class="toolbar tabbar" style="background-color: <?= $color ?>">
         <div class="toolbar-inner">
             <a href="#tab-1" class="tab-link show-m active">Temps</a>
             <a href="#tab-2" class="tab-link show-h">Heure</a>
         </div>
     </div>
-    <?php
-      if (in_array($thermometer->lineCode, $lignesAvecTexteNoir)) {
-          $b = "-b";
-      }
-    ?>
     <div class="page-content">
         <div class="tabs">
             <div id="tab-1" class="tab active"></div>

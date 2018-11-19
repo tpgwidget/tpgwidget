@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__.'/../../config.inc.php';
-use TPGwidget\Data\Stops;
-
-include '../../tpgdata/lignes.php';
+use TPGwidget\Data\{Lines, Stops};
 
 $depart = $_POST['depart'];
 $arrivee = $_POST['arrivee'];
@@ -69,7 +67,8 @@ $json = json_decode($file);
                                 foreach ($trajet->sections as $section) {
                                     if ($section->journey && $section->journey->operator == 'TPG') {
                                         $indiceDeLigne = $section->journey->number;
-                                        $couleur = lineColor($indiceDeLigne);
+                                        $couleur = Lines::get($indiceDeLigne)['background'];
+                                        $couleur = ltrim($couleur, '#');
                                     } elseif ($section->journey && $section->journey->operator == 'SBB') {
                                         $couleur = 'cc0033';
                                     } else {
@@ -117,7 +116,7 @@ $json = json_decode($file);
                                             if ($section->journey->operator == 'TPG') {
                                                 $indiceDeLigne = $section->journey->number;
 
-                                                if (!in_array($indiceDeLigne, $lignesAvecTexteNoir)) {
+                                                if (Lines::get($indiceDeLigne)['text'] === '#FFFFFF') {
                                                     $w = 'w';
                                                 } else {
                                                     $w = '';
@@ -153,7 +152,7 @@ $json = json_decode($file);
                                         if ($section->journey->operator == 'TPG') {
                                             $indiceDeLigne = $section->journey->number;
 
-                                            if (!in_array($indiceDeLigne, $lignesAvecTexteNoir)) {
+                                            if (Lines::get($indiceDeLigne)['text'] === '#FFFFFF') {
                                                 $w = 'w';
                                             } else {
                                                 $w = '';
@@ -193,7 +192,7 @@ $json = json_decode($file);
                                         array_pop($section->journey->passList);
                                         ?>
                                         <span class="destination">
-                                            <span style="color: #<?= lineColor($indiceDeLigne) ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
+                                            <span style="color: <?= Lines::get($indiceDeLigne)['background'] ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
                                         </span>
                                         <?php
                                         switch ($section->journey->category) {

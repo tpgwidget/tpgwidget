@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "33c5657e9ed30baa5fa4af29f14e4c38",
-    "content-hash": "3615025960c88b73e7a029bb90a68f59",
+    "hash": "c9762d4bd6a2c7ca87f6bc3f66596574",
+    "content-hash": "3626be1a06e1e7c359e4419124980e6a",
     "packages": [
         {
             "name": "colinodell/json5",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinodell/json5.git",
-                "reference": "a720fbdaa07c802797524ab46575a74a6ac30719"
+                "reference": "8c73e1a5cd933ed0e29fb5d5997f23902bd9804c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colinodell/json5/zipball/a720fbdaa07c802797524ab46575a74a6ac30719",
-                "reference": "a720fbdaa07c802797524ab46575a74a6ac30719",
+                "url": "https://api.github.com/repos/colinodell/json5/zipball/8c73e1a5cd933ed0e29fb5d5997f23902bd9804c",
+                "reference": "8c73e1a5cd933ed0e29fb5d5997f23902bd9804c",
                 "shasum": ""
             },
             "require": {
@@ -28,9 +28,9 @@
             },
             "require-dev": {
                 "mikehaertl/php-shellcommand": "^1.2.5",
-                "phpunit/phpunit": "^4.8.36",
+                "phpunit/phpunit": "^4.8.36|^7.3",
                 "squizlabs/php_codesniffer": "^2.3",
-                "symfony/finder": "^2.3"
+                "symfony/finder": "^2.8|^3.4|^4.1"
             },
             "bin": [
                 "bin/json5"
@@ -69,20 +69,20 @@
                 "json5_decode",
                 "json_decode"
             ],
-            "time": "2018-01-14 23:52:11"
+            "time": "2018-09-20 15:43:07"
         },
         {
             "name": "tpgwidget/data",
-            "version": "v1.0.1",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tpgwidget/data.git",
-                "reference": "5519ab212c1d655542f2c2ebe1eccfce39eb7d61"
+                "reference": "6bb527747c6de84951406e79ceec9d1759cb3bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tpgwidget/data/zipball/5519ab212c1d655542f2c2ebe1eccfce39eb7d61",
-                "reference": "5519ab212c1d655542f2c2ebe1eccfce39eb7d61",
+                "url": "https://api.github.com/repos/tpgwidget/data/zipball/6bb527747c6de84951406e79ceec9d1759cb3bf2",
+                "reference": "6bb527747c6de84951406e79ceec9d1759cb3bf2",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
                 "tpg",
                 "tpgwidget"
             ],
-            "time": "2018-05-11 09:01:30"
+            "time": "2018-11-19 20:34:56"
         },
         {
             "name": "vlucas/phpdotenv",
