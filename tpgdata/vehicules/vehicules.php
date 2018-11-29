@@ -343,7 +343,7 @@ class Vehicule {
         } elseif (1967 <= $id && $id <= 1968) { // Nouveaux Citaro C2
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
@@ -352,7 +352,7 @@ class Vehicule {
         } elseif (2000 <= $id && $id <= 2002) { // Citaro C2 Hybride
 
             $this->type = "Autobus hybride";
-            $this->name = "Mercedez-Benz Citaro C2";
+            $this->name = "Mercedes-Benz Citaro C2";
             $this->icon = 'c2';
             $this->img = 'hybride';
             $this->img_author = 'TramBusAl';
@@ -382,7 +382,7 @@ class Vehicule {
         } elseif (940 <= $id && $id <= 946) { // Citaro midibus
 
             $this->type = "Midibus";
-            $this->name = "Mercedez-Benz Citaro O530K";
+            $this->name = "Mercedes-Benz Citaro O530K";
             $this->icon = 'citaro';
             $this->img = 'citarosolo';
             $this->img_author = 'André Knoerr';
@@ -410,7 +410,7 @@ class Vehicule {
         } elseif (1950 == $id) { // Citaro 1 (Ligne S)
 
             $this->type = "Autobus";
-            $this->name = "Mercedez-Benz Citaro I O530";
+            $this->name = "Mercedes-Benz Citaro I O530";
             $this->icon = 'citaro';
             $this->img = '1950';
             $this->img_author = 'FDTPG';
@@ -419,7 +419,7 @@ class Vehicule {
         } elseif (1947 == $id) { // Citaro 1 (Ligne S)
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedez-Benz Citaro I O530G";
+            $this->name = "Mercedes-Benz Citaro I O530G";
             $this->icon = 'citaro';
             $this->img = '1947';
             $this->img_author = 'FDTPG';
@@ -428,7 +428,7 @@ class Vehicule {
         } elseif (1963 <= $id && $id <= 1964) { // Citaro C2 Globe
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
@@ -462,7 +462,7 @@ class Vehicule {
         } elseif (1984 <= $id && $id <= 1990) { // Citaro C2 Gem’Bus
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
@@ -471,7 +471,7 @@ class Vehicule {
         } elseif (2026 <= $id && $id <= 2027) { // Citaro C2K midibus
 
             $this->type = "Midibus";
-            $this->name = "Mercedez-Benz Citaro C2 O530K";
+            $this->name = "Mercedes-Benz Citaro C2 O530K";
             $this->icon = 'c2';
             $this->img = 'c2k';
             $this->img_author = 'TramBusAl';
@@ -482,7 +482,7 @@ class Vehicule {
         } elseif (925 <= $id && $id <= 927) { // MIDIBUS CITARO GETOURS
 
             $this->type = "Midibus";
-            $this->name = "Mercedez-Benz Citaro O530K";
+            $this->name = "Mercedes-Benz Citaro O530K";
             $this->icon = 'citaro';
             $this->img = 'citarosolo';
             $this->img_author = 'André Knoerr';
@@ -530,7 +530,7 @@ class Vehicule {
         } elseif ($id == 1939) { // CITARO ARTICULE GETOURS
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'Rémi Chauvet';
@@ -539,7 +539,7 @@ class Vehicule {
         } elseif (2011 <= $id && $id <= 2012) { // Nouveaux Citaro C2
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedez-Benz Citaro C2 O530G";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2';
             $this->img = 'citaroc2articule';
             $this->img_author = 'FDTPG';
@@ -567,7 +567,7 @@ class Vehicule {
         } elseif ($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
 
             $this->type = "Autobus solo";
-            $this->name = "Mercedez-Benz Citaro C2 O530";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
             $this->icon = 'c2';
             $this->img = '1966';
             $this->img_author = 'FDTPG';
