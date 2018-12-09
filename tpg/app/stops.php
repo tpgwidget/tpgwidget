@@ -4,7 +4,7 @@ use TPGwidget\Data\Stops;
 
 header('Content-type: application/json; charset=utf-8');
 
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY');
+$file = 'https://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY');
 $stops = @simplexml_load_file($file);
 
 $output = array();

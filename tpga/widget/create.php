@@ -7,7 +7,7 @@ if (!preg_match('/^[A-Z0-9]{4}$/', $_GET['stop'])) {
 }
 
 // Load the stops from the TPG API
-$stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
+$stops = simplexml_load_file('https://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
 
 // Find the widget name
 $name = '';

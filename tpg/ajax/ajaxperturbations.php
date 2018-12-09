@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Lines;
-$disruptions = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY'));
+$disruptions = @simplexml_load_file('https://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY'));
 
 if (!$disruptions) {
 	$serveurTPGIndisponible = true;

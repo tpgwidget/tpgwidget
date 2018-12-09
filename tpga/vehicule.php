@@ -70,7 +70,7 @@ $vehicule = new Vehicule(htmlspecialchars($_GET['id'] ?? ''));
         </section>
 
         <?php if ($vehicule->wifi) { ?>
-            <a class="card card-wifi external" href="http://www.tpg.ch/freewifi" target="_blank">
+            <a class="card card-wifi external" href="https://www.tpg.ch/freewifi" target="_blank">
                     <img src="/resources/img/wifi.svg" alt="Icône Wi-Fi">
                     <p>Ce véhicule est équipé d’une connection Wi-Fi gratuite ! Pour en profiter, connectez-vous au réseau <strong>tpg-freeWiFi</strong>. Pour plus d’informations, consultez le <span>site web des tpg</span>.</p>
             </a>

@@ -83,7 +83,7 @@
         <div class="list-block media-list">
             <ul>
                 <li>
-                    <a href="http://data.tpg.ch/web/open-data/" class="item-link item-content external" target="_blank">
+                    <a href="https://data.tpg.ch/web/open-data/" class="item-link item-content external" target="_blank">
                         <div class="item-media">
                             <img src="/resources/img/tpg.png">
                         </div>
@@ -109,7 +109,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://framework7.io/" class="item-link item-content external" target="_blank">
+                    <a href="https://framework7.io/" class="item-link item-content external" target="_blank">
                         <div class="item-media">
                             <img src="/resources/img/f7.png">
                         </div>

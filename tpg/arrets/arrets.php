@@ -14,7 +14,7 @@ require_once __DIR__.'/../../config.inc.php';
   <div data-page="arrets" class="page page-arrets">
     <div class="page-content">
         <?php
-        $stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
+        $stops = simplexml_load_file('https://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
         ?>
         <form data-search-list=".virtual-list" class="searchbar searchbar-init">
             <div class="searchbar-input">
