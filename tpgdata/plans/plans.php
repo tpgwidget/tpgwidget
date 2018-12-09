@@ -60,11 +60,6 @@ class Plans {
 
     /* Années et leurs plans */
     protected static $years = [
-        '2018' => [
-            'name' => 'Jusqu’au 8 décembre 2018',
-            'plans' => ['urbain', 'regional', 'noctambus', 'noctambusurbain'],
-        ],
-
         '2019' => [
             'name' => 'Dès le 9 décembre 2018',
             'plans' => ['urbain', 'regional', 'noctambus', 'noctambusurbain'],
