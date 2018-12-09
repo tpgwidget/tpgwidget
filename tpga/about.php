@@ -74,7 +74,7 @@
 
         <div class="content-block-title">Crédits</div>
         <div class="card credit">
-            <a href="http://data.tpg.ch/web/open-data/" class="external" target="_blank">
+            <a href="https://data.tpg.ch/web/open-data/" class="external" target="_blank">
                 <div class="card-content">
                     <img src="/resources/img/tpg.png">
                     <div class="card-content-inner">
@@ -96,7 +96,7 @@
             </a>
         </div>
         <div class="card credit">
-            <a href="http://framework7.io/" class="external" target="_blank">
+            <a href="https://framework7.io/" class="external" target="_blank">
                 <div class="card-content">
                     <img src="/resources/img/f7.png">
                     <div class="card-content-inner">

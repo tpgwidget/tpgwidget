@@ -6,7 +6,7 @@ if (!isset($_GET["id"])) {
     $erreur = "Paramètre manquant";
     $nextDepartures = null;
 } else {
-    $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . htmlentities($_GET["id"]);
+    $file = 'https://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . htmlentities($_GET["id"]);
     $nextDepartures = @simplexml_load_file($file);
 }
 
