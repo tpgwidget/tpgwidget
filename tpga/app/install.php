@@ -63,9 +63,6 @@ if ($nextDepartures) { ?>
                     Installer
                 </a>
             </div>
-            <div class="content-block install-chrome">
-                <h1>Installez Google Chrome</h1>
-            </div>
         </div>
     </div>
 <?php } else { ?>
