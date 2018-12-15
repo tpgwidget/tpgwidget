@@ -26,7 +26,7 @@ $color = $line['background'];
             <i class="icon icon-back"></i>
            </a>
         </div>
-        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> ➜ <?= Stops::correct($thermometer->destinationName ?? '') ?></div>
+        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> ➜ <?= Stops::format($thermometer->destinationName ?? '') ?></div>
       </div>
     </div>
     <div class="toolbar tabbar" style="background-color: <?= $color ?>">
@@ -67,14 +67,14 @@ $color = $line['background'];
                         $avancee = 'current';
                     }
                     ?>
-                    <a href="/ajax/page/<?= $step->stop->stopCode ?>/<?= rawurlencode(Stops::correct($step->stop->stopName ?? '')) ?>" class="item-link item-content <?= $avancee ?>">
+                    <a href="/ajax/page/<?= $step->stop->stopCode ?>/<?= rawurlencode($step->stop->stopName ?? '') ?>" class="item-link item-content <?= $avancee ?>">
                         <div class="item-media">
                             <i class="t icon l<?= str_replace('+', '', $thermometer->lineCode) ?>"></i>
                         </div>
                         <div class="item-inner">
-                            <div class="item-title"><?= Stops::correct($step->stop->stopName ?? '') ?></div>
+                            <div class="item-title"><?= Stops::format($step->stop->stopName ?? '') ?></div>
                             <div class="item-after">
-                                <span class="h"><?=date("H:i", strtotime($step->timestamp))?></span>
+                                <span class="h"><?= date('H:i', strtotime($step->timestamp)) ?></span>
                                 <span class="m">
                                     <?php if (intval($step->arrivalTime)) {
                                         echo $step->arrivalTime." min";

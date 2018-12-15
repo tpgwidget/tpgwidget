@@ -18,7 +18,7 @@ if (empty($widget)) {
 }
 
 $stopW = $widget['stop'];
-$nameW = Stops::correct($widget['name']);
+$nameW = Stops::format($widget['name']);
 ?>
 <!DOCTYPE html>
 <html translate="no">
@@ -144,6 +144,6 @@ $nameW = Stops::correct($widget['name']);
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2019"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2019-2"></script>
 </body>
 </html>

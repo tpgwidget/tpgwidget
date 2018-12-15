@@ -10,7 +10,7 @@ $stops = @simplexml_load_file($file);
 $output = array();
 
 foreach ($stops->stops->stop as $stop) {
-  $output[trim($stop->stopCode)] = Stops::correct($stop->stopName);
+  $output[trim($stop->stopCode)] = Stops::format($stop->stopName);
 
   // Remove duplicate stops
   unset($output['BERE']);

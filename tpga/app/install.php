@@ -21,7 +21,7 @@ if ($nextDepartures) { ?>
                         <i class="icon icon-back"></i>
                     </a>
                 </div>
-                <div class="center"><?= Stops::correct($nextDepartures->stop->stopName) ?></div>
+                <div class="center"><?= Stops::format($nextDepartures->stop->stopName) ?></div>
             </div>
         </div>
 
