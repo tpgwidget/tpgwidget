@@ -165,31 +165,35 @@ f7.onPageInit('arrets', function(){
     $.ajax({
         url: '/arrets/arrets.json',
         dataType: 'json',
-        success: function(data){
-            var template = '<li>'+
-                             '<a href="/ajax/page/{{stopCode}}/{{stopName}}" class="item-link">'+
-                                '<div class="item-content">'+
-                                   '<div class="item-inner">'+
-                                      '<div class="item-title">{{stopName}}</div>'+
-                                   '</div>'+
-                                '</div>'+
-                             '</a>'+
-                          '</li>';
+        success(data){
+            const template = '<li>'+
+                 '<a href="/ajax/page/{{stopCode}}/{{stopNameOriginal}}" class="item-link">'+
+                    '<div class="item-content">'+
+                       '<div class="item-inner">'+
+                          '<div class="item-title">{{stopNameDisplay}}</div>'+
+                       '</div>'+
+                    '</div>'+
+                 '</a>'+
+              '</li>';
 
             f7.virtualList('.virtual-list', {
                 items: data,
                 template: template,
-                searchAll: function (query, items) {
-                    var foundItems = [];
-                    for (var i = 0; i < items.length; i++) {
-                        if(items[i].stopCode.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0 || items[i].stopName.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0) {
+                searchAll(query, items) {
+                    const foundItems = [];
+                    for (let i = 0; i < items.length; i++) {
+                        if (
+                            items[i].stopCode.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
+                            || items[i].stopNameRaw.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
+                            || items[i].stopNameOriginal.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
+                        ) {
                             foundItems.push(i);
                         }
                     }
                     return foundItems;
-                }
+                },
             });
-        }
+        },
     });
 
     // Localisation

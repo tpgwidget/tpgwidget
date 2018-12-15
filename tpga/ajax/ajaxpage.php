@@ -1,4 +1,8 @@
-<div data-page="page-<?=htmlentities($_GET["id"])?>" class="page page-page layout-dark">
+<?php
+require_once __DIR__.'/../../config.inc.php';
+use TPGwidget\Data\Stops;
+?>
+<div data-page="page-<?= htmlentities($_GET['id'] ?? '') ?>" class="page page-page layout-dark">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left">
@@ -6,7 +10,7 @@
             <i class="icon icon-back"></i>
            </a>
         </div>
-        <div class="center sliding"><?=$_GET["name"]?></div>
+        <div class="center sliding"><?= Stops::format($_GET['name'] ?? '') ?></div>
       </div>
     </div>
     <div class="page-content">

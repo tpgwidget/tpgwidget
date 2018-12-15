@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9762d4bd6a2c7ca87f6bc3f66596574",
-    "content-hash": "3626be1a06e1e7c359e4419124980e6a",
+    "hash": "451d6a1c1a81cc95dbac03d478553005",
+    "content-hash": "8fa79ada47e9ef4e5c5db7c4315a219f",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -73,16 +73,16 @@
         },
         {
             "name": "tpgwidget/data",
-            "version": "v1.2.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tpgwidget/data.git",
-                "reference": "6bb527747c6de84951406e79ceec9d1759cb3bf2"
+                "reference": "34f96eac20da542dd6d30d61fb60c70aacedaaf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tpgwidget/data/zipball/6bb527747c6de84951406e79ceec9d1759cb3bf2",
-                "reference": "6bb527747c6de84951406e79ceec9d1759cb3bf2",
+                "url": "https://api.github.com/repos/tpgwidget/data/zipball/34f96eac20da542dd6d30d61fb60c70aacedaaf5",
+                "reference": "34f96eac20da542dd6d30d61fb60c70aacedaaf5",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
                 "tpg",
                 "tpgwidget"
             ],
-            "time": "2018-11-19 20:34:56"
+            "time": "2018-12-15 10:02:14"
         },
         {
             "name": "vlucas/phpdotenv",

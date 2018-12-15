@@ -252,31 +252,35 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
         $.ajax({
             url: '/arrets/arrets.json',
             dataType: 'json',
-            success: function(data){
-                var template = '<li>'+
-                    '<a href="/ajax/page/{{stopCode}}/{{stopName}}" class="item-link">'+
-                        '<div class="item-content">'+
-                            '<div class="item-inner">'+
-                                '<div class="item-title">{{stopName}}</div>'+
-                            '</div>'+
-                        '</div>'+
+            success(data){
+                const template = '<li>'+
+                    '<a href="/ajax/page/{{stopCode}}/{{stopNameOriginal}}" class="item-link">'+
+                    '<div class="item-content">'+
+                    '<div class="item-inner">'+
+                    '<div class="item-title">{{stopNameDisplay}}</div>'+
+                    '</div>'+
+                    '</div>'+
                     '</a>'+
-                '</li>';
+                    '</li>';
 
                 f7.virtualList('.virtual-list', {
                     items: data,
                     template: template,
-                    searchAll: function (query, items) {
-                        var foundItems = [];
-                        for (var i = 0; i < items.length; i++) {
-                            if (items[i].stopCode.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0 || items[i].stopName.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0) {
+                    searchAll(query, items) {
+                        const foundItems = [];
+                        for (let i = 0; i < items.length; i++) {
+                            if (
+                                items[i].stopCode.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
+                                || items[i].stopNameRaw.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
+                                || items[i].stopNameOriginal.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
+                            ) {
                                 foundItems.push(i);
                             }
                         }
                         return foundItems;
-                    }
+                    },
                 });
-            }
+            },
         });
 
         // Localisation
@@ -317,12 +321,12 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                                     var stop = nearStops[i];
 
                                     var html = '<li>'+
-                                    '<a href="/ajax/page/'+stop.stopCode+'/'+stop.stopName+'" class="item-link item-content">'+
+                                    '<a href="/ajax/page/'+stop.stopCode+'/'+stop.stopNameOriginal+'" class="item-link item-content">'+
                                     '<div class="item-media">'+
                                     '<i class="icon icon-location"></i>'+
                                     '</div>'+
                                     '<div class="item-inner">'+
-                                    '<div class="item-title">'+stop.stopName+'</div>'+
+                                    '<div class="item-title">'+stop.stopNameDisplay+'</div>'+
                                     '</div>'+
                                     '</a>'+
                                     '</li>';

@@ -19,14 +19,14 @@ if ($nextDepartures) { ?>
                 <span>Retour</span>
             </a>
             </div>
-            <div class="center sliding"><?= Stops::correct($nextDepartures->stop->stopName) ?></div>
+            <div class="center sliding"><?= Stops::format($nextDepartures->stop->stopName) ?></div>
         </div>
     </div>
     <div class="pages">
         <div data-page="install" class="page page-page">
             <div class="page-content">
                 <div class="card">
-                    <div class="card-header"><?= Stops::correct($nextDepartures->stop->stopName) ?></div>
+                    <div class="card-header"><?= Stops::format($nextDepartures->stop->stopName) ?></div>
                     <div class="card-content">
                         <div class="card-content-inner">
                             <ul class="lignes">
