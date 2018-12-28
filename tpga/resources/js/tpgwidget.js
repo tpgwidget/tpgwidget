@@ -233,12 +233,12 @@ f7.onPageInit('arrets', function(){
                                 var stop = nearStops[i];
 
                                 var html =  '<li>'+
-                                                '<a href="/ajax/page/'+stop.stopCode+'/'+stop.stopName+'" class="item-link item-content">'+
+                                            '<a href="/ajax/page/' + stop.stopCode + '/' + stop.stopNameOriginal+'" class="item-link item-content">'+
                                                     '<div class="item-media">'+
                                                         '<i class="icon icon-location"></i>'+
                                                     '</div>'+
                                                    '<div class="item-inner">'+
-                                                      '<div class="item-title">'+stop.stopName+'</div>'+
+                                                      '<div class="item-title">'+stop.stopNameDisplay+'</div>'+
                                                    '</div>'+
                                                 '</a>'+
                                             '</li>';
