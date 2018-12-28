@@ -9,7 +9,7 @@ $output = [];
 if ($stops) {
     foreach ($stops->stops->stop as $stop) {
         $output[] = [
-            'stopNameOriginal' => $stop->stopName,
+            'stopNameOriginal' => (string)$stop->stopName,
             'stopNameDisplay' => Stops::format($stop->stopName),
             'stopCode' => (string)$stop->stopCode,
         ];
