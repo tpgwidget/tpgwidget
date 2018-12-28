@@ -176,21 +176,33 @@ f7.onPageInit('arrets', function(){
                  '</a>'+
               '</li>';
 
+            const normalizeForSearch = (word) => {
+                word = word.toLowerCase();
+
+                word = word.replace(/[éèê]/g, 'e');
+                word = word.replace(/[àâ]/g, 'a');
+                word = word.replace(/[îï]/g, 'i');
+                word = word.replace(/[ûù]/g, 'u');
+
+                word = word.replace(/'/g, '’'); // Use curly apostrophes
+                word = word.replace(/[ \.\(\)\+-]/g, ''); // Remove spaces, dots and dashes
+
+                return word.trim();
+            };
+
             f7.virtualList('.virtual-list', {
                 items: data,
                 template: template,
-                searchAll(query, items) {
-                    const foundItems = [];
-                    for (let i = 0; i < items.length; i++) {
-                        if (
-                            items[i].stopCode.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
-                            || items[i].stopNameRaw.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
-                            || items[i].stopNameOriginal.toLowerCase().indexOf(query.toLowerCase().trim()) >= 0
-                        ) {
-                            foundItems.push(i);
-                        }
-                    }
-                    return foundItems;
+                searchAll(query, stops) {
+                    query = normalizeForSearch(query);
+
+                    return Object.keys(stops).filter((stopIndex) => { // We need to return the item indexes
+                        const stop = stops[stopIndex];
+
+                        return normalizeForSearch(stop.stopNameRaw).includes(query)
+                            || normalizeForSearch(stop.stopCode).includes(query)
+                            || normalizeForSearch(stop.stopNameOriginal).includes(query);
+                    });
                 },
             });
         },

@@ -144,6 +144,6 @@ $nameW = Stops::format($widget['name']);
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2019-3"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2019-4"></script>
 </body>
 </html>
