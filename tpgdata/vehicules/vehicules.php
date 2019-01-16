@@ -615,7 +615,7 @@ class Vehicule {
             $this->img_link = 'http://twitter.com/trambusalOff';
             $this->year = '2018';
 
-        } elseif (2018 <= $id && $id <= 2021) { // Citaro C2 solo RDTA €6
+        } elseif (2018 <= $id && $id <= 2021 || $id == 2029 || $id == 2030)  { // Citaro C2 solo RDTA €6
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
