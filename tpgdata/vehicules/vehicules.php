@@ -625,6 +625,18 @@ class Vehicule {
             $this->img_link = 'https://twitter.com/Ge_nav';
             $this->year = '2018';
 
+        /* ALSA */
+
+        } elseif (2035 <= $id && $id <= 2040) { // Citaro C2 solo livrée 2013
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = 'c2-new';
+            $this->img = 'c2-new';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->year = '2019';
+
         /* SOUS-TRAITANT AUTRES */
 
         } elseif ((900 <= $id && $id <= 999) || (1900 <= $id && $id <= 2099)) {
