@@ -9,6 +9,12 @@ class Vehicule {
     public $enSavoirPlus = true;
     public $wifi = false;
 
+    public $places_assises = null;
+    public $places_debout = null;
+    public $places_totales = null;
+
+    public $tpg_link = null;
+
     public function __construct(string $id) {
         if (strlen($id) !== 4 && $id !== '') {
             if ($id[0] === '2') {
