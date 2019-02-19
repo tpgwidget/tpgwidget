@@ -130,15 +130,35 @@
                 </div>
             </a>
         </div>
-
         <div class="card credit">
             <a href="https://facebook.com/FanDeTransportsPublicsGenevois" class="external" target="_blank">
                 <div class="card-content">
                     <img src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150">
                     <div class="card-content-inner">
-                        <h3>
-Fans des TPG (FDTPG)</h3>
+                        <h3>Fans des TPG (FDTPG)</h3>
                         <cite>facebook.com</cite>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="card credit">
+            <a href="https://twitter.com/trambusalOff" class="external" target="_blank">
+                <div class="card-content">
+                    <img src="https://twitter.com/trambusalOff/profile_image?size=original">
+                    <div class="card-content-inner">
+                        <h3>TramBusAl</h3>
+                        <cite>twitter.com/trambusalOff</cite>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="card credit">
+            <a href="https://twitter.com/Ge_nav" class="external" target="_blank">
+                <div class="card-content">
+                    <img src="https://twitter.com/Ge_nav/profile_image?size=original">
+                    <div class="card-content-inner">
+                        <h3>Deyan Marinov — GéNav</h3>
+                        <cite>twitter.com/Ge_nav</cite>
                     </div>
                 </div>
             </a>

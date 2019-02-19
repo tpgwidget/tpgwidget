@@ -166,6 +166,32 @@
                         </div>
                     </a>
                 </li>
+                <li>
+                    <a href="https://twitter.com/trambusalOff" class="item-link item-content external" target="_blank">
+                        <div class="item-media">
+                            <img src="https://twitter.com/trambusalOff/profile_image?size=original">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">TramBusAl</div>
+                            </div>
+                            <div class="item-text">twitter.com/trambusalOff</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/Ge_nav" class="item-link item-content external" target="_blank">
+                        <div class="item-media">
+                            <img src="https://twitter.com/Ge_nav/profile_image?size=original">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">Deyan Marinov — GéNav</div>
+                            </div>
+                            <div class="item-text">twitter.com/Ge_nav</div>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

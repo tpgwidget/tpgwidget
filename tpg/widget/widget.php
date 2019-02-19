@@ -32,7 +32,7 @@ $nameW = Stops::format($widget['name']);
     <title><?= $nameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2019">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?about">
     <style>
     <?php
     foreach (Lines::all() as $line) {

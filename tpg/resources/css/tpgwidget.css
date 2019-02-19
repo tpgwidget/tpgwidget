@@ -553,6 +553,7 @@ span.perturbation::before {
 
 .page-about .media-list img {
     width: 65px;
+    border-radius: 5px;
 }
 
 .page-itineraire header {
