@@ -85,7 +85,7 @@
                 <li>
                     <a href="https://data.tpg.ch/web/open-data/" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="/resources/img/tpg.png">
+                            <img src="/resources/img/tpg.png" alt="TPG">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -98,7 +98,7 @@
                 <li>
                     <a href="https://transport.opendata.ch" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="/resources/img/opendata.ch.png">
+                            <img src="/resources/img/opendata.ch.png" alt="Opendata.ch">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -111,7 +111,7 @@
                 <li>
                     <a href="https://framework7.io/" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="/resources/img/f7.png">
+                            <img src="/resources/img/f7.png" alt="Framework7">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -124,7 +124,7 @@
                 <li>
                     <a href="https://cordova.apache.org/" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="/resources/img/cordova.png">
+                            <img src="/resources/img/cordova.png" alt="Cordova">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -143,7 +143,7 @@
                 <li>
                     <a href="https://flickr.com/fototak" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="/resources/img/fototak.jpg">
+                            <img src="/resources/img/fototak.jpg" alt="Fototak">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -156,7 +156,7 @@
                 <li>
                     <a href="https://facebook.com/FanDeTransportsPublicsGenevois" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150">
+                            <img src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150" alt="FDTPG">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
@@ -167,22 +167,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/trambusalOff" class="item-link item-content external" target="_blank">
+                    <a href="https://www.youtube.com/trambusal" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="https://twitter.com/trambusalOff/profile_image?size=original">
+                            <img src="/resources/img/trambusal.jpg" alt="TramBusAl">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
                                 <div class="item-title">TramBusAl</div>
                             </div>
-                            <div class="item-text">twitter.com/trambusalOff</div>
+                            <div class="item-text">youtube.com/trambusal</div>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="https://twitter.com/Ge_nav" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="https://twitter.com/Ge_nav/profile_image?size=original">
+                            <img src="/resources/img/genav.jpg" alt="GéNav">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">
