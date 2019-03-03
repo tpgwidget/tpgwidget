@@ -103,7 +103,7 @@ class Vehicule {
             $this->places_debout = 55;
             $this->places_totales = 87;
 
-        } elseif (2022 <= $id && $id <= 2025) { // MAN solo RATP
+        } elseif (2022 <= $id && $id <= 2025 || $id == 2028) { // MAN solo RATP
 
             $this->type = "Autobus solo";
             $this->name = "MAN Lion's City";
@@ -611,7 +611,7 @@ class Vehicule {
             $this->img_link = 'https://twitter.com/Ge_nav';
             $this->year = '2012';
 
-        } elseif (2013 <= $id && $id <= 2017 || 2033 <= $id && $id <= 2034) { // Citaro C2 articulé RDTA €6
+        } elseif (2013 <= $id && $id <= 2017 || 2032 <= $id && $id <= 2034) { // Citaro C2 articulé RDTA €6
 
             $this->type = "Autobus articulé";
             $this->name = "Mercedes-Benz Citaro C2 O530G";
@@ -621,7 +621,7 @@ class Vehicule {
             $this->img_link = 'http://twitter.com/trambusalOff';
             $this->year = '2018';
 
-        } elseif (2018 <= $id && $id <= 2021 || $id == 2029 || $id == 2030)  { // Citaro C2 solo RDTA €6
+        } elseif (2018 <= $id && $id <= 2021 || 2029 <= $id && $id <= 2031)  { // Citaro C2 solo RDTA €6
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
