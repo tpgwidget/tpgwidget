@@ -11,7 +11,7 @@ TPGwidget includes many features such as :
 - real-time lines schedules
 - routes planning
 - vehicles informations
-- and much more !
+- and much more!
 
 The projet is made with [Framework7](http://framework7.io) in the front end, and PHP in the back end. The app users download on the [App Store](https://github.com/tpgwidget/ios) or on [Google Play](https://github.com/tpgwidget/android) is powered by Apache Cordova.
 
@@ -26,7 +26,6 @@ Prerequisites : PHP 7+, MySQL, Node.js (dev only)
 To run an instance of TPGwidget, you have to :
 1. Create a copy of the `.env.example` file named `.env` and fill in your TPG Open Data API key and your database credentials.
 2. Create on your MySQL Server the required tables (use the `dump.sql` file)
-3. File in the database connection details into `tpgdata/db.php`
 
 On the production server,
 - https://tpg.nicolapps.ch is linked to the `tpg` folder. It contains the iOS web app.
@@ -37,7 +36,7 @@ On the production server,
 Front-end files are compiled with [Gulp](https://gulpjs.com). To install it, use `npm install gulp-cli -g` from the command line. You can then compile the assets using `gulp ios-css`, `gulp android-css`, `gulp ios-js` and `gulp android-js`.
 
 ## Contributing
-If you have a question or an idea, you can create an issue. Pull requests are welcome ! If you want to contribute, don’t hesitate to look into the unassigned issues.
+If you have a question or an idea, you can create an issue. Pull requests are welcome! If you want to contribute, don’t hesitate to look into the unassigned issues.
 
 ## Authors
 - **Nicolas Ettlin** ([@Nicolapps](https://github.com/Nicolapps))
