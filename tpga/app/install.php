@@ -12,7 +12,7 @@ if (!isset($_GET["id"])) {
     $nextDepartures = @simplexml_load_file($file);
 }
 
-if ($nextDepartures && isset($nextDepartures->stop->stopName) && is_string($nextDepartures->stop->stopName)) { ?>
+if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
     <div data-page="install" class="page page-page">
         <div class="navbar">
             <div class="navbar-inner">
