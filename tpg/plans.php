@@ -25,13 +25,13 @@ require_once('../tpgdata/plans/plans.php');
                     <?php foreach ($year["plans"] as $id => $plan) { ?>
 
                         <li>
-                            <a href="https://tpgdata.nicolapps.ch/plans/pdf/<?= $yearNumber ?>/<?= $id ?>" class="external item-link item-content">
+                            <a href="https://tpgdata.nicolapps.ch/plans/pdf/<?= $yearNumber ?>/<?= $id ?>.pdf" class="external item-link item-content">
                                 <div class="item-media">
-                                    <img src="https://tpgdata.nicolapps.ch/plans/icons/<?= $id ?>" alt="<?= $plan["name"] ?>" width="80">
+                                    <img src="https://tpgdata.nicolapps.ch/plans/icons/<?= $id ?>.png" alt="<?= $plan['name'] ?>" width="80">
                                 </div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title"><?= $plan["name"] ?></div>
+                                        <div class="item-title"><?= $plan['name'] ?></div>
                                     </div>
                                     <div class="item-text"><?= $plan['desc'] ?></div>
                                 </div>

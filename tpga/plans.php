@@ -19,8 +19,8 @@ require_once('../tpgdata/plans/plans.php');
 
             <?php foreach ($year["plans"] as $id => $plan) { ?>
 
-                <a href="https://tpgdata.nicolapps.ch/plans/pdf/<?= $yearNumber ?>/<?= $id ?>" class="external plan">
-                    <div class="plan-bg" style="background-image:url(https://tpgdata.nicolapps.ch/plans/icons/<?= $id ?>)">
+                <a href="https://tpgdata.nicolapps.ch/plans/pdf/<?= $yearNumber ?>/<?= $id ?>.pdf" class="external plan">
+                    <div class="plan-bg" style="background-image: url(https://tpgdata.nicolapps.ch/plans/icons/<?= $id ?>.png)">
                         <div class="plan-desc">
                             <h3><?= $plan["name"] ?></h3>
                         </div>
