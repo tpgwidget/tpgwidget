@@ -1,0 +1,5 @@
+# Maps are available in the static-resources repo:
+# https://github.com/tpgwidget/static-resources/tree/master/maps/connection
+
+*
+!.gitignore
