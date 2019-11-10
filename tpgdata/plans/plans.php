@@ -36,6 +36,10 @@ class Plans {
 
     /* Types de plans */
     protected static $types = [
+        'multimodal' => [
+            'name' => 'Plan multimodal',
+            'desc' => 'Tram, trolleybus, bus et Léman Express'
+        ],
         'urbain' => [
             'name' => 'Plan urbain',
             'desc' => 'Lignes de tram, de trolleybus et de bus urbain'
@@ -55,14 +59,18 @@ class Plans {
         'zones' => [
             'name' => 'Plan des zones tarifaires',
             'desc' => 'Toutes les zones tarifaires unireso'
-        ]
+        ],
     ];
 
     /* Années et leurs plans */
     protected static $years = [
         '2019' => [
-            'name' => 'Dès le 9 décembre 2018',
+            'name' => 'Jusqu’au 14 décembre 2019',
             'plans' => ['urbain', 'regional', 'noctambus', 'noctambusurbain'],
+        ],
+        '2020' => [
+            'name' => 'Dès le 15 décembre 2019',
+            'plans' => ['multimodal'],
         ],
     ];
 
