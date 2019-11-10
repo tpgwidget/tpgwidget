@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5a6729126f46cfe93494a4651ae065f",
+    "content-hash": "9ab6c211e28bf64e0a7fef02ecd659fd",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -72,16 +72,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -110,12 +110,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
                 },
                 {
-                    "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -126,20 +126,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "tpgwidget/data",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tpgwidget/data.git",
-                "reference": "974c7214e3233770282462c665207111185e8163"
+                "reference": "8079efe037be81e6d4b34a3cec7e46eea37aa3b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tpgwidget/data/zipball/974c7214e3233770282462c665207111185e8163",
-                "reference": "974c7214e3233770282462c665207111185e8163",
+                "url": "https://api.github.com/repos/tpgwidget/data/zipball/8079efe037be81e6d4b34a3cec7e46eea37aa3b3",
+                "reference": "8079efe037be81e6d4b34a3cec7e46eea37aa3b3",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,7 @@
                 "tpg",
                 "tpgwidget"
             ],
-            "time": "2019-04-06T21:48:48+00:00"
+            "time": "2019-11-10T12:33:01+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
