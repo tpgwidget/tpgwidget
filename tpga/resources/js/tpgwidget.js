@@ -48,7 +48,7 @@ if (f7.device.android && !isStandalone) {
     $('.left').remove();
     $('.center').text('TPGwidget');
     $('.page-content').html(`<div class="content-block">
-        <p>Pour installer un raccourci pour l’arrêt <strong>${$('.center').text()}</strong> :</p>
+        <p>Pour installer un raccourci pour l’arrêt <strong>${document.title}</strong> :</p>
         <ul class="tutorial">
             <li>
                 <div class="step-number">1</div>
