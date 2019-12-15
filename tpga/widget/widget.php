@@ -29,7 +29,7 @@ $nameW = Stops::format($widget['name']);
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#ff6600">
 
-    <title><?= $nameW ?></title>
+    <title><?= Stops::correct($widget['name']) ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css?171">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2019">

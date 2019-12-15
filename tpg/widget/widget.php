@@ -29,7 +29,7 @@ $nameW = Stops::format($widget['name']);
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="<?= $nameW ?>">
 
-    <title><?= $nameW ?></title>
+    <title><?= Stops::correct($widget['name']) ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?about">
