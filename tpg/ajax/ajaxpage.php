@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Stops;
+
+$formattedStopName = Stops::format(str_replace('_', '/', $_GET['name'] ?? ''));
 ?>
 <div class="navbar">
   <div class="navbar-inner">
@@ -9,7 +11,7 @@ use TPGwidget\Data\Stops;
         <i class="icon icon-back"></i>
        </a>
     </div>
-    <div class="center sliding"><?= Stops::format($_GET['name'] ?? '') ?></div>
+    <div class="center sliding"><?= $formattedStopName ?></div>
     <div class="right">
       <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
     </div>
