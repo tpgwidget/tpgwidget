@@ -19,6 +19,7 @@ if (empty($widget)) {
 
 $stopW = $widget['stop'];
 $nameW = Stops::format($widget['name']);
+$rawNameW = Stops::correct($widget['name']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,9 +28,9 @@ $nameW = Stops::format($widget['name']);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="<?= $nameW ?>">
+    <meta name="apple-mobile-web-app-title" content="<?= $rawNameW ?>">
 
-    <title><?= Stops::correct($widget['name']) ?></title>
+    <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?about">
@@ -59,7 +60,7 @@ $nameW = Stops::format($widget['name']);
         <div class="list-block">
             <ul>
               <li>
-                 <a href="/itineraire/?departure=<?= urlencode($nameW) ?>" class="item-link close-panel">
+                 <a href="/itineraire/?departure=<?= $rawNameW ?>" class="item-link close-panel">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="icon i-itineraire"></i>

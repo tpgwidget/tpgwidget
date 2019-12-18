@@ -19,17 +19,18 @@ if (empty($widget)) {
 
 $stopW = $widget['stop'];
 $nameW = Stops::format($widget['name']);
+$rawNameW = Stops::correct($widget['name']);
 ?>
 <!DOCTYPE html>
 <html translate="no">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <link rel="manifest" href="/manifest.json.php?id=<?= urlencode($_GET['id']) ?>&amp;stopCode=<?= $stopW ?>&amp;stopName=<?=urlencode($nameW) ?>">
+    <link rel="manifest" href="/manifest.json.php?id=<?= urlencode($_GET['id']) ?>&amp;stopCode=<?= urlencode($stopW) ?>&amp;stopName=<?=urlencode($rawNameW) ?>">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#ff6600">
 
-    <title><?= Stops::correct($widget['name']) ?></title>
+    <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css?171">
     <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2019">
@@ -59,7 +60,7 @@ $nameW = Stops::format($widget['name']);
         <div class="list-block">
             <ul>
                 <li>
-                    <a href="/itineraire/?departure=<?= urlencode($nameW) ?>" class="item-link close-panel">
+                    <a href="/itineraire/?departure=<?= urlencode($rawNameW) ?>" class="item-link close-panel">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="icon i-itineraire"></i>
