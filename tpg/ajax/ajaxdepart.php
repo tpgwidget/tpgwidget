@@ -25,7 +25,7 @@ $color = $line['background'];
                 <i class="icon icon-back"></i>
             </a>
         </div>
-        <div class="center sliding"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> ➜ <?= Stops::format($thermometer->destinationName ?? '') ?></div>
+        <div class="center sliding"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> → <?= Stops::format($thermometer->destinationName ?? '') ?></div>
         <div class="right">
             <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
         </div>
