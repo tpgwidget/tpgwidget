@@ -14,10 +14,10 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
     <div class="navbar">
         <div class="navbar-inner">
             <div class="left">
-            <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Retour</span>
-            </a>
+                <a href="#" class="back link">
+                    <i class="icon icon-back"></i>
+                    <span>Retour</span>
+                </a>
             </div>
             <div class="center sliding"><?= Stops::format($nextDepartures->stop->stopName) ?></div>
         </div>
@@ -26,7 +26,7 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
         <div data-page="install" class="page page-page">
             <div class="page-content">
                 <div class="card">
-                    <div class="card-header"><?= Stops::format($nextDepartures->stop->stopName) ?></div>
+                    <div class="card-header"><span><?= Stops::format($nextDepartures->stop->stopName) ?></span></div>
                     <div class="card-content">
                         <div class="card-content-inner">
                             <ul class="lignes">

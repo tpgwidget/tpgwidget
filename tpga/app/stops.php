@@ -5,7 +5,7 @@ use TPGwidget\Data\Stops;
 $file = 'https://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY');
 $stops = @simplexml_load_file($file);
 
-$output = array();
+$output = [];
 
 foreach ($stops->stops->stop as $stop) {
   $output[trim($stop->stopCode)] = Stops::format($stop->stopName);
@@ -16,7 +16,12 @@ foreach ($stops->stops->stop as $stop) {
   unset($output['SNDT']);
 }
 
-asort($output);
+uasort($output, function($a, $b) {
+    $a = strip_tags($a);
+    $b = strip_tags($b);
+
+    return strcoll($a, $b);
+});
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
