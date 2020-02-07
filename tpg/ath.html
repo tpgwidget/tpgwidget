@@ -7,7 +7,7 @@
         <img src="/resources/img/safari-toolbar.png" alt="Bouton “Partager” dans la barre d’outils">
     </figure>
     <figure>
-        <figcaption>…puis séléctionnez <strong>Sur l'écran d'accueil</strong> <img src="/resources/img/add.svg" alt=""></figcaption>
+        <figcaption>…puis séléctionnez <strong>Sur l'écran d'accueil</strong>&nbsp;<img src="/resources/img/add.svg" alt=""></figcaption>
         <img src="/resources/img/share-menu.png" alt="Menu Partage">
     </figure>
 </div>
@@ -28,6 +28,7 @@
     p, h1 {
         margin: 0;
         padding: 20px;
+        padding-bottom: 0;
     }
 
     h1 {
@@ -45,16 +46,23 @@
         font-size: 0.75em;
     }
 
+    figure {
+        margin: 20px 40px;
+        margin-bottom: 30px;
+        padding: 0;
+    }
+
     figure > img {
-        max-width: 100%;
         display: block;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
     }
 
     figcaption > img {
         vertical-align: middle;
         height: 20px;
-        margin: 0 5px;
+        margin: 0 2px;
     }
 
     #ath-stop-name {
