@@ -145,6 +145,6 @@ $rawNameW = Stops::correct($widget['name']);
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?installationfix"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2020-1"></script>
 </body>
 </html>
