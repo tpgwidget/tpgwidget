@@ -362,7 +362,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'hybride';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->img_link = 'https://twitter.com/trambusalOff';
 
         } elseif (2003 <= $id && $id <= 2010) { // Sprinter
 
@@ -371,7 +371,7 @@ class Vehicule {
             $this->icon = 'notfound';
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->img_link = 'https://twitter.com/trambusalOff';
 
         } elseif (1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
 
@@ -618,7 +618,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = '2014';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2018';
 
         } elseif (2018 <= $id && $id <= 2021 || 2029 <= $id && $id <= 2031)  { // Citaro C2 solo RDTA €6
@@ -640,19 +640,29 @@ class Vehicule {
             $this->icon = 'c2-new';
             $this->img = 'c2-new';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
 
         /* New C2 */
 
-        } elseif ((2050 <= $id && $id <= 2051) || (2054 <= $id && $id <= 2055)) { // Citaro C2 solo livrée 2013
+        } elseif (2054 <= $id && $id <= 2055) { // Citaro C2 solo livrée 2013 (orange)
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
             $this->icon = 'c2-new';
             $this->img = 'c2-new';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'http://twitter.com/trambusalOff';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2019';
+
+        } elseif (2050 <= $id && $id <= 2051) { // Citaro C2 solo livrée 2013 (orange)
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = 'c2';
+            $this->img = '2050';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
 
         /* SOUS-TRAITANT AUTRES */
