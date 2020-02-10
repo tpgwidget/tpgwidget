@@ -270,6 +270,7 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                     word = word.replace(/[àâ]/g, 'a');
                     word = word.replace(/[îï]/g, 'i');
                     word = word.replace(/[ûù]/g, 'u');
+                    word = word.replace(/[ôö]/g, 'o');
 
                     word = word.replace(/'/g, '’'); // Use curly apostrophes
                     word = word.replace(/[ \.\(\)\+-]/g, ''); // Remove spaces, dots and dashes
