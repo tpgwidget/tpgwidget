@@ -221,7 +221,7 @@ function getLineTextColor($section) {
                                                 <li>
                                                     <div class="item-content">
                                                         <div class="item-media">
-                                                            <i class="icon t" style="color: <?= getLineColor($section) ?>"></i>
+                                                            <i class="icon t" style="background-color: <?= getLineColor($section) ?>"></i>
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title"><?= Stops::sbbToTpg($section->departure->station->name) ?></div>
@@ -235,12 +235,12 @@ function getLineTextColor($section) {
                                                     <?php if ($stopCount > 0) { ?>
                                                         <a href="#" class="item-content item-link">
                                                             <span class="item-media">
-                                                                <i class="icon t icon-resume" style="color: <?= getLineColor($section) ?>"></i>
+                                                                <i class="icon t icon-resume" style="background-color: <?= getLineColor($section) ?>"></i>
                                                             </span>
                                                     <?php } else { ?>
                                                         <div class="item-content">
                                                             <span class="item-media">
-                                                                <i class="icon t icon-resume no-stops" style="color: <?= getLineColor($section) ?>"></i>
+                                                                <i class="icon t icon-resume no-stops" style="background-color: <?= getLineColor($section) ?>"></i>
                                                             </span>
                                                     <?php } ?>
                                                         <span class="item-inner">
@@ -269,7 +269,7 @@ function getLineTextColor($section) {
                                                                 <li>
                                                                     <div class="item-content">
                                                                         <div class="item-media">
-                                                                            <i class="icon t" style="color: <?= getLineColor($section) ?>"></i>
+                                                                            <i class="icon t" style="background-color: <?= getLineColor($section) ?>"></i>
                                                                         </div>
                                                                         <div class="item-inner">
                                                                             <div class="item-title"><?= Stops::sbbToTpg($stop->station->name) ?></div>
@@ -286,7 +286,7 @@ function getLineTextColor($section) {
                                                 <li>
                                                     <div class="item-content">
                                                         <div class="item-media">
-                                                            <i class="icon t" style="color: <?= getLineColor($section) ?>"></i>
+                                                            <i class="icon t" style="background-color: <?= getLineColor($section) ?>"></i>
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title"><?= Stops::sbbToTpg($section->arrival->station->name) ?></div>
