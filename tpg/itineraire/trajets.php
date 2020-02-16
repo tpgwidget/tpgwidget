@@ -20,6 +20,70 @@ $url .= '&isArrivalTime='.$_POST['isArrivalTime'];
 $file = file_get_contents($url);
 $json = json_decode($file);
 
+function indiceDeLigne($section) {
+    if ($section->journey->operator === 'TPG') {
+        $indiceDeLigne = $section->journey->number;
+
+        if (Lines::get($indiceDeLigne)['text'] === '#FFFFFF') {
+            $w = 'w';
+        } else {
+            $w = '';
+        }
+
+        echo '<span class="picto-ligne l'.$indiceDeLigne.' '.$w.'">';
+        echo $indiceDeLigne;
+        echo '</span>';
+    } elseif ($section->journey->operator == 'SBB') {
+        $name = explode(' ', $section->journey->name)[0];
+        if ($name === 'RE') {
+            echo '<span class="picto-ligne lRE">RE</span>';
+        } else {
+            echo '<span class="picto-ligne l9 w">';
+            echo $name;
+            echo '</span>';
+        }
+    } else {
+        echo '<span class="picto-ligne">';
+        echo $section->journey->name;
+        echo '</span>';
+    }
+}
+
+/**
+ * @return string e.g. ff6600
+ */
+function getLineColor($section) {
+    if ($section->journey && $section->journey->operator == 'TPG') {
+        $indiceDeLigne = $section->journey->number;
+        $couleur = Lines::get($indiceDeLigne)['background'];
+        $couleur = ltrim($couleur, '#');
+    } elseif ($section->journey && $section->journey->operator == 'SBB') {
+        $couleur = 'cc0033';
+    } else {
+        $couleur = '222222';
+    }
+
+    return $couleur;
+}
+
+/**
+ * @return string e.g. #ff6600
+ */
+function getLineTextColor($section) {
+    if (!$section->journey) {
+        return '#000000';
+    }
+
+    if ($section->journey->operator === 'TPG') {
+        return Lines::get($section->journey->number)['text'];
+    }
+
+    if ($section->journey->operator === 'SBB') {
+        return '#cc0033';
+    }
+
+    return '#222222';
+}
 ?>
 
 <div class="navbar">
@@ -65,15 +129,7 @@ $json = json_decode($file);
 
                                 // Lignes
                                 foreach ($trajet->sections as $section) {
-                                    if ($section->journey && $section->journey->operator == 'TPG') {
-                                        $indiceDeLigne = $section->journey->number;
-                                        $couleur = Lines::get($indiceDeLigne)['background'];
-                                        $couleur = ltrim($couleur, '#');
-                                    } elseif ($section->journey && $section->journey->operator == 'SBB') {
-                                        $couleur = 'cc0033';
-                                    } else {
-                                        $couleur = '222222';
-                                    }
+                                    $couleur = ltrim(getLineColor($section), '#');
 
                                     $mapURL .= '&path=weight:7|color:0x'.$couleur.'cc';
 
@@ -113,31 +169,7 @@ $json = json_decode($file);
                                 <div class="resume"><?php
                                     foreach ($trajet->sections as $section) {
                                         if ($section->journey) {
-                                            if ($section->journey->operator == 'TPG') {
-                                                $indiceDeLigne = $section->journey->number;
-
-                                                if (Lines::get($indiceDeLigne)['text'] === '#FFFFFF') {
-                                                    $w = 'w';
-                                                } else {
-                                                    $w = '';
-                                                }
-
-                                                echo '<span class="picto-ligne l'.$indiceDeLigne.' '.$w.'">';
-                                                    echo $indiceDeLigne;
-                                                echo '</span>';
-                                            } elseif ($section->journey->operator == 'SBB') {
-                                                $indiceDeLigne = 4;
-
-                                                echo '<span class="picto-ligne l4 w">';
-                                                    echo explode(' ', $section->journey->name)[0];
-                                                echo '</span>';
-                                            } else {
-                                                $indiceDeLigne = 35;
-
-                                                echo '<span class="picto-ligne">';
-                                                    echo $section->journey->name;
-                                                echo '</span>';
-                                            }
+                                            indiceDeLigne($section);
                                         }
                                     }
                                 ?></div>
@@ -149,31 +181,7 @@ $json = json_decode($file);
                                     <?php if ($section->journey) { ?>
                                     <div class="card-header">
                                         <?php
-                                        if ($section->journey->operator == 'TPG') {
-                                            $indiceDeLigne = $section->journey->number;
-
-                                            if (Lines::get($indiceDeLigne)['text'] === '#FFFFFF') {
-                                                $w = 'w';
-                                            } else {
-                                                $w = '';
-                                            }
-
-                                            echo '<span class="picto-ligne l'.$indiceDeLigne.' '.$w.'">';
-                                                echo $indiceDeLigne;
-                                            echo '</span>';
-                                        } elseif ($section->journey->operator == 'SBB') {
-                                            $indiceDeLigne = 4;
-
-                                            echo '<span class="picto-ligne l4 w">';
-                                                echo explode(' ', $section->journey->name)[0];
-                                            echo '</span>';
-                                        } else {
-                                            $indiceDeLigne = 35;
-
-                                            echo '<span class="picto-ligne">';
-                                                echo $section->journey->name;
-                                            echo '</span>';
-                                        }
+                                        indiceDeLigne($section);
 
                                         // Mesurer le temps
                                         $timestampDepart = $section->departure->departureTimestamp;
@@ -192,20 +200,17 @@ $json = json_decode($file);
                                         array_pop($section->journey->passList);
                                         ?>
                                         <span class="destination">
-                                            <span style="color: <?= Lines::get($indiceDeLigne)['background'] ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
+                                            <span style="color: <?= getLineColor($section) ?>">→</span> <?= Stops::sbbToTpg($section->journey->to) ?>
                                         </span>
                                         <?php
                                         switch ($section->journey->category) {
-                                            case 'NFB':
+                                            case 'B':
                                                 echo '<i>🚌</i>';
                                                 break;
-                                            case 'NFO':
-                                                echo '<i>🚎</i>';
-                                                break;
-                                            case 'NFT':
+                                            case 'T':
                                                 echo '<i>🚋</i>';
                                                 break;
-                                            case 'R': case 'IR':
+                                            case 'S': case 'R': case 'IR': case 'RE':
                                                 echo '<i>🚆</i>';
                                                 break;
                                         }
@@ -217,7 +222,7 @@ $json = json_decode($file);
                                                 <li>
                                                     <div class="item-content">
                                                         <div class="item-media">
-                                                            <i class="icon t l<?= $indiceDeLigne ?>"></i>
+                                                            <i class="icon t" style="color: <?= getLineColor($section) ?>"></i>
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title"><?= Stops::sbbToTpg($section->departure->station->name) ?></div>
@@ -231,12 +236,12 @@ $json = json_decode($file);
                                                     <?php if ($stopCount > 0) { ?>
                                                         <a href="#" class="item-content item-link">
                                                             <span class="item-media">
-                                                                <i class="icon t icon-resume l<?= $indiceDeLigne ?>"></i>
+                                                                <i class="icon t icon-resume" style="color: <?= getLineColor($section) ?>"></i>
                                                             </span>
                                                     <?php } else { ?>
                                                         <div class="item-content">
                                                             <span class="item-media">
-                                                                <i class="icon t icon-resume no-stops l<?= $indiceDeLigne ?>"></i>
+                                                                <i class="icon t icon-resume no-stops" style="color: <?= getLineColor($section) ?>"></i>
                                                             </span>
                                                     <?php } ?>
                                                         <span class="item-inner">
@@ -265,7 +270,7 @@ $json = json_decode($file);
                                                                 <li>
                                                                     <div class="item-content">
                                                                         <div class="item-media">
-                                                                            <i class="icon t l<?= $indiceDeLigne ?>"></i>
+                                                                            <i class="icon t" style="color: <?= getLineColor($section) ?>"></i>
                                                                         </div>
                                                                         <div class="item-inner">
                                                                             <div class="item-title"><?= Stops::sbbToTpg($stop->station->name) ?></div>
@@ -282,7 +287,7 @@ $json = json_decode($file);
                                                 <li>
                                                     <div class="item-content">
                                                         <div class="item-media">
-                                                            <i class="icon t l<?= $indiceDeLigne ?>"></i>
+                                                            <i class="icon t" style="color: <?= getLineColor($section) ?>"></i>
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title"><?= Stops::sbbToTpg($section->arrival->station->name) ?></div>
