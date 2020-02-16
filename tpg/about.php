@@ -83,7 +83,7 @@
         <div class="list-block media-list">
             <ul>
                 <li>
-                    <a href="https://data.tpg.ch/web/open-data/" class="item-link item-content external" target="_blank">
+                    <a href="https://www.tpg.ch/fr/open-data" class="item-link item-content external" target="_blank">
                         <div class="item-media">
                             <img src="/resources/img/tpg.png" alt="TPG">
                         </div>

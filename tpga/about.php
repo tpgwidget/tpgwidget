@@ -74,7 +74,7 @@
 
         <div class="content-block-title">Crédits</div>
         <div class="card credit">
-            <a href="https://data.tpg.ch/web/open-data/" class="external" target="_blank">
+            <a href="https://www.tpg.ch/fr/open-data" class="external" target="_blank">
                 <div class="card-content">
                     <img src="/resources/img/tpg.png" alt="TPG">
                     <div class="card-content-inner">
