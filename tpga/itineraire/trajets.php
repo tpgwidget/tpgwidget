@@ -22,18 +22,12 @@ $json = json_decode($file);
 
 function indiceDeLigne($section) {
     $lineName = $section->journey->number;
-    $isLexLine = strpos($lineName, 'SL') === 0;
-
+    $isLexLine = strlen($lineName) === 2 && $lineName[0] === 'L';
     if ($section->journey->operator === 'TPG' || $isLexLine) {
         if (Lines::get($lineName)['text'] === '#FFFFFF') {
             $w = 'w';
         } else {
             $w = '';
-        }
-
-        // LEX lines
-        if ($isLexLine) {
-            $lineName = ltrim($lineName, 'S');
         }
 
         echo '<span class="picto-ligne l'.$lineName.' '.$w.'">';
@@ -64,7 +58,8 @@ function getLineColor($section) {
     }
 
     $lineName = $section->journey->number;
-    if ($section->journey->operator === 'TPG') {
+    $isLexLine = strlen($lineName) === 2 && $lineName[0] === 'L';
+    if ($section->journey->operator === 'TPG' || $isLexLine) {
         return Lines::get($lineName)['background'];
     } elseif ($section->journey->operator === 'SBB') {
         return '#cc0033';
