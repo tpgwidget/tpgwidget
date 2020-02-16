@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "tpgwidget/data": "^1.3.3",
+        "tpgwidget/data": "^1.3.5",
         "vlucas/phpdotenv": "^2.5"
     }
 }

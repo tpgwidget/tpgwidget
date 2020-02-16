@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ab6c211e28bf64e0a7fef02ecd659fd",
+    "content-hash": "3af74f40c729604fa8c116efb20a18de",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -72,16 +72,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.12.0",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -126,20 +126,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "tpgwidget/data",
-            "version": "v1.3.2",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tpgwidget/data.git",
-                "reference": "8079efe037be81e6d4b34a3cec7e46eea37aa3b3"
+                "reference": "26078e66090dd100a15731818aa0269981f46711"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tpgwidget/data/zipball/8079efe037be81e6d4b34a3cec7e46eea37aa3b3",
-                "reference": "8079efe037be81e6d4b34a3cec7e46eea37aa3b3",
+                "url": "https://api.github.com/repos/tpgwidget/data/zipball/26078e66090dd100a15731818aa0269981f46711",
+                "reference": "26078e66090dd100a15731818aa0269981f46711",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,7 @@
                 "tpg",
                 "tpgwidget"
             ],
-            "time": "2019-11-10T12:33:01+00:00"
+            "time": "2020-02-16T12:08:18+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
