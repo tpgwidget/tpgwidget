@@ -4,7 +4,7 @@
 [![Download on Google Play](https://user-images.githubusercontent.com/551004/29770692-a20975c6-8bc6-11e7-8ab0-1cde275496e0.png)](https://tinyurl.com/TPGwidget-Android)
 
 # TPGwidget
-TPGwidget is an iOS/Android app for public transport in Geneva. It uses the free Open Data API provided by the transit operator ([transports publics genevois](http://data.tpg.ch/)).
+TPGwidget is an iOS/Android app for public transport in Geneva. It uses the free Open Data API provided by the transit operator ([transports publics genevois](https://www.tpg.ch/)).
 
 TPGwidget includes many features such as :
 - stops shortcuts on the home screen
