@@ -58,33 +58,11 @@ function getLineColor($section) {
         return Lines::get($indiceDeLigne)['background'];
     } elseif ($section->journey && $section->journey->operator == 'SBB') {
         return '#cc0033';
-    } else {
-        return '#222222';
-    }
-
-    return $couleur;
-}
-
-/**
- * @return string e.g. #ff6600
- */
-function getLineTextColor($section) {
-    if (!$section->journey) {
-        return '#000000';
-    }
-
-    if ($section->journey->operator === 'TPG') {
-        return Lines::get($section->journey->number)['text'];
-    }
-
-    if ($section->journey->operator === 'SBB') {
-        return '#cc0033';
     }
 
     return '#222222';
 }
 ?>
-
 <div class="navbar">
   <div class="navbar-inner">
     <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Itinéraire</span></a></div>
