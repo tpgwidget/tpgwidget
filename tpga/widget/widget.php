@@ -33,7 +33,7 @@ $rawNameW = Stops::correct($widget['name']);
     <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css?171">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2019">
+    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2020-1">
     <style>
     <?php
     foreach (Lines::all() as $line) {

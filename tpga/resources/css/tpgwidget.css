@@ -19,6 +19,10 @@ body {
     padding-top: 0;
 }
 
+.page-trajets .page-content {
+    background-color: #f5f5f5;
+}
+
 .page {
     background-color: #fafafa;
 }
@@ -338,6 +342,13 @@ ul.parl ul {
     float: left;
     margin-right: 10px;
     font-family: "Helvetica Neue",Helvetica,sans-serif;
+}
+
+.picto-ligne.lRE {
+    color: #CC0033;
+    background: #fff;
+    border: 1px solid #dedede;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", Helvetica,sans-serif;
 }
 
 .perturbation-header header {
@@ -717,7 +728,7 @@ ul.parl ul {
 }
 
 .page-trajets .card-header {
-    padding-left: 14px;
+    padding: 8px 14px;
 }
 
 .page-trajets .destination {
