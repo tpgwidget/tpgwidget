@@ -21,25 +21,31 @@ $file = file_get_contents($url);
 $json = json_decode($file);
 
 function indiceDeLigne($section) {
-    if ($section->journey->operator === 'TPG') {
-        $indiceDeLigne = $section->journey->number;
+    $lineName = $section->journey->number;
+    $isLexLine = strpos($lineName, 'SL') === 0;
 
-        if (Lines::get($indiceDeLigne)['text'] === '#FFFFFF') {
+    if ($section->journey->operator === 'TPG' || $isLexLine) {
+        if (Lines::get($lineName)['text'] === '#FFFFFF') {
             $w = 'w';
         } else {
             $w = '';
         }
 
-        echo '<span class="picto-ligne l'.$indiceDeLigne.' '.$w.'">';
-        echo $indiceDeLigne;
+        // LEX lines
+        if ($isLexLine) {
+            $lineName = ltrim($lineName, 'S');
+        }
+
+        echo '<span class="picto-ligne l'.$lineName.' '.$w.'">';
+        echo $lineName;
         echo '</span>';
     } elseif ($section->journey->operator == 'SBB') {
-        $name = explode(' ', $section->journey->name)[0];
-        if ($name === 'RE') {
+        $serviceName = explode(' ', $section->journey->name)[0];
+        if ($serviceName === 'RE') {
             echo '<span class="picto-ligne lRE">RE</span>';
         } else {
             echo '<span class="picto-ligne l9 w">';
-            echo $name;
+            echo $serviceName;
             echo '</span>';
         }
     } else {
@@ -53,10 +59,14 @@ function indiceDeLigne($section) {
  * @return string e.g. ff6600
  */
 function getLineColor($section) {
-    if ($section->journey && $section->journey->operator == 'TPG') {
-        $indiceDeLigne = $section->journey->number;
-        return Lines::get($indiceDeLigne)['background'];
-    } elseif ($section->journey && $section->journey->operator == 'SBB') {
+    if (!$section->journey) {
+        return '#222222';
+    }
+
+    $lineName = $section->journey->number;
+    if ($section->journey->operator === 'TPG') {
+        return Lines::get($lineName)['background'];
+    } elseif ($section->journey->operator === 'SBB') {
         return '#cc0033';
     }
 
