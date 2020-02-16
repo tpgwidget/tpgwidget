@@ -373,8 +373,8 @@ span.perturbation::before {
     font-size: 20px;
     text-align: center;
     float: left;
-    margin-right: 10px;
-    font-family: "Helvetica Neue", Helvetica,sans-serif;
+    margin-right: 8px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 .picto-ligne.lRE {
