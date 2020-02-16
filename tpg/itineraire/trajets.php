@@ -55,12 +55,11 @@ function indiceDeLigne($section) {
 function getLineColor($section) {
     if ($section->journey && $section->journey->operator == 'TPG') {
         $indiceDeLigne = $section->journey->number;
-        $couleur = Lines::get($indiceDeLigne)['background'];
-        $couleur = ltrim($couleur, '#');
+        return Lines::get($indiceDeLigne)['background'];
     } elseif ($section->journey && $section->journey->operator == 'SBB') {
-        $couleur = 'cc0033';
+        return '#cc0033';
     } else {
-        $couleur = '222222';
+        return '#222222';
     }
 
     return $couleur;
