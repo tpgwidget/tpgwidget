@@ -174,7 +174,7 @@ function getLineColor($section) {
                                         array_pop($section->journey->passList);
                                         ?>
                                         <span class="destination">
-                                            <span style="color: <?= getLineColor($section) ?>">→</span> <?= Stops::sbbToTpg($section->journey->to) ?>
+                                            <span style="color: <?= getLineColor($section) ?>">➜</span> <?= Stops::sbbToTpg($section->journey->to) ?>
                                         </span>
                                         <?php
                                         switch ($section->journey->category) {
