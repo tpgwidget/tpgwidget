@@ -351,6 +351,10 @@ ul.parl ul {
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", Helvetica,sans-serif;
 }
 
+.picto-ligne-train {
+    border-radius: 5px;
+}
+
 .perturbation-header header {
     font-weight: 700;
 }

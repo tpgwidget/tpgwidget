@@ -24,21 +24,18 @@ function indiceDeLigne($section) {
     $lineName = $section->journey->number;
     $isLexLine = strlen($lineName) === 2 && $lineName[0] === 'L';
     if ($section->journey->operator === 'TPG' || $isLexLine) {
-        if (Lines::get($lineName)['text'] === '#FFFFFF') {
-            $w = 'w';
-        } else {
-            $w = '';
-        }
+        $w = (Lines::get($lineName)['text'] === '#FFFFFF') ? ' w' : '';
+        $lex = $isLexLine ? ' picto-ligne-train' : '';
 
-        echo '<span class="picto-ligne l'.$lineName.' '.$w.'">';
+        echo '<span class="picto-ligne l'.$lineName.$w.$lex.'">';
         echo $lineName;
         echo '</span>';
     } elseif ($section->journey->operator == 'SBB') {
         $serviceName = explode(' ', $section->journey->name)[0];
         if ($serviceName === 'RE') {
-            echo '<span class="picto-ligne lRE">RE</span>';
+            echo '<span class="picto-ligne picto-ligne-train lRE">RE</span>';
         } else {
-            echo '<span class="picto-ligne l9 w">';
+            echo '<span class="picto-ligne picto-ligne-train l9 w">';
             echo $serviceName;
             echo '</span>';
         }
