@@ -677,8 +677,8 @@ class Vehicule {
 
         } elseif (2052 <= $id && $id <= 2053) {
 
-            $this->type = "Autobus solo";
-            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
             $this->icon = 'c2-bump-new';
             $this->img = '2053';
             $this->img_author = 'TramBusAl';
