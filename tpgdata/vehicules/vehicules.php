@@ -650,7 +650,7 @@ class Vehicule {
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
             $this->icon = 'c2-bump-new';
-            $this->img = 'c2-new';
+            $this->img = '2054';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
