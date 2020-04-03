@@ -649,8 +649,18 @@ class Vehicule {
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
-            $this->icon = 'c2-new';
+            $this->icon = 'c2-bump-new';
             $this->img = 'c2-new';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2019';
+
+        } elseif (2066 <= $id && $id <= 2068) {
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = '2066';
+            $this->img = '2066';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
@@ -659,8 +669,18 @@ class Vehicule {
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
-            $this->icon = 'c2';
+            $this->icon = 'c2-bump-new';
             $this->img = '2050';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2019';
+
+        } elseif (2052 <= $id && $id <= 2053) {
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = 'c2-bump-new';
+            $this->img = '2053';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
