@@ -62,12 +62,11 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
                 <?php
                 // Temporary fix: for Chrome version ≥ 78, ask the user to open the link in Chrome by themselves
                 $userAgent = $_SERVER['HTTP_USER_AGENT'];
-                $browsersBlockList = ['Chrome/78', 'Chrome/79', 'Chrome/80', 'Chrome/81'];
-
                 $manualInstall = false;
-                foreach ($browsersBlockList as $b) {
-                    if (strpos($userAgent, ' ' . $b) !== false) {
+                for ($i = 78; $i <= 99; $i++) {
+                    if (strpos($userAgent, " Chrome/$i") !== false) {
                         $manualInstall = true;
+                        break;
                     }
                 }
 
