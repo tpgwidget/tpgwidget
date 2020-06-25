@@ -2,8 +2,8 @@ Options +FollowSymlinks
 RewriteEngine on
 RewriteBase /
 
-RewriteRule ^([A-Z0-9]{4})/$ widget/create.php?stop=$1 [L]
-RewriteRule ^([Z0-9]{6})/$ widget/widget.php?id=$1 [L]
+RewriteRule ^([A-Z0-9]{4})/?$ widget/create.php?stop=$1 [L]
+RewriteRule ^([Z0-9]{6})/?$ widget/widget.php?id=$1 [L]
 
 RewriteRule ^icon/([A-Z0-9]{4})/([0-9]+).png$ icon/icon.php?text=$1&size=$2 [L]
 
