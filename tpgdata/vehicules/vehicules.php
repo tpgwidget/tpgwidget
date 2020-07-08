@@ -645,7 +645,7 @@ class Vehicule {
 
         /* New C2 */
 
-        } elseif (2054 <= $id && $id <= 2055) { // Citaro C2 solo livrée 2013 (orange)
+        } elseif ((2054 <= $id && $id <= 2055) || (2064 <= $id && $id <= 2065)) { // Citaro C2 solo livrée 2013 (orange)
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro C2 O530";
