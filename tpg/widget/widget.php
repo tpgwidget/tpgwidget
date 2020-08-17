@@ -43,14 +43,20 @@ $rawNameW = Stops::correct($widget['name']);
     ?>
     </style>
 
+    <?php
+    $iconPrefix = '';
+    if (getenv('APP_ENV') === 'beta') {
+        $iconPrefix = '/beta';
+    }
+    ?>
     <!-- Icônes -->
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/144.png" sizes="144x144" rel="apple-touch-icon">
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/120.png" sizes="120x120" rel="apple-touch-icon">
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/114.png" sizes="114x114" rel="apple-touch-icon">
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/76.png" sizes="76x76" rel="apple-touch-icon">
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/72.png" sizes="72x72" rel="apple-touch-icon">
-    <link href="https://www.nicolapps.ch/tpgicon/<?= urlencode($stopW) ?>/57.png" sizes="57x57" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/144.png" sizes="144x144" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/120.png" sizes="120x120" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/114.png" sizes="114x114" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/76.png" sizes="76x76" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/72.png" sizes="72x72" rel="apple-touch-icon">
+    <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/57.png" sizes="57x57" rel="apple-touch-icon">
   </head>
   <body>
     <div class="panel-overlay"></div>
