@@ -7,8 +7,8 @@ $nextDepartures = @simplexml_load_file($file);
 
 include '../../tpgdata/quais.php';
 include '../../tpgdata/vehicules/vehicules.php';
-?>
 
+if ($nextDepartures) { ?>
 <div class="list-block media-list departures">
     <ul>
         <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->stop->stopCode.'.pdf')) { ?>
@@ -99,3 +99,6 @@ include '../../tpgdata/vehicules/vehicules.php';
 
 </ul>
 </div>
+<?php } else { ?>
+<p><strong>Erreur</strong> : Impossible de contacter les serveurs des TPG.</p>
+<?php } ?>
