@@ -20,6 +20,13 @@ if (empty($widget)) {
 $stopW = $widget['stop'];
 $nameW = Stops::format($widget['name']);
 $rawNameW = Stops::correct($widget['name']);
+
+$iconPrefix = '';
+if (getenv('APP_ENV') === 'beta') {
+    $iconPrefix = '/beta';
+}
+
+$min = (getenv('APP_ENV') === 'beta') ? '.min' : '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,7 +40,7 @@ $rawNameW = Stops::correct($widget['name']);
     <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2020-2">
+    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2020-2">
     <style>
     <?php
     foreach (Lines::all() as $line) {
@@ -43,12 +50,6 @@ $rawNameW = Stops::correct($widget['name']);
     ?>
     </style>
 
-    <?php
-    $iconPrefix = '';
-    if (getenv('APP_ENV') === 'beta') {
-        $iconPrefix = '/beta';
-    }
-    ?>
     <!-- Icônes -->
     <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">
     <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/144.png" sizes="144x144" rel="apple-touch-icon">
@@ -153,6 +154,6 @@ $rawNameW = Stops::correct($widget['name']);
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2020-1"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget<?= $min ?>.js?2020-1"></script>
   </body>
 </html>

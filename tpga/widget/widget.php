@@ -20,6 +20,8 @@ if (empty($widget)) {
 $stopW = $widget['stop'];
 $nameW = Stops::format($widget['name']);
 $rawNameW = Stops::correct($widget['name']);
+
+$min = (getenv('APP_ENV') === 'beta') ? '.min' : '';
 ?>
 <!DOCTYPE html>
 <html translate="no">
@@ -33,7 +35,7 @@ $rawNameW = Stops::correct($widget['name']);
     <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css?171">
-    <link rel="stylesheet" href="/resources/css/tpgwidget.min.css?2020-1">
+    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2020-1">
     <style>
     <?php
     foreach (Lines::all() as $line) {
@@ -145,6 +147,6 @@ $rawNameW = Stops::correct($widget['name']);
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2020-1"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget<?= $min ?>.js?2020-1"></script>
 </body>
 </html>
