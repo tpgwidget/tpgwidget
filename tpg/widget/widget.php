@@ -26,7 +26,7 @@ if (getenv('APP_ENV') === 'beta') {
     $iconPrefix = '/beta';
 }
 
-$min = (getenv('APP_ENV') === 'beta') ? '.min' : '';
+$min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -21,7 +21,7 @@ $stopW = $widget['stop'];
 $nameW = Stops::format($widget['name']);
 $rawNameW = Stops::correct($widget['name']);
 
-$min = (getenv('APP_ENV') === 'beta') ? '.min' : '';
+$min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
 ?>
 <!DOCTYPE html>
 <html translate="no">
