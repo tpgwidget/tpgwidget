@@ -79,9 +79,10 @@
                             </div>
                         </div>
                         <div class="buttons-row">
-                            <a href="#" class="button heure-depart active">Départ</a>
+                            <a href="#" role="button" class="button heure-depart active">Départ</a>
                             <input id="isArrivalTime" type="hidden" name="isArrivalTime" value="0">
-                            <a href="#" class="button heure-arrivee">Arrivée</a>
+                            <a href="#" role="button" class="button heure-arrivee">Arrivée</a>
+                            <span class="buttons-row-indicator" role="presentation"></span>
                         </div>
                     </li>
                 </ul>

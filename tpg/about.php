@@ -182,7 +182,7 @@
                 <li>
                     <a href="https://twitter.com/Ge_nav" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="/resources/img/genav.jpg" alt="GéNav">
+                            <img src="/resources/img/genav.png" alt="GéNav">
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">

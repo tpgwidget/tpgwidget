@@ -40,7 +40,9 @@ if ($nextDepartures) { ?>
             ?>
             <div class="item-inner">
                 <div class="item-title-row">
-                    <div class="item-title"><?= $depart->connection->lineCode ?> → <?= Stops::format($depart->connection->destinationName) ?></div>
+                    <div class="item-title">
+                        <?= $depart->connection->lineCode ?> → <?= Stops::format($depart->connection->destinationName) ?>
+                    </div>
                     <div class="item-after">
                         <?php if ($depart->waitingTime != 'no more') {
                             echo date('H:i', strtotime($depart->timestamp));

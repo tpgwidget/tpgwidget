@@ -155,7 +155,7 @@
         <div class="card credit">
             <a href="https://twitter.com/Ge_nav" class="external" target="_blank">
                 <div class="card-content">
-                    <img src="/resources/img/genav.jpg" alt="GéNav">
+                    <img src="/resources/img/genav.png" alt="GéNav">
                     <div class="card-content-inner">
                         <h3>Deyan Marinov — GéNav</h3>
                         <cite>twitter.com/Ge_nav</cite>
