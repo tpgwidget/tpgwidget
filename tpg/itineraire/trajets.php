@@ -156,7 +156,7 @@ function getLineColor($section) {
 
                             <!-- Trajet -->
                             <?php foreach ($trajet->sections as $section) { ?>
-                                <div class="card">
+                                <div class="card itineraire-section-card">
                                     <?php if ($section->journey) { ?>
                                     <div class="card-header">
                                         <?php
@@ -332,20 +332,18 @@ function getLineColor($section) {
                 </div>
             </div>
         <?php } else { // Aucun trajet trouvé ?>
-            <div class="content-block">
-                <div class="itineraire-erreur">
-                    <?php if (trim($arrivee) == '') { // Pas de lieu d'arrivée ?>
-                        <img src="/resources/img/itineraire_where.png" alt="Où souhaitez-vous aller ?">
-                        <h1>Où souhaitez-vous aller ?</h1>
-                        <p>Vous n'avez sélectionné aucun lieu d'arrivée.</p>
-                        <a href="#" class="back button">Retour</a>
-                    <?php } else { ?>
-                        <img src="/resources/img/itineraire_erreur.png" alt="Aucun itinéraire trouvé">
-                        <h1>Aucun itinéraire trouvé</h1>
-                        <p>Aucun itinéraire n'a été trouvé. Essayez de modifier les termes de votre recherche.</p>
-                        <a href="#" class="back button">Réessayer</a>
-                    <?php } ?>
-                </div>
+            <div class="itineraire-erreur">
+                <?php if (trim($arrivee) == '') { // Pas de lieu d'arrivée ?>
+                    <img src="/resources/img/itineraire_where.png" alt="Où souhaitez-vous aller ?">
+                    <h1>Où souhaitez-vous aller ?</h1>
+                    <p>Vous n'avez sélectionné aucun lieu d'arrivée.</p>
+                    <a href="#" class="back button">Retour</a>
+                <?php } else { ?>
+                    <img src="/resources/img/itineraire_erreur.png" alt="Aucun itinéraire trouvé">
+                    <h1>Aucun itinéraire trouvé</h1>
+                    <p>Aucun itinéraire n'a été trouvé. Essayez de modifier les termes de votre recherche.</p>
+                    <a href="#" class="back button">Réessayer</a>
+                <?php } ?>
             </div>
         <?php } ?>
     </div>
