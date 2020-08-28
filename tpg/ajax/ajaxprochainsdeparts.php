@@ -8,7 +8,20 @@ $nextDepartures = @simplexml_load_file($file);
 include '../../tpgdata/quais.php';
 include '../../tpgdata/vehicules/vehicules.php';
 
-if ($nextDepartures) { ?>
+?>
+<div style="background-color: #cc0033; color: #fff; padding: 16px 10px; padding-left: 60px; position: relative; overflow: hidden">
+    <h4 style="margin: 0">Avertissement (28.08.2020)</h4>
+    <p style="margin: 8px 0">
+        En raison d’un problème en cours sur les serveurs des TPG, les données affichées sur cette page
+        ne sont pas fiables et peuvent être fausses.
+    </p>
+    <p style="margin: 0">
+        Veuillez utiliser l’application officielle des TPG si vous êtes actuellement en déplacement.
+    </p>
+
+    <span style="position: absolute; font-size: 72px; top: 0px; left: -20px; color: rgba(0, 0, 0, .3)">⚠︎</span>
+</div>
+<?php if ($nextDepartures) { ?>
 <div class="list-block media-list departures">
     <ul>
         <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->stop->stopCode.'.pdf')) { ?>
