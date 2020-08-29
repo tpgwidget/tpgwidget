@@ -7,19 +7,8 @@ $nextDepartures = @simplexml_load_file($file);
 
 include '../../tpgdata/quais.php';
 include '../../tpgdata/vehicules/vehicules.php';
-?>
-<div style="background-color: #006633; color: #fff; padding: 16px 10px; padding-left: 80px; position: relative; overflow: hidden">
-    <h4 style="margin: 0">Retour à la normale (28.08.2020)</h4>
-    <p style="margin: 8px 0">
-        Le problème de ce matin concernant les horaires semble être corrigé.
-    </p>
-    <p style="margin: 0">
-        Merci pour votre utilisation de TPGwidget et bon voyage.
-    </p>
 
-    <span style="position: absolute; font-size: 72px; top: 0; left: 10px; color: rgba(0, 0, 0, .3)">✓︎</span>
-</div>
-<?php if ($nextDepartures) { ?>
+if ($nextDepartures) { ?>
 
 <div class="list-block media-list" id="departures">
     <ul>
