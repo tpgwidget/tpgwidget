@@ -10,7 +10,7 @@ include '../../tpgdata/vehicules/vehicules.php';
 
 if ($nextDepartures) { ?>
 
-<div class="list-block media-list" id="departures">
+<div class="list-block media-list list-departures">
     <ul>
         <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->stop->stopCode.'.pdf')) { ?>
             <li class="w l35">

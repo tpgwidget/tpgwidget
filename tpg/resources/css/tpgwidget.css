@@ -2499,6 +2499,10 @@ i.icon-back.theme-black,
         background-color: #1c1c1e;
     }
 
+    .page-trajets .accordion-item .list-block {
+        background-color: transparent;
+    }
+
     .page-vehicule .card-wifi span,
     .card-vehicule .en-savoir-plus {
         color: #0080ff;
