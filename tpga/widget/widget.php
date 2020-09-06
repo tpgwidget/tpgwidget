@@ -35,7 +35,7 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css?171">
-    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2020-3">
+    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2020-4">
     <style>
     <?php
     foreach (Lines::all() as $line) {

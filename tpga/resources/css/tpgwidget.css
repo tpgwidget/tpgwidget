@@ -915,7 +915,7 @@ ul.parl ul {
     .page-trajets .accordion-item {
         background-color: #1c1c1e;
     }
-    
+
     .page-trajets .accordion-item .list-block {
         background-color: transparent;
     }
@@ -957,5 +957,9 @@ ul.parl ul {
 
     .list-block input[type=datetime-local] {
         color: #fff;
+    }
+
+    .card-vehicule .id {
+        color: #aaa;
     }
 }
