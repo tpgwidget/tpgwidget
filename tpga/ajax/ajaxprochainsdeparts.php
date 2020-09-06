@@ -21,7 +21,7 @@ include '../../tpgdata/vehicules/vehicules.php';
     <span style="position: absolute; font-size: 72px; top: 0; left: -20px; color: rgba(0, 0, 0, .3)">⚠︎</span>
 </div>
 <?php if ($nextDepartures) { ?>
-<div class="list-block media-list" id="departures">
+<div class="list-block media-list list-departures">
     <ul>
         <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->stop->stopCode.'.pdf')) { ?>
             <li class="w l35">

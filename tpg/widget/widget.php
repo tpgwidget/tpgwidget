@@ -32,9 +32,9 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="<?= $rawNameW ?>">
 
     <title><?= $rawNameW ?></title>
@@ -61,10 +61,10 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
   </head>
   <body>
     <div class="panel-overlay"></div>
-    <div class="panel panel-right panel-reveal layout-dark">
+    <div class="panel panel-right panel-reveal">
         <h1>TPG<span>widget</span></h1>
 
-        <div class="list-block">
+        <div class="list-block list-block-grouped">
             <ul>
               <li>
                  <a href="/itineraire/?departure=<?= $rawNameW ?>" class="item-link close-panel">
@@ -154,6 +154,6 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget<?= $min ?>.js?2020-1"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2020-1"></script>
   </body>
 </html>

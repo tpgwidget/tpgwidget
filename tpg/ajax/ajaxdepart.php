@@ -47,12 +47,20 @@ $color = $line['background'];
                 <i class="icon icon-back"></i>
             </a>
         </div>
-        <div class="center sliding"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> → <?= Stops::format($thermometer->destinationName ?? '') ?></div>
+        <div class="center sliding" <?= $line['text'] === '#000000' ? 'style="color: #000"' : '' ?>>
+            <span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>">
+                <?= $thermometer->lineCode ?></span> → <?= Stops::format($thermometer->destinationName ?? '') ?>
+            </span>
+        </div>
         <div class="right">
             <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
         </div>
         <div class="subnavbar sliding">
-            <div class="buttons-row"><a href="#" class="button show-m active">Temps</a><a href="#" class="button show-h">Heure</a></div>
+            <div class="buttons-row buttons-row-colored <?= $line['text'] === '#000000' ? 'buttons-row-colored-light' : '' ?>">
+                <a href="#" role="button" class="button show-m active">Temps</a>
+                <a href="#" role="button" class="button show-h">Heure</a>
+                <span class="buttons-row-indicator" role="presentation"></span>
+            </div>
         </div>
     </div>
 </div>
