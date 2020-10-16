@@ -113,6 +113,16 @@ class Vehicule {
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
 
+        } elseif (2059 <= $id && $id <= 2063) { // MAN LC 2020 solo RATP
+
+            $this->type = "Autobus solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lc2020';
+            $this->img = 'lc2020';
+            $this->year = 2020;
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+
         } elseif (101 <= $id && $id <= 105) { // Mégabus VanHool
 
             $this->type = "Autobus à double articulation";
@@ -168,6 +178,19 @@ class Vehicule {
             $this->places_debout = 122;
             $this->places_totales = 179;
             $this->year = "2003";
+
+        } elseif ($id == 666) { // Saurer 666
+
+            $this->type = "Trolleybus articulé";
+            $this->name = "Saurer/Hess/BBC-SE";
+            $this->icon = 'notfound';
+            $this->img = '666';
+            $this->img_author = 'Transports Suisse 05';
+            $this->img_link = 'https://www.youtube.com/channel/UCqcpBmYjK1TbQEDR2diSuig';
+            $this->places_assises = 44;
+            $this->places_debout = 100;
+            $this->places_totales = 144;
+            $this->year = "1982";
 
         } elseif (731 <= $id && $id <= 768) { // Trolleybus Hess
 
