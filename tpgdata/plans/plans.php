@@ -36,9 +36,21 @@ class Plans {
 
     /* Types de plans */
     protected static $types = [
+        'schematique' => [
+            'name' => 'Plan schématique',
+            'desc' => 'Transports publics du canton de Genève'
+        ],
+        'geographique' => [
+            'name' => 'Plan géographique',
+            'desc' => 'Transports publics du centre de Genève'
+        ],
         'multimodal' => [
             'name' => 'Plan multimodal',
             'desc' => 'Tram, trolleybus, bus et Léman Express'
+        ],
+        'tac' => [
+            'name' => 'Plan TAC',
+            'desc' => 'Transports publics d’Annemasse'
         ],
         'urbain' => [
             'name' => 'Plan urbain',
@@ -64,9 +76,9 @@ class Plans {
 
     /* Années et leurs plans */
     protected static $years = [
-        '2020' => [
-            'name' => 'Dès le 15 décembre 2019',
-            'plans' => ['multimodal', 'noctambusurbain', 'noctambus'],
+        '2021' => [
+            'name' => 'Dès le 13 décembre 2020',
+            'plans' => ['multimodal', 'schematique', 'noctambusurbain', 'noctambus', 'tac'],
         ],
     ];
 
