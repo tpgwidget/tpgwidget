@@ -42,6 +42,8 @@ if ($nextDepartures) { ?>
                 <div class="item-title-row">
                     <div class="item-title">
                         <?= $depart->connection->lineCode ?> → <?= Stops::format($depart->connection->destinationName) ?>
+                        <?= $depart->connection->lineCode == 47 ? '↻' : '' ?>
+                        <?= $depart->connection->lineCode == 48 ? '↺' : '' ?>
                     </div>
                     <div class="item-after">
                         <?php if ($depart->waitingTime != 'no more') {
