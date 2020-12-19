@@ -12,7 +12,7 @@ if ($nextDepartures) { ?>
 <div class="list-block media-list departures">
     <ul>
         <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->stop->stopCode.'.pdf')) { ?>
-            <li class="w l32">
+            <li class="w l35">
                 <a class="item-link item-content external" target="_blank" href="https://tpgdata.nicolapps.ch/plans/connection/<?=$nextDepartures->stop->stopCode?>.pdf">
                     <div class="item-inner">
                         <div class="item-title-row">
