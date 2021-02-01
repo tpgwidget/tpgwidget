@@ -62,12 +62,6 @@ if ($nextDepartures) { ?>
                         print '<span class="perturbation"></span>';
                     }
 
-                    // Wi-Fi
-                    $vehicule = new Vehicule($depart->vehiculeNo ?? '');
-                    if ($vehicule->wifi) {
-                        echo '<img class="departure-wifi" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">';
-                    }
-
                     // Waiting time
                     echo '<div class="temps">';
                     switch ($depart->waitingTime) {

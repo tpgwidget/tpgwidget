@@ -992,15 +992,6 @@ span.perturbation::before {
     background: url(../img/no-pmr.svg);
 }
 
-.departure-wifi {
-    width: 30px;
-    margin-top: 3px;
-}
-
-.w .departure-wifi {
-    filter: invert(1);
-}
-
 .page-vehicule {
     background: #fff;
 }
@@ -1063,13 +1054,6 @@ span.perturbation::before {
     float: left;
 }
 
-.card-vehicule .wifi-icon {
-    position: absolute;
-    top: 4px;
-    left: 100px;
-    opacity: .4;
-}
-
 .card-vehicule h2 {
     padding-top: 24px;
     text-align: center;
@@ -1096,34 +1080,6 @@ span.perturbation::before {
     color: #007aff;
     text-align: center;
     display: block;
-}
-
-.page-vehicule .card-wifi {
-    display: block;
-    color: inherit;
-    overflow: auto;
-    margin-top: 20px;
-    background: #fff;
-    padding: 10px;
-}
-
-.page-vehicule .card-wifi img {
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    width: 50px;
-    opacity: .4;
-}
-
-.page-vehicule .card-wifi p {
-    padding-left: 65px;
-    padding-right: 10px;
-    line-height: 1.5;
-    color: #333;
-}
-
-.page-vehicule .card-wifi span {
-    color: #007aff;
 }
 
 /* About page */
@@ -1589,8 +1545,7 @@ i.icon-back.theme-black,
         background-color: #2c2c2e;
     }
 
-    .card,
-    .page-vehicule .card-wifi {
+    .card {
         background-color: #2c2c2e;
     }
 
@@ -1604,16 +1559,11 @@ i.icon-back.theme-black,
         color: #fff;
     }
 
-    .page-vehicule .card-wifi {
-        color: #fff;
-    }
-
     .previous,
     .page-trajets .accordion-item {
         background-color: #1c1c1e;
     }
 
-    .page-vehicule .card-wifi span,
     .card-vehicule .en-savoir-plus {
         color: #0080ff;
     }
@@ -1642,8 +1592,6 @@ i.icon-back.theme-black,
         background-color: #373739;
     }
 
-    .wifi-icon,
-    .page-vehicule .card-wifi img,
     .icon-marche {
         filter: invert(100%);
     }
@@ -1879,15 +1827,6 @@ ion-item-content {
     background: url(../img/no-pmr.svg);
 }
 
-.departure-wifi {
-    width: 30px;
-    margin-top: 3px;
-}
-
-.w .departure-wifi {
-    filter: invert(1);
-}
-
 .page-vehicule {
     background: #fff;
 }
@@ -1950,13 +1889,6 @@ ion-item-content {
     float: left;
 }
 
-.card-vehicule .wifi-icon {
-    position: absolute;
-    top: 4px;
-    left: 100px;
-    opacity: .4;
-}
-
 .card-vehicule h2 {
     padding-top: 24px;
     text-align: center;
@@ -1983,34 +1915,6 @@ ion-item-content {
     color: #007aff;
     text-align: center;
     display: block;
-}
-
-.page-vehicule .card-wifi {
-    display: block;
-    color: inherit;
-    overflow: auto;
-    margin-top: 20px;
-    background: #fff;
-    padding: 10px;
-}
-
-.page-vehicule .card-wifi img {
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    width: 50px;
-    opacity: .4;
-}
-
-.page-vehicule .card-wifi p {
-    padding-left: 65px;
-    padding-right: 10px;
-    line-height: 1.5;
-    color: #333;
-}
-
-.page-vehicule .card-wifi span {
-    color: #007aff;
 }
 
 /* About page */
@@ -2475,8 +2379,7 @@ i.icon-back.theme-black,
         background-color: #2c2c2e;
     }
 
-    .card,
-    .page-vehicule .card-wifi {
+    .card {
         background-color: #2c2c2e;
     }
 
@@ -2490,10 +2393,6 @@ i.icon-back.theme-black,
         color: #fff;
     }
 
-    .page-vehicule .card-wifi {
-        color: #fff;
-    }
-
     .previous,
     .page-trajets .accordion-item {
         background-color: #1c1c1e;
@@ -2503,7 +2402,6 @@ i.icon-back.theme-black,
         background-color: transparent;
     }
 
-    .page-vehicule .card-wifi span,
     .card-vehicule .en-savoir-plus {
         color: #0080ff;
     }
@@ -2532,8 +2430,6 @@ i.icon-back.theme-black,
         background-color: #373739;
     }
 
-    .wifi-icon,
-    .page-vehicule .card-wifi img,
     .icon-marche {
         filter: invert(100%);
     }

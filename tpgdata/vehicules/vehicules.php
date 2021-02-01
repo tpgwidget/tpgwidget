@@ -7,7 +7,6 @@ class Vehicule {
     public $img;
     public $icon;
     public $enSavoirPlus = true;
-    public $wifi = false;
 
     public $places_assises = null;
     public $places_debout = null;
@@ -149,7 +148,6 @@ class Vehicule {
             $this->img_link = 'https://flic.kr/p/kYYeMp';
             $this->tpg_link = 'https://www.tpg.ch/fr/tosa';
             $this->year = '2017';
-            $this->wifi = true;
 
         } elseif (701 <= $id && $id <= 713) { // NAW
 
@@ -219,7 +217,6 @@ class Vehicule {
             $this->places_debout = 126;
             $this->places_totales = 192;
             $this->year = "2005-2006";
-            $this->wifi = true;
 
         } elseif (1601 <= $id && $id <= 1633) { // Exqui City
 
@@ -234,7 +231,6 @@ class Vehicule {
             $this->places_debout = 90;
             $this->places_totales = 131;
             $this->year = "2014";
-            $this->wifi = true;
 
         /* TRAMWAYS */
 
@@ -742,10 +738,6 @@ class Vehicule {
             <div class="card card-vehicule">
                 <div class="card-content">
                     <img class="vehicle-icon" src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
-                    <?php if ($this->wifi) { ?>
-                        <img class="wifi-icon" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">
-                    <?php } ?>
-
                     <span class="id">N° <?=$this->id?></span>
 
                     <h2>
@@ -773,10 +765,6 @@ class Vehicule {
             <div class="card card-vehicule">
                 <div class="card-content">
                     <img class="vehicle-icon" src="https://tpgdata.nicolapps.ch/vehicules/img/icons/<?=$this->icon?>.png" alt="<?=$this->name?>">
-                    <?php if ($this->wifi) { ?>
-                        <img class="wifi-icon" src="/resources/img/wifi.svg" alt="Wi-Fi gratuit">
-                    <?php } ?>
-
                     <span class="id">N° <?=$this->id?></span>
 
                     <h2>
