@@ -78,7 +78,7 @@ class Plans {
     protected static $years = [
         '2021' => [
             'name' => 'Dès le 13 décembre 2020',
-            'plans' => ['multimodal', 'schematique', 'noctambusurbain', 'noctambus', 'tac'],
+            'plans' => ['schematique', 'geographique', 'noctambusurbain', 'noctambus', 'tac'],
         ],
     ];
 
