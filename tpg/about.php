@@ -156,7 +156,11 @@
                 <li>
                     <a href="https://facebook.com/FanDeTransportsPublicsGenevois" class="item-link item-content external" target="_blank">
                         <div class="item-media">
-                            <img src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150" alt="FDTPG">
+                            <img
+                                src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150"
+                                crossorigin="anonymous" referrerpolicy="no-referrer"
+                                alt="FDTPG"
+                            >
                         </div>
                         <div class="item-inner">
                             <div class="item-title-row">

@@ -133,7 +133,11 @@
         <div class="card credit">
             <a href="https://facebook.com/FanDeTransportsPublicsGenevois" class="external" target="_blank">
                 <div class="card-content">
-                    <img src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150" alt="FDTPG">
+                    <img
+                        src="https://graph.facebook.com/FanDeTransportsPublicsGenevois/picture?width=150&height=150"
+                        crossorigin="anonymous" referrerpolicy="no-referrer"
+                        alt="FDTPG"
+                    >
                     <div class="card-content-inner">
                         <h3>Fans des TPG (FDTPG)</h3>
                         <cite>facebook.com</cite>
