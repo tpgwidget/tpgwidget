@@ -684,7 +684,7 @@ class Vehicule {
             $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
 
-        } elseif ($id == 2069) {
+        } elseif (2069 <= $id && $id <= 2075) {
 
             $this->type = "Autobus articulé";
             $this->name = "MAN Lion's City G";
