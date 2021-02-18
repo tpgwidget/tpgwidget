@@ -34,7 +34,7 @@ class Vehicule {
         /* On détecte le modèle du véhicule */
 
         /* AUTOBUS */
-        if (500 <= $id && $id <= 545) { // Citaro solo
+        if (500 <= $id && $id <= 549) { // Citaro solo
 
             $this->type = "Autobus solo";
             $this->name = "Mercedes-Benz Citaro O530";
@@ -683,6 +683,16 @@ class Vehicule {
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
             $this->year = '2019';
+
+        } elseif (2069 <= $id && $id <= 2069) {
+
+            $this->type = "Autobus articulé";
+            $this->name = "MAN Lion's City G";
+            $this->icon = 'lc2020';
+            $this->img = 'lc2020';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2021';
 
         } elseif (2050 <= $id && $id <= 2051) { // Citaro C2 solo livrée 2013 (orange)
 
