@@ -20,44 +20,44 @@ if (!$stops || !isset($stops['stops'])) {
 
 header('Content-type: application/json; charset=utf-8');
 
-$output = [];
+$output = ['featured' => [], 'all' => []];
 foreach ($stops['stops'] as $stop) {
     $lines = [];
     $geolocation = null;
-    
+
     $physicalStops = $stop['physicalStops'];
-    
+
     // Average geolocation
     $average = function($prop) use ($physicalStops) {
         $result = 0;
         $count = 0;
-        
+
         foreach ($physicalStops as $stop) {
             $value = $stop['coordinates'][$prop] ?? null;
             if (is_null($value)) {
                 continue;
             }
-            
+
             $result += $value;
             $count += 1;
         }
-        
+
         if ($count === 0) {
             return null;
         }
-        
+
         return $result / $count;
     };
-    
+
     $geolocation = [
         'latitude' => $average('latitude'),
         'longitude' => $average('longitude'),
     ];
-    
+
     if (is_null($geolocation['latitude']) || is_null($geolocation['longitude'])) {
         $geolocation = null;
     }
-    
+
     // Lines
     $lineCodes = [];
     foreach ($physicalStops as $physicalStop) {
@@ -70,8 +70,8 @@ foreach ($stops['stops'] as $stop) {
     $lines = array_map(function ($lineCode) {
         return Lines::get($lineCode);
     }, $lineCodes);
-    
-    $output[] = [
+
+    $output['all'][] = [
         'id' => $stop['stopCode'] ?? null,
         'nameFormatted' => Stops::format($stop['stopName'] ?? ''),
         'nameRaw' => $stop['stopName'],
