@@ -80,8 +80,9 @@ foreach ($stops['stops'] as $stop) {
     ];
 }
 
-uasort($output, function($a, $b) {
+uasort($output['all'], function($a, $b) {
     return strcmp(strip_tags($a['nameFormatted']), strip_tags($b['nameFormatted']));
 });
+$output['all'] = array_values($output['all']);
 
-echo json_encode(array_values($output));
+echo json_encode($output);
