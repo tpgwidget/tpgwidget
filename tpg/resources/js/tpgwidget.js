@@ -110,10 +110,10 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
     $(document).on('pageBeforeAnimation', function (e) {
         f7.closeNotification(".notifications");
 
-        var page = e.detail.page;
-        var p = page.name.split("-");
+        const page = e.detail.page;
+        const p = page.name.split("-");
 
-        if (p[0] == 'infotraffic'){
+        if (p[0] === 'infotraffic'){
             $('.pull-to-refresh-content').on('refresh', function (e) {
                 $.ajax({ url: '/ajax/ajaxperturbations.php', cache: false, success: (result) => {
                     $('#perturbations-all').html(result);
@@ -122,22 +122,23 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             });
         }
 
+        const $nav = $('.navbar, .subnavbar');
         if (p[0] === 'depart') {
-            $('.navbar, .subnavbar').css('background-color', p[1]);
+            $nav.css('background-color', p[1]);
 
             const incidents = [];
 
             if (p[2]) {
-                $('.navbar, .subnavbar').addClass('theme-black');
-                $('.navbar, .subnavbar').removeClass('theme-white');
+                $nav.addClass('theme-black');
+                $nav.removeClass('theme-white');
             } else {
-                $('.navbar, .subnavbar').removeClass('theme-black');
-                $('.navbar, .subnavbar').addClass('theme-white');
+                $nav.removeClass('theme-black');
+                $nav.addClass('theme-white');
             }
         } else {
-            $('.navbar, .subnavbar').css('background-color', '#f60');
-            $('.navbar, .subnavbar').removeClass('theme-black');
-            $('.navbar, .subnavbar').addClass('theme-white');
+            $nav.css('background-color', '#fb6400');
+            $nav.removeClass('theme-black');
+            $nav.addClass('theme-white');
         }
 
     });

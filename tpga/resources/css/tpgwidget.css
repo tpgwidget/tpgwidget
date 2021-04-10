@@ -10,7 +10,7 @@ body {
 }
 
 .navbar, .subnavbar, .searchbar {
-    background-color: #f60;
+    background-color: #fb6400;
     color: #fff;
     -webkit-transition: background-color .2s linear;
 }
@@ -51,7 +51,7 @@ body {
     display: block;
     margin: 0 0 5px 0;
     padding: 30px 20px;
-    background-color: #f60;
+    background-color: #fb6400;
     background-image: url(../img/sidebar-background.png);
     background-position: center center;
     background-size: cover;
@@ -441,7 +441,7 @@ ul.parl ul {
 .page-about header {
     position: relative;
     height: 300px;
-    background-color: #f60;
+    background-color: #fb6400;
     background-image: url(../img/about.jpg);
     background-size: cover;
     background-position: 50% 0;
@@ -619,7 +619,7 @@ ul.parl ul {
     width: 30px;
     height: 30px;
     text-align: center;
-    background: #f60;
+    background: #fb6400;
     color: #fff;
     font-size: 16px;
     line-height: 2;

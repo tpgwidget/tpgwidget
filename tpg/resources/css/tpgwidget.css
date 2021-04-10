@@ -1087,7 +1087,7 @@ span.perturbation::before {
 .page-about header {
     position: relative;
     height: 300px;
-    background-color: #f60;
+    background-color: #fb6400;
     background-image: url(../img/about.jpg);
     background-size: cover;
     background-position: 50% 25%;
@@ -1922,7 +1922,7 @@ ion-item-content {
 .page-about header {
     position: relative;
     height: 300px;
-    background-color: #f60;
+    background-color: #fb6400;
     background-image: url(../img/about.jpg);
     background-size: cover;
     background-position: 50% 25%;

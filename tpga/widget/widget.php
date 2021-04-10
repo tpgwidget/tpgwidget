@@ -30,12 +30,12 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <link rel="manifest" href="/manifest.json.php?id=<?= urlencode($_GET['id']) ?>&amp;stopCode=<?= urlencode($stopW) ?>&amp;stopName=<?=urlencode($rawNameW) ?>">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#ff6600">
+    <meta name="theme-color" content="#fb6400">
 
     <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.material.min.css?171">
-    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2021-1">
+    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2021-2">
     <style>
     <?php
     foreach (Lines::all() as $line) {

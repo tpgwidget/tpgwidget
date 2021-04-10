@@ -107,7 +107,7 @@ if (f7.device.android && !isStandalone) {
         } else if (p == 'vehicule' || p == 'itineraire') {
             changeStatusbarColor('#333');
         } else {
-            changeStatusbarColor('#F60');
+            changeStatusbarColor('#fb6400');
         }
     });
 
