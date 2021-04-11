@@ -2435,6 +2435,10 @@ i.icon-back.theme-black,
     }
 }
 
+.navbar-through .page>.searchbar~.page-content, .navbar-through>.searchbar~.page-content {
+    padding-top: 96px;
+}
+
 /* Safe area support */
 @supports(padding: max(0px)) {
     .navbar {
@@ -2452,6 +2456,10 @@ i.icon-back.theme-black,
     .navbar-through .subnavbar~.page-content,
     .navbar-through .with-subnavbar .page-content {
         padding-top: calc(88px + env(safe-area-inset-top));
+    }
+
+    .navbar-through .page>.searchbar~.page-content, .navbar-through>.searchbar~.page-content {
+        padding-top: calc(96px + env(safe-area-inset-top));
     }
 
     .navbar-fixed .page > .searchbar,

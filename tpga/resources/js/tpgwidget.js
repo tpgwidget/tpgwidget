@@ -34,6 +34,21 @@ $(document).on('ajaxComplete', function() {
     f7.hidePreloader();
 });
 
+const normalizeForSearch = (word) => {
+    word = word.toLowerCase();
+
+    word = word.replace(/[éèê]/g, 'e');
+    word = word.replace(/[àâ]/g, 'a');
+    word = word.replace(/[îï]/g, 'i');
+    word = word.replace(/[ûù]/g, 'u');
+    word = word.replace(/[ôö]/g, 'o');
+
+    word = word.replace(/'/g, '’'); // Use curly apostrophes
+    word = word.replace(/[ \.\(\)\+-]/g, ''); // Remove spaces, dots and dashes
+
+    return word.trim();
+};
+
 if (f7.device.android) {
     window.oncontextmenu = function(event) {
         event.preventDefault();
@@ -190,21 +205,6 @@ f7.onPageInit('arrets', function(){
                     '</div>'+
                  '</a>'+
               '</li>';
-
-            const normalizeForSearch = (word) => {
-                word = word.toLowerCase();
-
-                word = word.replace(/[éèê]/g, 'e');
-                word = word.replace(/[àâ]/g, 'a');
-                word = word.replace(/[îï]/g, 'i');
-                word = word.replace(/[ûù]/g, 'u');
-                word = word.replace(/[ôö]/g, 'o');
-
-                word = word.replace(/'/g, '’'); // Use curly apostrophes
-                word = word.replace(/[ \.\(\)\+-]/g, ''); // Remove spaces, dots and dashes
-
-                return word.trim();
-            };
 
             f7.virtualList('.virtual-list', {
                 items: data,
@@ -378,15 +378,17 @@ function genererAutocomplete(sens, titre) { // sens = 'depart' ou 'arrivee'
         opener: $(`.itineraire-${sens}`),
         backOnSelect: true,
         source(autocomplete, query, render) {
-            var results = [];
+            const results = [];
 
-            if (query.length === 0) {
+            const normalizedQuery = normalizeForSearch(query);
+
+            if (normalizedQuery.length === 0) {
                 render(stops);
                 return;
             }
 
-            for (var i = 0; i < stops.length; i++) {
-                if (stops[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+            for (let i = 0; i < stops.length; i++) {
+                if (normalizeForSearch(stops[i]).indexOf(normalizedQuery) >= 0) {
                     results.push(stops[i]);
                 }
             }

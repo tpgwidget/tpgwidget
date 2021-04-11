@@ -30,13 +30,12 @@ function indiceDeLigne($section) {
         echo '<span class="picto-ligne l'.$lineName.$w.$lex.'">';
         echo $lineName;
         echo '</span>';
-    } elseif ($section->journey->operator == 'SBB') {
-        $serviceName = explode(' ', $section->journey->name)[0];
-        if ($serviceName === 'RE') {
+    } elseif ($section->journey->operator === 'SBB') {
+        if ($section->journey->category === 'RE') {
             echo '<span class="picto-ligne picto-ligne-train lRE">RE</span>';
         } else {
             echo '<span class="picto-ligne picto-ligne-train l9 w">';
-            echo $serviceName;
+            echo $section->journey->category.($section->journey->number ?? '');
             echo '</span>';
         }
     } else {

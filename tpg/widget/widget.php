@@ -40,7 +40,7 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     <title><?= $rawNameW ?></title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
-    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2021-2">
+    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2021-3">
     <style>
     <?php
     foreach (Lines::all() as $line) {
@@ -154,6 +154,6 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2020-1"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2021-1"></script>
   </body>
 </html>
