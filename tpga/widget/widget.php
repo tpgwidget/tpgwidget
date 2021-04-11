@@ -147,6 +147,6 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget<?= $min ?>.js?2020-1"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget<?= $min ?>.js?2021-1"></script>
 </body>
 </html>

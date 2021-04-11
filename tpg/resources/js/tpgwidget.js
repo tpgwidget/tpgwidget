@@ -1,6 +1,21 @@
 const $ = Dom7;
 let stops = []; // Routes stops autocomplete
 
+const normalizeForSearch = (word) => {
+    word = word.toLowerCase();
+
+    word = word.replace(/[éèê]/g, 'e');
+    word = word.replace(/[àâ]/g, 'a');
+    word = word.replace(/[îï]/g, 'i');
+    word = word.replace(/[ûù]/g, 'u');
+    word = word.replace(/[ôö]/g, 'o');
+
+    word = word.replace(/'/g, '’'); // Use curly apostrophes
+    word = word.replace(/[ \.\(\)\+-]/g, ''); // Remove spaces, dots and dashes
+
+    return word.trim();
+};
+
 if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add to home screen
     const stopName = $('.center').text();
     $.get('/ath.html', data => {
@@ -264,21 +279,6 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
                     '</a>'+
                     '</li>';
 
-                const normalizeForSearch = (word) => {
-                    word = word.toLowerCase();
-
-                    word = word.replace(/[éèê]/g, 'e');
-                    word = word.replace(/[àâ]/g, 'a');
-                    word = word.replace(/[îï]/g, 'i');
-                    word = word.replace(/[ûù]/g, 'u');
-                    word = word.replace(/[ôö]/g, 'o');
-
-                    word = word.replace(/'/g, '’'); // Use curly apostrophes
-                    word = word.replace(/[ \.\(\)\+-]/g, ''); // Remove spaces, dots and dashes
-
-                    return word.trim();
-                };
-
                 f7.virtualList('.virtual-list', {
                     items: data,
                     template: template,
@@ -377,15 +377,17 @@ if (('standalone' in window.navigator) && !window.navigator.standalone) { // Add
             opener: $(`.itineraire-${sens}`),
             backOnSelect: true,
             source(autocomplete, query, render) {
-                var results = [];
+                const results = [];
 
-                if (query.length === 0) {
+                const normalizedQuery = normalizeForSearch(query);
+
+                if (normalizedQuery.length === 0) {
                     render(stops);
                     return;
                 }
 
-                for (var i = 0; i < stops.length; i++) {
-                    if (stops[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+                for (let i = 0; i < stops.length; i++) {
+                    if (normalizeForSearch(stops[i]).indexOf(normalizedQuery) >= 0) {
                         results.push(stops[i]);
                     }
                 }
