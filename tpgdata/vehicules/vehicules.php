@@ -689,9 +689,9 @@ class Vehicule {
             $this->type = "Autobus articulé";
             $this->name = "MAN Lion's City G";
             $this->icon = 'lc2020';
-            $this->img = 'lc2020';
-            $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img = 'lc2020g';
+            $this->img_author = 'Transports Suisse 05';
+            $this->img_link = 'https://www.youtube.com/channel/UCqcpBmYjK1TbQEDR2diSuig';
             $this->year = '2021';
 
         } elseif (2050 <= $id && $id <= 2051) { // Citaro C2 solo livrée 2013 (orange)
