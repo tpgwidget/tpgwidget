@@ -232,6 +232,20 @@ class Vehicule {
             $this->places_totales = 131;
             $this->year = "2014";
 
+        } elseif (1634 <= $id && $id <= 1656) { // Exqui City 2021
+
+            $this->type = "Trolleybus";
+            $this->name = "VanHool Exqui.City";
+            $this->icon = 'exquicity';
+            $this->img = 'exquicity2';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-vanhool-exqui.city';
+            $this->places_assises = 41;
+            $this->places_debout = 90;
+            $this->places_totales = 131;
+            $this->year = "2021";
+
         /* TRAMWAYS */
 
 
