@@ -66,6 +66,11 @@ include '../../tpgdata/vehicules/vehicules.php';
 
                 // Waiting time
                 echo '<div class="temps">';
+
+                if ($depart->reliability === 'T') {
+                    echo '~';
+                }
+
                 switch ($depart->waitingTime) {
                     case '0':
                         print 'À l’arrêt';
