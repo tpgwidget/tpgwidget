@@ -76,8 +76,8 @@ class Plans {
 
     /* Années et leurs plans */
     protected static $years = [
-        '2021' => [
-            'name' => 'Dès le 13 décembre 2020',
+        '2021_juillet' => [
+            'name' => 'Dès le 4 juillet 2021',
             'plans' => ['schematique', 'geographique', 'noctambusurbain', 'noctambus', 'tac'],
         ],
     ];
