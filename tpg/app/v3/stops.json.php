@@ -20,7 +20,11 @@ if (!$stops || !isset($stops['stops'])) {
 
 header('Content-type: application/json; charset=utf-8');
 
-$output = ['featured' => [], 'all' => []];
+const FEATURED_STOPS = ['CVIN', 'BAIR', 'RIVE', 'AERO', 'PLPA', 'JOCT', 'CRGE', 'ESRT', 'COUT', 'HOPI', 'NATI', 'BHET'];
+$output = ['featured' => [], 'all' => [], 'error' => null];
+
+// Stops list
+$byStopCode = [];
 foreach ($stops['stops'] as $stop) {
     $lines = [];
     $geolocation = null;
@@ -71,18 +75,33 @@ foreach ($stops['stops'] as $stop) {
         return Lines::get($lineCode);
     }, $lineCodes);
 
-    $output['all'][] = [
+    $nameFormatted = Stops::format($stop['stopName'] ?? '');
+    $stopData = [
         'id' => $stop['stopCode'] ?? null,
-        'nameFormatted' => Stops::format($stop['stopName'] ?? ''),
-        'nameRaw' => $stop['stopName'],
+        'name' => [
+            'formatted' => $nameFormatted,
+            'corrected' => strip_tags($nameFormatted),
+            'raw' => $stop['stopName'],
+        ],
         'lines' => $lines,
         'geolocation' => $geolocation,
     ];
+
+    $output['all'][] = $stopData;
+    $byStopCode[$stop['stopCode'] ?? ''] = $stopData;
 }
 
+// Sort stops
 uasort($output['all'], function($a, $b) {
-    return strcmp(strip_tags($a['nameFormatted']), strip_tags($b['nameFormatted']));
+    return strcmp(strip_tags($a['name']['formatted']), strip_tags($b['name']['formatted']));
 });
 $output['all'] = array_values($output['all']);
+
+// Featured stops
+foreach (FEATURED_STOPS as $featured) {
+    if (array_key_exists($featured, $byStopCode)) {
+        $output['featured'][] = $byStopCode[$featured];
+    }
+}
 
 echo json_encode($output);
