@@ -20,7 +20,7 @@ if (!$stops || !isset($stops['stops'])) {
 
 header('Content-type: application/json; charset=utf-8');
 
-const FEATURED_STOPS = ['CVIN', 'BAIR', 'RIVE', 'AERO', 'PLPA', 'JOCT', 'CRGE', 'ESRT', 'COUT', 'HOPI', 'NATI', 'BHET'];
+const FEATURED_STOPS = ['CVIN', 'BAIR', 'RIVE', 'AERO', 'COUT', 'PLPA', 'NATI', 'JOCT', 'CRGE', 'ESRT', 'HOPI', 'BHET'];
 $output = ['featured' => [], 'all' => [], 'error' => null];
 
 // Stops list
