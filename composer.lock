@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "928a48d57ce287725e6605fdb9d34d03",
+    "content-hash": "7251118116c447877c614198a5eab15d",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -178,16 +178,16 @@
         },
         {
             "name": "tpgwidget/data",
-            "version": "v1.5.5",
+            "version": "v1.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tpgwidget/data.git",
-                "reference": "f60446d1e63582c83199fac91c569fd43e2e0f1e"
+                "reference": "70c26c3bb05a72c3b075d48e8db6612d2025f3fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tpgwidget/data/zipball/f60446d1e63582c83199fac91c569fd43e2e0f1e",
-                "reference": "f60446d1e63582c83199fac91c569fd43e2e0f1e",
+                "url": "https://api.github.com/repos/tpgwidget/data/zipball/70c26c3bb05a72c3b075d48e8db6612d2025f3fa",
+                "reference": "70c26c3bb05a72c3b075d48e8db6612d2025f3fa",
                 "shasum": ""
             },
             "require": {
@@ -223,9 +223,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tpgwidget/data/issues",
-                "source": "https://github.com/tpgwidget/data/tree/v1.5.5"
+                "source": "https://github.com/tpgwidget/data/tree/v1.5.6"
             },
-            "time": "2021-07-03T13:19:37+00:00"
+            "time": "2021-07-16T21:46:45+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
