@@ -56,12 +56,6 @@ $vehicule = new Vehicule(htmlspecialchars($_GET['id'] ?? ''));
         </section>
 
         <section class="links">
-            <?php if ($vehicule->tpg_link) { ?>
-                <p>
-                    <a class="external" href="<?=$vehicule->tpg_link?>" target="_blank">Site internet des tpg</a>
-                </p>
-            <?php } ?>
-
             <?php if ($vehicule->img_author) { ?>
                 <p>
                     Crédit photo : <a class="external" href="<?=$vehicule->img_link?>"><?=$vehicule->img_author?></a>

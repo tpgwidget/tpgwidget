@@ -12,8 +12,6 @@ class Vehicule {
     public $places_debout = null;
     public $places_totales = null;
 
-    public $tpg_link = null;
-
     public function __construct(string $id) {
         if (strlen($id) !== 4 && $id !== '') {
             if ($id[0] === '2') {
@@ -42,7 +40,6 @@ class Vehicule {
             $this->img = 'citarosolo';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/f1vHBg';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530';
             $this->places_assises = 32;
             $this->places_debout = 55;
             $this->places_totales = 87;
@@ -56,7 +53,6 @@ class Vehicule {
             $this->img = 'citaro';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530g';
             $this->places_assises = 46;
             $this->places_debout = 103;
             $this->places_totales = 149;
@@ -70,7 +66,6 @@ class Vehicule {
             $this->img = 'citaro';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530g';
             $this->places_assises = 46;
             $this->places_debout = 103;
             $this->places_totales = 149;
@@ -84,7 +79,6 @@ class Vehicule {
             $this->img = 'citarosolo';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/f1vHBg';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530';
             $this->places_assises = 32;
             $this->places_debout = 55;
             $this->places_totales = 87;
@@ -97,7 +91,6 @@ class Vehicule {
             $this->img = 'citarosolo';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/f1vHBg';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530';
             $this->places_assises = 32;
             $this->places_debout = 55;
             $this->places_totales = 87;
@@ -130,7 +123,6 @@ class Vehicule {
             $this->img = 'vanhool';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/dr1LvG';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-vanhool-agg300';
             $this->places_assises = 70;
             $this->places_debout = 104;
             $this->places_totales = 174;
@@ -146,7 +138,6 @@ class Vehicule {
             $this->img = 'tosa';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kYYeMp';
-            $this->tpg_link = 'https://www.tpg.ch/fr/tosa';
             $this->year = '2017';
 
         } elseif (701 <= $id && $id <= 713) { // NAW
@@ -157,7 +148,6 @@ class Vehicule {
             $this->img = 'naw';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/gnTYVE';
-            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-naw-siemens';
             $this->places_assises = 43;
             $this->places_debout = 107;
             $this->places_totales = 150;
@@ -171,7 +161,6 @@ class Vehicule {
             $this->img = '721';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/GeFaWU';
-            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-naw-siemens-lightram';
             $this->places_assises = 57;
             $this->places_debout = 122;
             $this->places_totales = 179;
@@ -198,7 +187,6 @@ class Vehicule {
             $this->img = 'hess';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/nGST6m';
-            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-hess';
             $this->places_assises = 46;
             $this->places_debout = 80;
             $this->places_totales = 126;
@@ -212,7 +200,6 @@ class Vehicule {
             $this->img = 'megahess';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/eEUQu5';
-            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-hess-lightram';
             $this->places_assises = 66;
             $this->places_debout = 126;
             $this->places_totales = 192;
@@ -226,7 +213,6 @@ class Vehicule {
             $this->img = 'exquicity';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/pzQnpM';
-            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-vanhool-exqui.city';
             $this->places_assises = 41;
             $this->places_debout = 90;
             $this->places_totales = 131;
@@ -240,7 +226,6 @@ class Vehicule {
             $this->img = 'exquicity2';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
-            $this->tpg_link = 'https://www.tpg.ch/fr/trolleybus-vanhool-exqui.city';
             $this->places_assises = 41;
             $this->places_debout = 90;
             $this->places_totales = 131;
@@ -257,7 +242,6 @@ class Vehicule {
             $this->img = '1820';
             $this->img_author = 'Stéphane Wicht';
             $this->img_link = 'https://www.facebook.com/groups/458151547721494/permalink/568957933307521/?';
-            $this->tpg_link = 'https://www.tpg.ch/fr/stadler-tango';
             $this->places_assises = 80;
             $this->places_debout = 308;
             $this->places_totales = 388;
@@ -271,7 +255,6 @@ class Vehicule {
             $this->img = 'tango';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kxjWWK';
-            $this->tpg_link = 'https://www.tpg.ch/fr/stadler-tango';
             $this->places_assises = 80;
             $this->places_debout = 308;
             $this->places_totales = 388;
@@ -285,7 +268,6 @@ class Vehicule {
             $this->img = 'cityrunner';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/ebCHJv';
-            $this->tpg_link = 'https://www.tpg.ch/fr/bombardier-cityrunner';
             $this->places_assises = 66;
             $this->places_debout = 300;
             $this->places_totales = 366;
@@ -299,7 +281,6 @@ class Vehicule {
             $this->img = 'dav';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/ebCHJv';
-            $this->tpg_link = 'https://www.tpg.ch/fr/bombardier-cityrunner';
             $this->places_assises = 66;
             $this->places_debout = 300;
             $this->places_totales = 366;
@@ -492,7 +473,6 @@ class Vehicule {
             $this->img = 'citaro';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530g';
             $this->places_assises = 46;
             $this->places_debout = 103;
             $this->places_totales = 149;
@@ -535,7 +515,6 @@ class Vehicule {
             $this->img = 'citaro';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530g';
             $this->places_assises = 46;
             $this->places_debout = 103;
             $this->places_totales = 149;
@@ -548,7 +527,6 @@ class Vehicule {
             $this->img = 'citarosolo';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/f1vHBg';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530';
             $this->places_assises = 32;
             $this->places_debout = 55;
             $this->places_totales = 87;
@@ -561,7 +539,6 @@ class Vehicule {
             $this->img = 'citaro';
             $this->img_author = 'André Knoerr';
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
-            $this->tpg_link = 'https://www.tpg.ch/fr/autobus-evobus-0530g';
             $this->places_assises = 46;
             $this->places_debout = 103;
             $this->places_totales = 149;
