@@ -247,7 +247,7 @@ class Vehicule {
             $this->places_totales = 388;
             $this->year = 2016;
 
-        } elseif (1801 <= $id && $id <= 1833) { // Tango
+        } elseif (1801 <= $id && $id <= 1832) { // Tango
 
             $this->type = "Tramway";
             $this->name = "Stadler Tango";
@@ -259,6 +259,19 @@ class Vehicule {
             $this->places_debout = 308;
             $this->places_totales = 388;
             $this->year = "2011-2016";
+
+        } elseif (1833 <= $id && $id <= 1841) { // Tango 2021
+
+            $this->type = "Tramway";
+            $this->name = "Stadler Tango";
+            $this->icon = 'tango2';
+            $this->img = 'tango2';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->places_assises = 80;
+            $this->places_debout = 308;
+            $this->places_totales = 388;
+            $this->year = "2021";
 
         } elseif (861 <= $id && $id <= 899) { // Cityrunner
 
