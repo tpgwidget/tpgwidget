@@ -63,7 +63,7 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
                 // Temporary fix: for Chrome version ≥ 78, ask the user to open the link in Chrome by themselves
                 $userAgent = $_SERVER['HTTP_USER_AGENT'];
                 $manualInstall = false;
-                for ($i = 78; $i <= 99; $i++) {
+                for ($i = 78; $i <= 200; $i++) {
                     if (strpos($userAgent, " Chrome/$i") !== false) {
                         $manualInstall = true;
                         break;
