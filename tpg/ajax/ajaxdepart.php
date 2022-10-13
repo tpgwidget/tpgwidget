@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
 }
 
-$file = 'https://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
 $thermometer = @simplexml_load_file($file);
 
 if (!$thermometer) { ?>
