@@ -2,7 +2,7 @@
 require_once __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\{Lines, Stops};
 
-$file = 'https://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . $_GET["id"];
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . $_GET["id"];
 $nextDepartures = @simplexml_load_file($file);
 
 include '../../tpgdata/quais.php';

@@ -2,7 +2,7 @@
 require __DIR__.'/../../config.inc.php';
 use TPGwidget\Data\Lines;
 
-$file = 'https://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY');
+$file = 'http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY');
 $disruptions = @simplexml_load_file($file);
 
 $allLines = array_keys(Lines::all());
