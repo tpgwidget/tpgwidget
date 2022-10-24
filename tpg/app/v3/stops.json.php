@@ -7,7 +7,7 @@ function error() {
     echo json_encode(['error' => 'Server error']);
 }
 
-$fileUrl = 'https://prod.ivtr-od.tpg.ch/v1/GetPhysicalStops.json?key='.getenv('TPG_API_KEY');
+$fileUrl = 'http://prod.ivtr-od.tpg.ch/v1/GetPhysicalStops.json?key='.getenv('TPG_API_KEY');
 $fileContents = @file_get_contents($fileUrl);
 if (!$fileContents) {
     error();
