@@ -40,6 +40,10 @@ class Plans {
             'name' => 'Plan schématique',
             'desc' => 'Transports publics du canton de Genève'
         ],
+        'aumi' => [
+            'name' => 'Plan schématique',
+            'desc' => 'Transports publics du canton de Genève'
+        ],
         'geographique' => [
             'name' => 'Plan géographique',
             'desc' => 'Transports publics du centre de Genève'
@@ -61,6 +65,10 @@ class Plans {
             'desc' => 'Lignes régionales et transfrontalières'
         ],
         'noctambus' => [
+            'name' => 'Plan Noctambus',
+            'desc' => 'Service de nuit (vendredi et samedi soir)'
+        ],
+        'noctambusregional' => [
             'name' => 'Plan Noctambus régional',
             'desc' => 'Lignes Noctambus régionales (vendredi et samedi soir)'
         ],
@@ -76,9 +84,13 @@ class Plans {
 
     /* Années et leurs plans */
     protected static $years = [
-        '2021_septembre' => [
-            'name' => 'Dès le 30 août 2021',
-            'plans' => ['schematique', 'geographique', 'noctambusurbain', 'noctambus', 'tac'],
+        '2022' => [
+            'name' => 'Jusqu’au 10 décembre 2022',
+            'plans' => ['schematique', 'geographique', 'noctambusurbain', 'noctambusregional', 'tac'],
+        ],
+        '2023' => [
+            'name' => 'Dès le 11 décembre 2022',
+            'plans' => ['aumi', 'noctambus', 'tac'],
         ],
     ];
 
