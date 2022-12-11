@@ -78,19 +78,15 @@ class Plans {
         ],
         'zones' => [
             'name' => 'Plan des zones tarifaires',
-            'desc' => 'Toutes les zones tarifaires unireso'
+            'desc' => 'Zones tarifaires Unireso et Léman Pass'
         ],
     ];
 
     /* Années et leurs plans */
     protected static $years = [
-        '2022' => [
-            'name' => 'Jusqu’au 10 décembre 2022',
-            'plans' => ['schematique', 'geographique', 'noctambusurbain', 'noctambusregional', 'tac'],
-        ],
         '2023' => [
             'name' => 'Dès le 11 décembre 2022',
-            'plans' => ['aumi', 'noctambus', 'tac'],
+            'plans' => ['aumi', 'noctambus', 'tac', 'zones'],
         ],
     ];
 
