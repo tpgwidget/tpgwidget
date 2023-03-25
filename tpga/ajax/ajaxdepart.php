@@ -8,8 +8,11 @@ if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
     die("Erreur : Aucun d&eacute;part sp&eacute;cifi&eacute;");
 }
 
-$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
-$thermometer = @simplexml_load_file($file);
+//$file = 'http://prod.ivtr-od.tpg.ch/v1/GetThermometer.xml?key='.getenv('TPG_API_KEY').'&departureCode=' . $_GET["id"];
+//$thermometer = @simplexml_load_file($file);
+
+// Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
+$thermometer = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetThermometre.json?horaireRef=" . $_GET["id"]))->thermometre;
 
 if (!$thermometer) { ?>
     <div class="page" data-page="error">
@@ -30,7 +33,21 @@ if (!$thermometer) { ?>
         </div>
     </div>
 <?php } else {
-$line = Lines::get($thermometer->lineCode);
+    $nextDeps = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetProchainsDepartsTriHeure.json?codeArret=" . $thermometer->codeArret))->prochainsDeparts;
+    $departureData = [
+        "ligne"=>"",
+        "vehiculeNo"=>""
+    ];
+    foreach ($nextDeps->prochainDepart as $prochainDepart) {
+        if (($prochainDepart->horaireRef??"") == $_GET['id']) {
+            $departureData = [
+                "ligne"=>$prochainDepart->ligne,
+                "vehiculeNo"=>$prochainDepart->vehiculeNo
+            ];
+            break;
+        }
+    }
+$line = Lines::get($departureData['ligne']);
 $color = $line['background'];
 ?>
 <div data-page="depart-<?= $color ?>" class="page page-depart <?= $line['text'] === '#000000' ? 'b' : '' ?>">
@@ -41,7 +58,7 @@ $color = $line['background'];
             <i class="icon icon-back"></i>
            </a>
         </div>
-        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $thermometer->lineCode ?></span> ➜ <?= Stops::format($thermometer->destinationName ?? '') ?></div>
+        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $departureData['ligne'] ?></span> ➜ <?= Stops::format($thermometer->destination ?? '') ?></div>
       </div>
     </div>
     <div class="toolbar tabbar" style="background-color: <?= $color ?>">
@@ -61,8 +78,8 @@ $color = $line['background'];
 
         <?php
         $vehicleNo = filter_input(INPUT_GET, 'vehicleNo', FILTER_VALIDATE_INT); // Sometimes, GetNextDepartures provides a vehicle number while GetThermometer doesn’t
-        if (isset($thermometer->vehiculeNo) || $vehicleNo) {
-            $vehicule = new Vehicule($thermometer->vehiculeNo ?? $vehicleNo); // Afficher véhicule
+        if (isset($departureData['vehicleNo']) || $vehicleNo) {
+            $vehicule = new Vehicule($departureData['vehicleNo'] ?? $vehicleNo); // Afficher véhicule
             $vehicule->renderCard_Android();
         }
         ?>
@@ -71,28 +88,28 @@ $color = $line['background'];
         <div class="list-block parcours">
         <ul>
             <?php $avancee = 'previous'; ?>
-            <?php foreach ($thermometer->steps->step as $step) { ?>
+            <?php foreach ($thermometer->arret as $step) { ?>
                 <li>
                     <?php
                     if ($avancee == "current") {
                         $avancee = "";
                     }
 
-                    if (levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
+                    if (levenshtein($thermometer->nomArret, $step->nomArret) == 0) {
                         $avancee = 'current';
                     }
                     ?>
-                    <a href="/ajax/page/<?= $step->stop->stopCode ?>/<?= rawurlencode(str_replace('/', '_', $step->stop->stopName ?? '')) ?>" class="item-link item-content <?= $avancee ?>">
+                    <a href="/ajax/page/<?= $step->codeArret ?>/<?= rawurlencode(str_replace('/', '_', $step->nomArret ?? '')) ?>" class="item-link item-content <?= $avancee ?>">
                         <div class="item-media">
-                            <i class="t icon l<?= str_replace('+', '', $thermometer->lineCode) ?>"></i>
+                            <i class="t icon l<?= str_replace('+', '', $departureData['ligne']) ?>"></i>
                         </div>
                         <div class="item-inner">
-                            <div class="item-title"><?= Stops::format($step->stop->stopName ?? '') ?></div>
+                            <div class="item-title"><?= Stops::format($step->nomArret ?? '') ?></div>
                             <div class="item-after">
-                                <span class="h"><?= date('H:i', strtotime($step->timestamp)) ?></span>
+                                <span class="h"><?= date('H:i', strtotime($step->heureArrivee)) ?></span>
                                 <span class="m">
-                                    <?php if (intval($step->arrivalTime)) {
-                                        echo $step->arrivalTime." min";
+                                    <?php if (intval($step->tempsRestant)) {
+                                        echo $step->tempsRestant." min";
                                     } ?>
                                 </span>
                             </div>
@@ -103,13 +120,13 @@ $color = $line['background'];
         </ul>
       </div></div></div>
       </div>
-      <?php if ($thermometer->disruptions) { ?>
+      <?php if (is_array($thermometer->perturbations)) { ?>
           <div class="pdata">
              <div class="accordion-list">
                 <?php
                 $nombreDePerturbations = 0;
 
-                 foreach ($thermometer->disruptions->disruption as $disruption) {
+                 foreach ($thermometer->perturbations as $disruption) {
                      $nombreDePerturbations++;
                      ?>
                      <div class="accordion-item <?= ($nombreDePerturbations === 1) ? 'accordion-item-expanded' : '' ?>">

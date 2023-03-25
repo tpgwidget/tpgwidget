@@ -15,7 +15,7 @@ $allLines = array_keys(Lines::all());
 $perturbations = 0;
 if (isset($disruptions->perturbation)) {
     foreach ($disruptions->perturbation as $disruption) {
-        if (in_array($disruption->lineCode, $allLines)) { ?>
+        if (in_array($disruption->ligne, $allLines)) { ?>
         <div class="card">
           <div class="card-content">
             <div class="card-content-inner">
@@ -23,14 +23,14 @@ if (isset($disruptions->perturbation)) {
                       <?php
                           $perturbations++;
                           echo '<span class="picto-ligne ';
-                          echo 'l'.$disruption->lineCode.' ';
-                          echo 's'.$disruption->lineCode.' ';
+                          echo 'l'.$disruption->ligne.' ';
+                          echo 's'.$disruption->ligne.' ';
 
-                          if (Lines::get($disruption->lineCode)['text'] === '#FFFFFF') {
+                          if (Lines::get($disruption->ligne)['text'] === '#FFFFFF') {
                               echo 'w';
                           }
 
-                          echo '">'.$disruption->lineCode;
+                          echo '">'.$disruption->ligne;
                           echo '</span>';
                       ?>
                       <header><?= $disruption->nature ?></header>

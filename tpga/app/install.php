@@ -9,11 +9,21 @@ if (!isset($_GET["id"])) {
     $erreur = "Paramètre manquant";
     $nextDepartures = null;
 } else {
-    $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key=' . getenv('TPG_API_KEY') . '&stopCode=' . htmlentities($_GET["id"]);
-    $nextDepartures = @simplexml_load_file($file);
+//    $file = 'http://prod.ivtr-od.tpg.ch/v1/GetNextDepartures.xml?key='.getenv('TPG_API_KEY').'&stopCode=' . htmlentities($_GET["id"]);
+//    $nextDepartures = @simplexml_load_file($file);
+
+    // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
+    $stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All"))->connexions->connexion;
+    $nextDepartures = [];
+    foreach ($stops as $stop) {
+        if (htmlentities($_GET["id"]) === $stop->codeArret) {
+            $nextDepartures = $stop;
+        }
+    }
+
 }
 
-if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
+if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
     <div data-page="install" class="page page-page">
         <div class="navbar">
             <div class="navbar-inner">
@@ -22,7 +32,7 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
                         <i class="icon icon-back"></i>
                     </a>
                 </div>
-                <div class="center"><?= Stops::format($nextDepartures->stop->stopName) ?></div>
+                <div class="center"><?= Stops::format($nextDepartures->nomArret) ?></div>
             </div>
         </div>
 
@@ -32,8 +42,8 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
                     <?php
                     $lignes = [];
 
-                    foreach ($nextDepartures->stop->connections->connection as $connection) {
-                        $lignes[] = $connection->lineCode;
+                    foreach (explode(",", $nextDepartures->lignes) as $connection) {
+                        $lignes[] = $connection;
                     }
 
                     $lignes = array_unique($lignes);
@@ -72,7 +82,7 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
 
                 if (!$manualInstall) { ?>
                     <a
-                        href="googlechrome://navigate?url=https://tpga.nicolapps.ch/<?= $nextDepartures->stop->stopCode ?>/"
+                        href="googlechrome://navigate?url=https://tpga.nicolapps.ch/<?= $nextDepartures->codeArret ?>/"
                         class="button button-big button-fill external button-install"
                         data-tapped="0"
                     >
@@ -89,7 +99,7 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
                         <div class="ath-link">
                             <?php $uniq = uniqid(); ?>
                             <input id="link_<?= $uniq ?>" type="text"
-                                   value="https://tpga.nicolapps.ch/<?= $nextDepartures->stop->stopCode ?>/" readonly>
+                                   value="https://tpga.nicolapps.ch/<?= $nextDepartures->codeArret ?>/" readonly>
 
                             <button
                                 class="button button-fill"
@@ -189,7 +199,7 @@ if ($nextDepartures && isset($nextDepartures->stop->stopName)) { ?>
                 <h2>
                     Erreur :
                     <?php
-                    if ($erreur) {
+                    if (isset($erreur)) {
                         print $erreur;
                     } else {
                         print "Serveur TPG indisponible";

@@ -29,7 +29,7 @@ include '../../tpgdata/vehicules/vehicules.php';
 
         foreach ($nextDepartures->prochainDepart as $depart) { ?>
             <?php
-//            echo $depart->connextionWaitingTime; // NotSupported?
+//            echo $depart->connectionWaitingTime; // NotSupported?
             if (Lines::get($depart->ligne)['text'] === '#FFFFFF') {
                 print '<li class="w l'.str_replace('+', 'plus', $depart->ligne).'">';
             } else{
