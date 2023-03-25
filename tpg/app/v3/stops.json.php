@@ -7,14 +7,18 @@ function error() {
     echo json_encode(['error' => 'Server error']);
 }
 
-$fileUrl = 'http://prod.ivtr-od.tpg.ch/v1/GetPhysicalStops.json?key='.getenv('TPG_API_KEY');
+//$fileUrl = 'http://prod.ivtr-od.tpg.ch/v1/GetPhysicalStops.json?key='.getenv('TPG_API_KEY');
+
+// Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
+$fileUrl = "http://prod.ivtr.tpg.ch/GetTousArretsPhysiques.json?transporteur=All";
+
 $fileContents = @file_get_contents($fileUrl);
 if (!$fileContents) {
     error();
 }
 
-$stops = json_decode($fileContents, true);
-if (!$stops || !isset($stops['stops'])) {
+$stops = json_decode($fileContents, true)['tousArretsPhysiques'];
+if (!$stops || !isset($stops['arretsPhysParArret'])) {
     error();
 }
 
@@ -25,11 +29,11 @@ $output = ['featured' => [], 'all' => [], 'error' => null];
 
 // Stops list
 $byStopCode = [];
-foreach ($stops['stops'] as $stop) {
+foreach ($stops['arretsPhysParArret'] as $stop) {
     $lines = [];
     $geolocation = null;
 
-    $physicalStops = $stop['physicalStops'];
+    $physicalStops = $stop['arretsPhysiques'];
 
     // Average geolocation
     $average = function($prop) use ($physicalStops) {
@@ -37,7 +41,7 @@ foreach ($stops['stops'] as $stop) {
         $count = 0;
 
         foreach ($physicalStops as $stop) {
-            $value = $stop['coordinates'][$prop] ?? null;
+            $value = $stop['coordonnees'][$prop] ?? null;
             if (is_null($value)) {
                 continue;
             }
@@ -65,8 +69,8 @@ foreach ($stops['stops'] as $stop) {
     // Lines
     $lineCodes = [];
     foreach ($physicalStops as $physicalStop) {
-        foreach ($physicalStop['connections'] as $connection) {
-            $lineCodes[] = $connection['lineCode'];
+        foreach ($physicalStop['ligneDestinations']['ligneDestination'] as $connection) {
+            $lineCodes[] = $connection['ligne'];
         }
     }
     $lineCodes = array_unique($lineCodes);
@@ -75,20 +79,20 @@ foreach ($stops['stops'] as $stop) {
         return Lines::get($lineCode);
     }, $lineCodes);
 
-    $nameFormatted = Stops::format($stop['stopName'] ?? '');
+    $nameFormatted = Stops::format($stop['nomArret'] ?? '');
     $stopData = [
-        'id' => $stop['stopCode'] ?? null,
+        'id' => $stop['codeArret'] ?? null,
         'name' => [
             'formatted' => $nameFormatted,
             'corrected' => strip_tags($nameFormatted),
-            'raw' => $stop['stopName'],
+            'raw' => $stop['nomArret'],
         ],
         'lines' => $lines,
         'geolocation' => $geolocation,
     ];
 
     $output['all'][] = $stopData;
-    $byStopCode[$stop['stopCode'] ?? ''] = $stopData;
+    $byStopCode[$stop['codeArret'] ?? ''] = $stopData;
 }
 
 // Sort stops
