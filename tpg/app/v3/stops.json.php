@@ -5,20 +5,21 @@ use TPGwidget\Data\{Lines, Stops};
 function error() {
     http_response_code(500);
     echo json_encode(['error' => 'Server error']);
+    die();
 }
 
 //$fileUrl = 'http://prod.ivtr-od.tpg.ch/v1/GetPhysicalStops.json?key='.getenv('TPG_API_KEY');
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$fileUrl = "http://prod.ivtr.tpg.ch/GetTousArretsPhysiques.json?transporteur=All";
+$fileUrl = "http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All";
 
 $fileContents = @file_get_contents($fileUrl);
 if (!$fileContents) {
     error();
 }
 
-$stops = json_decode($fileContents, true)['tousArretsPhysiques'];
-if (!$stops || !isset($stops['arretsPhysParArret'])) {
+$stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All"))->connexions->connexion;
+if (!$stops) {
     error();
 }
 
@@ -29,70 +30,29 @@ $output = ['featured' => [], 'all' => [], 'error' => null];
 
 // Stops list
 $byStopCode = [];
-foreach ($stops['arretsPhysParArret'] as $stop) {
+foreach ($stops as $stop) {
     $lines = [];
-    $geolocation = null;
-
-    $physicalStops = $stop['arretsPhysiques'];
-
-    // Average geolocation
-    $average = function($prop) use ($physicalStops) {
-        $result = 0;
-        $count = 0;
-
-        foreach ($physicalStops as $stop) {
-            $value = $stop['coordonnees'][$prop] ?? null;
-            if (is_null($value)) {
-                continue;
-            }
-
-            $result += $value;
-            $count += 1;
-        }
-
-        if ($count === 0) {
-            return null;
-        }
-
-        return $result / $count;
-    };
-
-    $geolocation = [
-        'latitude' => $average('latitude'),
-        'longitude' => $average('longitude'),
-    ];
-
-    if (is_null($geolocation['latitude']) || is_null($geolocation['longitude'])) {
-        $geolocation = null;
-    }
 
     // Lines
-    $lineCodes = [];
-    foreach ($physicalStops as $physicalStop) {
-        foreach ($physicalStop['ligneDestinations']['ligneDestination'] as $connection) {
-            $lineCodes[] = $connection['ligne'];
-        }
-    }
-    $lineCodes = array_unique($lineCodes);
+    $lineCodes = explode(',', $stop->lignes);
     sort($lineCodes);
     $lines = array_map(function ($lineCode) {
         return Lines::get($lineCode);
     }, $lineCodes);
 
-    $nameFormatted = Stops::format($stop['nomArret'] ?? '');
+    $nameFormatted = Stops::format($stop->nomArret ?? '');
     $stopData = [
-        'id' => $stop['codeArret'] ?? null,
+        'id' => $stop->codeArret ?? null,
         'name' => [
             'formatted' => $nameFormatted,
             'corrected' => strip_tags($nameFormatted),
-            'raw' => $stop['nomArret'],
+            'raw' => $stop->nomArret,
         ],
         'lines' => $lines,
-        'geolocation' => $geolocation,
     ];
 
     $output['all'][] = $stopData;
-    $byStopCode[$stop['codeArret'] ?? ''] = $stopData;
+    $byStopCode[$stop->codeArret ?? ''] = $stopData;
 }
 
 // Sort stops
