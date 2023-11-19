@@ -114,7 +114,7 @@ class Vehicule {
             $this->img = 'lc2020';
             $this->year = 2020;
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
 
         } elseif (101 <= $id && $id <= 105) { // Mégabus VanHool
 
@@ -131,7 +131,7 @@ class Vehicule {
 
         /* TROLLEYBUS */
 
-        } elseif (1271 <= $id && $id <= 1283) { // TOSA
+        } elseif ((1271 <= $id && $id <= 1283) || $id == 1397) { // TOSA
 
             $this->type = 'Autobus articulé électrique';
             $this->name = "TOSA";
@@ -226,7 +226,7 @@ class Vehicule {
             $this->icon = 'exquicity';
             $this->img = 'exquicity2';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->places_assises = 41;
             $this->places_debout = 90;
             $this->places_totales = 131;
@@ -268,7 +268,7 @@ class Vehicule {
             $this->icon = 'tango2';
             $this->img = 'tango2';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->places_assises = 80;
             $this->places_debout = 308;
             $this->places_totales = 388;
@@ -390,16 +390,16 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'hybride';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
 
         } elseif (2003 <= $id && $id <= 2010) { // Sprinter
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 65";
-            $this->icon = 'notfound';
+            $this->icon = 'altas';
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
 
         } elseif (1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
 
@@ -477,7 +477,7 @@ class Vehicule {
             $this->icon = 'citaro';
             $this->img = '1919';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
 
         } elseif (971 <= $id && $id <= 979) { // Citaro articulé GEM'BUS
 
@@ -508,7 +508,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = 'c2k';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
 
         /* Genève-Tours */
 
@@ -589,7 +589,7 @@ class Vehicule {
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 515TDCI";
-            $this->icon = 'notfound';
+            $this->icon = 'altas';
             $this->img = '1965';
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
@@ -642,7 +642,7 @@ class Vehicule {
             $this->icon = 'c2';
             $this->img = '2014';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2018';
 
         } elseif (2018 <= $id && $id <= 2021 || 2029 <= $id && $id <= 2031)  { // Citaro C2 solo RDTA €6
@@ -664,7 +664,7 @@ class Vehicule {
             $this->icon = 'c2-new';
             $this->img = 'c2-new';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2019';
 
         /* New C2 */
@@ -676,7 +676,7 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = '2050';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2019';
 
         } elseif (2052 <= $id && $id <= 2053) {
@@ -686,7 +686,7 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = '2053';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2019';
 
             /* SOUS-TRAITANT AUTRES */
@@ -698,7 +698,7 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = '2054';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2019';
 
         } elseif (2066 <= $id && $id <= 2068) {
@@ -708,7 +708,7 @@ class Vehicule {
             $this->icon = '2066';
             $this->img = '2066';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2019';
 
         } elseif (2069 <= $id && $id <= 2075) {
@@ -727,8 +727,8 @@ class Vehicule {
             $this->name = "MAN Lion's City";
             $this->icon = 'lc2020';
             $this->img = 'lc2020';
-            $this->img_author = 'Transports Suisse 05';
-            $this->img_link = 'https://www.youtube.com/channel/UCqcpBmYjK1TbQEDR2diSuig';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2021';
 
         } elseif (2079 <= $id && $id <= 2080) {
@@ -744,14 +744,14 @@ class Vehicule {
             $this->places_totales = 176;
             $this->year = '2013';
 
-        } elseif ((2081 <= $id && $id <= 2082) || $id == 2085 || $id == 2089) {
+        } elseif ((2081 <= $id && $id <= 2082) || $id == 2085 || $id == 2089 || (2044 <= $id && $id <= 2058)) {
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 75";
-            $this->icon = 'notfound';
+            $this->icon = 'altas';
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2021 - 2022';
 
         } elseif ((2083 <= $id && $id <= 2084) || (2086 <= $id && $id <= 2088)) {
@@ -761,17 +761,17 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = '2050';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2021 - 2023';
 
         } elseif ((2091 <= $id && $id <= 2094) || (2159 <= $id && $id <= 2160)) {
 
             $this->type = "Minibus électrique";
             $this->name = "Altas Novus Cityline LW";
-            $this->icon = 'notfound';
+            $this->icon = 'altas';
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2023';
 
         } elseif ($id == 2095) {
@@ -781,7 +781,7 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = 'hybride';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2022';
 
         } elseif (2112 <= $id && $id <= 2117) { // Assumed Sequence for un-delivered vehicles
@@ -815,7 +815,7 @@ class Vehicule {
             $this->img_link = 'https://flic.kr/p/kZ14Eq';
             $this->year = "2022";
 
-        } elseif (2143 == $id) {
+        } elseif (2143 == $id || 2090 == $id) {
 
             $this->type = "Minibus";
             $this->name = "Karsan Jest+";
@@ -829,7 +829,7 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = '2050';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2023';
 
         } elseif (2157 <= $id && $id <= 2158) {
@@ -839,7 +839,7 @@ class Vehicule {
             $this->icon = 'c2-bump-new';
             $this->img = '2053';
             $this->img_author = 'TramBusAl';
-            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2023';
 
         } elseif (2161 <= $id && $id <= 2162) {
