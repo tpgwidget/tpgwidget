@@ -11,6 +11,7 @@ class Vehicule {
     public $places_assises = null;
     public $places_debout = null;
     public $places_totales = null;
+    public $unknown = false;
 
     public function __construct(string $id) {
         if (strlen($id) !== 4 && $id !== '') {
@@ -854,6 +855,7 @@ class Vehicule {
 	        $this->name = "Sous-traitant";
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
+            $this->unknown = true;
 
         } elseif ('???' == $id) {
 
@@ -861,6 +863,7 @@ class Vehicule {
 	        $this->name = "Sous-traitant";
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
+            $this->unknown = true;
 
         } else {
 
@@ -868,6 +871,7 @@ class Vehicule {
 	        $this->name = "Véhicule inconnu";
 	        $this->enSavoirPlus = false;
             $this->icon = 'notfound';
+            $this->unknown = true;
         }
     }
 
