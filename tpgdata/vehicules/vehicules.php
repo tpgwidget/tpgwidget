@@ -11,6 +11,7 @@ class Vehicule {
     public $places_assises = null;
     public $places_debout = null;
     public $places_totales = null;
+    public $unknown = false;
 
     public function __construct(string $id) {
         if (strlen($id) !== 4 && $id !== '') {
@@ -668,6 +669,28 @@ class Vehicule {
 
         /* New C2 */
 
+        } elseif (2050 <= $id && $id <= 2051) { // Citaro C2 solo livrée 2013 (orange)
+
+            $this->type = "Autobus solo";
+            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->icon = 'c2-bump-new';
+            $this->img = '2050';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2019';
+
+        } elseif (2052 <= $id && $id <= 2053) {
+
+            $this->type = "Autobus articulé";
+            $this->name = "Mercedes-Benz Citaro C2 O530G";
+            $this->icon = 'c2-bump-new';
+            $this->img = '2053';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2019';
+
+            /* SOUS-TRAITANT AUTRES */
+
         } elseif ((2054 <= $id && $id <= 2055) || (2064 <= $id && $id <= 2065)) { // Citaro C2 solo livrée 2013 (orange)
 
             $this->type = "Autobus solo";
@@ -698,34 +721,141 @@ class Vehicule {
             $this->img_link = 'https://www.youtube.com/channel/UCqcpBmYjK1TbQEDR2diSuig';
             $this->year = '2021';
 
-        } elseif (2050 <= $id && $id <= 2051) { // Citaro C2 solo livrée 2013 (orange)
+        } elseif (2076 <= $id && $id <= 2078) {
 
-            $this->type = "Autobus solo";
-            $this->name = "Mercedes-Benz Citaro C2 O530";
+            $this->type = "Autobus Solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lc2020';
+            $this->img = 'lc2020';
+            $this->img_author = 'Transports Suisse 05';
+            $this->img_link = 'https://www.youtube.com/channel/UCqcpBmYjK1TbQEDR2diSuig';
+            $this->year = '2021';
+
+        } elseif (2079 <= $id && $id <= 2080) {
+
+            $this->type = "Autobus Solo";
+            $this->name = "MAN Lion's City";
+            $this->icon = 'lionscity';
+            $this->img = 'man61';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/fdTi22';
+            $this->places_assises = 36;
+            $this->places_debout = 140;
+            $this->places_totales = 176;
+            $this->year = '2013';
+
+        } elseif ((2081 <= $id && $id <= 2082) || $id == 2085 || $id == 2089) {
+
+            $this->type = "Minibus";
+            $this->name = "Mercedes-Benz Sprinter City 75";
+            $this->icon = 'notfound';
+            $this->img = 'sprinter';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2021 - 2022';
+
+        } elseif ((2083 <= $id && $id <= 2084) || (2086 <= $id && $id <= 2088)) {
+
+            $this->type = "Autobus hybride";
+            $this->name = "Mercedes-Benz Citaro C2";
             $this->icon = 'c2-bump-new';
             $this->img = '2050';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
-            $this->year = '2019';
+            $this->year = '2021 - 2023';
 
-        } elseif (2052 <= $id && $id <= 2053) {
+        } elseif ((2091 <= $id && $id <= 2094) || (2159 <= $id && $id <= 2160)) {
+
+            $this->type = "Minibus électrique";
+            $this->name = "Altas Novus Cityline LW";
+            $this->icon = 'notfound';
+            $this->img = 'sprinter';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2023';
+
+        } elseif ($id == 2095) {
+
+            $this->type = "Autobus articulé hybride";
+            $this->name = "Mercedes-Benz Citaro C2G";
+            $this->icon = 'c2-bump-new';
+            $this->img = 'hybride';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2022';
+
+        } elseif (2112 <= $id && $id <= 2117) { // Assumed Sequence for un-delivered vehicles
+
+            $this->type = "Midibus électrique";
+            $this->name = "Irizar ie bus 10.5";
+            $this->icon = 'ieBus';
+            $this->year = '2023 - 2024';
+
+        } elseif (2118 <= $id && $id <= 2125) { // Assumed Sequence for un-delivered vehicles
+
+            $this->type = "Autobus électrique";
+            $this->name = "Irizar ie tram 12";
+            $this->icon = 'ieTram';
+            $this->year = '2023 - 2024';
+
+        } elseif (2126 == $id) {
+
+            $this->type = "Autobus électrique";
+            $this->name = "Mercedes-Benze eCitaro";
+            $this->icon = 'eCitaro';
+            $this->year = '2023';
+
+        } elseif (2140 <= $id && $id <= 2142) {
 
             $this->type = "Autobus articulé";
-            $this->name = "Mercedes-Benz Citaro C2 O530G";
+            $this->name = "Mercedes-Benz Citaro II O530G";
+            $this->icon = 'citaro';
+            $this->img = 'citaro';
+            $this->img_author = 'André Knoerr';
+            $this->img_link = 'https://flic.kr/p/kZ14Eq';
+            $this->year = "2022";
+
+        } elseif (2143 == $id) {
+
+            $this->type = "Minibus";
+            $this->name = "Karsan Jest+";
+            $this->icon = 'soustraitant';
+            $this->year = '2023';
+
+        } elseif (2155 <= $id && $id <= 2156) {
+
+            $this->type = "Autobus hybride";
+            $this->name = "Mercedes-Benz Citaro C2";
+            $this->icon = 'c2-bump-new';
+            $this->img = '2050';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://twitter.com/trambusalOff';
+            $this->year = '2023';
+
+        } elseif (2157 <= $id && $id <= 2158) {
+
+            $this->type = "Autobus articulé hybride";
+            $this->name = "Mercedes-Benz Citaro C2G";
             $this->icon = 'c2-bump-new';
             $this->img = '2053';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://twitter.com/trambusalOff';
-            $this->year = '2019';
+            $this->year = '2023';
 
-        /* SOUS-TRAITANT AUTRES */
+        } elseif (2161 <= $id && $id <= 2162) {
 
-        } elseif ((900 <= $id && $id <= 999) || (1900 <= $id && $id <= 2099)) {
+            $this->type = "Midibus hybride";
+            $this->name = "Mercedes-Benz Citaro C2K";
+            $this->icon = 'c2-bump-new';
+            $this->year = '2023';
+
+        } elseif ((900 <= $id && $id <= 999) || (1900 <= $id && $id <= 2199)) { /* Autres Sous-traitants */
 
             $this->type = "Autobus";
 	        $this->name = "Sous-traitant";
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
+            $this->unknown = true;
 
         } elseif ('???' == $id) {
 
@@ -733,6 +863,7 @@ class Vehicule {
 	        $this->name = "Sous-traitant";
 	        $this->enSavoirPlus = false;
             $this->icon = 'soustraitant';
+            $this->unknown = true;
 
         } else {
 
@@ -740,6 +871,7 @@ class Vehicule {
 	        $this->name = "Véhicule inconnu";
 	        $this->enSavoirPlus = false;
             $this->icon = 'notfound';
+            $this->unknown = true;
         }
     }
 
