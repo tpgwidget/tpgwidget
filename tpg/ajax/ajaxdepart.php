@@ -100,7 +100,14 @@ $color = $line['background'];
                     <div class="list-block parcours">
                         <ul>
                             <?php $avancee = 'previous';
-                            foreach ($thermometer->arret as $step) { ?>
+                            $translations = [
+                                "PNEF"=>"PNEV",
+                                "CRCD"=>"CRCO",
+                            ];
+                            foreach ($thermometer->arret as $step) {
+                                if (in_array(array_keys($translations), $step->codeArret))
+                                    $step->codeArret = $translations[$step->codeArret];
+                                ?>
                                 <li>
                                     <?php
                                     if ($avancee == "current") {
