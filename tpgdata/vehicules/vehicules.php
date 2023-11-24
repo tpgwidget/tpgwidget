@@ -396,7 +396,7 @@ class Vehicule {
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 65";
-            $this->icon = 'altas';
+            $this->icon = 'sprinter-19';
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
@@ -748,8 +748,8 @@ class Vehicule {
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 75";
-            $this->icon = 'altas';
-            $this->img = 'sprinter';
+            $this->icon = 'sprinter-19';
+            $this->img = 'sprinter-19';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2021 - 2022';
@@ -769,7 +769,7 @@ class Vehicule {
             $this->type = "Minibus électrique";
             $this->name = "Altas Novus Cityline LW";
             $this->icon = 'altas';
-            $this->img = 'sprinter';
+            $this->img = 'altas';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2023';
