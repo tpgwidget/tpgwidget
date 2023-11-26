@@ -396,7 +396,7 @@ class Vehicule {
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 65";
-            $this->icon = 'sprinter-19';
+            $this->icon = 'sprinter-14';
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
@@ -589,7 +589,7 @@ class Vehicule {
 
             $this->type = "Minibus";
             $this->name = "Mercedes-Benz Sprinter City 515TDCI";
-            $this->icon = 'altas';
+            $this->icon = 'sprinter-small';
             $this->img = '1965';
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';

@@ -45,5 +45,18 @@
     }
   ],
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "start_URL": "/<?= $_GET['id'] ?>/",
+
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "ch.nicolapps.tpgwidget",
+      "url": "https://play.google.com/store/apps/details?id=ch.nicolapps.tpgwidget"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/ch/app/tpgwidget-raccourcis-tpg/id959278327"
+    }
+  ],
 }
