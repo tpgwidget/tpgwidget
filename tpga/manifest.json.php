@@ -58,5 +58,5 @@
       "platform": "itunes",
       "url": "https://apps.apple.com/ch/app/tpgwidget-raccourcis-tpg/id959278327"
     }
-  ],
+  ]
 }
