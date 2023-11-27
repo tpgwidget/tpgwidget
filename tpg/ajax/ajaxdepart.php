@@ -105,7 +105,7 @@ $color = $line['background'];
                                 "CRCD"=>"CRCO",
                             ];
                             foreach ($thermometer->arret as $step) {
-                                if (in_array(array_keys($translations), $step->codeArret))
+                                if (array_key_exists($step->codeArret, $translations))
                                     $step->codeArret = $translations[$step->codeArret];
                                 ?>
                                 <li>
