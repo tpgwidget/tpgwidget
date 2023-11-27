@@ -4,8 +4,8 @@
     $stopCode = urlencode($_GET['stopCode']);
 ?>
 {
-  "short_name": "<?= htmlspecialchars($_GET['stopName']) ?>",
-  "name": "<?= htmlspecialchars($_GET['stopName']) ?>",
+  "short_name": <?= json_encode($_GET['stopName']) ?>,
+  "name": <?= json_encode($_GET['stopName']) ?>,
   "icons": [
     {
       "src": "/icon/<?= $stopCode ?>/36.png",
@@ -46,7 +46,7 @@
   ],
   "display": "standalone",
   "orientation": "portrait",
-  "start_URL": "/<?= $_GET['id'] ?>/",
+  "start_URL": <?= json_encode('/'.$_GET['id'].'/') ?>,
 
   "related_applications": [
     {
