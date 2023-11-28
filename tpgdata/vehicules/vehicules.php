@@ -400,6 +400,7 @@ class Vehicule {
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
+            $this->year = '2018';
 
         } elseif (1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
 
@@ -593,6 +594,7 @@ class Vehicule {
             $this->img = '1965';
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
+            $this->year = '2016 - 2017';
 
         } elseif ($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
 
@@ -752,7 +754,7 @@ class Vehicule {
             $this->img = 'sprinter-19';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
-            $this->year = '2021 - 2022';
+            $this->year = '2019 - 2022';
 
         } elseif ((2083 <= $id && $id <= 2084) || (2086 <= $id && $id <= 2088)) {
 
@@ -778,8 +780,8 @@ class Vehicule {
 
             $this->type = "Autobus articulé hybride";
             $this->name = "Mercedes-Benz Citaro C2G";
-            $this->icon = 'c2-bump-new';
-            $this->img = 'hybride';
+            $this->icon = '2066';
+            $this->img = '2053';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2022';
