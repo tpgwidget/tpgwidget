@@ -6,7 +6,7 @@ use TPGwidget\Data\{Lines, Stops};
 //$nextDepartures = @simplexml_load_file($file);
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$nextDepartures = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetProchainsDepartsTriHeure.json?codeArret=". $_GET["id"]))->prochainsDeparts;
+$nextDepartures = json_decode(file_get_contents("https://preview.genav.ch/api/getNextDepartures.json?stopCode=". $_GET["id"]))->nextDepartures;
 
 include '../../tpgdata/quais.php';
 include '../../tpgdata/vehicules/vehicules.php';
@@ -15,9 +15,9 @@ include '../../tpgdata/vehicules/vehicules.php';
 <?php if ($nextDepartures) { ?>
 <div class="list-block media-list departures">
     <ul>
-        <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->codeArret.'.pdf')) { ?>
+        <?php if (file_exists(__DIR__.'/../../tpgdata/plans/connection/'.$nextDepartures->stop->stopCode.'.pdf')) { // Would be good to actually have the maps :P ?>
             <li class="w l35">
-                <a class="item-link item-content external" target="_blank" href="https://tpgdata.nicolapps.ch/plans/connection/<?=$nextDepartures->codeArret?>.pdf">
+                <a class="item-link item-content external" target="_blank" href="https://tpgdata.nicolapps.ch/plans/connection/<?=$nextDepartures->stop->stopCode?>.pdf">
                     <div class="item-inner">
                         <div class="item-title-row">
                             <div class="item-title">Plan de connexions</div>
@@ -27,17 +27,17 @@ include '../../tpgdata/vehicules/vehicules.php';
             </li>
         <?php }
 
-        foreach ($nextDepartures->prochainDepart as $depart) { ?>
+        foreach ($nextDepartures->departures as $depart) { ?>
             <?php
 //            echo $depart->connectionWaitingTime; // NotSupported?
-            if (Lines::get($depart->ligne)['text'] === '#FFFFFF') {
-                print '<li class="w l'.str_replace('+', 'plus', $depart->ligne).'">';
+            if (Lines::get($depart->connection->lineCode)['text'] === '#FFFFFF') {
+                print '<li class="w l'.str_replace('+', 'plus', $depart->connection->lineCode).'">';
             } else{
-                print '<li class="l'.$depart->ligne.'">';
+                print '<li class="l'.$depart->connection->lineCode.'">';
             }
 
-            if ($depart->attente != 'no more') {
-                echo '<a href="/ajax/depart/'.$depart->horaireRef.'/?vehicleNo='.urlencode($depart->vehiculeNo??'').'" class="item-link item-content">';
+            if ($depart->waitingTime != 'no more') {
+                echo '<a href="/ajax/depart/'.$depart->departureCode.'/?vehicleNo='.urlencode($depart->vehiculeNo??'').'" class="item-link item-content">';
             } else {
                 echo '<div class="item-content">';
             }
@@ -45,37 +45,37 @@ include '../../tpgdata/vehicules/vehicules.php';
             <div class="item-inner">
                 <div class="item-title-row">
                     <div class="item-title">
-                        <?= $depart->ligne ?> → <?= Stops::format($depart->destination) ?>
-                        <?= $depart->ligne == 47 ? '↻' : '' ?>
-                        <?= $depart->ligne == 48 ? '↺' : '' ?>
+                        <?= $depart->connection->lineCode ?> → <?= Stops::format($depart->connection->destinationName) ?>
+                        <?= $depart->connection->lineCode == 47 ? '↻' : '' ?>
+                        <?= $depart->connection->lineCode == 48 ? '↺' : '' ?>
                     </div>
                     <div class="item-after">
-                        <?php if ($depart->attente != 'no more') {
-                            echo date('H:i', strtotime($depart->heureArrivee));
+                        <?php if ($depart->waitingTime != 'no more') {
+                            echo date('H:i', strtotime($depart->timestamp));
                         } ?>
                     </div>
                 </div>
 
                 <?php
-                quai($nextDepartures->codeArret, $depart->ligne, $depart->destination);
-                if (($depart->caracteristique??'') != "PMR" && $depart->attente != "no more") {
+                quai($nextDepartures->stop->stopCode, $depart->connection->lineCode, $depart->connection->destinationName);
+                if (($depart->characteristics??'') != "PMR" && $depart->waitingTime != "no more") {
                     echo '<span class="nopmr"></span>';
                 }
 
                 // Disruption
-                if (isset($depart->perturbation)) {
+                if (isset($depart->disruption)) {
                     echo '<span class="perturbation"></span>';
                 }
 
                 // Waiting time
                 echo '<div class="temps">';
 
-                if (($depart->fiabilite??'') === 'T') {
+                if (($depart->reliability??'') === 'T') {
                     echo '~';
                 }
 
-                switch ($depart->attente) {
-                    case '0':
+                switch ($depart->waitingTime) {
+                    case '00':
                         print 'À l’arrêt';
                         break;
                     case '1':
@@ -88,14 +88,14 @@ include '../../tpgdata/vehicules/vehicules.php';
                         echo '+ d’une heure';
                         break;
                     default:
-                        print $depart->attente.' minutes';
+                        print $depart->waitingTime.' minutes';
                         break;
                 }
                 echo '</div>';
                 ?>
             </div>
-        <?php
-        if ($depart->attente != 'no more') {
+        <?php // The number of "no more" checks you do... :P
+        if ($depart->waitingTime != 'no more') {
             echo '</a>';
         } else {
             echo '</div>';

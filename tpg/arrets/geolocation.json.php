@@ -6,15 +6,15 @@ use TPGwidget\Data\Stops;
 //$stops = @simplexml_load_file($file);
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All".'&latitude='.($_GET['latitude'] ?? '').'&longitude='.($_GET['longitude'] ?? '')))->connexions->connexion;
+$stops = json_decode(file_get_contents("https://preview.genav.ch/api/getNearbyStops.json?accuracy=64".'&latitude='.($_GET['latitude'] ?? '').'&longitude='.($_GET['longitude'] ?? '')))->stops;
 
 $output = [];
 if ($stops) {
     foreach ($stops as $stop) {
         $output[] = [
-            'stopNameOriginal' => (string)$stop->nomArret,
-            'stopNameDisplay' => Stops::format($stop->nomArret),
-            'stopCode' => (string)$stop->codeArret,
+            'stopNameOriginal' => (string)$stop->stopName,
+            'stopNameDisplay' => Stops::format($stop->stopName),
+            'stopCode' => (string)$stop->stopCode,
         ];
     }
 }

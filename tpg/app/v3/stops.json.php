@@ -11,21 +11,21 @@ function error() {
 //$fileUrl = 'http://prod.ivtr-od.tpg.ch/v1/GetPhysicalStops.json?key='.getenv('TPG_API_KEY');
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$fileUrl = "http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All";
+$fileUrl = "https://preview.genav.ch/api/getStops.json";
 
 $fileContents = @file_get_contents($fileUrl);
 if (!$fileContents) {
     error();
 }
 
-$stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All"))->connexions->connexion;
+$stops = json_decode($fileContents)->stops;
 if (!$stops) {
     error();
 }
 
 header('Content-type: application/json; charset=utf-8');
 
-const FEATURED_STOPS = ['CVIN', 'BAIR', 'RIVE', 'AERO', 'COUT', 'PLPA', 'NATI', 'JOCT', 'CRGE', 'ESRT', 'HOPI', 'BHET'];
+const FEATURED_STOPS = ['CVIN', 'BAIR', 'RIVE', 'AERO', 'COUT', 'PLPA', 'NATI', 'JOCT', 'CRGE', 'ESRT', 'HOPI', 'BHET', 'CERN']; // <3
 $output = ['featured' => [], 'all' => [], 'error' => null];
 
 // Stops list
@@ -34,25 +34,25 @@ foreach ($stops as $stop) {
     $lines = [];
 
     // Lines
-    $lineCodes = explode(',', $stop->lignes);
-    sort($lineCodes);
+    $lineCodes = $stop->connections;
+//    sort($lineCodes);
     $lines = array_map(function ($lineCode) {
-        return Lines::get($lineCode);
+        return Lines::get($lineCode->lineCode);
     }, $lineCodes);
 
-    $nameFormatted = Stops::format($stop->nomArret ?? '');
+    $nameFormatted = Stops::format($stop->stopName ?? '');
     $stopData = [
-        'id' => $stop->codeArret ?? null,
+        'id' => $stop->stopCode ?? null,
         'name' => [
             'formatted' => $nameFormatted,
             'corrected' => strip_tags($nameFormatted),
-            'raw' => $stop->nomArret,
+            'raw' => $stop->stopName,
         ],
         'lines' => $lines,
     ];
 
     $output['all'][] = $stopData;
-    $byStopCode[$stop->codeArret ?? ''] = $stopData;
+    $byStopCode[$stop->stopCode ?? ''] = $stopData;
 }
 
 // Sort stops

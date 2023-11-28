@@ -8,12 +8,12 @@ header('Content-type: application/json; charset=utf-8');
 //$stops = @simplexml_load_file($file);
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All"))->connexions->connexion;
+$stops = json_decode(file_get_contents("https://preview.genav.ch/api/getStops.json"))->stops    ;
 
 $output = [];
 
 foreach ($stops as $stop) {
-    $output[trim($stop->codeArret)] = Stops::format($stop->nomArret);
+    $output[trim($stop->stopCode)] = Stops::format($stop->stopName);
 
     // Remove duplicate stops
     unset($output['BERE']);
