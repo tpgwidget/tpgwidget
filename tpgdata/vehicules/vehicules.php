@@ -798,7 +798,7 @@ class Vehicule {
             $this->icon = 'ieTram';
             $this->year = '2023 - 2024';
 
-        } elseif (2126 == $id) {
+        } elseif (2126 <= $id && $id <= 2131) {
 
             $this->type = "Autobus électrique";
             $this->name = "Mercedes-Benze eCitaro";
@@ -822,7 +822,7 @@ class Vehicule {
             $this->icon = 'soustraitant';
             $this->year = '2023';
 
-        } elseif (2155 <= $id && $id <= 2156) {
+        } elseif (2153 <= $id && $id <= 2156) {
 
             $this->type = "Autobus hybride";
             $this->name = "Mercedes-Benz Citaro C2";
