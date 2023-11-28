@@ -11,14 +11,14 @@ if (!preg_match('/^[A-Z0-9]{4}$/', $_GET['stop'])) {
 //$stops = simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetStops.xml?key='.getenv('TPG_API_KEY'));
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All"))->connexions->connexion;
+$stops = json_decode(file_get_contents("https://preview.genav.ch/api/getStops.json"))->stops;
 
 
 // Find the widget name
 $name = '';
 foreach ($stops as $stop) {
-    if ($stop->codeArret == $_GET['stop']) {
-        $name = $stop->nomArret;
+    if ($stop->stopCode == $_GET['stop']) {
+        $name = $stop->stopName;
     }
 }
 

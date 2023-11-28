@@ -46,7 +46,7 @@
   ],
   "display": "standalone",
   "orientation": "portrait",
-  "start_URL": <?= json_encode('/'.$_GET['id'].'/') ?>,
+  "start_URL": <?= json_encode('https://' . $_SERVER['HTTP_HOST'] . '/'.$_GET['id'].'/', JSON_UNESCAPED_SLASHES) ?>,
 
   "related_applications": [
     {
