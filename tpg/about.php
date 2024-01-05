@@ -35,18 +35,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/pages/TPGwidget/657510077726434" class="item-link external" target="_blank">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="icon icon-facebook"></i>
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title">Facebook</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
                     <a href="https://www.twitter.com/tpgwidget/" class="item-link external" target="_blank">
                         <div class="item-content">
                             <div class="item-media">
