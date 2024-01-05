@@ -46,8 +46,6 @@ include '../../tpgdata/vehicules/vehicules.php';
                 <div class="item-title-row">
                     <div class="item-title">
                         <?= $depart->ligne ?> → <?= Stops::format($depart->destination) ?>
-                        <?= $depart->ligne == 47 ? '↻' : '' ?>
-                        <?= $depart->ligne == 48 ? '↺' : '' ?>
                     </div>
                     <div class="item-after">
                         <?php if ($depart->attente != 'no more') {
