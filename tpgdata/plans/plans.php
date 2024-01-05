@@ -65,7 +65,7 @@ class Plans {
             'desc' => 'Lignes régionales et transfrontalières'
         ],
         'noctambus' => [
-            'name' => 'Plan Noctambus',
+            'name' => 'Plan nocturne',
             'desc' => 'Service de nuit (vendredi et samedi soir)'
         ],
         'noctambusregional' => [
@@ -84,9 +84,9 @@ class Plans {
 
     /* Années et leurs plans */
     protected static $years = [
-        '2023' => [
-            'name' => 'Dès le 11 décembre 2022',
-            'plans' => ['aumi', 'noctambus', 'tac', 'zones'],
+        '2024' => [
+            'name' => 'Dès le 10 décembre 2023',
+            'plans' => ['aumi', 'noctambus', 'geographique', 'tac', 'zones'],
         ],
     ];
 
