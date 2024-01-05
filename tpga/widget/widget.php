@@ -86,18 +86,6 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
                     </a>
                 </li>
                 <li>
-                    <a href="/infotrafic.php" class="item-link close-panel">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="icon i-infotraffic"></i>
-                            </div>
-                            <div class="item-inner">
-                                <div class="item-title">Info trafic</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
                     <a href="/plans.php" class="item-link close-panel">
                         <div class="item-content">
                             <div class="item-media">
