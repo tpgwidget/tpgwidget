@@ -6,7 +6,7 @@
 require __DIR__.'/vendor/autoload.php';
 
 // Load env file
-$dotenv = new \Dotenv\Dotenv(__DIR__);
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 // Connect to database
