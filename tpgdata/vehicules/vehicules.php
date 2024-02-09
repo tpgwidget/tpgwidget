@@ -5,6 +5,9 @@ class Vehicule {
     public $type;
     public $name;
     public $img;
+    public $img_author;
+    public $img_link;
+    public $year;
     public $icon;
     public $enSavoirPlus = true;
 
