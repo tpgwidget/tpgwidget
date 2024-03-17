@@ -12,7 +12,7 @@ if (!isset($_GET['id'])) { // Si aucun arrêt spécifié
 //$thermometer = @simplexml_load_file($file);
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$thermometer = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetThermometre.json?horaireRef=" . $_GET["id"]))->thermometre;
+$thermometer = json_decode(file_get_contents("https://preview.genav.ch/api/getThermometer.json?departureCode=" . $_GET["id"]))->thermometer;
 
 if (!$thermometer) { ?>
     <div class="page" data-page="error">
@@ -33,15 +33,15 @@ if (!$thermometer) { ?>
         </div>
     </div>
 <?php } else {
-    $nextDeps = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetProchainsDepartsTriHeure.json?codeArret=" . $thermometer->codeArret))->prochainsDeparts;
+    $nextDeps = json_decode(file_get_contents("https://preview.genav.ch/api/getNextDepartures.json?stopCode=" . $thermometer->stop->stopCode))->nextDepartures;
     $departureData = [
         "ligne"=>"",
         "vehiculeNo"=>""
     ];
-    foreach ($nextDeps->prochainDepart as $prochainDepart) {
-        if (($prochainDepart->horaireRef??"") == $_GET['id']) {
+    foreach ($nextDeps->departures as $prochainDepart) {
+        if (($prochainDepart->departureCode??"") == $_GET['id']) {
             $departureData = [
-                "ligne"=>$prochainDepart->ligne,
+                "ligne"=>$prochainDepart->connection->lineCode,
                 "vehiculeNo"=>$prochainDepart->vehiculeNo
             ];
             break;
@@ -58,7 +58,7 @@ $color = $line['background'];
             <i class="icon icon-back"></i>
            </a>
         </div>
-        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $departureData['ligne'] ?></span> ➜ <?= Stops::format($thermometer->destination ?? '') ?></div>
+        <div class="center"><span class="lineCode <?= $line['text'] === '#000000' ? 'b' : '' ?>"><?= $departureData['ligne'] ?></span> ➜ <?= Stops::format($thermometer->destinationName ?? '') ?></div>
       </div>
     </div>
     <div class="toolbar tabbar" style="background-color: <?= $color ?>">
@@ -93,30 +93,30 @@ $color = $line['background'];
                 "PNEF"=>"PNEV",
                 "CRCD"=>"CRCO",
             ];
-            foreach ($thermometer->arret as $step) {
-                if (array_key_exists($step->codeArret, $translations))
-                    $step->codeArret = $translations[$step->codeArret];?>
+            foreach ($thermometer->steps as $step) {
+                if (array_key_exists($step->stop->stopCode, $translations))
+                    $step->stop->stopCode = $translations[$step->stop->stopCode];?>
                 <li>
                     <?php
                     if ($avancee == "current") {
                         $avancee = "";
                     }
 
-                    if (levenshtein($thermometer->nomArret, $step->nomArret) == 0) {
+                    if (levenshtein($thermometer->stop->stopName, $step->stop->stopName) == 0) {
                         $avancee = 'current';
                     }
                     ?>
-                    <a href="/ajax/page/<?= $step->codeArret ?>/<?= rawurlencode(str_replace('/', '_', $step->nomArret ?? '')) ?>" class="item-link item-content <?= $avancee ?>">
+                    <a href="/ajax/page/<?= $step->stop->stopCode ?>/<?= rawurlencode(str_replace('/', '_', $step->stop->stopName ?? '')) ?>" class="item-link item-content <?= $avancee ?>">
                         <div class="item-media">
                             <i class="t icon l<?= str_replace('+', '', $departureData['ligne']) ?>"></i>
                         </div>
                         <div class="item-inner">
-                            <div class="item-title"><?= Stops::format($step->nomArret ?? '') ?></div>
+                            <div class="item-title"><?= Stops::format($step->stop->stopName ?? '') ?></div>
                             <div class="item-after">
-                                <span class="h"><?= date('H:i', strtotime($step->heureArrivee)) ?></span>
+                                <span class="h"><?= date('H:i', strtotime($step->timestamp)) ?></span>
                                 <span class="m">
-                                    <?php if (intval($step->tempsRestant)) {
-                                        echo $step->tempsRestant." min";
+                                    <?php if (intval($step->arrivalTime)) {
+                                        echo $step->arrivalTime." min";
                                     } ?>
                                 </span>
                             </div>
@@ -127,13 +127,13 @@ $color = $line['background'];
         </ul>
       </div></div></div>
       </div>
-      <?php if (is_array($thermometer->perturbations)) { ?>
+      <?php if (is_array($thermometer->deviation)) { ?>
           <div class="pdata">
              <div class="accordion-list">
                 <?php
                 $nombreDePerturbations = 0;
 
-                 foreach ($thermometer->perturbations as $disruption) {
+                 foreach ($thermometer->deviation as $disruption) {
                      $nombreDePerturbations++;
                      ?>
                      <div class="accordion-item <?= ($nombreDePerturbations === 1) ? 'accordion-item-expanded' : '' ?>">

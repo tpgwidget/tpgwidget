@@ -13,17 +13,17 @@ if (!isset($_GET["id"])) {
 //    $nextDepartures = @simplexml_load_file($file);
 
     // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-    $stops = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetTousArrets.json?transporteur=All"))->connexions->connexion;
+    $stops = json_decode(file_get_contents("https://preview.genav.ch/api/getStops.json"))->stops;
     $nextDepartures = [];
     foreach ($stops as $stop) {
-        if (htmlentities($_GET["id"]) === $stop->codeArret) {
+        if (htmlentities($_GET["id"]) === $stop->stopCode) {
             $nextDepartures = $stop;
         }
     }
 
 }
 
-if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
+if ($nextDepartures && isset($nextDepartures->stopName)) { ?>
     <div data-page="install" class="page page-page">
         <div class="navbar">
             <div class="navbar-inner">
@@ -32,7 +32,7 @@ if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
                         <i class="icon icon-back"></i>
                     </a>
                 </div>
-                <div class="center"><?= Stops::format($nextDepartures->nomArret) ?></div>
+                <div class="center"><?= Stops::format($nextDepartures->stopName) ?></div>
             </div>
         </div>
 
@@ -42,8 +42,8 @@ if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
                     <?php
                     $lignes = [];
 
-                    foreach (explode(",", $nextDepartures->lignes) as $connection) {
-                        $lignes[] = $connection;
+                    foreach ($nextDepartures->connections as $connection) {
+                        $lignes[] = $connection->lineCode;
                     }
 
                     $lignes = array_unique($lignes);
@@ -82,7 +82,7 @@ if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
 
                 if (!$manualInstall) { ?>
                     <a
-                        href="googlechrome://navigate?url=https://tpga.nicolapps.ch/<?= $nextDepartures->codeArret ?>/"
+                        href="googlechrome://navigate?url=https://tpga.nicolapps.ch/<?= $nextDepartures->stopCode ?>/"
                         class="button button-big button-fill external button-install"
                         data-tapped="0"
                     >
@@ -99,7 +99,7 @@ if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
                         <div class="ath-link">
                             <?php $uniq = uniqid(); ?>
                             <input id="link_<?= $uniq ?>" type="text"
-                                   value="https://tpga.nicolapps.ch/<?= $nextDepartures->codeArret ?>/" readonly>
+                                   value="https://tpga.nicolapps.ch/<?= $nextDepartures->stopCode ?>/" readonly>
 
                             <button
                                 class="button button-fill"

@@ -4,7 +4,7 @@ use TPGwidget\Data\Lines;
 //$disruptions = @simplexml_load_file('http://prod.ivtr-od.tpg.ch/v1/GetDisruptions.xml?key='.getenv('TPG_API_KEY'));
 
 // Fall Back To Old API - This marks the final moments of TPGw and Third Party TPG Open Data Apps
-$disruptions = json_decode(file_get_contents("http://prod.ivtr.tpg.ch/GetPerturbations.json"))->perturbations;
+$disruptions = json_decode(file_get_contents("https://preview.genav.ch/api/getDistruptions.json"));
 
 if (!$disruptions) {
 	$serveurTPGIndisponible = true;
@@ -13,9 +13,9 @@ if (!$disruptions) {
 $allLines = array_keys(Lines::all());
 
 $perturbations = 0;
-if (isset($disruptions->perturbation)) {
-    foreach ($disruptions->perturbation as $disruption) {
-        if (in_array($disruption->ligne, $allLines)) { ?>
+if (isset($disruptions->disruptions)) {
+    foreach ($disruptions->disruptions as $disruption) {
+        if (in_array($disruption->lineCode, $allLines)) { ?>
         <div class="card">
           <div class="card-content">
             <div class="card-content-inner">
@@ -23,14 +23,14 @@ if (isset($disruptions->perturbation)) {
                       <?php
                           $perturbations++;
                           echo '<span class="picto-ligne ';
-                          echo 'l'.$disruption->ligne.' ';
-                          echo 's'.$disruption->ligne.' ';
+                          echo 'l'.$disruption->lineCode.' ';
+                          echo 's'.$disruption->lineCode.' ';
 
-                          if (Lines::get($disruption->ligne)['text'] === '#FFFFFF') {
+                          if (Lines::get($disruption->lineCode)['text'] === '#FFFFFF') {
                               echo 'w';
                           }
 
-                          echo '">'.$disruption->ligne;
+                          echo '">'.$disruption->lineCode;
                           echo '</span>';
                       ?>
                       <header><?= $disruption->nature ?></header>

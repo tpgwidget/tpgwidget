@@ -403,6 +403,7 @@ class Vehicule {
             $this->img = 'sprinter';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
+            $this->year = '2018';
 
         } elseif (1701 <= $id && $id <= 1708) { // MAN articulé TAC (61)
 
@@ -596,6 +597,7 @@ class Vehicule {
             $this->img = '1965';
             $this->img_author = 'FDTPG';
             $this->img_link = 'https://www.facebook.com/FanDeTransportsPublicsGenevois/';
+            $this->year = '2016 - 2017';
 
         } elseif ($id == 1966 || $id == 1969 || (1973 <= $id && $id <= 1983)) { // Citaro C2 solo Globe
 
@@ -755,7 +757,7 @@ class Vehicule {
             $this->img = 'sprinter-19';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
-            $this->year = '2021 - 2022';
+            $this->year = '2019 - 2022';
 
         } elseif ((2083 <= $id && $id <= 2084) || (2086 <= $id && $id <= 2088)) {
 
@@ -767,7 +769,7 @@ class Vehicule {
             $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2021 - 2023';
 
-        } elseif ((2091 <= $id && $id <= 2094) || (2159 <= $id && $id <= 2160)) {
+        } elseif ((2091 <= $id && $id <= 2094) || (2159 <= $id && $id <= 2160) || (2166 <= $id && $id <= 2167)) {
 
             $this->type = "Minibus électrique";
             $this->name = "Altas Novus Cityline LW";
@@ -781,8 +783,8 @@ class Vehicule {
 
             $this->type = "Autobus articulé hybride";
             $this->name = "Mercedes-Benz Citaro C2G";
-            $this->icon = 'c2-bump-new';
-            $this->img = 'hybride';
+            $this->icon = '2066';
+            $this->img = '2053';
             $this->img_author = 'TramBusAl';
             $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2022';
@@ -790,22 +792,25 @@ class Vehicule {
         } elseif (2112 <= $id && $id <= 2117) { // Assumed Sequence for un-delivered vehicles
 
             $this->type = "Midibus électrique";
-            $this->name = "Irizar ie bus 10.5";
+            $this->name = "Irizar ie bus 10.6";
             $this->icon = 'ieBus';
             $this->year = '2023 - 2024';
 
-        } elseif (2118 <= $id && $id <= 2125) { // Assumed Sequence for un-delivered vehicles
+        } elseif (2118 <= $id && $id <= 2124) { // Assumed Sequence for un-delivered vehicles
 
             $this->type = "Autobus électrique";
             $this->name = "Irizar ie tram 12";
             $this->icon = 'ieTram';
             $this->year = '2023 - 2024';
 
-        } elseif (2126 <= $id && $id <= 2131) {
+        } elseif ((2125 <= $id && $id <= 2131) || (2134 <= $id && $id <= 2135)) {
 
             $this->type = "Autobus électrique";
-            $this->name = "Mercedes-Benze eCitaro";
+            $this->name = "Mercedes-Benz eCitaro";
             $this->icon = 'eCitaro';
+            $this->img = 'eCitaro';
+            $this->img_author = 'TramBusAl';
+            $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2023';
 
         } elseif (2140 <= $id && $id <= 2142) {
@@ -835,7 +840,7 @@ class Vehicule {
             $this->img_link = 'https://flickr.com/photos/trambusal/';
             $this->year = '2023';
 
-        } elseif (2157 <= $id && $id <= 2158) {
+        } elseif (2157 <= $id && $id <= 2158 || $id == 2163) {
 
             $this->type = "Autobus articulé hybride";
             $this->name = "Mercedes-Benz Citaro C2G";
