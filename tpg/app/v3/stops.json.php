@@ -34,7 +34,7 @@ foreach ($stops as $stop) {
     $lines = [];
 
     // Lines
-    $lineCodes = explode(',', $stop->lignes);
+    $lineCodes = explode(',', strval($stop->lignes ?? $stop->ligne));
     sort($lineCodes);
     $lines = array_map(function ($lineCode) {
         return Lines::get($lineCode);
