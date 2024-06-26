@@ -42,7 +42,7 @@ if ($nextDepartures && isset($nextDepartures->nomArret)) { ?>
                     <?php
                     $lignes = [];
 
-                    foreach (explode(",", $nextDepartures->lignes) as $connection) {
+                    foreach (explode(",", $nextDepartures->lignes ?? $nextDepartures->ligne) as $connection) {
                         $lignes[] = $connection;
                     }
 
