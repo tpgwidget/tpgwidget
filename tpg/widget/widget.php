@@ -25,8 +25,6 @@ $iconPrefix = '';
 if (getenv('APP_ENV') === 'beta') {
     $iconPrefix = '/beta';
 }
-
-$min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,18 +35,10 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="<?= $rawNameW ?>">
 
-    <title><?= $rawNameW ?></title>
+    <title>TPGwidget</title>
 
     <link rel="stylesheet" href="/resources/css/framework7.ios.min.css?disruptions">
-    <link rel="stylesheet" href="/resources/css/tpgwidget<?= $min ?>.css?2021-3">
-    <style>
-    <?php
-    foreach (Lines::all() as $line) {
-        echo '.l'.str_replace('+', 'plus', $line['name']);
-        echo '{ background: '.$line['background'].' }';
-    }
-    ?>
-    </style>
+    <link rel="stylesheet" href="/resources/css/tpgwidget.css">
 
     <!-- Icônes -->
     <link href="https://www.nicolapps.ch/tpgicon<?= $iconPrefix ?>/<?= urlencode($stopW) ?>/152.png" sizes="152x152" rel="apple-touch-icon">
@@ -63,85 +53,61 @@ $min = (getenv('APP_ENV') !== 'beta') ? '.min' : '';
     <div class="panel-overlay"></div>
     <div class="panel panel-right panel-reveal">
         <h1>TPG<span>widget</span></h1>
-
-        <div class="list-block list-block-grouped">
-            <ul>
-              <li>
-                 <a href="/itineraire/?departure=<?= $rawNameW ?>" class="item-link close-panel">
-                    <div class="item-content">
-                        <div class="item-media">
-                            <i class="icon i-itineraire"></i>
-                        </div>
-                       <div class="item-inner">
-                          <div class="item-title">Itinéraire</div>
-                       </div>
-                    </div>
-                 </a>
-              </li>
-              <li>
-                 <a href="/arrets/arrets.php" class="item-link close-panel">
-                    <div class="item-content">
-                        <div class="item-media">
-                            <i class="icon i-stops"></i>
-                        </div>
-                       <div class="item-inner">
-                          <div class="item-title">Liste des arrêts</div>
-                       </div>
-                    </div>
-                 </a>
-              </li>
-              <li>
-                 <a href="/plans.php" class="item-link close-panel">
-                    <div class="item-content">
-                        <div class="item-media">
-                            <i class="icon i-plans"></i>
-                        </div>
-                       <div class="item-inner">
-                          <div class="item-title">Plans</div>
-                       </div>
-                    </div>
-                 </a>
-              </li>
-              <li>
-                 <a href="/about.php" class="item-link close-panel">
-                    <div class="item-content">
-                        <div class="item-media">
-                            <i class="icon i-about"></i>
-                        </div>
-                       <div class="item-inner">
-                          <div class="item-title">À propos</div>
-                       </div>
-                    </div>
-                 </a>
-              </li>
-           </ul>
-    </div>
-
     </div>
     <div class="views">
-      <div class="view view-main" data-stop="<?= $stopW ?>">
+      <div class="view view-main">
         <div class="navbar theme-white">
           <div class="navbar-inner">
-            <div class="center sliding"><?= $nameW ?></div>
-            <div class="right">
-              <a href="#" class="open-panel link icon-only"><i class="icon icon-panel"></i></a>
-            </div>
+            <div class="center sliding">TPGwidget</div>
           </div>
         </div>
         <div class="pages navbar-through toolbar-through">
-          <div data-page="index-<?= $stopW ?>" class="page page-index layout-dark">
-            <div class="page-content">
-                <section class="graym">
-                    <span class="preloader preloader-white"></span>
-                    <h2>Chargement...</h2>
-                </section>
-            </div>
+          <div data-page="sunset" class="page page-sunset">
+              <div class="page-content">
+                  <div class="sunset-header">
+                      <img
+                          class="sunset-hero"
+                          srcset="https://tpgdata.nicolapps.ch/sunset/sunset-400w.avif 400w, https://tpgdata.nicolapps.ch/sunset/sunset-600w.avif 600w, https://tpgdata.nicolapps.ch/sunset/sunset-800w.avif 800w, https://tpgdata.nicolapps.ch/sunset/sunset-1000w.avif 1000w, https://tpgdata.nicolapps.ch/sunset/sunset-1200w.avif 1200w, https://tpgdata.nicolapps.ch/sunset/sunset-1600w.avif 1600w, https://tpgdata.nicolapps.ch/sunset/sunset-2000w.avif 2000w, https://tpgdata.nicolapps.ch/sunset/sunset-2400w.avif 2400w"
+                          sizes="(max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 800px) 800px, (max-width: 1000px) 1000px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2000px) 2000px, (min-width: 2001px) 2400px"
+                          src="https://tpgdata.nicolapps.ch/sunset/sunset.jpg"
+                          alt=""
+                          width="3067"
+                          height="1725"
+                      />
+                  </div>
+
+                  <div class="sunset">
+                      <p>
+                          Pendant près de 10 ans, TPGwidget a aidé les Genevois·es à se déplacer.
+                          Aujourd’hui, les TPG ont supprimé la source d’informations dont TPGwidget dépendait,
+                          ce qui m’oblige à contrecœur à mettre mon application hors service.
+                      </p>
+                      <p>
+                          J’ai créé TPGwidget lorsque j’avais 13 ans pour réaliser mon rêve de gosse de créer une app.
+                          J’ai appris énormément grâce à ce projet et je tiens à vous remercier du fond du cœur pour votre soutien.
+                      </p>
+
+                      <div class="sunset-signature">
+                        <img src="https://tpgdata.nicolapps.ch/sunset/nicolas.jpg" alt="">
+                        <div>
+                          <strong>Nicolas Ettlin</strong>
+                          <br>
+                          Créateur de TPGwidget
+                        </div>
+                      </div>
+
+                      <p class="sunset-credits">
+                          Photo de
+                          <a class="external" href="https://www.instagram.com/trambusal.off/">TramBusAl</a>
+                      </p>
+                  </div>
+              </div>
           </div>
         </div>
       </div>
     </div>
 
     <script type="text/javascript" src="/resources/js/framework7.min.js?171"></script>
-    <script type="text/javascript" src="/resources/js/tpgwidget.min.js?2021-1"></script>
+    <script type="text/javascript" src="/resources/js/tpgwidget.js"></script>
   </body>
 </html>

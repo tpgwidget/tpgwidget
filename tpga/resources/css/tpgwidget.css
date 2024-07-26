@@ -911,3 +911,111 @@ ul.parl ul {
         color: #aaa;
     }
 }
+
+.page-sunset {
+    background: #edf1f3;
+}
+
+.page-sunset .page-content {
+    color: #45535d;
+}
+
+.sunset-hero {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: bottom;
+    margin: 0;
+}
+
+.sunset-header {
+    position: relative;
+    display: flex;
+}
+
+.sunset-header::after {
+    position: absolute;
+    bottom: 0;
+    height: 30vw;
+    max-height: 30vh;
+    width: 100%;
+    content: '';
+    display: block;
+    background: linear-gradient(
+        to bottom,
+        #edf1f300 0%,
+        #edf1f3 95%
+    );
+}
+
+.sunset {
+    position: relative;
+    padding: 36px;
+    padding-top: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.sunset-signature {
+    display: flex;
+    gap: 16px;
+    line-height: 1.6;
+    align-items: center;
+    margin-top: 36px;
+}
+
+.sunset-signature strong {
+    font-weight: 500;
+}
+
+.sunset-signature img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.sunset-credits {
+    font-size: 14px;
+    color: #8e8e93;
+    margin-top: 48px;
+}
+
+@media screen and (min-width: 768px) {
+    .sunset {
+        font-size: 24px;
+        max-width: 560px;
+    }
+
+    .sunset-signature {
+        gap: 24px;
+    }
+
+    .sunset-signature img {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .page-sunset {
+        background-color: #222426;
+    }
+
+    .page-sunset .page-content {
+        color: #ddd;
+    }
+
+    .sunset-header::after {
+        background: linear-gradient(
+            to bottom,
+            #22242600 0%,
+            #222426 95%
+        );
+    }
+}
