@@ -1,4 +1,4 @@
-![TPGwidget logo](https://www.nicolapps.ch/tpgwidget/name.png)
+![TPGwidget logo](https://github.com/user-attachments/assets/179278a9-2e91-4e8f-b70b-d1716f6d1eb6)
 
 [![Download on the App Store](https://user-images.githubusercontent.com/551004/29770691-a2082ff4-8bc6-11e7-89a6-964cd405ea8e.png)](https://tinyurl.com/TPGwidget-iOS)
 [![Download on Google Play](https://user-images.githubusercontent.com/551004/29770692-a20975c6-8bc6-11e7-8ab0-1cde275496e0.png)](https://tinyurl.com/TPGwidget-Android)
@@ -15,7 +15,7 @@ TPGwidget includes many features such as :
 
 The projet is made with [Framework7](http://framework7.io) in the front end, and PHP in the back end. The app users download on the [App Store](https://github.com/tpgwidget/ios) or on [Google Play](https://github.com/tpgwidget/android) is powered by Apache Cordova.
 
-![TPGwidget screenshots](https://www.nicolapps.ch/tpgwidget/screenshots.png)
+![TPGwidget screenshots](https://github.com/user-attachments/assets/93ff7bd0-c5af-435b-af7d-de6cebf7debc)
 
 ## Getting Started
 
